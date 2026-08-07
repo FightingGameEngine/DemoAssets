@@ -1,0 +1,28 @@
+[info]
+name = "Trunks"
+displayname = "Trunks"
+versiondate = 02,13,2011
+mugenversion = 
+author = "CHOUJIN"
+pal.defaults =4,1,2,3,5,6
+
+
+[files]
+cns = trunks.cns
+cmd = trunks.cmd
+stcommon = common1.cns
+sprite = trunks.sff
+anim = trunks.air
+st = trunks.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+sound = trunks.snd
+pal1 = arcade.act
+pal2 = red.act
+pal3 = white.act
+pal4 = buku.act
+pal5 = grey.act
+pal6 = purple.act
+

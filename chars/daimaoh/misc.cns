@@ -1,0 +1,2057 @@
+;================================================================================
+;                  	ドラムへるぱー
+;================================================================================
+
+[Statedef 8000]
+type = S
+movetype = I
+anim = 8000
+velset = 0
+sprpriority = 3
+
+[State 8000, Screen]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+;[State 8000, life]
+;type = LifeSet
+;trigger1 = Life > parent,Var(0)
+;value = parent,Var(0)
+
+[state 8000, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 8000, change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8001
+ctrl = 1
+
+
+;-------------------ドラム
+
+[Statedef 8001]
+type = S
+movetype = I
+anim = 8001
+velset = 0
+sprpriority = 3
+
+[State 8001, Screen]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[State 8001, Pos]
+type = PosSet
+trigger1 = Pos Y != 0
+y = 0
+
+[State 8000, life]
+type = LifeSet
+trigger1 = Life > parent,Var(0)
+value = parent,Var(0)
+
+[State 8001, push]
+type = PlayerPush
+trigger1 = 1
+value = 0;1
+
+[State 8001, HitOverride]
+type = HitOverride
+trigger1 = Time >= 0
+slot = 1
+time = 1
+stateno = 8006
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+ignorehitpause = 1
+
+[State 8001, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8001, turn];振り向き
+type = turn
+trigger1 = p2dist X < 0
+
+[State 8001, attack];攻撃
+type = ChangeState
+triggerall = p2movetype != H
+trigger1 = RoundState = 2 && Random <= 16
+trigger1 = p2bodydist X < 40
+value = 8002
+
+[State 8001, projectile];飛び道具
+type = ChangeState
+trigger1 = RoundState = 2 && Random <= 9
+trigger1 = p2bodydist X > 10
+value = 8003
+
+[State 8001, fly];前進
+type = ChangeState
+trigger1 = RoundState = 2 && Random <= 12
+trigger1 = p2bodydist X > 40
+trigger2 = p2bodydist x > 300 && Random <= 40
+value = 8004
+
+[State 8001, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8005
+
+[State 8001, win];勝利
+type = Changestate
+trigger1 = parent, roundstate = 4
+value = 2352
+
+;---------------------------------------------------------------------------
+;			ドラム攻撃
+;---------------------------------------------------------------------------
+
+[Statedef 8002]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8002
+facep2 = 1
+
+[State 8002, push]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 8002, Vel]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 2
+
+[State 8002, screen];画面から出ない
+type = VelSet
+trigger1 = frontEdgeDist < 10
+trigger2 = time =  30
+x = 0
+
+[State 8002, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8006
+
+[State 8002, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8002, snd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 0,2
+
+[State 8002, Hit]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = S, NA
+damage = 40
+animtype = light
+hitflag = MAF
+guardflag = L
+sparkno = s4100
+guard.sparkno = s4500
+sparkxy = -10,-10
+hitsound = S0,6
+guardsound = S3,0
+pausetime = 12,12
+ground.type = low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = high
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 8002, state]
+type = ChangeState
+trigger1 = animtime =0
+value = 8001
+
+[State 8002, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8005
+
+
+;---------------------------------------------------------------------------
+;			ドラム飛び道具
+;---------------------------------------------------------------------------
+
+[Statedef 8003]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8003
+facep2 = 1
+
+[State 8003, push]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 8003, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8006
+
+[State 8003, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8003, snd1]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 2000,0
+volume = -150
+
+[State 8003, proj]
+type = Projectile
+trigger1 = AnimElem = 6
+projanim = 8010
+projhitanim = 8600
+projID = 1000
+velocity = 4
+;projshadow = 150,150,150
+projpriority = 1
+postype = p1
+offset = 45,-30
+attr = S, SP
+damage = 40,10
+animtype = medium
+hitflag = MAFP
+guardflag = MA
+sparkno = s1150
+guard.sparkno = s4500
+sparkxy = 20,0
+hitsound = S1,0
+getpower = 0
+guardsound = S3,0
+pausetime = 0,13
+ground.hittime = 15
+ground.type = low
+ground.slidetime = 15
+ground.velocity = -12.5
+air.velocity = -4,-4
+air.fall = 1
+fall.recover = 0
+air.juggle = 0
+yaccel = .5
+projscale = .5,.5
+projsprpriority = 5
+
+[State 8003, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8005
+
+[State 8003, state]
+type = ChangeState
+trigger1 = animtime =0
+value = 8001
+
+
+;---------------------------------------------------------------------------
+;			ドラム前進
+;---------------------------------------------------------------------------
+[Statedef 8004]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8004
+facep2 = 1
+
+[State 8004, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8006
+
+[State 8004, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8004, Vel];画面から出ない
+type = VelSet
+trigger1 = Time >= 7
+x = 3
+
+[State 8004, attack];攻撃
+type = ChangeState
+triggerall = p2movetype != H
+trigger1 = RoundState = 2 && Random <= 15
+trigger1 = p2bodydist X < 40
+value = 8002
+
+[State 8004, projectile];飛び道具
+type = ChangeState
+trigger1 = RoundState = 2 && Random <= 20
+trigger1 = p2bodydist X > 40
+value = 8003
+
+[State 8004, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8005
+
+[State 8004, return]
+type = Changestate
+trigger1 = p2dist X < 40
+trigger2 = p2dist X < 0
+value = 8002
+
+
+
+;---------------------------------------------------------------------------
+;　　　　　　　　　	　ドラム退散
+;---------------------------------------------------------------------------
+
+[Statedef 8005]
+type = L
+movetype = I
+physics = N
+velset = 0,0
+anim = -1
+
+[State 8005, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 8005, zanzou]
+type = explod
+trigger1 = Time = 0
+postype = p1
+pos = 0,0
+spacing = 1
+anim = 8005
+scale = 1, 1
+sprpriority = 3
+ownpal = 1
+supermove = 1
+
+[State 8005, 100]
+type = DestroySelf
+trigger1 = Time =1;>= 24
+
+
+;===========================================================================
+;		ドラム１発喰らった
+;===========================================================================
+
+[Statedef 8006]
+type    = S
+movetype= H
+physics = S
+velset = -2,0
+anim = 8006
+
+[State 8006, push]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 8006, defence1];防御力（通常）
+type = DefenceMulSet
+trigger1 = Time >= 0
+value = 0.5
+
+;[State 8006, defence2];防御力（足払い）
+;type = DefenceMulSet
+;triggerall = GetHitVar(groundtype) = 3
+;trigger1 = Time >= 0
+;value = 0.04
+
+[State 8006, damage]
+type = LifeAdd
+trigger1 = Time >= 0
+value = -GetHitVar(damage)
+
+[State 1050, anim];足払い
+type = Changestate
+triggerall = Time = 0
+trigger1 = GetHitVar(groundtype) = 3
+value = 8030
+
+[State 8006, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8007
+
+[State 8006, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8006, dead]
+type = ChangeState
+trigger1 = Life <= parent,Var(0)-100
+trigger2 = parent,alive = 0
+value = 8008
+
+[State 8006, end]
+type = ChangeState
+trigger1 = animtime = 0
+value = 8001
+
+
+;---------------------------------------------------------------------------
+;			ドラム２発食らった
+;---------------------------------------------------------------------------
+
+[Statedef 8007]
+type    = S
+movetype= H
+physics = S
+velset = -2,0
+anim = 8006
+
+[State 8007, push]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 8007, defence1];防御力（通常）
+type = DefenceMulSet
+trigger1 = Time >= 0
+value = 0.5
+
+;[State 8007, defence2];防御力（足払い）
+;type = DefenceMulSet
+;triggerall = GetHitVar(groundtype) = 3
+;trigger1 = Time >= 0
+;value = 0.1
+
+[State 8007, life]
+type = LifeAdd
+trigger1 = Time >= 0
+value = -GetHitVar(damage)
+
+[State 8007, anim];足払い
+type = Changestate
+triggerall = GetHitVar(groundtype) = 3
+trigger1 = Time = 0
+value = 8030
+
+[State 8007, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8006
+
+[State 8007, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8007, 100]
+type = ChangeState
+trigger1 = Life <= parent,Var(0)-100
+trigger2 = parent,alive = 0
+value = 8008
+
+[State 8006, end]
+type = ChangeState
+trigger1 = animtime = 0
+value = 8001
+
+
+;---------------------------------------------------------------------------
+;			ドラム吹っ飛ぶ
+;---------------------------------------------------------------------------
+
+[Statedef 8008]
+type    = S
+movetype= H
+velset = -2.5,-2.5
+anim = 8007
+facep2 = 1
+
+[State 8008, velAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = 0.16
+
+[State 8008, end]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger1 = Vel Y > 0
+value = 8009
+
+
+;---------------------------------------------------------------------------
+;			　　ドラム死亡
+;---------------------------------------------------------------------------
+
+[Statedef 8009]
+type    = S
+movetype= I
+physics = S
+velset = 0,0
+anim = 8009
+
+[State 8009, posset]
+type = PosSet
+trigger1 = Time >= 0
+y = 5
+
+[State 8009, snd1]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5100,0
+volume = -100
+
+[State 8009, fade]
+type = trans
+trigger1 = Life <= parent,Var(0)-100
+trans = addalpha
+alpha = 256-ceil(8*time), ceil(8*time)
+
+[State 8009, 100]
+type = DestroySelf
+trigger1 = Time >= 48
+
+
+;---------------------------------------------------------------------------
+;			　ドラム転ばされた
+;---------------------------------------------------------------------------
+
+
+[Statedef 8030]
+type = L
+movetype = H
+physics = N
+velset = 0,0
+anim = 8007
+facep2 = 1
+sprpriority = 2
+
+[State 8030, screen]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[state 8030, muteki]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 8030, stop]
+type = VelSet
+trigger1 = Time = 5
+x = -1.8
+y = -5.2
+
+[State 8030, Add]
+type = VelAdd
+trigger1 = Time > 5
+y = 0.45
+
+[State 8030, Self]
+type = changestate
+triggerall = parent,alive = 1
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 8031
+
+[State 8030, Self]
+type = changestate
+triggerall = parent,alive = 0
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 8009
+
+;------------------寝る
+[Statedef 8031]
+type = L
+movetype = H
+physics = N
+velset = 0,0
+anim = 8009
+sprpriority = 2
+
+[State 8031, Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[state 8031, muteki]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 8031, snd1]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5100,0
+volume = -100
+
+[State 8031, end];生きてるなら立ち上がる
+type = changestate
+trigger1 = time = 55
+value = 8032
+
+[State 8031, 100];死んでるなら消滅
+type = DestroySelf
+triggerall = Time >= 48
+trigger1 = Life <= parent,Var(0)-100
+trigger2 = parent,alive = 0
+
+[State 8031, fade]
+type = trans
+trigger1 = Life <= parent,Var(0)-100
+trigger2 = parent,alive = 0
+trans = addalpha
+alpha = 256-ceil(8*time), ceil(8*time)
+
+
+;------------------起きる
+[Statedef 8032]
+type = L
+movetype = H
+physics = N
+anim = 8008
+
+[state 8032, muteki]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+State 8032, Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 8032, ko1];消滅
+type = ChangeState
+triggerall = AnimElem = 1
+trigger1 = parent,alive = 0
+value = 8009
+
+[State 8032, ko2]
+type = ChangeState
+triggerall = AnimElem = 2, >= 1 && AnimElem = 4, <= 1
+trigger1 = parent,alive = 0
+value = 8008
+
+[State 8032, anim]
+type = changestate
+trigger1 = animtime = 0
+value = 8001
+
+
+;================================================================================
+;                  	タンバリンへるぱー
+;================================================================================
+
+[Statedef 8100]
+type = S
+movetype = I
+anim = 8100
+velset = 0
+sprpriority = 3
+
+;[State 8100, life]
+;type = LifeSet
+;trigger1 = Life > parent,Var(0)
+;value = parent,Var(0)
+
+[State 8100, Screen]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[state 8100, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 8100, change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8101
+ctrl = 1
+
+;-------------------タンバリン
+
+[Statedef 8101]
+type = S
+movetype = I
+anim = 8101
+velset = 0,0
+sprpriority = 3
+
+[State 8101, push]
+type = PlayerPush
+trigger1 = 1
+value = 0;1
+
+[State 8101, HitOverride]
+type = HitOverride
+trigger1 = Time >= 0
+slot = 1
+time = 1
+stateno = 8106
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+ignorehitpause = 1
+
+[State 8101, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8101, vel-y];縦に通せんぼ
+type = VelSet
+trigger1 = p2bodydist X < 45 && p2movetype != H
+y = -1.5
+
+[State 8101, vel-y];縦に行き過ぎない
+type = VelSet
+trigger1 = P2Dist y >= 69 && P2Dist y <= 75
+y = 0
+
+[State 8101, vel-y];上から戻ってくる
+type = VelSet
+trigger1 = P2Dist y >= 76
+y = 1
+
+[State 8101, vel-y];下がり過ぎない
+type = VelSet
+trigger1 = Pos Y >= -30
+y = 0	
+
+[State 8101, turn];振り向き
+type = turn
+trigger1 = p2dist X < 0
+
+[State 8101, attack];攻撃
+type = ChangeState
+triggerall = p2movetype != H
+trigger1 = RoundState = 2 && Random <= 16
+trigger1 = p2bodydist X < 40 && P2Dist y <= 75
+value = 8102
+
+[State 8101, projectile];飛び道具
+type = ChangeState
+trigger1 = RoundState = 2 && Random <= 9
+trigger1 = p2bodydist X > 10 && P2Dist y <= 125
+value = 8103
+
+[State 8101, fly];前進
+type = ChangeState
+triggerall = RoundState = 2
+trigger1 = p2bodydist X > 40 && Random <= 12
+trigger2 = p2bodydist x > 300 && Random <= 40
+value = 8104
+
+[State 8101, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8105
+
+[State 8101, win];勝利
+type = Changestate
+trigger1 = parent, roundstate = 4
+value = 2351
+
+
+;---------------------------------------------------------------------------
+;			タンバリン攻撃
+;---------------------------------------------------------------------------
+
+[Statedef 8102]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8102
+facep2 = 1
+
+[State 8102, push]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 8102, Vel]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 2
+
+[State 8102, screen];画面から出ない
+type = VelSet
+trigger1 = frontEdgeDist < 10
+trigger2 = AnimElem = 11
+x = 0
+
+[State 8102, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8106
+
+[State 8102, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8102, snd1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 0,0
+
+[State 8102, snd2]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 0,1
+
+[State 8102, Hit1]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = S, NA
+damage = 20
+animtype = light
+hitflag = MAF
+guardflag = MA
+sparkno = s4100
+guard.sparkno = s4500
+sparkxy = -10,-25
+hitsound = S0,6
+guardsound = S3,0
+pausetime = 12,12
+ground.type = high
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = high
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 8102, Hit2]
+type = HitDef
+trigger1 = AnimElem = 10
+attr = S, NA
+damage = 20
+animtype = light
+hitflag = MAF
+guardflag = MA
+sparkno = s4100
+guard.sparkno = s4500
+sparkxy = 0,-10
+hitsound = S0,5
+guardsound = S3,0
+pausetime = 12,12
+ground.hittime = 9
+ground.type = high
+ground.slidetime = 9
+ground.velocity = -6.3
+air.velocity = -3,1
+
+[State 8102, state]
+type = ChangeState
+trigger1 = animtime =0
+value = 8101
+
+[State 8102, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8105
+
+
+;---------------------------------------------------------------------------
+;			タンバリン飛び道具
+;---------------------------------------------------------------------------
+
+[Statedef 8103]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8103
+facep2 = 1
+
+[State 8103, push]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 8103, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8106
+
+[State 8103, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8103, snd1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 2000,0
+volume = -150
+
+[State 8103, proj]
+type = Projectile
+trigger1 = AnimElem = 4
+projanim = 8110
+projhitanim = 8600
+projID = 1000
+velocity = 4
+;projshadow = 150,150,150
+projpriority = 1
+postype = p1
+offset = 15,-33
+attr = S, SP
+damage = 40,10
+animtype = medium
+hitflag = MAFP
+guardflag = MA
+sparkno = s1150
+guard.sparkno = s4500
+sparkxy = 20,0
+hitsound = S1,0
+getpower = 0
+guardsound = S3,0
+pausetime = 0,13
+ground.hittime = 15
+ground.type = high
+ground.slidetime = 15
+ground.velocity = -12.5
+air.velocity = -4,-4
+air.fall = 1
+fall.recover = 0
+air.juggle = 0
+yaccel = .5
+projscale = .5,.5
+projsprpriority = 5
+
+[State 8103, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8105
+
+[State 8103, state]
+type = ChangeState
+trigger1 = animtime =0
+value = 8101
+
+
+;---------------------------------------------------------------------------
+;			タンバリン前進
+;---------------------------------------------------------------------------
+[Statedef 8104]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8104
+facep2 = 1
+
+[State 8104, Override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8106
+
+[State 8104, nothrow]
+type = nothitby
+trigger1 = 1
+value =  , AT;SCA, AT, NT, ST, HT
+
+[State 8104, Vel];画面から出ない
+type = VelSet
+trigger1 = Time >= 7
+x = 3
+
+[State 8104, attack];攻撃
+type = ChangeState
+triggerall = p2movetype != H
+trigger1 = RoundState = 2; && Random <= 15
+trigger1 = p2bodydist X < 40 && P2Dist y <= 75
+trigger2 = Random <= 15
+trigger2 = p2bodydist X < 40 && P2Dist y <= 75
+value = 8102
+
+[State 8104, projectile];飛び道具
+type = ChangeState
+trigger1 = RoundState = 2 && Random <= 20
+trigger1 = p2bodydist X > 40 && P2Dist y <= 175
+value = 8103
+
+[State 8104, lose];消える
+type = Changestate
+trigger1 = lose
+trigger2 = numpartner;チームモード敗北
+trigger2 = partner,alive = 1 && parent,life = 0
+trigger3 = parent, stateno = 2300
+value = 8105
+
+[State 8104, return]
+type = Changestate
+trigger1 = p2dist X < 40
+trigger2 = p2dist X < 0
+value = 8101
+
+
+;---------------------------------------------------------------------------
+;　　　　　　　　　	タンバリン退散
+;---------------------------------------------------------------------------
+
+[Statedef 8105]
+type = L
+movetype = I
+physics = N
+velset = 0,0
+anim = -1;8105
+
+[State 8105, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 8105, zanzou]
+type = explod
+trigger1 = Time = 0
+postype = p1
+pos = 0,0
+spacing = 1
+anim = 8105
+scale = 1, 1
+sprpriority = 3
+ownpal = 1
+supermove = 1
+
+[State 8105, end]
+type = DestroySelf
+trigger1 = Time =1;>= 31
+
+
+;---------------------------------------------------------------------------
+;		　　タンバリン１発喰らった
+;---------------------------------------------------------------------------
+
+[Statedef 8106]
+type    = S
+movetype= H
+physics = N
+velset = -2.5,2
+anim = 8106
+facep2 = 1
+
+[State 8106, vel-y];下がり過ぎない
+type = VelSet
+trigger1 = Pos Y >= -30
+y = 0	
+
+[State 8106, Screen]
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 8106, push]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 8106, defence1];防御力（通常）
+type = DefenceMulSet
+trigger1 = Time >= 0
+value = 1.1
+
+[State 8106, damage]
+type = LifeAdd
+trigger1 = Time >= 0
+value = -GetHitVar(damage)
+
+[State 8106, 100]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8107
+
+[State 8106, dead]
+type = ChangeState
+trigger1 = Life <= parent,Var(0)-100
+trigger2 = parent,alive = 0
+value = 8108
+
+[State 8106, end]
+type = ChangeState
+trigger1 = time = 24
+value = 8101
+
+
+;---------------------------------------------------------------------------
+;		　　タンバリン２発食らった
+;---------------------------------------------------------------------------
+
+[Statedef 8107]
+type    = S
+movetype= H
+physics = N
+velset = -2.5,1
+anim = 8106
+facep2 = 1
+
+[State 8107, vel-y];下がり過ぎない
+type = VelSet
+trigger1 = Pos Y >= -30
+y = 0	
+
+[State 8107, Screen]
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 8107, push]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 8107, defence1];防御力（通常）
+type = DefenceMulSet
+trigger1 = Time >= 0
+value = 1.0
+
+[State 8107, life]
+type = LifeAdd
+trigger1 = Time >= 0
+value = -GetHitVar(damage)
+
+[State 8107, override]
+type = HitOverride
+trigger1 = time = 0
+time = -1
+attr = SCA, AA, AP, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 8107
+
+[State 8107, dead]
+type = ChangeState
+trigger1 = Life <= parent,Var(0)-100
+trigger2 = parent,alive = 0
+value = 8108
+
+[State 8107, end]
+type = ChangeState
+trigger1 = time = 24
+value = 8101
+
+
+
+;---------------------------------------------------------------------------
+;			タンバリン吹っ飛ぶ
+;---------------------------------------------------------------------------
+
+[Statedef 8108]
+type    = S
+movetype= H
+velset = -2.5,-2
+anim = 8107
+facep2 = 1
+
+[State 8108, velAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = 0.20
+
+[State 8108, end]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger1 = Vel Y > 0
+value = 8109
+
+
+;---------------------------------------------------------------------------
+;			　タンバリン死亡
+;---------------------------------------------------------------------------
+
+[Statedef 8109]
+type    = S
+movetype= I
+physics = S
+velset = 0,0
+anim = 8109
+
+[State 8109, posset]
+type = PosSet
+trigger1 = Time >= 0
+y = 0
+
+[State 8109, snd1]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5100,0
+volume = -200
+
+[State 8109, fade]
+type = trans
+trigger1 = Life <= parent,Var(0)-100
+trans = addalpha
+alpha = 256-ceil(8*time), ceil(8*time)
+
+[State 8109, 100]
+type = DestroySelf
+trigger1 = Time >= 48
+
+
+
+;================================================================================
+;			魔族覚醒乱舞へるぱー
+;================================================================================
+
+;---------------------------------------------------
+;                  	タンバリン
+;---------------------------------------------------
+
+[Statedef 2302]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8100
+facep2 = 1
+sprpriority = 3
+
+[State 2312, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2302, snd]
+type = PlaySnd
+trigger1 = time = 0
+value = s1,7
+volume = -100
+
+[State 2302, anim1];ニュートラル
+type = changeanim
+trigger1 = time = 31
+value = 8101
+
+[State 2302, anim2];飛ぶ
+type = changeanim
+trigger1 = parent,stateno = 2300 && parent,animelem = 13
+value = 8104
+
+[State 2302, Vel]
+type = VelSet
+trigger1 = anim = 8104
+x = 6
+y = .4
+
+[State 2302, Vel2]
+type = VelSet
+trigger1 = time = 130
+y = -.5
+
+[State 2302, change]
+type = changestate
+triggerall = enemy, time = 1 && P2StateType = L
+trigger1 = P2StateNo = 2400; && Projhittime(2300) = 1
+;trigger2 = NumProjID(2300) && ProjGuarded(2300) = 1 && p2Life = 1
+value = 2312
+
+[State 2302, DestroySelf]
+type = DestroySelf
+triggerall = 1
+trigger1 = FrontEdgeDist <= -80
+
+;----------------タンバリン乱舞
+
+[Statedef 2312]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8102
+facep2 = 1
+
+[State 2312, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2312, pos1]
+type = posset
+triggerall = parent,facing = 1
+trigger1 = 1
+x = 0
+y= -65
+
+[State 2312, pos2]
+type = posset
+triggerall = parent,facing = -1
+trigger1 = 1
+x = 0
+y = -65
+
+[State 2312, turn];振り向き
+type = turn
+trigger1 = p2dist X < 0
+
+[State 2312, snd];「一度死んでみるか？」
+type = PlaySnd
+trigger1 = time = 0
+value = s8000,0
+volume = 100
+
+[State 2312, dust1]
+type = explod
+trigger1 = animelem = 5
+postype = p1
+pos = 30,10
+spacing = 1
+anim = 8500
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2312, dust2]
+type = explod
+trigger1 = animelem = 10
+postype = p1
+pos = 40,-20
+spacing = 1
+anim = 8500
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2312, hitsnd1]
+type = PlaySnd
+trigger1 = animelem = 5
+value = s0,5
+
+[State 2312, hitsnd2]
+type = PlaySnd
+trigger1 = animelem = 10
+value = s0,6
+
+[State 2312, hit1]
+type = explod
+trigger1 = animelem = 5
+postype = p1
+pos = 10,10
+spacing = 1
+anim = 4100
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2312, hit2]
+type = explod
+trigger1 = animelem = 10
+postype = p1
+pos = 20,-20
+spacing = 1
+anim = 4100
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2303, HitAdd]
+type = HitAdd
+trigger1 = animelem = 5
+trigger2 = animelem = 10
+value = 1
+
+[State 2303, change]
+type = changestate
+trigger1 = Time = 220
+value = 2351
+
+;-------------------退散
+[Statedef 2351]
+type = S
+movetype= A
+physics = N
+velset = 4,-4
+anim = 8104
+facep2 = 1
+
+[State 2351, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2351, snd]
+type = PlaySnd
+triggerall = parent,roundstate = 4
+trigger1 = time = 6
+value = 100,0
+volume = -150
+
+[State 2351, destroy]
+type = DestroySelf
+trigger1 = FrontEdgeDist <= -40
+
+
+;---------------------------------------------------
+;                  	ドラム
+;---------------------------------------------------
+
+[Statedef 2303]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8000
+facep2 = 1
+sprpriority = 3
+
+[State 2303, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2303, snd]
+type = PlaySnd
+trigger1 = time = 0
+value = s1,7
+volume = -100
+
+[State 2303, anim1];ニュートラル
+type = changeanim
+trigger1 = time = 29
+value = 8001
+
+[State 2303, anim2];飛ぶ
+type = changeanim
+trigger1 = parent,stateno = 2300 && parent,animelem = 13
+value = 8004
+
+[State 2303, Vel]
+type = VelSet
+trigger1 = anim = 8004
+x = 5.5
+
+[State 2303, change]
+type = changestate
+triggerall = enemy, time = 1 && P2StateType = L
+trigger1 = P2StateNo = 2400; && Projhittime(2300) = 1
+;trigger2 = NumProjID(2300) && ProjGuarded(2300) = 1 && p2Life = 1
+value = 2313
+
+[State 2303, DestroySelf]
+type = DestroySelf
+triggerall = 1
+trigger1 = FrontEdgeDist <= -40
+
+
+;------------------ドラム乱舞
+
+[Statedef 2313]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8002
+facep2 = 1
+
+[State 2313, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2313, pos1]
+type = posset
+triggerall = parent,facing = 1
+trigger1 = 1
+x = -10
+
+[State 2313, pos2]
+type = posset
+triggerall = parent,facing = -1
+trigger1 = 1
+x = 10
+
+[State 2313, turn];振り向き
+type = turn
+trigger1 = p2dist X < 0
+
+[State 2313, dust]
+type = explod
+trigger1 = animelem = 5
+postype = p1
+pos = 40,-10
+spacing = 1
+anim = 8500
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2313, hitsnd]
+type = PlaySnd
+trigger1 = animelem = 5
+value = s0,5
+
+[State 2313, hit]
+type = explod
+trigger1 = animelem = 5
+postype = p1
+pos = 20,-10
+spacing = 1
+anim = 4100
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2313, HitAdd]
+type = HitAdd
+trigger1 = animelem = 5
+value = 1
+
+[State 2313, change]
+type = changestate
+trigger1 = Time = 220
+value = 2352
+
+;-------------------退散
+[Statedef 2352]
+type = S
+movetype= A
+physics = N
+velset = -4,-2
+anim = 8004
+facep2 = 1
+
+[State 2352, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2352, turn]
+type = turn
+trigger1 = time = 0
+
+[State 2352, snd]
+type = PlaySnd
+triggerall = parent,roundstate = 4
+trigger1 = time = 0
+value = 100,0
+volume = -150
+
+[State 2352, destroy]
+type = DestroySelf
+trigger1 = FrontEdgeDist <= -40
+
+
+;---------------------------------------------------
+;                  ウクレレ１号
+;---------------------------------------------------
+
+[Statedef 2304]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8200
+facep2 = 1
+sprpriority = 3
+
+[State 2304, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2304, snd]
+type = PlaySnd
+trigger1 = time = 0
+value = s1,7
+volume = -100
+
+[State 2304, anim2];飛ぶ
+type = changeanim
+trigger1 = parent,stateno = 2300 && parent,animelem = 13
+value = 8202
+
+[State 2304, Vel]
+type = VelSet
+trigger1 = anim = 8202
+x = 6
+
+[State 2304, change]
+type = changestate
+triggerall = enemy, time = 1 && P2StateType = L
+trigger1 = P2StateNo = 2400; && Projhittime(2300) = 1
+;trigger2 = NumProjID(2300) && ProjGuarded(2300) = 1 && p2Life = 1
+value = 2314
+
+[State 2304, DestroySelf]
+type = DestroySelf
+triggerall = 1
+trigger1 = FrontEdgeDist <= -90
+
+
+;------------------ウクレレ１号乱舞
+
+[Statedef 2314]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8203
+facep2 = 1
+
+[State 2314, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2314, pos1]
+type = posset
+triggerall = parent,facing = 1
+trigger1 = 1
+x = 110
+
+[State 2314, pos2]
+type = posset
+triggerall = parent,facing = -1
+trigger1 = 1
+x = -110
+
+[State 2314, turn];振り向き
+type = turn
+trigger1 = p2dist X < 0;time = 0
+
+[State 2314, dust]
+type = explod
+trigger1 = animelem = 3
+postype = p1
+pos = 30,-35
+spacing = 1
+anim = 8500
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2314, hitsnd]
+type = PlaySnd
+trigger1 = animelem = 3
+value = s0,5
+
+[State 2314, hit]
+type = explod
+trigger1 = animelem = 3
+postype = p1
+pos = 20,-30
+spacing = 1
+anim = 4100
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2314, HitAdd]
+type = HitAdd
+trigger1 = animelem = 3
+value = 1
+
+[State 2314, change]
+type = changestate
+trigger1 = Time = 220
+value = 2353
+
+;-------------------退散
+[Statedef 2353]
+type = S
+movetype= A
+physics = N
+velset = -4,-2
+anim = 8204
+facep2 = 1
+
+[State 2353, turn]
+type = turn
+trigger1 = time = 0
+
+[State 2353, destroy]
+type = DestroySelf
+trigger1 = Time = 40
+
+
+;---------------------------------------------------
+;                  ウクレレ２号
+;---------------------------------------------------
+
+[Statedef 2305]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8201
+facep2 = 1
+sprpriority = 3
+
+[State 2305, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2305, snd]
+type = PlaySnd
+trigger1 = time = 0
+value = s1,7
+volume = -100
+
+[State 2305, anim2];飛ぶ
+type = changeanim
+trigger1 = parent,stateno = 2300 && parent,animelem = 13
+value = 8204
+
+[State 2305, Vel]
+type = VelSet
+trigger1 = anim = 8204
+x = 6
+y = -.5
+
+[State 2305, Vel2]
+type = VelSet
+trigger1 = time = 120
+y = .5
+
+[State 2305, change]
+type = changestate
+triggerall = enemy, time = 1 && P2StateType = L
+trigger1 = P2StateNo = 2400; && Projhittime(2300) = 1
+;trigger2 = NumProjID(2300) && ProjGuarded(2300) = 1 && p2Life = 1
+value = 2315
+
+[State 2305, DestroySelf]
+type = DestroySelf
+triggerall = 1
+trigger1 = FrontEdgeDist <= -40
+
+
+;------------------ウクレレ２号乱舞
+
+[Statedef 2315]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 8202
+facep2 = 1
+
+[State 2315, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA
+
+[State 2315, pos1]
+type = posset
+triggerall = parent,facing = 1
+trigger1 = 1
+x = 90
+y = -80
+
+[State 2315, pos2]
+type = posset
+triggerall = parent,facing = -1
+trigger1 = 1
+x = -90
+y = -80
+
+[State 2315, turn];振り向き
+type = turn
+trigger1 = time = 0
+
+[State 2315, dust]
+type = explod
+trigger1 = animelem = 9
+postype = p1
+pos = 10,10
+spacing = 1
+anim = 8500
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2315, hitsnd]
+type = PlaySnd
+trigger1 = animelem = 9
+value = s0,6
+
+[State 2315, hit]
+type = explod
+trigger1 = animelem = 9
+postype = p1
+pos = 0,-10
+spacing = 1
+anim = 4100
+scale = 1, 1
+sprpriority = 4
+ownpal = 1
+
+[State 2315, HitAdd]
+type = HitAdd
+trigger1 = animelem = 9
+value = 1
+
+[State 2315, change]
+type = changestate
+trigger1 = Time = 220
+value = 2354
+
+;-------------------退散
+[Statedef 2354]
+type = S
+movetype= A
+physics = N
+velset = 4,-4
+anim = 8204
+facep2 = 1
+
+[State 2354, destroy]
+type = DestroySelf
+trigger1 = Time = 40
+
+
+
+;================================================================================
+;                  	ピアノへるぱー
+;================================================================================
+
+;ピアノ
+; 通常立ち状態
+[Statedef 10000]
+type = S
+movetype = I
+anim = 10000
+velset = 0
+sprpriority = -3
+
+[State 10000, losesprite]
+type = sprpriority
+trigger1 = lose
+value = -3
+
+[State 10000, Screen]
+type = ScreenBound
+trigger1 = 1
+value = 0;1
+
+[State 10000, Pos]
+type = PosSet
+trigger1 = Pos Y != 0
+y = 0
+
+[state 10000, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 10000, turn];振り向き
+type = turn
+triggerall = parent, stateno != [5000,5099]
+trigger1 = p2dist X < 0
+
+[State 10000, lose];敗北ポーズ
+type = Changestate
+trigger1 = RoundState = 4 && lose
+value = 10002
+
+[State 10000, teamlose];チームモード専用敗北
+type = Changestate
+triggerall = numpartner
+trigger1 = partner,alive = 1 && parent,life = 0
+value = 10002
+
+[State 10000, hit];ピッコロ様～
+type = ChangeState
+triggerall = RoundState = 2
+triggerall = ParentDist X < 35 && ParentDist X > -35
+triggerall = ParentDist y > -35
+trigger1 = parent, stateno = 5035
+trigger2 = parent, stateno = 5050
+trigger3 = parent, stateno = 5071
+value = 10001
+
+;[State 10000, HitBy];超必殺飛び道具（没）
+;type = HitBy
+;trigger1 = Time >= 0
+;value = SCA, HP
+;time = 1
+;ignorehitpause = 1
+
+;[State 10000, HitOverride]
+;type = HitOverride
+;trigger1 = Time >= 0
+;slot = 1
+;time = 1
+;stateno = 10001
+;attr = SCA, HP
+;ignorehitpause = 1
+
+[State 10002, invisible];乱舞中
+type = Changestate
+trigger1 = parent,stateno = 2301 && parent, animelem = 1
+value = 10003
+
+;------------------------------------------------------
+; 　　　　　　　　　　ピッコロ様～
+;------------------------------------------------------
+[Statedef 10001]
+type = S
+movetype = I
+anim = 10001
+sprpriority = 0
+velset = 0,0
+ctrl = 0
+
+[State 10001, var]
+type = ParentVarset
+trigger1 = 1
+var(59)=1
+
+[state 10001, nothit]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 10001, Vel1]
+type = VelSet
+trigger1 = time = 20
+x = -6.8
+
+[state 10001, spark]
+type = explod
+trigger1 = Time = 0
+postype = p1
+bindtime = 1
+;removetime = 18
+removeongethit = 1
+pos = 20,-50
+anim = 4200
+sprpriority = 3
+scale = .75,.75
+
+[State 10001, snd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 1,1
+volume = -155
+
+[State 10001, voice]
+type = PlaySnd
+trigger1 = Time = 0
+value = 8000,1
+volume = 255
+
+[State 10001, Shake]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+freq = 110
+ampl = 3
+
+[State 10001, DestroySelf]
+type = DestroySelf
+triggerall = 1
+trigger1 = FrontEdgeDist <= -40
+
+;---------------------------------------------------
+;                     敗北
+;---------------------------------------------------
+[Statedef 10002]
+Type = S
+MoveType = I
+Physics = S
+anim = 10002
+sprpriority = 0
+velset = 0,0
+ctrl = 0
+
+[State 10002, turn]
+type = turn
+trigger1 = parentdist X < 0
+
+[State 10002, sprpriority]
+type = sprpriority
+trigger1 = lose
+value = -3
+
+;---------------------------------------------------
+;                  魔族覚醒乱舞中は透明
+;---------------------------------------------------
+[Statedef 10003]
+Type = S
+MoveType = I
+Physics = S
+anim = 10003
+sprpriority = 0
+velset = 0,0
+ctrl = 0
+
+[state 10003, muteki]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 10003, sprpriority]
+type = sprpriority
+trigger1 = lose
+value = -3
+
+[State 10003, back];戻る
+type = Changestate
+trigger1 = time = 255
+value = 10000
+
