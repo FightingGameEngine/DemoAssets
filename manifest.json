@@ -8,7 +8,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/cell/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/cell/",
       "files": [
         "cell.def",
         "cell.cns",
@@ -35,7 +35,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/daimaoh/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/daimaoh/",
       "files": [
         "daimaoh.def",
         "daimaoh.cns",
@@ -63,7 +63,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/drgero/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/drgero/",
       "files": [
         "drgero.def",
         "drgero.cns",
@@ -91,7 +91,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/frieza/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/frieza/",
       "files": [
         "frieza.def",
         "frieza.cmd",
@@ -118,7 +118,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/mrsatan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/mrsatan/",
       "files": [
         "mrsatan.def",
         "mrsatan.cns",
@@ -145,7 +145,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/piccolo/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/piccolo/",
       "files": [
         "piccolo.def",
         "piccolo.cns",
@@ -173,7 +173,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/songohan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/songohan/",
       "files": [
         "songohan.def",
         "songohan.cns",
@@ -202,7 +202,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/ssjsongoku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/ssjsongoku/",
       "files": [
         "ssjsongoku.def",
         "ssjsongoku.cmd",
@@ -230,7 +230,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/chars/trunks/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/trunks/",
       "files": [
         "trunks.def",
         "trunks.cns",
@@ -260,7 +260,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-DemoAssets@main/stages/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
       "files": [
         "Masjid_Al_Mustafa.def",
         "Masjid_Al_Mustafa.sff"
