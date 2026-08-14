@@ -51,8 +51,8 @@ from pathlib import Path
 # Configuration
 # =============================================================================
 
-GITHUB_USER = "nawaf-al-hussain"
-REPO_NAME = "FightingGameEngine-Assets"
+GITHUB_USER = "FightingGameEngine"
+REPO_NAME = "DemoAssets"
 BRANCH = "main"
 CDN_BASE = f"https://cdn.jsdelivr.net/gh/{GITHUB_USER}/{REPO_NAME}@{BRANCH}"
 
