@@ -1,0 +1,25 @@
+[Info]
+name = "Ultimate Gohan (edit by Tomo)"
+displayname = "Mystic Gohan"
+versiondate = 
+mugenversion = 
+author = "MiaoYu (edit by Tomo)"
+pal.defaults = 1
+
+[Files]
+sprite = GohanMystic.sff
+anim = GohanMystic.air
+sound = GohanMystic.snd
+cmd = GohanMystic.cmd
+cns = GohanMystic.cns
+stcommon = common1.cns
+st = GohanMystic.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+pal1 = manga.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

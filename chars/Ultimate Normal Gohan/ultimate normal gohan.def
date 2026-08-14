@@ -1,0 +1,36 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Ultimate Normal Gohan"
+displayname = "Gohan"
+versiondate = 11,01,2008
+mugenversion = 
+author = "MiaoYu"
+pal.defaults = 1,2,5,4,7,6
+
+[Files]
+sprite = ugohan.sff
+anim = ugohan.air
+sound = ugohan.snd
+cmd = ugohan.cmd
+cns = ugohan.cns
+stcommon = common1.cns
+st = ugohan.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+pal1 = Ultimate Normal Gohan.act
+pal2 = Ultimate Gohan.act
+pal3 = SSJ1 Gohan.act
+pal4 = Super Gohan.act
+pal5 = Future Gohan.act
+pal6 = gt.act
+pa17 = Gohan 2.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

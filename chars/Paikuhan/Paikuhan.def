@@ -1,0 +1,25 @@
+[Info]
+name = "Pikkon"
+displayname = "Paikuhan"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Pikkon.sff
+anim = Pikkon.air
+sound = Pikkon.snd
+cmd = Pikkon.cmd
+cns = Pikkon.cns
+stcommon = common1.cns
+st = Pikkon.cns
+st2 = attack.cns
+st3 = special.cns
+st4 = hyper.cns
+st9 = AI.cns
+pal1 = Pikkon.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

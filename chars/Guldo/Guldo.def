@@ -1,0 +1,24 @@
+[Info]
+name = "Guldo By Tomo"
+displayname = "Guldo"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Guldo.sff
+anim = Guldo.air
+sound = Guldo.snd
+cmd = Guldo.cmd
+cns = Guldo.cns
+stcommon = gcommon.cns
+st = Guldo.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = Guldo.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

@@ -1,0 +1,34 @@
+; Definition file for Iron Goku
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Super Majin Buu Ver 1"
+displayname = "Super Majin Buu"
+versiondate = 02,13,2011
+mugenversion =
+author = "CHOUJIN"
+pal.defaults = 1,2,3,4
+
+; Files for the player
+[Files]
+cmd      = Majin Buu.cmd		;Other config
+cns      = Majin Buu.cns		;Constants
+st       = Majin Buu.cns		;States
+st1      = attacks.cns		;States
+st2      = specials.cns		;States
+st3      = hypers.cns		;States
+stcommon = common1.cns		;Common states
+sprite   = Majin Buu.sff		;Sprite
+anim     = Majin Buu.air		;Animation
+sound    = songoku.snd		;Sound
+pal1     = Majin 7.act	;Normal palette	
+pal2     = Majin Super.act		;2nd palette
+pal3     = Majin Buu 2.act
+pal4     = Majin Buu.act
+pal5     = Majin Buu 5.act
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

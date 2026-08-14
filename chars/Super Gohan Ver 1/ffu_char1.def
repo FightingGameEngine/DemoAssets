@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Ultimate Gohan"
+displayname = "Ultimate Gohan"
+versiondate = 11,01,2008
+mugenversion = 
+author = "CHOUJIN"
+pal.defaults = 1,4,5,2,3,6
+
+[Files]
+sprite = ugohan.sff
+anim = ugohan.air
+sound = ugohan.snd
+cmd = ugohan.cmd
+cns = ugohan.cns
+stcommon = common1.cns
+st = ugohan.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+pal1 = goku.act
+pal2 = manga.act
+pal3 = vegetto.act
+pal4 = user.act
+pal5 = anime.act
+pal6 = gt.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,25 @@
+                                Nappa
+                            by  G-knux19
+
+============================== MOVELIST ====================================
+
+Shoryuken: F, D, DF + Punch 
+Shoulder Ram: D, DB, B + Punch [AIR OK]
+Earth Explosion: D, DF, F + Punch
+SLASH: D, DF, F + Kick
+Eye Beams: D, DB, B + Kick
+
+THROW ATTACK:
+Command grab: F, D, DF + Kick 
+
+HYPER COMBOS:
+Bomber Dx: D, DF, F 2 Punches [AIR OK]
+Break Cannon: D, DF, F 2 Kickes 
+Break Cannon Diagonal: D, F, DF 2 Kickes 
+
+======[SYSTEM MOVES]:
+
+Super Jump: D, U [Only "U" after you hit a launcher]
+Dash/Hop Backward: FF/BB
+Advancing Guard: 2 PUNCHES in Guard
+COUNTER-ATTACK: F, + Punch & Kick (when in defense (Power Cost = 1000))

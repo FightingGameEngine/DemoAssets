@@ -1,0 +1,30 @@
+; Definition file for Iron Goku
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Songoku"
+displayname = "Kaioken Goku"
+versiondate = 02,13,2011
+mugenversion =
+author = "CHOUJIN"
+pal.defaults = 1
+
+; Files for the player
+[Files]
+cmd      = songoku.cmd		;Other config
+cns      = songoku.cns		;Constants
+st       = songoku.cns		;States
+st1      = attacks.cns		;States
+st2      = specials.cns		;States
+st3      = hypers.cns		;States
+stcommon = common1.cns		;Common states
+sprite   = songoku.sff		;Sprite
+anim     = songoku.air		;Animation
+sound    = songoku.snd		;Sound
+pal1     = kai.act		
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

@@ -1,0 +1,30 @@
+[info]
+name ="Vegeta"
+displayname ="SSJ Blue Vegeta"
+versiondate =01,24,2007
+mugenversion =
+author ="CHOUJIN, Stig87"
+;ssj patch by stig87 
+;intro/ending by tomo
+pal.defaults =4, 1, 5, 2, 3, 6 
+
+[files]
+cns =vegeta.cns
+sprite =vegeta.sff
+anim =vegeta.air
+sound =vegeta.snd
+cmd =Vegeta.cmd
+stcommon =common1.cns
+st =vegeta.cns
+pal1=super2.act
+
+st1=attacks.cns
+st2=specials.cns
+st3=hypers.cns
+st4=misc.cns
+st5=ai.cns
+
+; Arcade mode
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

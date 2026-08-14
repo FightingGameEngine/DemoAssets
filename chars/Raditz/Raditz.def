@@ -1,0 +1,26 @@
+[Info]
+name = "Raditz"
+displayname = "Raditz"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Raditz.sff
+anim = Raditz.air
+sound = Raditz.snd
+cmd = Raditz.cmd
+cns = Raditz.cns
+stcommon = common1.cns
+st = Raditz.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = AI.cns
+st9 = AI.cns
+pal1 = bukuu.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

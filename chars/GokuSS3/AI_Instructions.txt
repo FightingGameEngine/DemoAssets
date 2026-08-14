@@ -1,0 +1,36 @@
+This is an AI for CHOUJIN's SSJ2 Son Gohan
+
+the AI difficulty level can be changed between 1 through 10
+open the CMD file (songohan.cmd) with notepad and;
+
+
+  [State -1, AIスイッチ]
+  type     = VarSet
+  triggerall = !var(59)
+  triggerall = RoundState = 2
+  trigger1 = (command="cpu1")||(command="cpu2")
+  trigger2 = (command="cpu3")||(command="cpu4")
+  trigger3 = (command="cpu5")||(command="cpu6")
+  .
+  .
+  .
+  trigger25 = (command="cpu49")||(command="cpu50")
+  trigger26 = NumHelper(9741)
+  trigger26 = Helper(9741),var(59)
+  ;         AIレベル
+  var(59) = 5
+
+	   ↑change this number 
+
+
+use the search option in notepad, and search for;
+"AIレベル" , and it should easily be found.
+
+
+SPECIAL THANKS
+Akira Toriyama
+Elecbyte
+CHOUJIN
+
+AI Created by
+misobon_ism

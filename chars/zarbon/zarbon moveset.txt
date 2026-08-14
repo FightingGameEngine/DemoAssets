@@ -1,0 +1,34 @@
+ZARBON MOVESET
+
+------------------------
+Special moves:
+------------------------
+Elegant Energy Ball (can in air): D,DF,F + WP or HP (use 100 spirit)
+
+Super Footslide: D, DF, F + WK or HK
+
+Purple Circle (can in air): F, D, DF + WK or HK
+
+Bloody Kick: D, DB, B + WK or HK
+
+Vanity Crush: (when close, can in air) D, DB, B, F + HP
+
+
+------------------------
+Special Techniques:
+------------------------
+Energy Charge: HP + HK (hold down)
+
+High Speed Dodge: WP + WK or B + WP + WK (vulnerable to throws)
+
+Wild Sense: (during stand/crouch guard) WP + WK (Lv1 Hyper)
+
+
+------------------------
+Super moves:
+------------------------
+Elegant Blaster: D, DF, F, D, DF, F + HP (Lv1 Hyper)
+
+Vanity Spread Shot: D, DF, F, D, DF, F + HK (Lv2 Hyper)
+
+Monster Crush: D, DB, B, F + HK (Lv3 Hyper)

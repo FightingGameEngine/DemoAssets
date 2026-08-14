@@ -1,0 +1,44 @@
+; Definition file for Gohan
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Kid Gohan"
+displayname ="Kid Gohan"
+versiondate =04,14,2002
+mugenversion =04,14,2002
+author ="Pizzasause (EDIT)"
+;Original Author: miaoyu 
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd     =kidgohan.cmd
+cns      =kidgohan.cns
+st       =kidgohan.cns
+stcommon =common1.cns
+sprite  =kidgohan.sff
+anim    =kidgohan.air
+sound   =kidgohaneng.snd
+pal1=KidGohan.act
+pal2=DBZArcade2.act
+pal3=Aqua.act
+pal4=Green.act
+pal5=Orange.act
+pal6=DBZArcade2a.act
+pal7=SSJ.act
+pal8=SSG.act;Super Sayian God
+pal9=daimaoh.act
+pal10=
+pal11=
+pal12=
+st1=attacks.cns
+st2=specials.cns
+st3=hypers.cns
+
+
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard =

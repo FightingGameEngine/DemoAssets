@@ -1,0 +1,49 @@
+﻿; ---- Created by Uno Tag Team Patcher ---- ;
+
+
+
+
+[Info]
+name = "Nappa"
+displayname = "Nappa"
+versiondate = 09,15,2015
+mugenversion = 1.0
+author = "G.knux19"
+pal.defaults = 1,2,3,4     
+localcoord = 320,240        
+
+
+[Files]
+cmd     =Nappa_unotag\Nappa.cmd
+cns     = Nappa.cns
+stcommon = common1.cns
+st      = Nappa.cns
+st1     =common.cns
+st2     =VS_engine.cns
+st3     =Nappa_unotag\VS_-2 & -3.cns
+st4     =mvc2tag.st
+st5     =SnapBackCounter.cns
+st6     =Over-ride States.cns
+sprite  = Nappa.sff
+anim    = Nappa.air
+sound  = Nappa.snd
+st9=Nappa_unotag\tag_system.cns
+
+
+[Palette Keymap]
+a = 1
+y = 2
+z = 3
+x = 4
+b = 5
+c = 6
+x2 = 7
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

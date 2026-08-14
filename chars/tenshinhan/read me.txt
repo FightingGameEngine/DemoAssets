@@ -1,0 +1,76 @@
+TenShinHan/天津饭
+By miaoyu & wenchu/渺雨 && wenchu
+E-mai/邮箱: pt_wu@126.com
+Host/代理: Mugendream.com
+Version/版本 1.0 
+Released/发布时间 12*24-08
+
+Button layout/按键
+
+X=LP/轻拳
+Y=HP/重拳
+A=LK/轻脚
+B=HK/重脚
+Z=Zanzouken/闪避
+C=Charge/蓄气
+
+
+Movelist:
+
+---------------------
+Specials:
+---------------------
+26P (can in air/空中可)
+24P*3
+
+PPP
+
+623K>24LK/HK
+
+24LK 
+
+24HK (can in air/空中可)
+    >24LK/HK
+    
+421HP
+
+z (counter/防御反击)
+
+---------------------
+Hypers:
+---------------------
+LV1
+
+2626HP (can in air/空中可)
+
+246HP (can in air/空中可)
+
+LV2
+
+246HK
+
+LV3
+
+J2626HK
+
+    这是我的第五个角色，准确来说，该角色是属于wenchu（Team OS）的，在这里我要感谢wenchu，因为他无私的授权我对踏进行移植，才有了我的天津饭，在这里，我对该角色的素材进行了处理，使得其尺寸和其他角色一致。并且对它的的代码进行了一定的修改，修正了一些BUG，调整了大部分招数的性能，于是，一个choujin系统的天津饭诞生了，在这里我还要感谢我的朋友L.C和stig87再我制作过程中提供的帮助，很高兴他能够再圣诞节前夕完成，并作为圣诞礼物送给大家。
+
+    有一点必须说明的是，因为wenchu的人物是开源的，所以，你能够修改这个角色的任何东西，除了TenShinHan.cns，因为该文件的代码属于choujin而不是我。
+
+特别感谢：
+wehchu(Team OS)：授权我对该角色进行移植
+超神（choujin）：允许我使用他的人物作为基础进行人物制作
+Stig87：分享了太阳拳代码，升级了角色的snds档,并且做了一些修复
+最后，还有我们可爱的L.C怪兽，色医生，以及为我提供过帮助的所有朋友
+
+    this is my fifth character. exactly, this character is made by wenchu(Team OS). I will thank to him, I can finish the character quickly because he gave me his permission to use his sff, snd, cns and so on. I modified the pictures in the spirit to make it fit for other characters' size, and I modified some of his code, debug and changed the effect of most of the skills.  so you can see a finished character. I also will thank to L.C and stig87 because of their help during my work. luckly I finished the character before christmas Day, and I can release it as a christmas gift.
+
+   There is still a point I have to explain: the character made by wenchu is a open resourse, so you can edit anything 
+expect TenShinHan.cns. because it belongs to choujin but not me.
+
+
+thanks to :
+gave me his permission to change it to choujin's style.
+choujin : allowed me to take his character as a base on.
+Stig87 : presented the code of "flare", updata the "snd" file and made some fix.
+at last, thanks to all of my friends who have helped me.

@@ -1,0 +1,26 @@
+[Info]
+name = "Great Saiyaman By Tomo"
+displayname = "Great Saiyaman"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = GreatSaiyaman.sff
+anim = GreatSaiyaman.air
+sound = GreatSaiyaman.snd
+cmd = GreatSaiyaman.cmd
+cns = GreatSaiyaman.cns
+stcommon = common1.cns
+st = GreatSaiyaman.cns
+st1 = attack.cns
+st2 = special.cns
+st3 = hyper.cns
+st4 = misc.cns
+st5 = AI.cns
+pal1 = GreatSaiyaman.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

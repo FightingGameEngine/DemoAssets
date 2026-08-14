@@ -1,0 +1,4 @@
+.act palettes for SSJ Vegeta by CHOUJIN, created by Spade Kaboomber.
+
+ - "dbsuper.act" can be used for MUGEN now :D
+ - This palette was requested by Paulo Richardo.

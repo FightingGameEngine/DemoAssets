@@ -1,0 +1,31 @@
+[Info]
+name = "Songoku(DAIMA)"
+displayname = "SSJ4 SonGoku Daima"
+versiondate = 02,13,2011
+mugenversion = 04,14,2002
+author = "CHOUJIN"
+pal.defaults = 1,2,3,4,5,6,
+
+; Files for the player
+[Files]
+cmd      = ssjsongoku_cmd.cns	;Other config
+cns      = ssjsongoku.cns	;Constants
+st       = ssjsongoku.cns	;States
+st1      = attacks.cns		;States
+st2      = specials.cns		;States
+st3      = hypers.cns		;States
+stcommon = common1.cns		;Common states
+sprite   = ssjsongoku.sff	;Sprite
+anim     = ssjsongoku.air	;Animation
+sound    = ssjsongoku.snd	;Sound
+pal1     = DAIMA.act		;Normal palette
+pal2     = GT.act		;2nd palette
+pal3     = HEROES.act
+pal4     = GOGETA.act
+pal5     = GOGETA2.act
+pal6     = ULTRA.act
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

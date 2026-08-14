@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Dodoria Arcade style by Tomo"
+displayname = "Dodoria"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Dodoria.sff
+anim = Dodoria.air
+sound = Dodoria.snd
+cmd = Dodoria.cmd
+cns = Dodoria.cns
+stcommon = common1.cns
+st = Dodoria.cns
+st1 = attack.cns
+st2 = special.cns
+st3 = hyper.cns
+st4 = AI.cns
+pal1 = Dodoria.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

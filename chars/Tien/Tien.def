@@ -1,0 +1,24 @@
+[Info]
+name = "TenShinHan"
+displayname = "Tien"
+versiondate = 
+mugenversion = 
+author = "MiaoYu & wenchu && CHOUJIN, Tomo(edit)"
+pal.defaults = 1
+
+[Files]
+sprite = Tien.sff
+anim = Tien.air
+sound = Tien.snd
+cmd = Tien.cmd
+cns = Tien.cns
+stcommon = common1.cns
+st = Tien.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = 1.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

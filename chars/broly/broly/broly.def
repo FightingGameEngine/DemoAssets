@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Broly"
+displayname = "Broly"
+versiondate = 11,22,2000
+mugenversion = 11,22,2000
+author = "Elecbyte"
+pal.defaults = 1,2,3
+
+[Files]
+sprite = B.sff
+anim = B.air
+sound = B.snd
+cmd = B.cmd
+cns = B.cns
+stcommon = common1.cns
+st = B.cns
+st1 = B_Special.cns
+st2 = B_Attacks.cns
+st3 = B_Energy.cns
+st4 = B_Throw.cns
+pal1 = B.act
+pal2 = Blue.act
+pal3 = Yellow.act
+pal4 = Special.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

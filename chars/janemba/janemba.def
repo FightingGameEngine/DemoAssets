@@ -1,0 +1,34 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Janemba"
+displayname = "Janemba"
+versiondate = 25,10,2007
+mugenversion = 06,14,2003
+author = "Franciynaldo && miaoyu"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = janemba.sff
+anim = janemba.air
+sound = janemba.snd
+cmd = janemba.cmd
+cns = janemba.cns
+stcommon = common1.cns
+st = janemba.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = janemba3.act
+pal2 = janemba2.act
+pal3 = janemba.act
+pal4 = janemba4.act
+pal5 = janemba5.act
+pal6 = janemba6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

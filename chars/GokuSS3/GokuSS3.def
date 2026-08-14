@@ -1,0 +1,31 @@
+[Info]
+name ="Songoku"
+displayname ="SSJ3 Goku"
+versiondate =09,01,2008
+mugenversion = 
+author ="CHOUJIN"
+pal.defaults =4,5,1,2
+
+[Files]
+cns =NewGoku.cns
+cmd =NewGoku.cmd
+stcommon =common1.cns
+sprite =NewGoku.sff
+anim =NewGoku.air
+st =songohan.cns
+sound =NewGoku.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+st1=attack.cns
+st2=special.cns
+st3=hyper.cns
+st4=misc.cns
+st5=AI.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= data/DBZIntro.def

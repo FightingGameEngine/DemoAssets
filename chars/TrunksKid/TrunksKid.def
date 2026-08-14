@@ -1,0 +1,24 @@
+[Info]
+name = "TrunksKid"
+displayname = "Kid Trunks"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = TrunksKid.sff
+anim = TrunksKid.air
+sound = TrunksKid.snd
+cmd = TrunksKid.cmd
+cns = TrunksKid.cns
+stcommon = common1.cns
+st = TrunksKid.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = TrunksKid.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

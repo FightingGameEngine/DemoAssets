@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Chiaotzu"
+displayname = "Chiaotzu"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Chiaotzu.sff
+anim = Chiaotzu.air
+sound = Chiaotzu.snd
+cmd = Chiaotzu.cmd
+cns = Chiaotzu.cns
+stcommon = common1.cns
+st = Chiaotzu.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = 1.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

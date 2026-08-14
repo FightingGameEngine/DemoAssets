@@ -1,0 +1,37 @@
+[Info]
+name = "Songoku"
+displayname = "Super Saiyan Vegito"
+versiondate = 02,13,2011
+mugenversion =
+author = "CHOUJIN"
+pal.defaults = 7,2,1,3,4,5
+
+; Files for the player
+[Files]
+cmd      = ssjsongoku.cmd	;Other config
+cns      = ssjsongoku.cns	;Constants
+st       = ssjsongoku.cns	;States
+st1      = attacks.cns		;States
+st2      = specials.cns		;States
+st3      = hypers.cns		;States
+st4      = misc.cns		;States
+stcommon = common1.cns		;Common states
+sprite   = ssjsongoku.sff	;Sprite
+anim     = ssjsongoku.air	;Animation
+sound    = ssjsongoku.snd	;Sound
+pal1     = Vegito.act		;Normal palette
+pal2     = SSjGSS.act		;2nd palette
+pal3     = Dark.act
+pal4     = AnimeInvasion.act
+pal5     = Orange.act
+pal6     = Normal Vegito.act
+pal7     = Super Vegito7.act
+pal8     = SSjGSS.act
+pal9     = SSjGSS Anime.act
+pal10    = AnimeInvasionAlternative.act
+pal11    = Normal Vegito2.act
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

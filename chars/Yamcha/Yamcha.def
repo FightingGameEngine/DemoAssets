@@ -1,0 +1,25 @@
+[Info]
+name = "Yamcha"
+displayname = "Yamcha"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Yamcha.sff
+anim = Yamcha.air
+sound = Yamcha.snd
+cmd = Yamcha.cmd
+cns = Yamcha.cns
+stcommon = common1.cns
+st = Yamcha.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+pal1 = anime.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

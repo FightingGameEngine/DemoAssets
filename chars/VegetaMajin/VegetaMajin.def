@@ -1,0 +1,25 @@
+[Info]
+name = "vegeta"
+displayname = "Majin Vegeta"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = VegetaMajin.sff
+anim = VegetaMajin.air
+sound = VegetaMajin.snd
+cmd = VegetaMajin.cmd
+cns = VegetaMajin.cns
+stcommon = common1.cns
+st = VegetaMajin.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = AI.cns
+pal1 = VegetaMajin.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

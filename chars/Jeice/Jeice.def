@@ -1,0 +1,25 @@
+[Info]
+name = "Jeice"
+displayname = "Jeice"
+versiondate = 
+mugenversion = 
+author = "Stig87 - Edit By Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Jeice.sff
+anim = Jeice.air
+sound = Jeice.snd
+cmd = Jeice.cmd
+cns = Jeice.cns
+stcommon = bcommon.cns
+st = Jeice.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = Burter.cns
+pal1 = Jeice.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

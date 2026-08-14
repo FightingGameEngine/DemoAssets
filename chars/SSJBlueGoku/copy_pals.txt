@@ -1,0 +1,3 @@
+.act palettes for SSJ Goku by CHOUJIN, created by Spade Kaboomber.
+
+ - "dbsuper.act" can be used for MUGEN now :D

@@ -1,0 +1,25 @@
+[Info]
+name = "Turles"
+displayname = "Turles"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Turles.sff
+anim = Turles.air
+sound = Turles.snd
+cmd = Turles.cmd
+cns = Turles.cns
+stcommon = common1.cns
+st = Turles.cns
+st1 = attack.cns
+st2 = special.cns
+st3 = hyper.cns
+st4 = AI.cns
+pal1 = Turles.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

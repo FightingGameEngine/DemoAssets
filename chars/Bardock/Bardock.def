@@ -1,0 +1,25 @@
+[Info]
+name = "Bardock"
+displayname = "Bardock"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Bardock.sff
+anim = Bardock.air
+sound = Bardock.snd
+cmd = Bardock.cmd
+cns = Bardock.cns
+stcommon = common1.cns
+st = Bardock.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st9 = AI.cns
+pal1 = Bardock.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

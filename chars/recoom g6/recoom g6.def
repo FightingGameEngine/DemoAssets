@@ -1,0 +1,47 @@
+; Definition file for player
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "recoom g6"       ;Name of character
+displayname = "recoom type g6";Name of character to display
+versiondate = 09,15,2015  ;Version date of character
+mugenversion = 1.0        ;Version of M.U.G.E.N character works on
+author = "oscarstg1"          ;Character author name
+pal.defaults = 1,2,3,4     
+localcoord = 320,240        
+
+; Files for the player
+[Files]
+cmd     = Nappa.cmd   ;Command set
+cns     = Nappa.cns   ;Constants
+stcommon = common1.cns ;Common states
+st      = Nappa.cns   ;States
+st1     =common.cns
+st2     =VS_engine.cns
+st3     =VS_-2 & -3.cns
+st4     =mvc2tag.st
+st5     =SnapBackCounter.cns
+st6     =Over-ride States.cns
+sprite  = Nappa.sff   ;Sprite
+anim    = Nappa.air   ;Animation
+sound  = Nappa.snd   ;Sound
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+a = 1 ;Press button X to select palette 1, etc.
+y = 2
+z = 3
+x = 4
+b = 5
+c = 6
+x2 = 7 ;Hold Start and press button X for palette 7, etc.
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,2329 @@
+;==============================================================
+;                         Garlic Jr Hyper Attacks
+;==============================================================
+
+;----------------------Death Impact
+
+[Statedef 2000]
+type    = S
+movetype= I
+physics = S
+poweradd= -1000
+ctrl = 0
+velset = 0
+anim = 2000
+
+[State 2000, VarRandom]
+type = VarRandom
+trigger1 = !time
+v = 6
+range = 0,3
+
+[State 2000, playsnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 888,12
+
+[State 2000, Voice]
+type = PlaySnd
+trigger1 = time = 1
+value = 888,11
+volume = 255
+channel = 0
+
+[State 2000, SuperEffect]
+type = Explod
+trigger1 = time = 0
+Anim = 12900
+Pos = 10, -70
+Id = 12900
+sprpriority = 4
+removeongethit = 1
+Postype = p1
+Bindtime = -1
+ownpal = 1
+scale = 0.5, 0.5
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 28
+anim = -1
+sound = S1800,0
+pos = -16,-58
+darken = 1
+unhittable = 1
+
+[State 2000, VelSetY]
+Type = VelSet
+Trigger1 = Time = 0
+y = 0
+
+[State 2000, End]
+type = ChangeState
+trigger1 = Time = 6
+value = 1801
+ctrl = 1
+
+;----------------Death Impact Helper
+
+[Statedef 1801]
+type    = S
+movetype= A
+physics = S
+poweradd= -1000
+ctrl = 0
+velset = 0
+sprpriority = 0
+anim = 1801
+
+[State 1801, Shockwave]
+type = Explod
+trigger1 = !time
+Anim = 10101
+Pos = 0 ,-50
+Id = 10101
+velocity = 0,0
+sprpriority = 5
+removeongethit = 0
+bindtime = 1
+Postype = p1
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ownpal = 1
+scale = 0.25, 0.25
+
+[State 13100, ModifyExplod]
+type = ModifyExplod
+trigger1 = time
+id = 10101
+supermovetime = 9999
+pausemovetime = 9999
+scale = (0.25+((time)*0.08)),(0.25+((time)*0.08))
+
+[State 1801, Sound]
+type = PlaySnd
+trigger1 = time = 0
+value = 1900,0
+volume = 255
+
+[State 1801, Sound]
+type = PlaySnd
+trigger1 = time = 10
+value = 1954,0
+volume = 255
+
+[State 1801, Shake]
+type = EnvShake
+trigger1 = time = 0
+Time = 18
+
+[State 1801, EnergyWave.Helper]
+type = Helper
+triggerall = time < 20
+trigger1 = Timemod = 2,0
+name = "BellyBeams"
+stateno = 12800
+postype = p1
+pos = -18, -57
+keyctrl = 0
+ownpal = 1
+id = 12800
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 1801, WhirlWindEffect]
+type = Explod
+trigger1 = time = 4
+Anim = 12810
+Pos = 20, -53
+Id = 12810
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.25, 0.25
+
+[State 1801, WhirlWindEffect]
+type = Explod
+trigger1 = time = 13
+Anim = 12810
+Pos = 95, -52
+Id = 12811
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.375, 0.375
+
+[State 1801, WhirlWindEffect]
+type = Explod
+trigger1 = time = 27
+Anim = 12810
+Pos = 205, -51
+Id = 12812
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.5, 0.5
+
+[State 1801, WhirlWindEffect]
+type = Explod
+trigger1 = time = 37
+Anim = 12810
+Pos = 320, -51
+Id = 12813
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.5, 0.5
+
+[State 1801, Tired]
+type = ChangeState
+trigger1 = AnimTime = 0 && power = 0
+value = 5300
+ctrl = 1
+
+[State 1801, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = -1,-1
+value	= 1
+
+[State 1801, End]
+type = ChangeState
+trigger1 = Time = 90
+value	= 0
+ctrl = 1
+
+;--------------Death Impact Helper2
+
+[StateDef 12800]
+type = A
+physics = N
+movetype = A
+velset = 0, 0
+anim = 12800
+ctrl = 0
+sprpriority = 4
+
+[State 12800, Ring]
+type = Explod
+trigger1 = time = 0
+Anim = 12801
+Pos = 0,0
+Id = 12800
+sprpriority = 4
+removeongethit = 1
+removetime = -1
+bindtime = -1
+Postype = p1
+SuperMove = 1
+ownpal = 1
+scale = 0.1, 0.1
+
+[State 12800, ModifyRing]
+type = ModifyExplod
+trigger1 = 1
+ID = 12800
+scale = 0.1+time*(0.0075),0.1+time*(0.0075)
+
+[State 12800, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 8.0
+
+[State 12800, VelSet]
+type = VelAdd
+trigger1 = 1
+x = 0.075
+
+[State 12800, NotHit]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+ignorehitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 12800, No Shadow]
+type = AssertSpecial
+trigger1 = time >= 0
+flag = noshadow
+ignorehitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 12800, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 30
+length = 10
+palinvertall = 0
+palbright = 0,0,0
+palcontrast = 128,128,128
+paladd = 0,0,0
+timegap = 1
+framegap = 1
+trans = Add
+
+[State 12800, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = S, SP
+animtype  = Heavy
+Damage = 20,4
+guardflag = MAFD
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s4500
+sparkxy = -15,0
+getpower = 0
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 10
+ground.hittime  = 15
+ground.velocity = -10, -5
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.velocity = -10, -5
+fall = 1
+fall.recover = 1
+kill = 1
+
+[State 12800, ScreenBound]
+type = ScreenBound
+trigger1 = p2movetype = H || (BackEdgeBodydist < -1 && BackEdgeBodydist > -30)
+movecamera = 0,0
+value	= 0
+
+[State 12800, RemoveRing]
+type = RemoveExplod
+trigger1 = time = 40
+ID = 12800
+
+[State 12800, DestroySelf]
+type = DestroySelf
+trigger1 = time = 40
+
+;------------------------Death Impact Air
+
+[Statedef 2050]
+type    = S
+movetype= I
+physics = S
+poweradd= -1000
+ctrl = 0
+velset = 0, 0
+anim = 2000
+
+[State 2050, VarRandom]
+type = VarRandom
+trigger1 = !time
+v = 6
+range = 0,3
+
+[State 2050, playsnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 888,12
+
+[State 2050, Voice]
+type = PlaySnd
+trigger1 = time = 1
+value = 888,11
+volume = 255
+channel = 0
+
+[State 2050, SuperEffect]
+type = Explod
+trigger1 = time = 0
+Anim = 12900
+Pos = 10, -70
+Id = 12900
+sprpriority = 4
+removeongethit = 1
+Postype = p1
+Bindtime = -1
+ownpal = 1
+scale = 0.5, 0.5
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2050, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 28
+anim = -1
+sound = S1800,0
+pos = -16,-58
+darken = 1
+unhittable = 1
+
+[State 2050, VelSetY]
+Type = VelSet
+Trigger1 = Time = 0
+y = 0
+
+[State 2050, End]
+type = ChangeState
+trigger1 = Time = 6
+value = 9727
+ctrl = 1
+
+;----------------Death Impact Helper
+
+[Statedef 9727]
+type    = S
+movetype= A
+physics = S
+poweradd= -1000
+ctrl = 0
+velset = 0, 0
+sprpriority = 0
+anim = 1801
+
+[State 9727, Shockwave]
+type = Explod
+trigger1 = !time
+Anim = 10101
+Pos = 0 ,-50
+Id = 10101
+velocity = 0,0
+sprpriority = 5
+removeongethit = 0
+bindtime = 1
+Postype = p1
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ownpal = 1
+scale = 0.25, 0.25
+
+[State 13100, ModifyExplod]
+type = ModifyExplod
+trigger1 = time
+id = 10101
+supermovetime = 9999
+pausemovetime = 9999
+scale = (0.25+((time)*0.08)),(0.25+((time)*0.08))
+
+[State 9727, Sound]
+type = PlaySnd
+trigger1 = time = 0
+value = 1900,0
+volume = 255
+
+[State 9727, Sound]
+type = PlaySnd
+trigger1 = time = 10
+value = 1954,0
+volume = 255
+
+[State 9727, Shake]
+type = EnvShake
+trigger1 = time = 0
+Time = 18
+
+[State 9727, EnergyWave.Helper]
+type = Helper
+triggerall = time < 20
+trigger1 = Timemod = 2,0
+name = "BellyBeams"
+stateno = 12800
+postype = p1
+pos = -18, -57
+keyctrl = 0
+ownpal = 1
+id = 12800
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 9727, WhirlWindEffect]
+type = Explod
+trigger1 = time = 4
+Anim = 12810
+Pos = 20, -53
+Id = 12810
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.25, 0.25
+
+[State 9727, WhirlWindEffect]
+type = Explod
+trigger1 = time = 13
+Anim = 12810
+Pos = 95, -52
+Id = 12811
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.375, 0.375
+
+[State 9727, WhirlWindEffect]
+type = Explod
+trigger1 = time = 27
+Anim = 12810
+Pos = 205, -51
+Id = 12812
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.5, 0.5
+
+[State 9727, WhirlWindEffect]
+type = Explod
+trigger1 = time = 37
+Anim = 12810
+Pos = 320, -51
+Id = 12813
+sprpriority = 5
+removeongethit = 1
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 0.5, 0.5
+
+[State 9727, Tired]
+type = ChangeState
+trigger1 = AnimTime = 0 && power = 0
+value = 5300
+ctrl = 1
+
+[State 9727, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = -1,-1
+value	= 1
+
+[State 9727, End]
+type = ChangeState
+trigger1 = Time = 90
+value	= 950
+ctrl = 1
+
+;------------------------Darkness Illusion Start
+
+[Statedef 2200]
+type    = S
+movetype= I
+physics = S
+poweradd= -2000
+ctrl = 0
+velset = 0
+anim = 2100
+
+[State 2200, PlaySND1]
+type = PlaySnd
+trigger1 = time = 0
+value = 888,12
+channel = 1
+volume = 255
+
+[State 2200, PlaySND1]
+type = PlaySnd
+trigger1 = time = 1
+value = 2,2
+channel = 1
+volume = 255
+
+[State 2200, VarRandom]
+type = VarRandom
+trigger1 = !time
+v = 6
+range = 0,1
+
+[State 2200, SuperEffect1]
+type = Explod
+trigger1 = time = 0
+Anim = 12900
+Pos = -20, -65
+Id = 12900
+sprpriority = 4
+removeongethit = 1
+Postype = p1
+Bindtime = -1
+ownpal = 1
+scale = 0.35, 0.35
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2200, SuperEffect2]
+type = Explod
+trigger1 = time = 0
+Anim = 12900
+Pos = 43, -60
+Id = 12900
+sprpriority = 4
+removeongethit = 1
+Postype = p1
+Bindtime = -1
+ownpal = 1
+scale = 0.3, 0.3
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2200, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 28
+anim = -1
+sound = S1800,0
+pos = -26,-58
+darken = 1
+unhittable = 1
+
+[State 2200, VelSetY]
+Type = VelSet
+Trigger1 = Time = 0
+y = 0
+
+[State 2200, End]
+type = ChangeState
+trigger1 = Time = 8
+value = 2101
+ctrl = 1
+
+;----------------Darkness Illusion(Elbow Dash)
+
+[Statedef 2101]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+velset = 1,0
+ctrl = 0
+poweradd = 0
+sprpriority = 2
+anim = 2101
+
+[State 2101, Swing]
+type = PlaySnd
+trigger1 = Time = 1
+value = 888, 9
+
+[State 2101, KickDust]
+type = Explod
+trigger1 = time = 0
+Anim = 4010
+Pos = 0, 0
+velocity = 2
+Id = 4010
+sprpriority = 3
+removeongethit = 0
+Postype = p1
+SuperMove = 1
+ownpal = 1
+
+[State 2101, Swing]
+type = PlaySnd
+trigger1 = Time = 1
+value = 0, 1
+
+[State 2101, VelSet]
+type = Velset
+trigger1 = time = [0,14]
+x = 12.0
+
+[State 2101, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 20
+length = 12
+palinvertall = 0
+palbright = 0,0,0
+palcontrast = 120,40,100
+paladd = 25,0,6
+timegap = 1
+framegap = 1
+trans = Add
+
+[State 2101, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = S, HA
+animtype  = Hard
+damage    = 100,10
+hiflag = MAFD
+guardflag = MA
+pausetime = 8,8
+sparkno = S4150
+guard.sparkno = s4500
+sparkxy = -10,-60
+hitsound   = S1,0
+guardsound = S3,0
+ground.type = High
+ground.slidetime = 14
+ground.hittime  = 15
+ground.velocity = -15,-7
+air.velocity = -15,-7
+getpower = 0
+fall = 1
+fall.recover = 0
+envshake.time = 20
+envshake.freq = 120
+envshake.ampl = -5
+envshake.phase = 90
+p2stateno = 95000
+kill = 0
+
+[State 2101, End]
+type = ChangeState
+trigger1 = AnimTime = 0 && movehit
+value = 2102
+
+[State 2101, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------Darkness Illusion(Teleport Animation)
+
+[Statedef 2102]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+poweradd = 0
+sprpriority = 1
+anim = 2102
+
+[State 2102, PlaySND]
+type = PlaySnd
+Trigger1 = !time
+value = 888,13
+
+[State 2102, NoPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2101, End]
+type = ChangeState
+trigger1 = animtime = 0 && p2stateno != [95000,95001]
+value = 2103
+
+;----------------Darkness Illusion(Elbow Back)
+
+[Statedef 2103]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+velset = 0,0
+ctrl = 0
+poweradd = 0
+sprpriority = 2
+anim = 2103
+
+[State 2103, Laugh]
+type = PlaySnd
+trigger1 = movehit = 1
+value = 9, 10
+volume = 200
+channel = 0
+
+[State 2103, NoPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2103, Screenbound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 1,1
+
+[State 2103, Swing]
+type = PlaySnd
+trigger1 = Time = 1
+value = 0, 1
+
+[State 2103, PosSet]
+type = Posadd
+trigger1 = !time
+x = p2dist x + 40
+
+[State 2103, VelSet]
+type = Velset
+triggerall = !movecontact
+trigger1 = time = [1,5]
+x = -3.0
+
+[State 2103, VelStop]
+type = Velset
+trigger1 = movecontact
+x = 0
+
+[State 2103, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 20
+length = 12
+palinvertall = 0
+palbright = 0,0,0
+palcontrast = 120,40,100
+paladd = 25,0,6
+timegap = 1
+framegap = 1
+trans = Add
+
+[State 2103, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = S, HA
+animtype  = Hard
+damage    = 50,5
+hiflag = MAFD
+guardflag = MA
+pausetime = 4,20
+sparkno = S4100
+guard.sparkno = s4500
+sparkxy = 0,-65
+hitsound   = S1,0
+guardsound = S3,0
+getpower = 0
+ground.type = High
+ground.slidetime = 14
+ground.hittime  = 15
+ground.velocity = 3,-3
+air.velocity = 3,-3
+fall = 1
+fall.recover = 0
+envshake.time = 20
+envshake.freq = 120
+envshake.ampl = -5
+envshake.phase = 90
+kill = 0
+
+[State 2103, End]
+type = ChangeState
+trigger1 = AnimTime = 0 && movehit
+value = 2104
+
+[State 2103, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;--------------Darkness Illusion(Upper)
+
+[Statedef 2104]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+velset = 0,0
+ctrl = 0
+poweradd = 0
+sprpriority = 2
+anim = 2104
+
+[State 2104, Swing]
+type = PlaySnd
+trigger1 = Time = 1
+value = 0, 4
+
+[State 2104, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HA
+animtype  = Medium
+damage    = 50,5
+guardflag = MA
+pausetime = 8,24
+sparkno = S4150
+guard.sparkno = s4500
+sparkxy = -23,-85
+hitsound   = S1,0
+guardsound = S3,0
+getpower = 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 6-13
+air.velocity = 6,-13
+envshake.time = 25
+envshake.freq = 70
+envshake.ampl = -3
+envshake.phase = 90
+
+[State 2104, Turn]
+type = Turn
+trigger1 = AnimTime = 0
+
+[State 2104, Next]
+type = ChangeState
+trigger1 = AnimTime = 0 && movehit
+value = 2105
+
+[State 2104, End]
+type = ChangeState
+trigger1 = AnimTime = 0 && !movehit
+value = 0
+ctrl = 1
+
+;------------------Darkness Illusion(Teleport Up)
+
+[Statedef 2105]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+velset = 0,0
+ctrl = 0
+poweradd = 0
+sprpriority = 2
+anim = 2105
+
+[State 2105, PlaySND]
+type = PlaySnd
+Trigger1 = animelem = 2
+value = 888,13
+
+[State 2105, MoveUp]
+type = VelSet
+Trigger1 = time > 4
+x = 6
+y = -13
+
+[State 2105, AfterImage]
+type = AfterImage
+trigger1 = time = 3
+time = 6
+length = 12
+palinvertall = 0
+palbright = 0,0,0
+palcontrast = 120,40,100
+paladd = 25,0,6
+timegap = 1
+framegap = 1
+trans = Add
+
+[State 2105, NoPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2105, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 2106
+
+;--------------Darkness Illusion(Grab)
+
+[Statedef 2106]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+velset = 0,0
+ctrl = 0
+poweradd = 0
+sprpriority = 1
+anim = 2106
+
+[State 2106, Teleport]
+type = PosAdd
+Trigger1 = !time
+x = p2dist X
+y = p2dist Y + 20
+
+[State 2106, VelSet]
+type = VelSet
+Trigger1 = !time
+x = 0
+y = 0
+
+[State 2106, NoPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2106, HitDef]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, NT
+priority = 2, miss
+sparkno = -1
+p1stateno = 2107
+p2stateno = 95035
+
+[State 2106, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 50
+ctrl = 1
+
+;------------Darkness Illusion(Falling Slam)
+
+[Statedef 2107]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+velset = 0,0
+ctrl = 0
+poweradd = 0
+sprpriority = 0
+anim = 2107
+
+[State 2107, Aura]
+type = Explod
+triggerall = time > 45
+trigger1 = timemod = 10,0
+Anim = 1950
+Pos = -40, 0
+Id = 1950
+sprpriority = 3
+removeongethit = 1
+removetime = 10
+bindtime = -1
+Postype = p1
+SuperMove = 1
+ownpal = 1
+
+[State 2107, AuraSND]
+type = PlaySnd
+trigger1 = time = 45
+value = 3000, 1
+
+[State 2107, GrabSND]
+type = PlaySnd
+trigger1 = !time
+value = 800, 0
+
+[State 2107, EnvShake]
+type = EnvShake
+trigger1 = !Time
+time = 80
+freq = 120
+ampl = -3
+phase = 90
+
+[State 2107, VelSet]
+type = VelSet
+triggerall = pos y < 0
+trigger1 = animelem = 3
+x = 0
+y = 10
+
+[State 2107, VelAdd]
+type = VelAdd
+triggerall = pos y < 0
+trigger1 = animelem = 3, > 0
+x = 0
+y = .44
+
+[State 2107, VelStop]
+type = VelSet
+trigger1 = pos y >= 0
+x = 0
+y = 0
+
+[State 2107, PosSet]
+type = PosSet
+trigger1 = pos y >= 0
+y = 0
+
+[State 2107, NoPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2107, SprPriority]
+type = SprPriority
+Trigger1 = animelem = 2
+value = 2
+
+[State 2107, FallSND]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 888, 9
+
+[State 2107, TargetBind1]
+type = TargetBind
+triggerall = pos y < 0
+Trigger1 = animelem = 1, >= 0
+pos = 38,-77
+
+[State 2107, TargetBind2]
+type = TargetBind
+triggerall = pos y < 0
+Trigger1 = animelem = 2, >= 0
+pos = -52,-54
+
+[State 2107, TargetBind3]
+type = TargetBind
+triggerall = pos y < 0
+Trigger1 = animelem = 3, >= 0
+pos = -35,0
+
+[State 2107, Explosion.Damage]
+type = Helper
+triggerall = NumHelper(13102) = 0
+trigger1 = pos y = 0
+name = "ExplosionDamage"
+stateno = 13102
+postype = p1
+pos = -27, 0
+keyctrl = 0
+ownpal = 1
+id = 13102
+size.xscale = 1
+size.yscale = 1
+
+[State 2107, blow]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 2000, 3
+
+[State 2107, AfterImage]
+type = AfterImage
+trigger1 = animelem = 2
+time = 26
+length = 20
+palinvertall = 0
+palbright = 0,0,0
+palcontrast = 120,40,100
+paladd = 25,0,6
+timegap = 1
+framegap = 1
+trans = Add
+
+[State 2107, RemoveExplod]
+type = Removeexplod
+trigger1 = animtime = 0
+ID = 10000
+
+[State 2107, Next]
+type = ChangeState
+trigger1 = animtime = 0
+value = 2108
+ctrl = 1
+
+;--------------Darkness Illusion(Turn)
+
+[Statedef 2108]
+type    = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+facep2 = 1
+anim = 0
+
+[State 2108, PosAdd]
+type = PosAdd
+trigger1 = !time
+x = 15
+
+[State 2108, End]
+type = ChangeState
+trigger1 = time = 0
+value = 0
+ctrl = 1
+
+;--------------------Darkness Illusion(P2 Fly Back)
+
+[Statedef 95000]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 95000, P2Anim]
+type = ChangeAnim2
+trigger1 = Time >= 0
+value = 95000
+
+[State 95000, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 95001
+
+;------------Darkness Illusion(P2 Hit Wall)
+
+[Statedef 95001]
+type    = A
+movetype= H
+physics = N
+
+[State 95001, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 95001, Gravity]
+type = VelAdd
+trigger1 = Time >= 0
+y = .45
+
+[State 95001, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15 && time > 20
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+movecamera = 0,1
+
+[State 95001, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 0
+trigger2 = FrontEdgeBodyDist <= 0
+value = 95002
+
+[State 95001, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+;------------Darkness Illusion(P2 Pre-Fall from Wall)
+
+[Statedef 95002]
+type    = A
+movetype= H
+physics = N
+
+[State 95002, P2Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 95002
+
+[State 95002, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 95002, No scroll]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 95002, Spark]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = -24, -50
+postype = p1
+sprpriority = 3
+
+[State 95002, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,0
+
+[State 95002, Next]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 95003
+
+;------------Darkness Illusion(P2 Falling from Wall)
+
+[Statedef 95003]
+type    = A
+movetype= H
+physics = N
+
+[State 95003, P2Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 95003
+
+[State 95003, VelSet]
+type = VelSet
+trigger1 = Time = 0
+x = 2.6
+y = -3
+
+[State 95003, Next]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 95004
+
+;------------Darkness Illusion(P2 Fall into Ground)
+
+[Statedef 95004]
+type    = A
+movetype= H
+physics = N
+
+[State 95004, VelSet]
+type = VelSet
+trigger1 = Time = 0
+x = 2.6
+y = -3
+
+[State 95004, VelAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = .35
+
+[State 95004, ChangeAnim 5050]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 95004, ChangeAnim 5052]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5052)
+value = 5052
+
+[State 95004, ChangeAnim 5060]
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5050
+trigger1 = SelfAnimExist(5060)
+persistent = 0
+value = 5060
+
+[State 95004, ChangeAnim 5062]
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5052
+trigger1 = SelfAnimExist(5062)
+persistent = 0
+value = 5062
+
+[State 95004, ChangeAnim 5050]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 95004, ChangeAnim 5052]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5052)
+value = 5052
+
+[State 95004, ChangeAnim 5060]
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5050
+trigger1 = SelfAnimExist(5060)
+persistent = 0
+value = 5060
+
+[State 95004, ChangeAnim 5062]
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5052
+trigger1 = SelfAnimExist(5062)
+persistent = 0
+value = 5062
+
+[State 95004, HitGround]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+;--------------------Darkness Illusion(Face Smash Player 2 State1)
+
+[Statedef 95035]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State 95035, Animation]
+type = ChangeAnim2
+trigger1 = !time
+value = 95035
+
+[State 95035, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = 0,0
+value	= 0
+
+[State 95035, End]
+type = SelfState
+trigger1 = animtime = 0
+value = 5110
+
+;--------------Darkness Illusion(Hyper Slam Explosion 3 [State 2107])
+
+[StateDef 13102]
+type = A
+physics = N
+movetype = A
+velset = 0, 0
+anim = 13102
+ctrl = 0
+sprpriority = 4
+poweradd = 0
+
+[State 13102, PlaySND]
+type = PlaySnd
+trigger1 = !time
+value = 1100, 2
+volume = 200
+
+[State 13102, PlaySND2]
+type = PlaySnd
+trigger1 = !time
+value = 1452, 0
+
+[State 13102, Shake]
+type = EnvShake
+trigger1 = !time
+Time = 25
+freq = 90
+ampl = -5
+phase = 0
+
+[State 13102, No Shadow]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 13101, FVarset]
+type = VarSet
+trigger1 = (!time)
+fv = 1
+value = 0
+
+[State 13102, FVarset]
+type = VarAdd
+trigger1 = 1
+fv = 1
+value = 0.05
+
+[State 13102, Flash]
+type = Explod
+trigger1 = (!time)
+Anim = 13105
+Pos = 0,0
+Id = 13105
+velocity = 0,0
+sprpriority = 5
+removeongethit = 0
+bindtime = 1
+Postype = p1
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ownpal = 1
+scale = 0.05, 0.05
+
+[State 13102, ModifyExplod]
+type = ModifyExplod
+trigger1 = (time)
+id = 13105
+supermovetime = 9999
+pausemovetime = 9999
+scale = 0.25+fvar(1),0.25+fvar(1)
+
+[State 13102, Shockwave]
+type = Explod
+trigger1 = time = 4
+Anim = 13111
+Pos = 0,0
+Id = 13111
+velocity = 0,0
+sprpriority = 5
+removeongethit = 0
+bindtime = 1
+Postype = p1
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ownpal = 1
+scale = 0.01, 0.01
+
+[State 13102, ModifyExplod]
+type = ModifyExplod
+trigger1 = time > 4
+id = 13111
+supermovetime = 9999
+pausemovetime = 9999
+scale = (0.01+((time-4)*0.025)),(0.01+((time-4)*0.025))
+
+[State 13102, Shake]
+type = EnvShake
+trigger1 = (!time)
+Time = 17
+freq = 90
+ampl = -3
+phase = 0
+
+[State 13102, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 13102, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 30
+length = 5
+palinvertall = 0
+palbright = 0,0,0
+palcontrast = 128,128,128
+paladd = 0,0,0
+timegap = 1
+framegap = 1
+trans = Add
+
+[State 13102, Disperse Effect]
+type = Helper
+trigger1 = time = 0
+name = "DisperseEffect"
+stateno = 14500
+postype = p1
+pos = 0, 0
+keyctrl = 0
+ownpal = 0
+id = 14500
+bindtime = 0
+
+[State 13102, Hitdef]
+type = HitDef
+trigger1 = time = 0
+attr = A, HT
+animtype  = Heavy
+Damage = 150,15
+hitflag = MAFD
+guardflag = L
+pausetime = 0,10
+sparkno = -1
+sparkxy = 0,0
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 15
+ground.velocity = 10, -3
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.velocity = 10, -3
+fall = 1
+fall.recover = 1
+kill = 1
+guard.kill = 1
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+
+[State 13102, DestroySelf]
+type = DestroySelf
+trigger1 = time = 100
+
+;----Darkness Illusion(Circular Disperse Effect 1)
+
+[StateDef 14500]
+type = S
+physics = N
+movetype = I
+velset = 0, 0
+anim = 9999
+ctrl = 0
+sprpriority = 0
+
+[State 14500, RandomVariable-1]
+type = VarRandom
+trigger1 = 1
+v = 14
+range = -8,8
+
+[State 14500, RandomVariable-2]
+type = VarRandom
+trigger1 = 1
+v = 15
+range = -8,8
+
+[State 14500, DestroySelf]
+type = DestroySelf
+trigger1 = time = 20
+
+;--------------------Dead Zone
+
+[Statedef 2100]
+type    = S
+movetype= I
+physics = S
+poweradd= -3000
+ctrl = 0
+velset = 0
+anim = 444
+
+[State 2100, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 28
+anim = S12411
+sound = S888,12
+pos = -26,-58
+darken = 1
+unhittable = 1
+
+[State 2100, VelSetY]
+Type = VelSet
+Trigger1 = Time = 0
+y = 0
+
+[State 2100, Voice]
+type = PlaySnd
+trigger1 = time = 0
+value = 999,0
+volume = 255
+channel = 0
+
+[State 2100, End]
+type = ChangeState
+trigger1 = Time = 8
+value = 2001
+ctrl = 1
+
+;----------Dead Zone(Open Void)
+
+[Statedef 2001]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+velset = 0
+sprpriority = 0
+anim = 446
+
+[State 2000, Pause]
+type = Pause
+trigger1 = timemod = 1,0
+time = 1
+
+[State 2001, Clouds]
+type = Explod
+trigger1 = time = 1
+Anim = 16001
+Pos = 250, 200
+velocity = -0.5,-0.5
+Id = 16001
+sprpriority = 4
+removeongethit = 0
+Postype = back
+Bindtime = 1
+SuperMove = 1
+ownpal = 1
+scale = 1.0, 1.0
+
+[State 2001, Sound]
+type = PlaySnd
+trigger1 = time = 0
+value = 1900,0
+volume = 255
+
+[State 2001, Shake]
+type = EnvShake
+trigger1 = time = 5
+Time = 30
+freq = 90
+ampl = -1
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2001, Shake]
+type = EnvShake
+trigger1 = time = 20
+Time = 30
+freq = 90
+ampl = -2
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2001, Shake]
+type = EnvShake
+trigger1 = time = 35
+Time = 30
+freq = 90
+ampl = -3
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 0
+ignorehitpause = 1
+
+[State 2001, BlackHole]
+type = Explod
+trigger1 = time = 50
+Anim = 16005
+pos = 70, -170
+postype = back
+velocity = 0,0
+Id = 16005
+sprpriority = 5
+removeongethit = 0
+Bindtime = 1
+ownpal = 1
+scale = 0.5, 0.5
+
+[State 2001, DeadZone.Helper]
+type = Helper
+trigger1 = Time = 50
+name = "DeadZone"
+stateno = 16000
+postype = back
+pos = 120, -170
+keyctrl = 0
+ownpal = 1
+bindtime = -1
+id = 16000
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 2001, Tired]
+type = ChangeState
+trigger1 = AnimTime = 0 && power = 0
+value = 5300
+ctrl = 1
+
+[State 2001, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = 1,1
+value = 1
+
+[State 2001, End]
+type = ChangeState
+trigger1 = Time = 330
+value	= 2002
+ctrl = 1
+
+;----------------Dead Zone(Close Void)
+
+[Statedef 2002]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+velset = 0
+sprpriority = 0
+anim = 446
+
+[State 2002, Slowest]
+type = Pause
+triggerall = time = [0,20]
+trigger1 = timemod = 1,0
+time = 1
+
+[State 2002, Slower]
+type = Pause
+triggerall = time = [21,30]
+trigger1 = timemod = 2,0
+time = 1
+
+[State 2002, Slow]
+type = Pause
+triggerall = time = [31,40]
+trigger1 = timemod = 3,0
+time = 1
+
+[State 2002, End]
+type = ChangeState
+trigger1 = Time = 40
+value	= 0
+ctrl = 1
+
+;--------------Dead Zone(Void Helper)
+
+[StateDef 16000]
+type = A
+physics = N
+movetype = A
+velset = 0, 0
+anim = 16000
+ctrl = 0
+sprpriority = -5
+
+[State 16000, PlaySND]
+type = PlaySnd
+trigger1 = time=0
+trigger2 = time=128
+value = 181,0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 1
+ignorehitpause = 1
+
+[State 16000, HitDef]
+type = HitDef
+trigger1 = time = 0
+affectteam = B
+attr = S, HP
+sparkno = -1
+p2facing = 1
+p2stateno = 95910
+
+[State 16000, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 4
+value = floor(POS X)
+
+[State 16000, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 5
+value = floor(POS Y)
+
+[State 16000, VarSet]
+type = VarRandom
+trigger1 = 1
+v = 6
+range = 15,30
+
+;-----------------------Dead Zone(Void Helper2)
+
+[State 16000, Shake]
+type = EnvShake
+trigger1 = time = 0
+Time = 570
+freq = 90
+ampl = -4
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 1
+ignorehitpause = 1
+
+[State 16000, Shake]
+type = EnvShake
+trigger1 = time = 570
+Time = 10
+freq = 90
+ampl = -3
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 1
+ignorehitpause = 1
+
+[State 16000, Shake]
+type = EnvShake
+trigger1 = time = 580
+Time = 10
+freq = 90
+ampl = -2
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 1
+ignorehitpause = 1
+
+[State 16000, Shake]
+type = EnvShake
+trigger1 = time = 590
+Time = 10
+freq = 90
+ampl = -2
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 1
+ignorehitpause = 1
+
+[State 16000, Shake]
+type = EnvShake
+trigger1 = time = 600
+Time = 10
+freq = 90
+ampl = -1
+phase = 0
+supermovetime  = 9999
+pausemovetime  = 9999
+persistent = 1
+ignorehitpause = 1
+
+;---------Dead Zone(Pal Fx for Fading the Dead Zone In)
+
+[State 16000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 10
+value = -250
+
+[State 16000, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,25])
+v = 10
+value = 10
+
+[State 16000, PalFX]
+type = PalFX
+trigger1 = timemod = 1,0
+time = 2
+add = Var(10),Var(10),Var(10)
+
+[State 16000, VarAdd]
+type = VarAdd
+trigger1 = (time = [270,295])
+v = 10
+value = -10
+
+;-----------------Dead Zone(BG Pal FX for Darkening the Background)
+
+[State 16000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 11
+value = 0
+
+[State 16000, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,50])
+v = 11
+value = -4
+
+[State 16000, VarAdd]
+type = VarAdd
+trigger1 = (time = [260,309])
+v = 11
+value = 4
+
+[State 16000, PalFX]
+type = BGPalFX
+trigger1 = timemod = 1,0
+time = 2
+add = Var(11),Var(11),Var(11)
+
+;-------------Dead Zone(BG Pal FX for Transparency)
+
+[State 16000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = 120
+
+[State 16000, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,60])
+v = 12
+value = -2
+
+[State 16000, VarAdd]
+type = VarAdd
+trigger1 = (time = [275,295])
+v = 12
+value = 6
+
+[State 16000, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 16000, Alpha]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 136+Var(12)
+
+[State 16000, AngleAdd]
+type = AngleAdd
+trigger1 = 1
+value = 1
+
+[State 16000, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+
+[State 16000, NoHit]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 16000, No Shadow]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = unguardable
+
+[State 16000, ScreenBound]
+type = ScreenBound
+trigger1 = p2movetype = H || (BackEdgeBodydist < -1 && BackEdgeBodydist > -30)
+movecamera = 0,0
+value	= 0
+
+[State 16000, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+;------------------Dead Zone(PLayer 2 Dead Zone Custom state)
+
+[StateDef 95908]
+type = L
+physics = N
+movetype = H
+velset = 0, 0
+ctrl = 0
+sprpriority = 2
+
+[State 95908, P2Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 95908
+
+[State 95908, LifeDrain]
+type = LifeAdd
+trigger1 = Time > 0 && alive=1
+value = -15
+
+[State 95908, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = 0,0
+value	= 0
+
+[State 95908, Next]
+type = ChangeState
+trigger1 = Time = 280
+value = 5110
+
+;----------Dead Zone(PLayer 2 Helper Holder Dead Zone Custom state 2)
+
+[StateDef 95909]
+type = L
+physics = N
+movetype = H
+velset = 0, 0
+ctrl = 0
+sprpriority = 2
+
+[State 95909, P2Anim]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 9999
+
+[State 95910, PosAdd]
+type = PosAdd
+trigger1 = Time = 0
+x = -15
+y = -45
+
+[State 95910, VelSet]
+type = VelSet
+trigger1 = Time = 0
+x = 0.5
+y = -0.5
+
+[State 95909, LifeDrain]
+type = LifeAdd
+trigger1 = alive=1
+value = -15
+
+;-----------Dead Zone(Pal Fx Variable for Fading to Black)
+
+[State 95909, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 10
+value = 0
+
+[State 95909, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,256])
+v = 10
+value = -1
+
+;--------Dead Zone(Angle Variable)
+
+[State 95909, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 11
+value = 0
+
+[State 95909, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,280])
+v = 11
+value = 3
+
+;----------Scale Variable
+
+[State 95909, VarSet]
+type = Varset
+trigger1 = time = 0
+fv = 12
+value = 1
+
+[State 95909, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,280])
+fv = 12
+value = 0.05
+
+;--------Position Variables
+
+[State 95909, VarSet]
+type = Varset
+trigger1 = time = 0
+fv = 13
+value = -15
+
+[State 95909, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,280])
+fv = 13
+value = -0.5
+
+;Y
+[State 95909, VarSet]
+type = Varset
+trigger1 = time = 0
+fv = 14
+value = -45
+
+[State 95909, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,280])
+fv = 14
+value = -0.5
+
+;------------------
+
+[State 95909, Body.Helper]
+type = Helper
+trigger1 = timemod = 3,0
+name = "False Body"
+stateno = 95910
+postype = p1
+pos = 0, 0
+keyctrl = 0
+ownpal = 1
+id = 95910
+size.xscale = fVar(12)
+size.yscale = fVar(12)
+ignorehitpause = 1
+pausemovetime = 9999
+supermovetime = 9999
+persistent = 1
+
+;--------Dead Zone(PLayer 2 Dead Zone Custom state 2)
+
+[StateDef 95910]
+type = L
+physics = N
+movetype = H
+velset = 0, 0
+ctrl = 0
+sprpriority = 2
+
+[State 95910, LifeDrain]
+type = LifeAdd
+trigger1 = alive
+value = -2
+
+[State 95910, P2Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 95909
+
+[State 95910, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = 0,0
+value	= 0
+
+[State 95910, PosAdd]
+type = PosAdd
+trigger1 = Time = 0
+x = -15
+y = -45
+
+[State 95910, VelSet]
+type = VelSet
+trigger1 = Time = 0
+x = 0.5
+y = -0.5
+
+;----------Pal Fx Variable for going Invisible
+
+[State 95910, VarSet]
+type = Varset
+trigger1 = time=0
+fv = 9
+value = 0
+
+[State 95910, VarAdd]
+type = VarAdd
+trigger1 = 1
+fv = 9
+value = 0.75
+
+;Alpha
+[State 95910, Alpha]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = floor(256-fVar(9)), floor(fVar(9))
+
+;---------------Pal Fx Variable for Fading to Black
+
+[State 95910, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 10
+value = 0
+
+[State 95910, VarAdd]
+type = VarAdd
+trigger1 = (time = [1,256])
+v = 10
+value = -1
+
+[State 95910, PalFX]
+type = PalFX
+trigger1 = timemod = 1,0
+time = 2
+add = Var(10), Var(10), Var(10)
+
+;---------Angle Variable
+
+[State 95910, VarSet]
+type = Varset
+trigger1 = time = 0
+fv = 11
+value = 3
+
+[State 95910, VarAdd]
+type = VarAdd
+trigger1 = 1
+fv = 11
+value = 0.075
+
+;Angle/NoHit/NoShadow
+[State 95910, AngleAdd]
+type = AngleAdd
+trigger1 = 1
+value = fVar(11)
+
+[State 95910, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = ifelse(time < 499,1-(time*0.002),0.001), ifelse(time < 500,1-(time*0.002),0.001)
+
+;------------------------------
+
+[State 95910, NoHit]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;If Alive
+[State 95910, PosAdd]
+type = PosAdd
+triggerall = alive
+trigger1 = time = 286
+trigger2 = p2stateno != 2001 && p2stateno != 95910
+x = 15
+y = 45
+
+[State 95910, AngleSet]
+type = Angleset
+triggerall = alive
+trigger1 = time = 286
+trigger2 = p2stateno != 2001 && p2stateno != 95910
+value = 0
+
+[State 95910, SelfState]
+type = Selfstate
+triggerall = alive
+trigger1 = time = 286
+trigger2 = p2stateno != 2001 && p2stateno != 95910
+value = 5050
+
+;If Dead
+[State 95910, PosAdd]
+type = PosAdd
+triggerall = !alive
+trigger1 = time = 286
+trigger2 = p2stateno != 2001 && p2stateno != 95910
+y = 99999
+
+[State 0, SelfState]
+type = SelfState
+triggerall = !alive
+trigger1 = time >= 286
+trigger2 = p2stateno != 2001 && p2stateno != 95910
+value = 5150
+
+;--------Dead Zone(Player 2 Dead Zone Custom state 3)
+
+[StateDef 95911]
+type    = L
+movetype= H
+physics = N
+velset = 0, 0
+ctrl = 0
+sprpriority = 2
+
+[State 95911, P2Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 95911
+
+[State 95911, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+movecamera = 0,0
+value	= 0
+
+[State 95011, PosAdd]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 95911, No Shadow]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = noshadow

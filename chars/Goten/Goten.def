@@ -1,0 +1,24 @@
+[Info]
+name = "Goten"
+displayname = "Goten"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Goten.sff
+anim = Goten.air
+sound = Goten.snd
+cmd = Goten.cmd
+cns = Goten.cns
+stcommon = common1.cns
+st = Goten.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = Goten.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

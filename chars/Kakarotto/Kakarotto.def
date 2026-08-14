@@ -1,0 +1,27 @@
+ Kakarotto From The Manga Dragon Ball Multiverse
+
+[Info]
+name ="Kakarotto - Dragon Ball Multiverse"
+displayname ="Kakarotto"
+versiondate = 
+mugenversion = 
+author ="Wrestling Revolution Mugen Y Tomo"
+pal.defaults =1,2,
+
+[Files]
+sprite =Kakarotto.sff
+anim =Kakarotto.air
+sound =Kakarotto.snd
+cmd =Kakarotto.cmd
+cns =Kakarotto.cns
+stcommon =common1.cns
+st =Kakarotto.cns
+pal1=kakarotto.act
+st1=attack.cns
+st2=special.cns
+st3=hyper.cns
+st4=AI.cns
+
+[Arcade]
+intro.storyboard =
+ending.storyboard =

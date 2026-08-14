@@ -1,0 +1,21 @@
+KID GOKU
+
+Special moves:
+------------------------
+Ki shot: qcf+P (also in air)
+
+Extended Pole Attack 1: qcb+P
+
+Extended Pole Attack 2: qcf+K
+
+Tornado Kick: qcb+ K (also in air)
+
+Ki Tackle: qcb+P (in air)
+------------------------
+Super moves:
+------------------------
+Kamehameha: qcf,qcf+HP (Lv.1, also in air)
+
+Dragon Rush: qcb,f+HK (Lv.2)
+
+Super Dragon Fist : qcf,qcf+HK (Lv.3)

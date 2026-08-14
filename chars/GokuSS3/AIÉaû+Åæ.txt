@@ -1,0 +1,34 @@
+超神氏製作キャラ「超サイヤ人２孫悟飯」のAIです。
+
+このAIは10段階のレベル調節が可能です。
+調節方法はcmdファイル(songohan.cmd)を開き、
+
+
+  [State -1, AIスイッチ]
+  type     = VarSet
+  triggerall = !var(59)
+  triggerall = RoundState = 2
+  trigger1 = (command="cpu1")||(command="cpu2")
+  trigger2 = (command="cpu3")||(command="cpu4")
+  trigger3 = (command="cpu5")||(command="cpu6")
+  .
+  .
+  .
+  trigger25 = (command="cpu49")||(command="cpu50")
+  trigger26 = NumHelper(9741)
+  trigger26 = Helper(9741),var(59)
+  ;         AIレベル
+  var(59) = 5　←この数値を変更してください
+
+
+メモ帳メニューの編集→検索から
+「AIレベル」で検索すると簡単に見つかります。
+
+
+☆スペシャルサンクス☆
+鳥山明先生
+Elecbyte様
+超神様
+
+☆AI製作☆
+misobon_ism

@@ -1,0 +1,37 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "cooler"
+displayname = "Cooler the 5th"
+versiondate = 11,11,2004
+mugenversion = 1.0
+author = "Merufimu edited by coldskin1"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = cooler.sff
+anim = coolerAIR.air
+sound = NEWcoolerSND.snd
+cmd = NEWcooler.cmd
+cns = NEWcooler.cns
+stcommon = devilseye.cns
+st = NEWcooler.cns
+st1 = helper_C.cns
+st2 = NEWcooler_n.cns
+st3 = -2-3c.cns
+st4 = null.cns
+st5 = enemy.cns
+st6 = othk.cns
+st7 = common_c.cns
+pal1 = NEWcooler1.act
+pal2 = NEWcooler3.act
+pal3 = NEWcooler2.act
+pal4 = NEWcooler4.act
+pal12= GoldenCooler.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = ..\data\final.def

@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+[Info]
+name="kaioshin"
+displayname="Kaioshin"
+versiondate=11,01,2008
+mugenversion=
+author="MiaoYu"
+pal.defaults=1,5,4,2
+[Files]
+sprite=kaioshin.sff
+anim=kaioshin.air
+sound=kaioshin.snd
+cmd=kaioshin.cmd
+cns=kaioshin.cns
+stcommon=common1.cns
+st=kaioshin.cns
+pal1=arcade.act
+pal2=buku2.act
+pal3=grey.act
+pal4=anime.act
+pal5=buku1.act
+pal6=movie.act
+st1=attack.cns
+st2=special.cns
+st3=hyper.cns
+st4=AI.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

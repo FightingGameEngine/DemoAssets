@@ -1,0 +1,24 @@
+[Info]
+name = "Nappa"
+displayname = "Nappa"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Nappa.sff
+anim = Nappa.air
+sound = Nappa.snd
+cmd = Nappa.cmd
+cns = Nappa.cns
+stcommon = common1.cns
+st = Nappa.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+pal1 = blue.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

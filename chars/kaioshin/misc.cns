@@ -1,0 +1,31 @@
+;================================================================================
+;                  超サイヤ人じゃなくなっちまったぞ！！
+;================================================================================
+;special KO code by Ironmugen
+
+[Statedef 6010]
+type = S
+physics = S
+;anim = 6010
+poweradd = 0
+sprpriority = -1
+velset = 0,0
+ctrl = 0
+facep2 = 1
+
+[State 6010, anim]
+type = Changeanim2
+trigger1 = time = 0
+value = 6010
+
+[State 6010, air]
+type = Changestate
+trigger1 = pos Y != 0
+trigger2 = NumHelper(6969) = 1
+value = 5000
+
+[State 220, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 5150
+

@@ -1,0 +1,41 @@
+COOLER MOVESET
+
+------------------------
+Special moves:
+------------------------
+Death Beam (can in air): D,DF,F + WP or HP (use 100 spirit)
+
+Death Spark: D, DB, B + WP or HP (use 100 spirit)
+
+Darkness Eyebeam Pillar: F, D, DF + WP or HP
+
+Unfair Kick: D,DF,F + WK or HK
+
+Diving Knee Attack: (during jump) D, DB, B + WK or HK (can cancel an Unfair Kick, if connected)
+
+Head Stomp: B, DB, D + WK or HK
+
+Sauzer Waves: D, DB, B + WK or HK (use 100 spirit)
+
+Ruthless Punishment: D, DB, B, F + HP
+
+
+------------------------
+Special Techniques:
+------------------------
+Energy Charge: HP + HK (hold down)
+
+High-Speed Dodge: WP + WK or B + WP + WK (vulnerable to throws)
+
+Cruel Stomp: (during stand/crouch guard) WP + WK (Lv1 Hyper)
+
+
+------------------------
+Super moves:
+------------------------
+Sauzer Blade (can in air): D, DF, F, D, DF, F + HP (Lv1 Hyper)
+
+Death Piercing: : D, DF, F, D, DF, F + HK (Lv2 Hyper)
+
+Supernova Ball: D, DB, B, F + HK (Lv3 Hyper)
+

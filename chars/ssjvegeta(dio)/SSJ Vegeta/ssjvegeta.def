@@ -1,0 +1,35 @@
+[info]
+name ="vegeta"
+displayname ="Vegeta"
+versiondate =05,16,2008
+mugenversion =
+author ="CHOUJIN"
+;SSJ Patch by Stig87 
+pal.defaults =4, 1, 5, 2, 3, 6 
+
+[files]
+cns =vegeta.cns
+sprite =vegeta.sff
+anim =vegeta.air
+sound =vegeta.snd
+cmd =vegeta.cmd
+stcommon =common1.cns
+st =vegeta.cns
+pal1=vegeta.act
+pal2=ssj.act
+pal3=super2.act
+pal4=red.act
+pal5=pitch.act
+pal6=evil.act
+st1=attacks.cns
+st2=specials.cns
+st3=hypers.cns
+st4=AI.cns
+
+;[arcade]
+;intro.storyboard=
+;ending.storyboard=
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

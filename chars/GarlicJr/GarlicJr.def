@@ -1,0 +1,25 @@
+[Info]
+name = "GarlicJr"
+displayname = "Garlic Jr"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = GarlicJr.sff
+anim = GarlicJr.air
+sound = GarlicJr.snd
+cmd = GarlicJr.cmd
+cns = GarlicJr.cns
+stcommon = common1.cns
+st = GarlicJr.cns
+st1 = attacks.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = misc.cns
+pal1 = GarlicJr.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def
