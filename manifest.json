@@ -8,7 +8,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/android17/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/android17/",
       "files": [
         "android17.def",
         "android17.cmd",
@@ -29,7 +29,7 @@
       "description": "",
       "sizeMB": 8,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Bardock/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Bardock/",
       "files": [
         "Bardock.def",
         "Bardock.sff",
@@ -52,7 +52,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/cell/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/cell/",
       "files": [
         "cell.def",
         "cell.cns",
@@ -79,7 +79,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Chiaotzu/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Chiaotzu/",
       "files": [
         "Chiaotzu.def",
         "Chiaotzu.sff",
@@ -101,7 +101,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/clr/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/clr/",
       "files": [
         "cooler.def",
         "cooler.cmd",
@@ -122,7 +122,7 @@
       "description": "",
       "sizeMB": 48,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Cooler%20Final/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Cooler%20Final/",
       "files": [
         "Cooler Final.def",
         "cooler.sff",
@@ -151,7 +151,7 @@
       "description": "",
       "sizeMB": 49,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Cooler%20the%20fifth/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Cooler%20the%20fifth/",
       "files": [
         "Cooler the fifth.def",
         "cooler.sff",
@@ -181,7 +181,7 @@
       "description": "",
       "sizeMB": 11,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Cooler_by_Miaoyu/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Cooler_by_Miaoyu/",
       "files": [
         "cooler.def",
         "cooler.sff",
@@ -207,7 +207,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/daimaoh/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/daimaoh/",
       "files": [
         "daimaoh.def",
         "daimaoh.cns",
@@ -235,7 +235,7 @@
       "description": "",
       "sizeMB": 6,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/DBZ_Super%20Buu/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/DBZ_Super%20Buu/",
       "files": [
         "DBZ_Super Buu.def",
         "buu.cns",
@@ -262,7 +262,7 @@
       "description": "",
       "sizeMB": 10,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Dodoria/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Dodoria/",
       "files": [
         "Dodoria.def",
         "Dodoria.sff",
@@ -285,7 +285,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/drgero/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/drgero/",
       "files": [
         "drgero.def",
         "drgero.cns",
@@ -313,7 +313,7 @@
       "description": "",
       "sizeMB": 102,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/EX_janemba/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/EX_janemba/",
       "files": [
         "EX_janemba.def",
         "janemba.sff",
@@ -335,7 +335,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/fatbuu/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/fatbuu/",
       "files": [
         "fatbuu.def",
         "fatbuu.cmd",
@@ -363,7 +363,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/frieza/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/frieza/",
       "files": [
         "frieza.def",
         "frieza.cmd",
@@ -390,7 +390,7 @@
       "description": "",
       "sizeMB": 6,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/G_songoku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/G_songoku/",
       "files": [
         "G_songoku.def",
         "songoku.cmd",
@@ -412,7 +412,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/GarlicJr/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/GarlicJr/",
       "files": [
         "GarlicJr.def",
         "GarlicJr.sff",
@@ -435,7 +435,7 @@
       "description": "",
       "sizeMB": 12,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/GohanMystic/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/GohanMystic/",
       "files": [
         "GohanMystic.def",
         "GohanMystic.sff",
@@ -458,7 +458,7 @@
       "description": "",
       "sizeMB": 24,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/GokuSS3/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/GokuSS3/",
       "files": [
         "GokuSS3.def",
         "NewGoku.cns",
@@ -488,7 +488,7 @@
       "description": "",
       "sizeMB": 6,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Goten/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Goten/",
       "files": [
         "Goten.def",
         "Goten.sff",
@@ -510,7 +510,7 @@
       "description": "",
       "sizeMB": 6,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Gotenks/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Gotenks/",
       "files": [
         "gotenks.def",
         "gotenks.cmd",
@@ -531,7 +531,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Gotenks%20SSJ3/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Gotenks%20SSJ3/",
       "files": [
         "Gotenks SSJ3.def",
         "gotenks.cmd",
@@ -552,7 +552,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/GreatSaiyaman/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/GreatSaiyaman/",
       "files": [
         "GreatSaiyaman.def",
         "GreatSaiyaman.sff",
@@ -576,7 +576,7 @@
       "description": "",
       "sizeMB": 8,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Guldo/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Guldo/",
       "files": [
         "Guldo.def",
         "Guldo.sff",
@@ -598,7 +598,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/insectcell/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/insectcell/",
       "files": [
         "insectcell.def",
         "insectcell.cmd",
@@ -626,7 +626,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/janemba/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/janemba/",
       "files": [
         "janemba.def",
         "janemba.sff",
@@ -653,7 +653,7 @@
       "description": "",
       "sizeMB": 11,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Jeice/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Jeice/",
       "files": [
         "Jeice.def",
         "Jeice.sff",
@@ -676,7 +676,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Kaioken%20Goku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Kaioken%20Goku/",
       "files": [
         "Kaioken Goku.def",
         "songoku.cmd",
@@ -698,7 +698,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/kaioshin/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/kaioshin/",
       "files": [
         "kaioshin.def",
         "kaioshin.sff",
@@ -726,7 +726,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Kakarotto/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Kakarotto/",
       "files": [
         "Kakarotto.def",
         "Kakarotto.sff",
@@ -749,7 +749,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/kid%20goku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/kid%20goku/",
       "files": [
         "kid goku.def",
         "kid goku.cmd",
@@ -770,7 +770,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/kidgohan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/kidgohan/",
       "files": [
         "kidgohan.def",
         "kidgohan.cmd",
@@ -800,7 +800,7 @@
       "description": "",
       "sizeMB": 8,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Krillin/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Krillin/",
       "files": [
         "Krillin.def",
         "Krillin.sff",
@@ -822,7 +822,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/LordSlug/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/LordSlug/",
       "files": [
         "LordSlug.def",
         "LordSlug.sff",
@@ -845,7 +845,7 @@
       "description": "",
       "sizeMB": 11,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Majuub/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Majuub/",
       "files": [
         "Majuub.def",
         "uub.cmd",
@@ -867,7 +867,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/MercenaryTao/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/MercenaryTao/",
       "files": [
         "MercenaryTao.def",
         "MercenaryTao.sff",
@@ -889,7 +889,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/metacooler/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/metacooler/",
       "files": [
         "metacooler.def",
         "metacooler.cmd",
@@ -910,7 +910,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/mrsatan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/mrsatan/",
       "files": [
         "mrsatan.def",
         "mrsatan.cns",
@@ -937,7 +937,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/mutenroshi/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/mutenroshi/",
       "files": [
         "mutenroshi.def",
         "mutenroshi.cmd",
@@ -958,7 +958,7 @@
       "description": "",
       "sizeMB": 12,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Nappa/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Nappa/",
       "files": [
         "Nappa.def",
         "Nappa.sff",
@@ -980,7 +980,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/omegashenron/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/omegashenron/",
       "files": [
         "omegashenron.def",
         "omegashenron.cmd",
@@ -1001,7 +1001,7 @@
       "description": "",
       "sizeMB": 11,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Paikuhan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Paikuhan/",
       "files": [
         "Paikuhan.def",
         "Pikkon.sff",
@@ -1024,7 +1024,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/piccolo/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/piccolo/",
       "files": [
         "piccolo.def",
         "piccolo.cns",
@@ -1052,7 +1052,7 @@
       "description": "",
       "sizeMB": 22,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Raditz/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Raditz/",
       "files": [
         "Raditz.def",
         "Raditz.sff",
@@ -1075,7 +1075,7 @@
       "description": "",
       "sizeMB": 22,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/recoom%20g6/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/recoom%20g6/",
       "files": [
         "recoom g6.def",
         "Nappa.cmd",
@@ -1099,7 +1099,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/songohan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/songohan/",
       "files": [
         "songohan.def",
         "songohan.cns",
@@ -1128,7 +1128,7 @@
       "description": "",
       "sizeMB": 33,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/songokuG/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/songokuG/",
       "files": [
         "songokuG.def",
         "songoku.cmd",
@@ -1161,7 +1161,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/sonGotenks/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/sonGotenks/",
       "files": [
         "sonGotenks.def",
         "songotenks.cns",
@@ -1193,7 +1193,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/SSJ4%20Goku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/SSJ4%20Goku/",
       "files": [
         "SSJ4 Goku.def",
         "songoku.cmd",
@@ -1226,7 +1226,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/SSJ4SongokuDaima/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/SSJ4SongokuDaima/",
       "files": [
         "SSJ4SongokuDaima.def",
         "ssjsongoku_cmd.cns",
@@ -1253,7 +1253,7 @@
       "description": "",
       "sizeMB": 10,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/SSJBlueGoku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/SSJBlueGoku/",
       "files": [
         "SSJBlueGoku.def",
         "ssjsongoku.cmd",
@@ -1276,7 +1276,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/SSJBlueVegeta/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/SSJBlueVegeta/",
       "files": [
         "SSJBlueVegeta.def",
         "vegeta.cns",
@@ -1300,7 +1300,7 @@
       "description": "",
       "sizeMB": 4,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/ssjsongoku/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/ssjsongoku/",
       "files": [
         "ssjsongoku.def",
         "ssjsongoku.cmd",
@@ -1328,7 +1328,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/ssjvegeta(dio)/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/ssjvegeta(dio)/",
       "files": [
         "ssjvegeta(dio).def",
         "vegeta.cns",
@@ -1355,7 +1355,7 @@
       "description": "",
       "sizeMB": 17,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/SSjVegito/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/SSjVegito/",
       "files": [
         "SSjVegito.def",
         "ssjsongoku.cmd",
@@ -1387,7 +1387,7 @@
       "description": "",
       "sizeMB": 25,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Super%20Gohan%20Ver%201/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Super%20Gohan%20Ver%201/",
       "files": [
         "Super Gohan Ver 1.def",
         "ugohan.sff",
@@ -1415,7 +1415,7 @@
       "description": "",
       "sizeMB": 24,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Super%20Majin%20Buu%20Ver%201/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Super%20Majin%20Buu%20Ver%201/",
       "files": [
         "Super Majin Buu Ver 1.def",
         "Majin Buu.cmd",
@@ -1441,7 +1441,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Tao%20Pai%20Pai/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Tao%20Pai%20Pai/",
       "files": [
         "Tao Pai Pai.def",
         "MercenaryTao.sff",
@@ -1463,7 +1463,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/tenshinhan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/tenshinhan/",
       "files": [
         "tenshinhan.def",
         "tenshinhan.cmd",
@@ -1490,7 +1490,7 @@
       "description": "",
       "sizeMB": 10,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Tien/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Tien/",
       "files": [
         "Tien.def",
         "Tien.sff",
@@ -1512,7 +1512,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/trunks/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/trunks/",
       "files": [
         "trunks.def",
         "trunks.cns",
@@ -1540,7 +1540,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/TrunksKid/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/TrunksKid/",
       "files": [
         "TrunksKid.def",
         "TrunksKid.sff",
@@ -1562,7 +1562,7 @@
       "description": "",
       "sizeMB": 9,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Turles/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Turles/",
       "files": [
         "Turles.def",
         "Turles.sff",
@@ -1585,7 +1585,7 @@
       "description": "",
       "sizeMB": 17,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Ultimate%20Normal%20Gohan/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Ultimate%20Normal%20Gohan/",
       "files": [
         "ultimate normal gohan.def",
         "ugohan.sff",
@@ -1613,7 +1613,7 @@
       "description": "",
       "sizeMB": 15,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/VegetaMajin/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/VegetaMajin/",
       "files": [
         "VegetaMajin.def",
         "VegetaMajin.sff",
@@ -1636,7 +1636,7 @@
       "description": "",
       "sizeMB": 17,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Vegito/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Vegito/",
       "files": [
         "Vegito.def",
         "Vegito.sff",
@@ -1659,7 +1659,7 @@
       "description": "",
       "sizeMB": 6,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Videl/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Videl/",
       "files": [
         "Videl.def",
         "Videl.sff",
@@ -1681,7 +1681,7 @@
       "description": "",
       "sizeMB": 7,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/Yamcha/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/Yamcha/",
       "files": [
         "Yamcha.def",
         "Yamcha.sff",
@@ -1704,7 +1704,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/chars/zarbon/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/chars/zarbon/",
       "files": [
         "zarbon.def",
         "zarbon.cmd",
@@ -1727,7 +1727,7 @@
       "description": "",
       "sizeMB": 5,
       "bundled": false,
-      "cdnBase": "https://cdn.jsdelivr.net/gh/nawaf-al-hussain/FightingGameEngine-Assets@main/stages/",
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
       "files": [
         "Masjid_Al_Mustafa.def",
         "Masjid_Al_Mustafa.sff"
