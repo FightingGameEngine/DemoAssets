@@ -1,0 +1,217 @@
+
+--What has been done since V1
+
+reworked,Revised and shiney sprites
+
+Compleatly new mode with it's own uniqe moves,supers and cough um......personality ^_^
+
+
+--What still needs to be done--
+
+
+Some bugs may be still be present, if you find any please notify us.
+
+
+Carnage Cosmic mode: At select screen, highlight Silver Surfer, hold "s" and press "z"
+
+
+==================MOVELIST Silver surfer===================
+
+-----------------Guard Reversals---------------------------
+Note* Has to be done in standing or crouching guard when opponent is close. (time sensitive)
+
+Punch : x+y+z
+
+Kick : a+b+c
+
+-----------------Specials---------------------------
+---Off Board------
+
+Shockwave :  D, DF, F, x
+
+Power Cosmic Beam (straight) :  D, DF, F, y
+
+Power Cosmic Beam (up diagonal)  :  D, DF, F, z
+
+Air Power Cosmic Beam (down diagonal)  :  D, DF, F, x
+
+Air Power Cosmic Beam (straight) :  D, DF, F, y
+
+Air Power Cosmic Beam (diagonal)  :  D, DF, F, z
+
+Portal Beam 1 :  D, DB, B, x
+
+Portal Beam 2 :  D, DB, B, y
+
+Portal Beam 3 :  D, DB, B, z
+
+Cosmic Reflector 1: D, DB, B, a	|
+
+Cosmic Reflector 2: D, DB, B, b	| Reflects most projectiles
+
+Cosmic Reflector 3: D, DB, B, c	|
+
+Rock Throw 1: B, DB, D, DF, F, a
+
+Rock Portal Throw 2: B, DB, D, DF, F, b
+
+Rock Bomb Throw 3: B, DB, D, DF, F, c
+
+Throw Board 1: Hold B, F, x
+
+Throw Board 2: Hold B, F, y
+
+Throw Board 3: Hold B, F, z
+
+Call Nova 1: Hold B, F, a
+
+Call Nova 2: Hold B, F, b
+
+Call Nova 3: Hold B, F, c
+
+Ride Board (ground and in air) : x+a
+
+Summon small Meteor 1: y+b
+
+Summon big Meteor 2: z+c
+
+---On Board------
+Power Cosmic Beam (straight) :  D, DF, F, x
+
+Power Cosmic Beam (straight) :  D, DF, F, y
+
+Power Cosmic Beam (straight) :  D, DF, F, z
+
+Charged Cosmic Shot 1: hold z and release
+
+Charged Cosmic Shot 2: hold z longer and release (will automatically fire after a certain time)
+
+Summon Meteor 1: y+b
+
+Summon Meteor 2: z+c
+
+-----------------Lvl 1 Supers--------------------------------
+Multi Portal Beams: D, DF, F, x+y 			
+
+Light Speed Rush:  D, DB, B, x+y (also on board) 
+
+Meteor Shower: D, DF, F, a+b (also on board) 
+
+Cosmic Orb: D, DB, B, a+b 
+Note*  Cosmic Orb can be independently controlled.
+Press "z" for scatter shot fire. 
+Press "c"  to halt movement
+
+Javelin Cosmic : while charging cosmic shot D, DF, F, x+y
+
+Ultra cosmic beam: D, DF, F, x+y  (on board only) 
+
+----------------- Lvl 3 Hypers-----------------------------------
+
+---Off Board------
+Call Galactus: D, DB, B, z+c 
+
+---On Board------
+Cosmic Explosion: D, DB, B, z+c	
+
+
+
+
+
+
+
+==================MOVELIST Carnage cosmic===================
+-----------------Guard Reversals---------------------------
+Note* Has to be done in standing or crouching guard when opponent is close. (time sensitive)
+
+Punch : x+y+z
+
+Kick : a+b+c
+
+
+-----------------Specials---------------------------
+---Off Board------
+
+Blade swipe :  D, DF, F, x
+
+Power Cosmic Beam (straight) :  D, DF, F, y
+
+Double Power Cosmic Beam (straight)  :  D, DF, F, z
+
+Air Power Cosmic burst (down diagonal)  :  D, DF, F, x
+
+Air Power Cosmic burst (straight) :  D, DF, F, y
+
+Air Power Cosmic burst (diagonal)  :  D, DF, F, z
+
+energy eruption 1 :  D, DB, B, x
+
+energy eruption 2 :  D, DB, B, y
+
+energy eruption 3 :  D, DB, B, z
+
+Cosmic Reflector 1: D, DB, B, a	|
+
+Cosmic Reflector 2: D, DB, B, b	| Reflects most projectiles
+
+Cosmic Reflector 3: D, DB, B, c	|
+
+Summon small Meteor 1: B, DB, D, DF, F, a 
+
+Summon big Meteor 2: B, DB, D, DF, F, b
+
+Summon Meteor bomb 3: B, DB, D, DF, F, c
+
+Throw Board 1: Hold B, F, x
+
+Throw Board 2: Hold B, F, y
+
+Throw Board 3: Hold B, F, z
+
+energy wave 1: Hold B, F, a
+
+Multi lasers 2: Hold B, F, b
+
+exploding energy spikes 3: Hold B, F, c
+
+Ride Board (ground and in air) : x+a
+
+
+---On Board------
+Power Cosmic Beam (straight) :  D, DF, F, x
+
+Double Power Cosmic Beam (straight) :  D, DF, F, y
+
+Power Cosmic Burst (straight) :  D, DF, F, z
+
+Charged Cosmic Shot 1: hold z and release
+
+Charged Cosmic Shot 2: hold z longer and release (will automatically fire after a certain time)
+
+Summon small Meteor 1: B, DB, D, DF, F, a 
+
+Summon big Meteor 2: B, DB, D, DF, F, b
+
+Summon Meteor bomb 3: B, DB, D, DF, F, c
+
+Angry dash: while dashing forward and...... you figure it out!
+
+
+-----------------Lvl 1 Supers--------------------------------
+Multi energy eruption: D, DF, F, x+y 			
+
+Ultra cosmic mouth beam:  D, DB, B, x+y (also on board) 
+
+Meteor Shower: D, DF, F, a+b (also on board) 
+
+Chaos sphere: D, DB, B, a+b 
+
+Tornado cosmic: D, DF, F, x+y  (on board only) 
+
+----------------- Lvl 3 Hypers-----------------------------------
+
+---Off Board------
+Micro black hole: D, DB, B, z+c 
+
+---On Board------
+Cosmic Explosion: D, DB, B, z+c	

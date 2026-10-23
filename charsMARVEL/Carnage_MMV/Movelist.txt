@@ -1,0 +1,39 @@
+						carnage beta.95 by T.O.P.S & futur3
+
+
+
+						         movelist 
+
+
+
+
+
+
+Specials:
+
+
+ground claw						D,DF,F  x,y,z            
+
+
+blade slash						D,DB,B  x,y,z
+
+
+you axed for it						D,DB,B  a					
+
+
+needle throw						D,DF,F  x,y,z (in air only)
+
+
+============================================================================================================
+
+
+hypers:
+
+blade frenzy						D,DB,B,D,DB,B  x+y   (power >= 1000)
+
+maximum carnage						D,DF,F,D,DF,F  x+y   (power >= 1000)
+
+tendril destroyer					D,DF,F,D,DF,F  a+b   (power >= 2000)
+
+cyber carnage						D,DF,F,D,DF,F  z+c   (power >= 3000)
+

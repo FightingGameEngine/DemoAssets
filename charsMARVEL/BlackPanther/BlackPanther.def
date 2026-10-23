@@ -1,0 +1,37 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Black Panther"
+displayname = "Black Panther"
+versiondate = 01/01/2013
+mugenversion = 1.0
+author = "Arkady"
+pal.defaults = 1,2,3,4,5,6,7
+
+[Files]
+sprite = BlackPanther.sff
+anim = BlackPanther.air
+sound = BlackPanther.snd
+cmd = BlackPanther.cmd
+cns = BlackPanther.cns
+stcommon = common1.cns
+st = BlackPanther.cns
+pal1 = AvX1.act
+pal2 = AvX1.act
+pal3 = AvX1.act
+pal4 = AvX1.act
+pal5 = AvX1.act
+pal6 = AvX1.act
+pal7 = AvX1.act
+pal8 = AvX1.act
+pal9 = AvX1.act
+pal10 = AvX1.act
+pal11 = AvX1.act
+pal12 = AvX1.act
+
+[Arcade]
+intro.storyboard = ..\AvX\Arcade.def
+ending.storyboard = ..\data\AvX\Ending01.def

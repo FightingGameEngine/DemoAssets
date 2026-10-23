@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Mystique"
+displayname = "Mystique"
+versiondate = 04,14,2001
+mugenversion = 04,14,2001
+author = "ZVitor"
+pal.defaults = 1,6
+
+[Files]
+sprite = MarvelTemplate.sff
+anim = MarvelTemplate.air
+sound = MarvelTemplate.snd
+cmd = MarvelTemplate.cmd
+cns = MarvelTemplate.cns
+stcommon = DCvsMarvelcommon1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+st4 = amalgam.st
+pal1 = pal1.act
+pal2 = pal1.act
+pal3 = pal1.act
+pal4 = pal1.act
+pal5 = pal1.act
+pal6 = pal6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Black Cat"
+displayname = "Black Cat"
+versiondate = 04,14,2002
+mugenversion = 04,14,2002
+author = "Sprites: Beja, Xfields Codes: O Ilusionista, Mauteck, Eclipse"
+pal.defaults = 1,5,7,6
+
+[Files]
+sprite = BlackCat.sff
+anim = BlackCat.air
+sound = BlackCat.snd
+cmd = BlackCat.cmd
+cns = cns\BlackCat.cns
+stcommon = cns\BlackCatcommon.cns
+st = cns\BlackCat.cns
+st1 = cns\supers.cns
+st2 = cns\hypers.cns
+st3 = cns\Settings.cns
+pal1 = act\BCOriginal.act
+pal2 = act\BCOriginal.act
+pal3 = act\BCOriginal.act
+pal4 = act\BCOriginal.act
+pal5 = act\BCOriginal.act
+pal6 = act\BCOriginal.act
+pal7 = act\BCOriginal.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

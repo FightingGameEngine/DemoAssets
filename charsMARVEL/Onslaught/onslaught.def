@@ -1,0 +1,44 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Onslaught"
+displayname = "Onslaught"
+versiondate = 7,30,2009
+mugenversion = 4,14,2001
+author = "XsLaught"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = onslaught.sff
+anim = onslaught.air
+sound = onslaught.snd
+cmd = onslaught.cmd
+cns = onslaught.cns
+stcommon = common1.cns
+st = common.st
+st1 = onslaught1.st
+st2 = onslaught2.st
+st3 = sentinel.st
+st4 = -2.st
+st5 = -3.st
+st6 = ai.st
+st7 = config.txt
+pal1 = palettes\onslaught.act
+pal2 = palettes\aquaslaught.act
+pal3 = palettes\shadowslaught.act
+pal4 = palettes\boldslaught.act
+pal5 = palettes\camoslaught.act
+pal6 = palettes\earthslaught.act
+pal7 = palettes\fireslaught.act
+pal8 = palettes\greenslaught.act
+pal9 = palettes\iceslaught.act
+pal10 = palettes\onslaughtx.act
+pal11 = palettes\redslaught.act
+pal12 = palettes\bioslaught.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

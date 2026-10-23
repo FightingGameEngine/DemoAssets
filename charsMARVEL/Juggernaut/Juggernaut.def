@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Juggernaut"
+displayname = "Juggernaut"
+versiondate = 10/14/2011
+mugenversion = 1.0
+author = "Acey"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = Juggernaut_MvC.sff
+anim = Juggernaut_MvC.air
+sound = Juggernaut_MvC.snd
+cmd = Juggernaut_MvC.cmd
+cns = Juggernaut_MvC.cns
+stcommon = common1.cns
+st = Juggernaut_MvC.cns
+pal1 = px4.act
+pal2 = px4.act
+pal3 = px4.act
+pal4 = px4.act
+pal5 = px4.act
+pal6 = px4.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

@@ -1,0 +1,19 @@
+[Info]
+name="Rocket Racoon"
+displayname="Rocket Racoon"
+versiondate=
+mugenversion=
+author=""
+pal.defaults=1,2,3,4
+[Files]
+sprite=rocket.sff
+sound=rocket.snd
+anim=rocket.air
+cmd=rocket.cmd
+cns=rocket.cns
+st=rocket.cns
+stcommon=common1.cns
+pal1=rocket.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,173 @@
+Update Log for Jon Talbain_EOH version. Note that this is mainly for me to keep track of all the 
+work and fixes Jon receives, so it may be abit long and boring.
+
+----------------------------------------------------------------------------------------------
+
+April 17th, 2008
+----------------
+-Private beta testing (phase 1)
+
+April 18th, 2008
+----------------
+-Fixed found bugs with walking anim, custom state during Cascade Rush, and low damage for Hypers
+-Double layering for psi-knife, and psychic-related energy for a glowing effect (80% done)
+-Added Chain Kick (tent. name) to Hayate no Jutsu
+-Various tweaks for all moves  
+
+April 21st, 2008
+----------------
+-Private release (beta testing purposes, phase 2)
+-Added new cut sparks for Concussion
+-Recoded all explods used for double layering 
+-Added missing sound for Jumping LP
+
+April 22nd, 2008
+----------------
+-Redid Chain Kick (tent. name) 
+-Removed all explods used for double layering for Psi-Thrust
+-Private release (beta testing purposes, phase 3)
+
+May 8th, 2008
+-------------
+-Many fixes & additions!
+-Vanity Flip added
+-Added hitsparks
+-Added AI (alpha state)
+-Private release (real beta testing purposes, phase 4)
+
+June 27th, 2008
+---------------
+-Public release (canceled due to personal issues ;_;)
+
+August 31st, 2008
+------------------
+-Added recovery flip after a downward Psi-Thrust touches the ground after initiating a Turn
+-Added Hyper BG during preparation of Psychic Veil, as well as additional coding to this Hyper 
+ for it to reverse attacks that put a character into a custom state
+-Tweaked taunt
+-Adjusted jumping speed & height, and control (air jump and super jump as well)
+-Eliminated truncated interger issue for all launchers (FINALLY!!!!!!)
+-Added icon (temp)
+-Adjusted Moonsault's vels on the enemy in correspondence with change in jumping speed & height
+-Increased the enemy's hittime during Spin Chain (tentively Chain Kick) to prevent quick recovery 
+ after 1st hit
+-Designing palettes (phase 1)
+-Redid triggers for Variable Counter, now works within a time window
+-Changed motion for Psychic Veil
+
+September 1st, 2008
+-------------------
+-Kouchou Gakure will put Psylocke into state 0 if done on the ground
+-Increased damage for Psi-Thrust
+-Reduced pausetime on P2 if hit by Heel Drop
+-Reduced damage by Cascade Rush
+-Designing palettes (phase 2) 
+
+September 2nd, 2008
+-------------------
+-Palettes done (7 in total)
+
+September 6th, 2008
+------------------
+-Adjusted P2 vels when knocked down by jumping HK (may need to do a little more)
+-Fixed default 4-way split for Kouchou Gakure
+
+September 19th, 2008
+--------------------
+-Added knock out of the screen sequence for Psi-Malestrom
+
+September 20th - October 2nd, 2008
+----------------------------------
+-Beta test @ Infinity
+-Started cleaning up cns
+-Fixed transparency issue with MP version of Psi-Blast hit FX
+-Tweaked misalignment issue with one of intros
+-Updated hitsparks and other FX from Kong's sprite rips
+-Tweaked air jump x vels abit
+-Reanimated some of jump animations
+
+October 14th, 2008
+------------------
+-Tweaked some areas concerning MvC Physics
+-Added a (temp) Counter FX to Variable Counters
+
+October 15th, 2008
+------------------
+-Tweaked Advancing Guard
+-Added Select Screen Portrait
+
+October 19th-20th, 2008
+-----------------------
+-Tweaked vels for Thrust during Ninjutsu
+-Tweaked coding related to Slam fx
+
+October 28th, 2008
+------------------
+-Recoded psi-blades into helpers
+-Psylocke no longer has control after Kouchou Gakure if done in midair
+
+October 30th, 2008
+------------------
+-Tweaked clone's positioning in air during Illusion
+
+November 2th, 2008
+------------------
+-Changed Hell Ride's effect on P2
+
+November 3rd-4th 2008
+---------------------
+-Increased ticks of SLP to avoid infinites
+-Reduced damage of Kouchou Gakure 
+-Fixed bug where psy blades would remain if opponent falls down early during Psi-Malestrom
+-Added custom landing anim for Psi-Thrust (Straight & Back) if done on the ground to avoid 
+ infinite comboes
+-Fixed a few ill-written expressions and lines
+-Recoded the rest of the normal psy-blades into helpers
+-Tweaked Illusion
+-Tweaked MvC-related physics
+-Can jump cancel, special cancel, and hyper cancel during Dash Fwd and Dash Back
+
+November 6th 2008
+-----------------
+-Tweaked Psi-Malestrom to draw characters closer if it hits
+
+December 08, 2008
+-----------------
+-Reduced hitpause and increased input time for Thrust Turn for Psi-Thrust
+-Reduced hitpause and pull on the opponent during Psi-Malestrom
+-Fixed issue with flash not appearing during XCOTA intro
+-Tweaked x vels at frontedgebodydist during throw Hell Ride
+-Decreased opponent's stun if hit by F+MK
+
+December 15, 2008
+-----------------
+-Increased recovery time during Kouchou Gakure
+-Increased input time for followups during Forward Dash, and added ability
+ to block (was possible before, but method wasn't refined well)
+
+April 07-20, 2009
+-----------------
+-Fixed issue where shadow clones would be unaligned after certain moves (i.e Psy-Blade Spin)
+-Tweaked Spin Chain to correct issues with it missing on the 2nd hit
+-Revamped triggers in cmd to make executing of moves much easier
+-Revised Aerial Rave system abit, and tweaked jump attacks
+-Tweaked launcher, so that p2facing = 1
+-Redid Hyper initiation
+-Tweaked AI (still nothing great)
+-Tweaked p2's knockback effect on p2
+-Added 6 new palettes and made them compatible to Concussion
+-Lowered invincibility time against physical and projectile attacks during Illusion
+-Tweaked clones during Illusion so that they don't cause p2 to go into blocking state
+-Tweaked Knockback
+-Reinstated Screenbound during Ninjutsu and tweaked triggers
+
+
+May 10, 2009
+------------
+-Fixed some palettes
+-Increased ticks for Stand MP to prevent chaining into itself
+-Tweaked running onto screen sequence
+-Tweaked shadow clones so that they align after Psylocke's knocked down during
+ Illusion
+-Fixed issues with Combo Messages
+-Added black bg during Hyper Initiation

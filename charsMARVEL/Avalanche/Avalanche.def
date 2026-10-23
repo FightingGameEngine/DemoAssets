@@ -1,0 +1,59 @@
+[Info]
+name ="Avalanche"
+displayname ="Avalanche"
+versiondate =20.02.2013
+mugenversion =1.0 
+author ="Arkady & Electro"
+pal.defaults =1,2,3,4,5,6,7
+
+[Files]
+sprite =Avalanche.sff
+anim =Avalanche.air
+sound =Avalanche.snd
+cmd =Avalanche.cmd
+cns =Avalanche.cns
+stcommon =Common1.cns
+st =Basics.st
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=7.act
+pal9=7.act
+pal10=7.act
+pal11=7.act
+pal12=7.act
+st1=Specials.st
+st2=Hypers.st
+st3=Statedef-2.st
+st4=Statedef-3.st
+st5=Flight.st
+st6=Extra.st
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 
+
+;Avalanche by Arkady (sprites and coding)
+
+;Specials
+;========
+;Excavation		D,DF,F + P
+;Earthquake		D,DB,B + P
+;Eruption Charge		D,DF,F + K
+;Rictor Kick		D,DB,B + K
+
+;Hypers
+;======
+;Land Slide       	D,DF,F + 2P
+;shock Wave		D,DB,B + 2P
+;Uproot  	        D,DF,F + 2K
+;Underground and Pound	D,DB,B + 2K
+
+;credits
+;========
+;new sprites & code updates by Arkady 
+;new sounds by Hypersonic92

@@ -1,0 +1,115 @@
+;----------------------------CVG TEMPLATE-------------------------------------------
+;VARIABLES
+;-----------------------------------------------------------------------------------
+;var(0) -statedef -1 Artificial Intelligence
+;var(2) -Guard Crush Feature
+;var(18) -K.O sounds
+;var(30) - 620 Wall Bounce Counter
+;var(48) -Combos for Artificial Intelligence
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+
+[Data]
+;Amount of life to start with
+life = 1300
+;attack power (more is stronger)
+attack = 130
+;defensive power (more is stronger)
+defence = 150
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 100
+;Time which player lies down for, before getting up
+liedown.time = 50
+;Number of points for juggling
+airjuggle = 45;15
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40;s8001
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 255
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 50
+FloatPersistIndex = 20
+
+[Size]
+xscale = 1 ;Horizontal scaling factor.
+yscale = 1 ;Vertical scaling factor.
+ground.back = 20 ;Player width (back, ground)
+ground.front = 20 ;Player width (front, ground)
+air.back = 18  ;Player width (back, air)
+air.front = 22 ;Player width (front, air)
+height = 60  ;Height of player (for opponent to jump over)
+attack.dist = 160   ;Default attack distance
+attack.width = 4,4  ;Default attack width
+proj.dist = 90  ;Default attack distance for projectiles
+proj.attack.dist = 90 ;Default projectiles attack distance
+proj.doscale = ;0 Set to 1 to scale projectiles too
+head.pos = 1, -83 ;Approximate position of head
+mid.pos = 1, -53  ;Approximate position of midsection
+shadowoffset = 0 ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0 ;Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd = 3.8  ;Walk forward
+walk.back = -3.1  ;Walk backward
+run.fwd = 7     ;Run forward (x, y)
+run.back = -7,-3 ;Hop backward (x, y)
+jump.neu = 0,-9.0 ;Neutral jumping velocity (x, y)
+jump.back = -3.7  ;Jump back Speed (x, y)
+jump.fwd = 3.2   ;Jump forward Speed (x, y)
+runjump.fwd = 6.4
+runjump.back = -4.4
+airjump.neu = 0, -8.9
+airjump.fwd = 2.5 ;Air jump speeds (opt)
+airjump.back = -2.55
+
+[Movement]
+airjump.num = 0  ;Number of air jumps allowed (opt)
+airjump.height = 35 ;Minimum distance from ground before you can air jump (opt)
+yaccel = .41 ;Vertical acceleration
+stand.friction = .80 ;Friction coefficient when standing
+crouch.friction = .80 ;Friction coefficient when crouching
+air.friction = .80  ;Friction coefficient when air
+
+[Quotes]
+victory1 = "They don't call Ol' Luke Cage "Power Man" for nothin'!"
+victory2 = "Luke Cage - Hero for Hire. At your service."
+victory3 = "We have to stop the Phoenix from comin'. No matter how many X-Men are gonna try and stop us."
+victory4 = "I was never a fan of your kind of magic."
+victory5 = "Maybe some other time, web head ..."
+victory6 = "Think you could regenerate any faster over there?"
+victory7 = "Put that gun down before you shoot your eye out."
+victory8 = "You slippin' Cap? Maybe you need to train a bit more."
+victory9 = "Guess that clunky tin suit could use some tune-ups."
+victory10 = "Red Hulk, Green Hulk, Grey Hulk ... what's next? Polka Dot Hulk?"
+victory11 = "You ain't the only one who can dish out a good clobberin'."
+victory12 = "And take your raggedy 80s rock band self and go crawl on back home."
+victory13 = "I don't know who you think you are, but there's only ONE Luke Cage 'round here."
+victory14 = "Looks like you're losing it a little"
+victory15 = "Let's go, little lady. We need to get you somewhere safe."
+victory16 = "You think a little frostbite's gonna stop me?"
+victory17 = "Man, Danny would definitely get a kick outta fighting you."
+victory18 = "I'm no crook like you was ... I never was."
+victory19 = "Remember you asked me how we know if we're the good guys in all this? This is how we know."
+victory20 = "Aint nothing you got that I can't handle."
+victory21 = "They don't call Ol' Luke Cage "Power Man" for nothin'!"
+victory22 = "You're not the only one with unbreakable skin, fool."
+victory23 = "I never was much for rain fall."
+victory24 = "You're not so strong after all."
+victory25 = "Even with my power you can't beat me."
+victory26 = "That does it, sucker! One more word and you eat your own teeth!"
+victory27 = "We got no time to mess with you."
+victory28 = "The Phoenix Force - end game quote"
+victory29 = "Mar-Vell? Why are you trying to kill us all?"
+
+; END

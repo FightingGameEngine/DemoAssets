@@ -1,0 +1,4 @@
+3/31/17
+Balanced Almighty Spark hitbox and damage output
+	Now deals damage per frame rather than 2/3 remaining
+Fixed several super inputs not having time requirements

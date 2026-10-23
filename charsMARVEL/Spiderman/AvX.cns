@@ -1,0 +1,1653 @@
+;Alternate Wen Shot and Web Throw
+
+;-----------------------------------------------------------------------
+;Web shoot
+[Statedef 2100]
+type = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+anim = 2100
+poweradd = 50
+
+[State 2100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S7,17
+
+[State 2100, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 0
+
+[State 2100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S7,6
+
+[State 2100, Helper]
+type = Helper
+trigger1 = animelem = 8
+helpertype = normal ;player
+name = "Web Ball"
+ID = 2101
+stateno = 2101
+pos = 34,-34
+postype = p1    ;p2,front,back,left,right
+facing = 1
+ownpal = 1
+
+[State 2100, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;-----------------------------------------------------------------------
+;Web Ball
+
+[Statedef 2101]
+type = S
+movetype= A
+physics = N
+;velset = 6,0
+ctrl = 0
+;anim = 2101
+sprpriority = 3
+
+[State 2101, ParentVarSet]
+type = ParentVarSet
+trigger1 = movecontact
+fv = 26
+value = 1
+
+[State 2101, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 2101, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = ,NA,SA,HA,NT,ST,HT
+time = -1
+
+[State 2101, HitOverride]
+type = HitOverride
+trigger1 = time = 0
+attr = SCA,AP; SCA,AA,AT,AP
+slot = 1
+stateno = 2021
+time = -1
+
+[State 2101, ParentVarSet]
+type = ParentVarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 2101, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = ifelse((parent, statetype = S),2101,2107)
+
+[State 2101, VelSet]
+type = VelSet
+triggerall = parent,stateno != 1100 ;Web Kick
+trigger1 = time = 0
+x = ifelse(anim = 2101,8,6)
+y = ifelse(anim = 2101,0,6)
+
+[State 2101, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = parent, stateno = 1100
+value = 2115
+
+[State 2101, 1]
+type = HitDef
+triggerall = parent, var(38) = 0
+triggerall = (enemy,name != "Abyss")
+triggerall = (enemy,name != "Onsluaght")
+triggerall = (enemy,name != "Symbiote Onslaught")
+triggerall = (enemy,name != "PhoenixForce")
+triggerall = (enemy,name != "BastionBoss")
+trigger1 = movecontact = 0
+attr = S, SP
+damage = 26, 5
+animtype = Light
+guardflag = MA
+hitflag = MAFD
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = -1
+sparkxy = -10, -50
+hitsound = S7,2
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 15,5
+givepower = 10, 5
+p2stateno = 2103
+
+[State 2101, 1]
+type = HitDef
+triggerall = parent,var(38) != 0
+triggerall = (enemy,name != "Abyss")
+triggerall = (enemy,name != "Onsluaght")
+triggerall = (enemy,name != "Symbiote Onslaught")
+triggerall = (enemy,name != "PhoenixForce")
+triggerall = (enemy,name != "BastionBoss")
+trigger1 = movecontact = 0
+attr = S, SP
+damage = 26, 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = -1
+sparkxy = -10, -50
+hitsound = S7,2
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 15,5
+givepower = 10, 5
+p2stateno = 2103
+
+[State 2101, 1]
+type = HitDef
+triggerall = movecontact = 0
+trigger1 = (enemy,name = "Abyss")
+trigger2 = (enemy,name = "Onsluaght")
+trigger3 = (enemy,name = "Symbiote Onslaught")
+trigger4 = (enemy,name = "PhoenixForce")
+trigger5 = (enemy,name = "BastionBoss")
+attr = S, SP
+damage = 22, 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 2, 2
+sparkno = -1
+sparkxy = -10, -50
+hitsound = S7,2
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 15,5
+givepower = 10, 5
+
+[State 2101, ChangeAnim]
+type = ChangeAnim
+trigger1 = (anim = 2101 || 2107) && anim != 2102 && pos y >= 0 && movehit = 0  && anim != 2108
+value = 2108
+
+[State 2101, VelSet]
+type = VelSet
+trigger1 = moveguarded != 0
+trigger2 = anim = 2108
+x = 0
+y = 0
+
+[State 2101, ChangeAnim]
+type = ChangeAnim
+trigger1 = moveguarded > 0 && anim != 2102
+value = 2102
+
+[State 2101, VelSet]
+type = VelSet
+trigger1 = movehit > 0 && (anim = 2101 || 2107)
+x = 0
+y = 0
+
+[State 2101, HitAdd]
+type = HitAdd
+trigger1 = anim = 2103 & animtime = 0
+value = 1
+persistent = 0
+
+[State 2101, PosSet]
+type = PosSet
+trigger1 = movehit > 0 && (anim = 2101 || 2107) && anim != 2104
+x = (enemy, pos x)
+y = (enemy, pos y)
+
+[State 2101, StateTypeSet]
+type = StateTypeSet
+trigger1 = movehit > 0 && (anim = 2101 || 2107)
+movetype = I
+
+[State 2101, ChangeAnim]
+type = ChangeAnim
+triggerall = anim != 2103
+triggerall = anim != 2104
+trigger1 = movecontact
+value = 2103
+ignorehitpause = 1
+
+[State 2101, VarAdd]
+type = VarAdd
+trigger1 = movehit && var(2) > 0
+v = 2
+value = -1
+
+[State 2101, ParentVarSet]
+type = ParentVarSet
+trigger1 = anim = 2103 && var(2) <= 0 && time >=60
+v = 2
+value = 1
+
+[State 2101, ChangeAnim]
+type = ChangeAnim
+triggerall = anim != 2104
+trigger1 = anim = 2103 && (enemy, stateno != 2103)
+value = 2104
+
+[State 2101, DestroySelf]
+type = DestroySelf
+trigger1 = frontedgebodydist < -15
+trigger2 = anim = 2102 && animtime = 0
+trigger3 = anim = 2104 && animtime = 0
+trigger4 = anim = 2104 && animtime = 18
+trigger5 = anim = 2108 && animtime = 0
+trigger6 = anim = 2115 && vel x = 0 && parent, stateno != 1100
+trigger7 = moveguarded
+
+
+;-----------------------------------------------------------------------
+[Statedef 2103]
+type = A
+movetype = H;I
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 2103, LifeAdd]
+type = LifeAdd
+trigger1 = time = 0
+value = -26
+kill = 1
+absolute = 0
+
+[State 2103, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 5000
+
+[State 2103, AssertSpecial]
+type = AssertSpecial
+trigger1 = time >= 5
+flag = invisible
+
+[State 2103, SelfState]
+type = SelfState
+triggerall = pos y >= 0
+trigger1 = (enemy, var(2) = 1)
+trigger2 = (enemy, numhelper(2101) = 0)
+value = 0
+ctrl = 1
+
+[State 2103, SelfState]
+type = SelfState
+triggerall = pos y < 0
+trigger1 = (enemy, var(2) = 1)
+trigger2 = (enemy, numhelper(2101) = 0)
+value = 50
+ctrl = 1
+
+;-----------------------------------------------------------------------
+[Statedef 2104]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2105
+
+[State 2104, 1]
+type = HitDef
+trigger1 = movecontact = 0
+attr = S, NA   
+air.cornerpush.veloff = -20
+damage = 0, 0
+animtype = Light
+affectteam = F
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = 2;s7700
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = 4,0
+air.hittime = 12
+
+[State 2104, DestroySelf]
+type = DestroySelf
+trigger1 = movecontact > 0
+trigger2 = time = 2
+
+;-----------------------------------------------------------------------
+[Statedef 2105]
+type = A
+movetype = I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 9801
+sprpriority = 3
+
+[State 2105, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim != 2104 && (root, stateno != 2103)
+value = 2104
+
+[State 2105, DestroySelf]
+type = DestroySelf
+trigger1 = anim = 2104 && animtime = 0
+trigger2 = anim != 2104 && (root, stateno != 2103)
+
+;-----------------------------------------------------------------------
+;Web Shoot Air
+[Statedef 2106]
+type = A
+movetype= I
+physics = A
+ctrl = 0
+anim = 2106
+poweradd = 50
+
+[State 2106, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S7,17
+
+[State 2106, VelSet]
+type = Velset
+trigger1 = time = 0;animelem = 8
+x = -2
+y = -8
+
+[State 2106, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S7,6
+
+[State 2106, Helper]
+type = Helper
+trigger1 = animelem = 8
+helpertype = normal ;player
+name = "Web Ball"
+ID = 2101
+stateno = 2101
+pos = 20,-15
+postype = p1    ;p2,front,back,left,right
+facing = 1
+ownpal = 1
+
+[State 2106, EndState]
+type = Changeanim
+trigger1 = (animtime = 0)
+value = 48
+
+[State 2106, EndState]
+type = ChangeState
+trigger1 = anim = 48
+value = 50
+ctrl = 1
+
+;-----------------------------------------------------------------------
+;Web Ball hit by projectile
+
+[Statedef 2108]
+type = S
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = ifelse(anim = 2101,2102,2109)
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+;-----------------------------------------------------------------------
+;Web swing
+
+[Statedef 2110]
+;type = A
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2110
+poweradd = 60
+
+[State 2110, Counter]
+type = VarAdd
+trigger1 = time = 0
+v = 34
+value = 1
+
+[State 2110, Position Indicator]
+type = VarSet
+triggerall = var(36) != 1
+trigger1 = animelem >= 21
+v = 36
+value = 1
+ignorehitpause = 1
+
+[State 2110, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 11
+value = S7,1
+
+[State 2110, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 6
+value = S7,5
+
+[State 2110, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 2110, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = 50;0
+
+[State 2110, PosAdd]
+type = PosAdd
+trigger1 = time = 0 && statetype = S
+y = -40
+
+[State 2110, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 0
+statetype = A
+
+[State 2110, VelSet]
+type = VelSet
+trigger1 = time = 0 && statetype = S
+y = -6
+
+[State 2110, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2110, PosAdd]
+type = PosAdd
+trigger1 = Animtime = 0
+x = 110
+y = 30
+
+[State 2110, VelSet]
+type = VelSet
+trigger1 = animtime = 0
+y = -6
+x = 4
+
+[State 2110, 1]
+type = HitDef
+triggerall = var(34) < 3
+trigger1 = movecontact = 0
+attr = A, SA
+damage = 26, 5
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 6,6
+sparkno = 2;s7702
+sparkxy = -10, 0
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 10
+ground.hittime  = 12
+ground.velocity = -4,-4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 20
+getpower = 16,6
+givepower = 22, 8
+fall = 0
+fall.recover = 0
+air.fall = 0
+
+[State 2110, EndState]
+type = Changeanim
+trigger1 = (animtime = 0)
+value = 48
+
+[State 2110, EndState]
+type = ChangeState
+trigger1 = anim = 48
+value = 50
+
+;-----------------------------------------------------------------------
+;Web throw straight
+[Statedef 2111]
+type = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+anim = 2117
+poweradd = 60
+hitcountpersist = 1
+
+[State 2111, Web Capsule Reduction]
+type = VarAdd
+triggerall = var(28) = 0
+triggerall = var(40) > 0
+trigger1 = animelem = 5
+v = 40
+value = -2
+
+[State 2111, PlaySnd]
+type = PlaySnd
+triggerall = var(28) = 0
+trigger1 = AnimElem = 4
+value = 1540,0
+
+[State 2111, VarAdd]
+type = VarAdd
+trigger1 = time = 0
+v = 35
+value = 1
+
+[State 2111, Helper]
+type = Helper
+trigger1 = anim = 2117 && animtime = 0
+helpertype = normal
+name = "Web Line"
+ID = 2112
+stateno = 2112
+pos = 50,-52
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 0
+
+[State 2111, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 2117 && animtime = 0
+value = 2112
+
+[State 2111, ChangeState]
+type = ChangeState
+trigger1 = (helper(2112), var(1) = 1)
+value = 2113
+
+[State 2111, ChangeState]
+type = ChangeState
+trigger1 = time >= 30
+value = 0
+ctrl = 1
+
+;-----------------------------------------------------------------------
+[Statedef 2112]
+type = A
+movetype= A
+physics = N
+velset = 4,0
+ctrl = 0
+anim = 2116
+hitcountpersist = 1
+
+[State 2112, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S7,0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = ,NA,SA,HA,NT,ST,HT
+time = -1
+
+[State 2112, HitOverride]
+type = HitOverride
+trigger1 = time = 0
+attr = SCA,AP; SCA,AA,AT,AP
+slot = 1
+stateno = 2022
+time = -1
+
+[State 2112, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 2116 && animtime = 0
+value = 2118
+
+[State 2112, VelSet]
+type = VelSet
+trigger1 = anim = 2118
+x = 4
+
+[State 2112, 1]
+type = HitDef
+trigger1 = (parent, stateno = 2111)
+attr = S, NT
+hitflag = MAF
+guardflag = MA
+id = 12
+priority = 5, Miss
+sparkno = -1
+hitsound = S9,6
+p2facing = 1
+p1stateno = 2114
+p2stateno = 2115
+sprpriority = 1
+
+[State 2112, 1]
+type = HitDef
+trigger1 = (parent, stateno != 2111)
+trigger2 = (enemy,name = "Abyss")
+trigger3 = (enemy,name = "Onsluaght") && movecontact = 0
+trigger4 = (enemy,name = "Symbiote Onslaught") && movecontact = 0
+attr = S, NP
+damage = 26, 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = -1
+sparkxy = 0, -30
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 15,5
+givepower = 10, 5
+
+[State 2112, StateTypeSet]
+type = StateTypeSet
+trigger1 = moveguarded > 0
+trigger2 =  movehit
+movetype = I
+
+[State 2112, ChangeAnim]
+type = ChangeAnim
+triggerall = anim != 2050
+trigger1 =  moveguarded > 0
+trigger2 =  movehit
+value = 2050
+
+[State 2112, VelSet]
+type = VelSet
+trigger1 = anim = 1050
+x = 0
+
+[State 2112, DestroySelf]
+type = DestroySelf
+trigger1 = frontedgebodydist < -15
+trigger2 = anim = 1050 && animtime = 0
+
+;-----------------------------------------------------------------------
+;Spiderman throwing animation
+[Statedef 2113]
+type = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+anim = 2113
+hitcountpersist = 1
+
+[State 2113, VelSet]
+type = VelSet
+trigger1 = backedgedist < 50
+x = 20
+persistent = 1
+
+[State 2113, PlaySnd]
+type = PlaySnd
+triggerall = var(28) = 1
+trigger1 = animelem = 8
+value = S7,4
+
+[State 2113, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 5
+trigger2 = animelem = 9
+value = S7,1
+
+[State 2113, Turn]
+type = Turn
+trigger1 = animtime = 0
+trigger2 = numhelper(2112) = 0
+
+[State 2113, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+trigger2 = numhelper(2112) = 0
+value = 0;195
+ctrl = 1
+
+;-----------------------------------------------------------------------
+;Web Line,hit
+[Statedef 2114]
+type = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+;anim = 2114
+sprpriority = 0
+hitcountpersist = 1
+
+[State 2114, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 2114, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = ifelse(prevstateno = 2112,2114,2028)
+
+[State 2114, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = 1
+
+[State 2114, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = player
+name = "Camera Pointer"
+ID = 2116
+stateno = 2116
+pos = -180,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 0
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 1)
+x = (parent, pos x) + facing*58
+y = (parent, pos y) - 65
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 2)
+x = (parent, pos x) + facing*39
+y = (parent, pos y) - 66
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 3)
+x = (parent, pos x) + facing*26
+y = (parent, pos y) - 72
+
+[State 2114, ChangeAnim]
+type = ChangeAnim
+trigger1 = (anim = 2028 || 2114) && (parent, anim = 2113) && (parent, animelemno(0) = 4)
+value = 2020
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 4)
+x = (parent, pos x) + facing*116
+y = (parent, pos y) - 88
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 5)
+x = (parent, pos x) + facing*10
+y = (parent, pos y) - 80
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 6)
+x = (parent, pos x) - facing*105
+y = (parent, pos y) - 85
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 7)
+x = (parent, pos x) - facing*150
+y = (parent, pos y) - 95
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 8)
+x = (parent, pos x) - facing*100
+y = (parent, pos y) - 105
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 9)
+x = (parent, pos x)
+y = (parent, pos y) - 105
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 10)
+x = (parent, pos x) + facing*40
+y = (parent, pos y) - 100
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 11)
+x = (parent, pos x) + facing*160
+y = (parent, pos y) - 85
+
+[State 02114 PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 12)
+x = (parent, pos x) + facing*165
+y = (parent, pos y) - 65
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 13)
+x = (parent, pos x) + facing*65
+y = (parent, pos y) - 50
+
+[State 2114, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 14)
+x = (parent, pos x) - facing*30
+y = (parent, pos y) - 40
+
+[State 2, PosSet]
+type = PosSet
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) = 15)
+x = (parent, pos x) - facing*130
+y = (parent, pos y) - 40
+
+[State 2114, TargetBind]
+type = TargetBind
+trigger1 = anim = 2028
+time = 10
+pos = 150,-70
+
+[State 2114, TargetBind]
+type = TargetBind
+trigger1 = anim = 2114
+time = 10
+pos = 170,0
+
+[State 2114, TargetBind]
+type = TargetBind
+trigger1 = anim = 2020
+trigger1 = (parent, anim = 2113) && (parent, animelemno(0) <= 15)
+time = 10
+pos = 0,0
+
+[State 2114, StateTypeSet]
+type = StateTypeSet
+trigger1 = (parent, anim = 2113) && (parent, animelem = 15)
+movetype = A
+
+[State 2114, 1]
+type = HitDef
+trigger1 = (parent, anim = 2113) && (parent, animelem = 15)
+attr = A, NA
+damage = 66, 5
+animtype = Medium
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = -1
+sparkxy = 0, 0
+hitsound = -1, -1
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = 10,-6
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = 10,-6
+air.hittime = 12
+getpower = 32,10
+givepower = 41, 25
+chainid = 12
+air.fall = 1
+fall = 1
+fall.recover = 0
+
+[State 2114, DestroySelf]
+type = DestroySelf
+trigger1 = (target(12), stateno != 2115)
+trigger2 = (parent, anim = 2113) && (parent, animelem = 16)
+trigger3 = time >= 10 && (parent, anim != 2113)
+
+;-----------------------------------------------------------------------
+;Enemy Hit
+[Statedef 2115]
+type = A
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+;anim = 2119
+sprpriority = -1
+
+[State 2115, SprPriority]
+type = SprPriority
+trigger1 = (enemy, animelem = 9)
+value = 3
+
+[State 2115, SprPriority]
+type = SprPriority
+trigger1 = (enemy, animelem = 10)
+value = -1
+
+[State 2115, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time = 0
+value = 2119
+
+[State 2115, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = (enemy, animelem = 15)
+value = 2021
+
+[State 2115, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+;movecamera = 1,0
+
+[State 2115, SelfState]
+type = selfstate
+trigger1 =  (enemy, numhelper(2112) = 0)
+value = 5050
+
+;-----------------------------------------------------------------------
+;Camera pointer
+[Statedef 2116]
+type = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 9801
+sprpriority = 0
+
+[State 2116, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 1,0
+
+[State 2116, DestroySelf]
+type = DestroySelf
+trigger1 = (root, stateno != [2111,2113]) && (root, stateno != 4501)
+trigger2 = (root, anim = 4501) && (root, animelem = 61)
+
+;-----------------------------------------------------------------------
+;Web throw diagonal
+[Statedef 2117]
+type = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+anim = 2117
+poweradd = 60
+hitcountpersist = 1
+
+[State 2117, Web Capsule Reduction]
+type = VarAdd
+triggerall = var(28) = 0
+triggerall = var(40) > 0
+trigger1 = animelem = 5
+v = 40
+value = -2
+
+[State 2117, PlaySnd]
+type = PlaySnd
+triggerall = var(28) = 0
+trigger1 = AnimElem = 4
+value = 1540,0
+
+[State 2117, VarAdd]
+type = VarAdd
+trigger1 = time = 0
+v = 35
+value = 1
+
+[State 2117, Helper]
+type = Helper
+trigger1 = anim = 2117 && animtime = 0
+helpertype = normal
+name = "Web Line"
+ID = 2112
+stateno = 2118
+pos = 60,-75
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 0
+
+[State 2117, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 2117 && animtime = 0
+value = 2022
+
+[State 2117, ChangeState]
+type = ChangeState
+trigger1 = (helper(2112), var(1) = 1)
+value = 2113
+
+[State 2117, ChangeState]
+type = ChangeState
+trigger1 = time >= 30
+value = 0
+ctrl = 1
+
+;-----------------------------------------------------------------------
+[Statedef 2118]
+type = A
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2024
+hitcountpersist = 1
+
+[State 2118, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S7,0
+
+[State 2118, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = ,NA,SA,HA,NT,ST,HT
+time = -1
+
+[State 2118, HitOverride]
+type = HitOverride
+trigger1 = time = 0
+attr = SCA,AP; SCA,AA,AT,AP
+slot = 1
+stateno = 2023
+time = -1
+
+[State 2118, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 2024 && animtime = 0
+value = 2025
+
+[State 2118, VelSet]
+type = VelSet
+trigger1 = anim = 2025
+x = 4
+y = -4
+
+[State 2118, 1]
+type = HitDef
+trigger1 = (parent, stateno = 2117)
+attr = S, NT
+hitflag = MAF
+guardflag = MA
+id = 12
+priority = 5, Miss
+sparkno = -1
+hitsound = S9,6
+p2facing = 1
+p1stateno = 2114
+p2stateno = 2115
+sprpriority = 1
+
+[State 2118, 1]
+type = HitDef
+trigger1 = (parent, stateno != 2117)
+trigger2 = (enemy,name = "Abyss")
+trigger3 = (enemy,name = "Onsluaght") && movecontact = 0
+trigger4 = (enemy,name = "Symbiote Onslaught") && movecontact = 0
+attr = S, NA   
+air.cornerpush.veloff = -20
+damage = 26, 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = -1
+sparkxy = 0, -30
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 15,5
+givepower = 10, 5
+
+[State 2118, StateTypeSet]
+type = StateTypeSet
+trigger1 = moveguarded > 0
+trigger2 =  movehit
+movetype = I
+
+[State 2118, ChangeAnim]
+type = ChangeAnim
+triggerall = anim != 2051
+trigger1 =  moveguarded > 0
+trigger2 =  movehit
+value = 2051
+
+[State 2118, VelSet]
+type = VelSet
+trigger1 = anim = 2051
+x = 0
+y = 0
+
+[State 2118, DestroySelf]
+type = DestroySelf
+trigger1 = frontedgebodydist < -15
+trigger2 = anim = 2051 && animtime = 0
+
+;-----------------------------------------------------------------------
+;Web throw up
+[Statedef 2119]
+type = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+anim = 2117
+poweradd = 60
+hitcountpersist = 1
+
+[State 2119, Web Capsule Reduction]
+type = VarAdd
+triggerall = var(28) = 0
+triggerall = var(40) > 0
+trigger1 = animelem = 5
+v = 40
+value = -2
+
+[State 2119, PlaySnd]
+type = PlaySnd
+triggerall = var(28) = 0
+trigger1 = AnimElem = 4
+value = 1540,0
+
+[State 2119, VarAdd]
+type = VarAdd
+trigger1 = time = 0
+v = 35
+value = 1
+
+[State 2119, Helper]
+type = Helper
+trigger1 = anim = 2117 && animtime = 0
+helpertype = normal
+name = "Web Line"
+ID = 2112
+stateno = 2020
+pos = 25,-105
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 0
+
+[State 2119, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 2117 && animtime = 0
+value = 2023
+
+[State 2119, ChangeState]
+type = ChangeState
+trigger1 = (helper(2112), var(1) = 1)
+value = 2113
+
+[State 2119, ChangeState]
+type = ChangeState
+trigger1 = time >= 30
+value = 0
+ctrl = 1
+
+[Statedef 2020]
+type = A
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2026
+hitcountpersist = 1
+
+[State 2020, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S7,0
+
+[State 2020, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = ,NA,SA,HA,NT,ST,HT
+time = -1
+
+[State 2020, HitOverride]
+type = HitOverride
+trigger1 = time = 0
+attr = SCA,AP
+slot = 1
+stateno = 2024
+time = -1
+
+[State 2020, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 2026 && animtime = 0
+value = 2027
+
+[State 2020, VelSet]
+type = VelSet
+trigger1 = anim = 2027
+x = 0
+y = -4
+
+[State 2020, 1]
+type = HitDef
+trigger1 = (parent, stateno = 2119)
+attr = S, NT
+hitflag = MAF
+guardflag = MA
+id = 12
+priority = 5, Miss
+sparkno = -1
+hitsound = S9,6
+p2facing = 1
+p1stateno = 2114
+p2stateno = 2115
+sprpriority = 1
+
+[State 2020, 1]
+type = HitDef
+trigger1 = (parent, stateno != 2119)
+trigger2 = (enemy,name = "Abyss")
+trigger3 = (enemy,name = "Onsluaght") && movecontact = 0
+trigger4 = (enemy,name = "Symbiote Onslaught") && movecontact = 0
+attr = S, NA   
+air.cornerpush.veloff = -20
+damage = 26, 5
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 3, 4
+sparkno = -1
+sparkxy = 0, -30
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 15,5
+givepower = 10, 5
+
+[State 2020, StateTypeSet]
+type = StateTypeSet
+trigger1 = moveguarded > 0
+trigger2 =  movehit
+movetype = I
+
+[State 2020, ChangeAnim]
+type = ChangeAnim
+triggerall = anim != 2052
+trigger1 =  moveguarded > 0
+trigger2 =  movehit
+value = 2052
+
+[State 2020, VelSet]
+type = VelSet
+trigger1 = anim = 2052
+x = 0
+y = 0
+
+[State 2020, DestroySelf]
+type = DestroySelf
+trigger1 = pos y < -350
+trigger2 = anim = 2052 && animtime = 0
+
+[Statedef 2021]
+type = A
+movetype = I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2102
+hitcountpersist = 1
+
+[State 2021, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[Statedef 2022]
+type = A
+movetype = I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2050
+hitcountpersist = 1
+
+[State 2022, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[Statedef 2023]
+type = A
+movetype = I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2051
+hitcountpersist = 1
+
+[State 2023, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+[Statedef 2024]
+type = A
+movetype = I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2051
+hitcountpersist = 1
+
+[State 2024, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+;-----------------------------------------------------------------------
+;Web swing Medium
+
+[Statedef 2060]
+;type = A
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2060
+poweradd = 60
+
+[State 2060, Counter]
+type = VarAdd
+trigger1 = time = 0
+v = 34
+value = 1
+
+[State 2060, Position Indicator]
+type = VarSet
+triggerall = var(36) != 1
+trigger1 = animelem >= 18
+v = 36
+value = 1
+ignorehitpause = 1
+
+[State 2060, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 11
+value = S7,1
+
+[State 2060, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 6
+value = S7,5
+
+[State 2060, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 2060, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = 60
+
+[State 2060, PosAdd]
+type = PosAdd
+trigger1 = time = 0 && statetype = S
+y = -40
+
+[State 2060, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 0
+statetype = A
+
+[State 2060, VelSet]
+type = VelSet
+trigger1 = time = 0 && statetype = S
+y = -6
+
+[State 2060, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2060, PosAdd]
+type = PosAdd
+trigger1 = Animtime = 0
+x = 130
+y = 30
+
+[State 2060, VelSet]
+type = VelSet
+trigger1 = animtime = 0
+y = -6
+x = 4
+
+[State 2060, 1]
+type = HitDef
+triggerall = var(34) < 3
+trigger1 = movecontact = 0
+attr = A, SA
+damage = 32, 5
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 6,6
+sparkno = 2;s7702
+sparkxy = -10, 0
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 10
+ground.hittime  = 12
+ground.velocity = -4,-4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 20
+getpower = 16,6
+givepower = 22, 8
+fall = 0
+fall.recover = 0
+air.fall = 0
+
+[State 2060, EndState]
+type = Changeanim
+trigger1 = (animtime = 0)
+value = 48
+
+[State 2060, EndState]
+type = ChangeState
+trigger1 = anim = 48
+value = 50
+
+;----------
+;Web swing Strong
+
+[Statedef 2061]
+;type = A
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2060
+poweradd = 65
+
+[State 2061, Counter]
+type = VarAdd
+trigger1 = time = 0
+v = 34
+value = 1
+
+[State 2061, Position Indicator]
+type = VarSet
+triggerall = var(36) != 1
+trigger1 = animelem >= 18
+v = 36
+value = 1
+ignorehitpause = 1
+
+[State 2061, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 11
+value = S7,1
+
+[State 2061, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 6
+value = S7,5
+
+[State 2061, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 2061, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = 70;30
+
+[State 2061, PosAdd]
+type = PosAdd
+trigger1 = time = 0 && statetype = S
+y = -40
+
+[State 2061, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 0
+statetype = A
+
+[State 2061, VelSet]
+type = VelSet
+trigger1 = time = 0 && statetype = S
+y = -6
+
+[State 2061, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 2061, PosAdd]
+type = PosAdd
+trigger1 = Animtime = 0
+x = 140
+y = 30
+
+[State 2061, VelSet]
+type = VelSet
+trigger1 = animtime = 0
+y = -6
+x = 4
+
+[State 2061, 1]
+type = HitDef
+triggerall = var(34) < 3
+trigger1 = movecontact = 0
+attr = A, SA
+damage = 32, 5
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 8,8
+sparkno = 2;s7702
+sparkxy = -10, 0
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 10
+ground.hittime  = 12
+ground.velocity = -4,-4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+getpower = 16,6
+givepower = 22, 8
+fall = 1
+fall.recover = 0
+air.fall = 1
+
+[State 2061, EndState]
+type = Changeanim
+trigger1 = (animtime = 0)
+value = 48
+
+[State 2061, EndState]
+type = ChangeState
+trigger1 = anim = 48
+value = 50
+

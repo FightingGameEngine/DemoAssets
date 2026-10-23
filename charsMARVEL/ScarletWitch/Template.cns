@@ -1,0 +1,97 @@
+; {character}'s constants and state file.
+
+[Data]
+life = 1000
+power = 3000			;Amount of life to start with
+attack = 100			;attack power (more is stronger)
+defence = 100			;defensive power (more is stronger)
+fall.defence_up = 50		;Percentage to increase defense everytime player is knocked down
+liedown.time = 50		;Time which player lies down for, before getting up
+airjuggle = 45;15			;Number of points for juggling
+sparkno = 2			;Default hit spark number for HitDefs
+guard.sparkno = 40		;Default guard spark number
+KO.echo = 0
+volume = 255
+IntPersistIndex = 0
+FloatPersistIndex = 40
+
+
+[Size]
+xscale = 1            ;Horizontal scaling factor.
+yscale = 1            ;Vertical scaling factor.
+ground.back = 18      ;Player width (back, ground)
+ground.front = 18    ;Player width (front, ground)
+air.back = 15         ;Player width (back, air)
+air.front = 18        ;Player width (front, air)
+height = 92           ;Height of player (for opponent to jump over)
+attack.dist = 160     ;Default attack distance
+proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.doscale = 0      ;Set to 1 to scale projectiles too
+head.pos = 6, -102 ;Approximate position of head
+mid.pos = 0, -68 ;Approximate position of midsection
+shadowoffset = 0
+draw.offset = 0,0    ;Number of pixels to vertically offset the shadow
+
+[Velocity]
+walk.fwd  =  2.3         ;Walk forward
+walk.back = -2.1         ;Walk backward
+run.fwd  = 7.5, 0         ;Run forward (x, y)
+run.back = -6.8,-6.3      ;Hop backward (x, y)
+jump.neu = 0,-10
+jump.back =  -3.5,-10
+jump.fwd = 4,-10
+runjump.fwd = 5,-9
+runjump.back = -3.5,-10
+airjump.neu = 0,-8.3	;.
+airjump.back = -2.9	;Air jump speeds (opt)
+airjump.fwd = 2.9   ;.
+
+[Movement]
+airjump.num = 0      ;Number of air jumps allowed (opt)
+airjump.height = 40
+yaccel = .5
+stand.friction = .80
+crouch.friction = .83
+;air.friction = .80
+
+;-----------------------
+;  DCvM Template Files
+;      provided by
+;       Buyog2099
+;(based on MEE template
+;  by Kitsune Sniper)
+;         ***
+;   Thanks, Kitsune!
+;-----------------------
+
+
+[Quotes]
+victory1 = "Consider yourself ... hexed."
+victory2 = "Terribly sorry about that. Maybe you should lay down."
+victory3 = "I'm sorry X-Men, but the Avengers need my help to stop the Phoenix."
+victory4 = "I don't know who you are, but no one is as powerful as me."
+victory5 = "Looks like this spider's been squashed."
+victory6 = "Who's side are you on, Logan?"
+victory7 = "Guns? Is that your only weapon for fighting me?"
+victory8 = "I hope for our sakes, you know what you're doing Cap."
+victory9 = "You might want to buff out those dents I put in your armor."
+victory10 = "Clearly you're no where near dangerous as the real Hulk."
+victory11 = "Maybe you should have called the rest of the Four for backup."
+victory12 = "It seems my magic's stronger than yours, Thor."
+victory13 = "I hope you learned not to mess with me."
+victory14 = "Funny ... I figured you had more fight in you, Carol."
+victory15 = "We need you to come with us, Hope. So we can save the world."
+victory16 = "You're quite the showoff, Bobby. Try focusing on the fight, though."
+victory17 = "Terribly sorry about that. Maybe you should lay down."
+victory18 = "Consider yourself ... hexed."
+victory19 = "I hope you realize the consequences of starting this war, Scott."
+victory20 = "I'm sorry father. I didn't want it to come to this."
+victory21 = "You need to learn how to respect women."
+victory22 = "I'm sorry Peter, but I can't seem to help you."
+victory23 = "I don't want to fight you, but I have to help my team."
+victory24 = "You picked your side, Hank. Hope you made the right choice."
+victory25 = "Too much power to handle, Rogue?"
+victory26 = "All my magic, and I STILL can't get you to be quiet."
+victory27 = "Whatever's wrong with you Mar-Vell, it'll have to wait."
+victory28 = "Finally, the threat is over."
+victory29 = "We can't let anyone stop us! Not even you!"

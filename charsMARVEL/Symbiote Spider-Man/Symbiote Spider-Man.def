@@ -1,0 +1,39 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Symbiote Spider-Man"
+displayname = "S.Spider-Man"
+versiondate = 2016.05.23
+mugenversion = 2001.04.14
+author = "Empawk, Yunnin"
+pal.defaults = 1,2,3,4,5,6,7,8
+
+[Files]
+sprite = Symbiote_Spider-Man.sff
+anim = Symbiote_Spider-Man.air
+sound = Symbiote_Spider-Man.snd
+cmd = Symbiote_Spider-Man.cmd
+cns = Symbiote_Spider-Man.cns
+stcommon = common1.cns
+st = Symbiote_Spider-Man.st
+st1 = Symbiote_Spider-Man_Specials.st
+st2 = Symbiote_Spider-Man_Supers.st
+st3 = Symbiote_Spider-Man_Throws.st
+st4 = Statedef-3.st
+pal1 = Symbiote_Spider-Man.act
+pal2 = Symbiote_Spider-Man.act
+pal3 = Symbiote_Spider-Man.act
+pal4 = Symbiote_Spider-Man.act
+pal5 = Symbiote_Spider-Man.act
+pal6 = Symbiote_Spider-Man.act
+pal7 = Symbiote_Spider-Man.act
+pal8 = Symbiote_Spider-Man.act
+pal9 = Symbiote_Spider-Man.act
+pal10 = Symbiote_Spider-Man.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

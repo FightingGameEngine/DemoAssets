@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Cyclops"
+displayname = "Cyclops"
+versiondate = 08/30/2013
+mugenversion = 1.1
+author = "ZVitor"
+pal.defaults = 1,4,2,3,4,5,6
+
+[Files]
+sprite = Cyclops.sff
+anim = Cyclops.air
+sound = Cyclops.snd
+cmd = Cyclops.cmd
+cns = Cyclops.cns
+stcommon = common1.cns
+st = Cyclops.cns
+st1 = special.cns
+st2 = hyper.cns
+pal1 = zv1.act
+pal2 = zv1.act
+pal3 = zv1.act
+pal4 = zv1.act
+pal5 = zv1.act
+pal6 = zv1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

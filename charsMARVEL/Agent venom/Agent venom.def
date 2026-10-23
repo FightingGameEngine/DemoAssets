@@ -1,0 +1,34 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Agent venom"
+displayname = "Agent venom"
+versiondate = 18,08,2015
+mugenversion = 18,08,2015
+author = "Logansam"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = Agent venom.sff
+anim = Agent venom.air
+sound = Agent venom.snd
+cmd = Agent venom.cmd
+cns = Agent venom.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Flight.st
+pal1 = agent.act
+pal2 = blanco.act
+pal3 = 
+pal4 = 
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

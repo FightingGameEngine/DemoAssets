@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Nick Fury"
+displayname = "Nick Fury"
+versiondate = 10,28,2013
+mugenversion = 1.0
+author = "Arkady"
+pal.defaults = 1,2,3,4,5.6
+
+[Files]
+sprite = NickFury.sff
+anim = NickFury.air
+sound = NickFury.snd
+cmd = NickFury.cmd
+cns = NickFury.cns
+stcommon = common1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+pal1 = AvX1.act
+;pal2 = AvX1.act
+;pal3 = AvX1.act
+;pal4 = AvX1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

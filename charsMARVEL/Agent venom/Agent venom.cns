@@ -1,0 +1,207 @@
+;----------------------------CVG TEMPLATE-------------------------------------------
+;VARIABLES
+;-----------------------------------------------------------------------------------
+;var(18)-K.O sounds
+;var(59)-statedef -1 Artificial Intelligence
+;fvar(5)-Phantom of the Server Corner Push System
+;-------------------------------------------------------------------------------
+;Channel Numbers
+;Channel = 20 - get hit sounds
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+
+[Data]
+;Amount of life to start with
+life = 1000
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 100
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 50
+;Time which player lies down for, before getting up
+liedown.time = 50
+;Number of points for juggling
+airjuggle = 15
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = s8001
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 255
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 50
+FloatPersistIndex = 20
+
+[Size]
+xscale = .98 ;Horizontal scaling factor.
+yscale = .98 ;Vertical scaling factor.
+ground.back = 20 ;Player width (back, ground)
+ground.front = 20 ;Player width (front, ground)
+air.back = 18  ;Player width (back, air)
+air.front = 22 ;Player width (front, air)
+height = 60  ;Height of player (for opponent to jump over)
+attack.dist = 160   ;Default attack distance
+attack.width = 4,4  ;Default attack width
+proj.dist = 90  ;Default attack distance for projectiles
+proj.attack.dist = 90 ;Default projectiles attack distance
+proj.doscale = ;0 Set to 1 to scale projectiles too
+head.pos = 1, -83 ;Approximate position of head
+mid.pos = 1, -53  ;Approximate position of midsection
+shadowoffset = 0 ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0 ;Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd = 2.2  ;Walk forward
+walk.back = -2.0  ;Walk backward
+run.fwd = 13,20     ;Run forward (x, y)
+run.back = -15,0 ;Hop backward (x, y)
+jump.neu = 0,-9.0 ;Neutral jumping velocity (x, y)
+jump.back = -5  ;Jump back Speed (x, y)
+jump.fwd = 5   ;Jump forward Speed (x, y)
+runjump.fwd = 6.4
+runjump.back = -4.4
+airjump.neu = 0, -8.9
+airjump.fwd = 2.5 ;Air jump speeds (opt)
+airjump.back = -2.55
+
+[Movement]
+airjump.num = 0  ;Number of air jumps allowed (opt)
+airjump.height = 35 ;Minimum distance from ground before you can air jump (opt)
+yaccel = .41 ;Vertical acceleration
+stand.friction = .80 ;Friction coefficient when standing
+crouch.friction = .80 ;Friction coefficient when crouching
+air.friction = .80  ;Friction coefficient when air
+
+[Statedef 800]
+type = S
+movetype= A
+physics = S
+juggle = 0
+velset = 0,0
+ctrl = 0
+anim = 0
+
+[State 800, 1]
+type = HitDef
+Trigger1 = Time = 0
+attr = S, NT
+hitflag = M
+priority = 1, Miss
+sparkno = -1
+sprpriority = 1
+p1facing = ifelse (command = "holdfwd", -1, 1)
+p2facing = 1
+p1stateno = 810
+p2stateno = 820
+fall = 1
+
+[State 800, 2]
+type = ChangeState
+Trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;----------------------------------------------------------------------
+[Statedef 810]
+type = S
+movetype= A
+physics = N
+anim = 810
+poweradd = 60
+
+[State 810, Bind 1]
+type = TargetBind
+trigger1 = AnimElem = 1
+pos = -21, -41
+[State 810, Bind 2]
+type = TargetBind
+trigger1 = AnimElem = 2
+pos = 75, 0
+[State 810, Hurt]
+type = TargetLifeAdd
+trigger1 = AnimElem = 2
+value = -78
+
+[State 810, Throw]
+type = TargetState
+trigger1 = AnimElem = 2
+value = 821
+
+[State 810, State End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;----------------------------------------------------------------------
+[Statedef 820]
+type = A
+movetype = H
+physics = N
+velset = 0,0
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 5017
+
+;----------------------------------------------------------------------
+[Statedef 821]
+type = A
+movetype = H
+physics = N
+velset = 0,0
+poweradd = 40
+
+[State 821, 1] ;Gravity
+type = VelAdd
+Trigger1 = 1
+y = .4
+
+[State 821, 2] ; Recover near ground (use ChangeState)
+type = ChangeState
+triggerall = Vel Y > 0
+triggerall = Pos Y >= -20
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5200 ;HITFALL_RECOVER
+
+[State 821, 3] ; Recover in mid air (use SelfState)
+type = SelfState
+triggerall = Vel Y > 0
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5210 ;HITFALL_AIRRECOVER
+
+[State 821, 4] ;Hit ground
+type = SelfState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 ;Hit ground
+;----------------------------CVG TEMPLATE-------------------------------------------
+;VARIABLES
+;-----------------------------------------------------------------------------------
+;var(18)-K.O sounds
+;var(59)-statedef -1 Artificial Intelligence
+;fvar(5)-Phantom of the Server Corner Push System
+;-------------------------------------------------------------------------------
+;Channel Numbers
+;Channel = 20 - get hit sounds
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+
+; END
+
+; END

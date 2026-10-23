@@ -1,0 +1,43 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Invisible Woman"
+displayname = "Invisible Woman"
+versiondate = 06.11.2011
+mugenversion = 1.0
+author = "Arkady"
+pal.defaults = 1,2,3,4,5,6,7
+
+[Files]
+sprite = InvisibleWoman.sff
+anim = InvisibleWoman.air
+sound = InvisibleWoman.snd
+cmd = InvisibleWoman.cmd
+cns = InvisibleWoman.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Flight.st
+st6 = Extra.st
+pal1 = 1.act
+pal2 = 1.act
+pal3 = 1.act
+pal4 = 1.act
+pal5 = 1.act
+pal6 = 1.act
+pal7 = 1.act
+pal8 = 1.act
+pal9 = 1.act
+pal10 = 1.act
+pal11 = 1.act
+pal12 = 1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

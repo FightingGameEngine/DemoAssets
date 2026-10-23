@@ -1,0 +1,954 @@
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+[Statedef -2]
+
+;=========AvX Menu Pause===========
+
+[State -2, Pause Menu]
+Type = null;Helper
+trigger1 = AILevel = 0
+trigger1 = NumHelper(40500) = 0
+Name = "Pause"
+ID = 40500
+Pos = 0, 0
+PosType = left
+StateNo = 40500
+KeyCtrl = 1
+OwnPal = 1
+
+;=========AvX Public Release Damage Dampiner===========
+;The AvX project contains a Damage Multiplier. Such a system would create
+;an unfair advantage outside of the closed game proejct. A damage dampiner
+;has been added to the character in order to balance the large combo system
+;found in the AvX game.
+
+[State -2, Damage based on hits]
+type=varset
+trigger1= numenemy
+fvar(12)= enemynear,gethitvar(hitcount)
+ignorehitpause=1
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(12)=0
+
+[State -2, Dampener]
+type=varset
+trigger1=1
+fvar(10)= ifelse(fvar(12)<9,ifelse(fvar(12)=0, 1, ifelse(fvar(12)=1, .9, .86**fvar(12))),.25)
+ignorehitpause=1
+
+[State -2, Dampener itself]
+type=attackmulset
+trigger1= 1
+value= fvar(10)
+ignorehitpause=1
+ignorehitpause=1
+
+;=========AvX Special Get Hit State Recognition===========
+;Fvar(30)
+;0 = Not Hit
+;1 = Ground Bounce - stateno 5130
+;2 = Wall Bounce - stateno 5045
+;3 = Both
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 0
+trigger1 = enemynear,stateno = 5132 ;Ground Bounce
+fv = 30
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 0
+trigger1 = enemynear,stateno = 5048 ;Wall Bounce
+fv = 30
+value = 2
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 2
+trigger1 = enemynear,stateno = 5132 ;Ground Bounce
+trigger2 = fvar(30) = 1
+trigger2 = enemynear,stateno = 5048 ;Wall Bounce
+fv = 30
+value = 3
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) > 0
+trigger1 = enemynear,movetype!=H
+fv = 30
+value = 0
+
+[State -2, VarSet];OTG Recognition
+type = VarSet
+trigger1 = fvar(29) > 0
+trigger1 = enemynear,movetype!=H
+trigger1 = enemynear,stateno != 5110
+fv = 29
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, NA, NP, NT
+trigger1 = enemynear, movetype =H
+fv = 25
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, NA, NP, NT
+trigger1 = enemynear, movetype =H
+fv = 25
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 25
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, SA, SP, ST
+trigger1 = enemynear, movetype =H
+fv = 26
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, SA, SP, ST
+trigger1 = enemynear, movetype =H
+fv = 26
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 26
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, HA, HP, HT
+trigger1 = enemynear, movetype =H
+fv = 27
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, HA, HP, HT
+trigger1 = enemynear, movetype =H
+fv = 27
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 27
+value = 0
+
+[State -2, Varadd];hitcount
+type = Varadd
+trigger1 = movehit
+trigger1 = enemynear, time = 0
+trigger1 = p2stateno = [5000,5899]
+fv = 28
+value = 1
+ignorehitpause = 1
+
+[State -2, VarSet];hitcount
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+trigger1 = p2stateno != [5000,5899]
+fv = 28
+value = 0
+
+
+
+[State -2, PowerAdd]
+type = null;PowerAdd
+triggerall = StageVar(info.name) =  "B"
+triggerall = roundno = 1
+trigger1 = p2name = "Cable Training"
+trigger1 = enemynear,var(40)>= 4
+value = 3000
+
+[State -2, PowerAdd]
+type = null;PowerAdd
+triggerall = StageVar(info.name) =  "B"
+triggerall = roundno = 2
+trigger1 = roundstate < 2
+trigger1 = p2name = "Cable Training"
+value = -3000
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 0
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 1
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 2
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15650
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15651
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15660
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15661
+
+;==============================
+
+
+[State -2, Stop Intro Sound]
+type = StopSnd
+trigger1 = roundstate = 2
+channel = 20
+
+[State -2] ;Omega Red Life Drain
+type = lifeadd
+triggerall = roundstate = 2
+trigger1 = enemynear, name = "Omega Red"
+trigger1 = timemod = 50,0
+value = -1
+
+[State -2, StopSnd]
+type = StopSnd
+trigger1 = roundstate = 2
+channel = 10
+
+[State Debug Display]
+type = DisplayToClipboard
+text = "style %d, damage %d, Web Swing %d, Web Throw %d "
+params = var(28),fvar(10),var(34),var(35)
+trigger1 = 1
+
+[State Append]
+type = AppendToClipboard
+text = "%d %d %d %d %d"
+params = prevstateno,FrontEdgeDist,BackEdgeDist,NumProj,NumHelper;
+;params = prevstateno,FrontEdgeDist,var(3),var(4),var(0);NumProj,NumHelper;
+trigger1 = 1
+
+;-----------------------------------
+;ZVitor X Capcom
+
+[State -2, VarSet];ZVitor Type
+type = VarSet
+triggerall = palno <=6
+trigger1 = var(28)!=0
+v = 28
+value = 0
+ignorehitpause = 1
+
+[State -2, VarSet];Capcom Type
+type = VarSet
+triggerall = palno >6
+trigger1 = var(28)!=1
+v = 28
+value = 1
+ignorehitpause = 1
+
+[State 0, Capcom Style Remove Capsul]
+type = VarSet
+triggerall = var(28) = 1
+trigger1 = var(40) != 200
+v = 40
+value = 200
+;-----------------------------------
+
+[State -2] ;Omega Red Life Drain
+type = lifeadd
+triggerall = roundstate = 2
+trigger1 = enemynear, name = "Omega Red"
+trigger1 = timemod = 50,0
+value = -1
+
+[State -2, PowerSet]
+type = PowerSet
+triggerall = enemynear, name ="Trainingroom"
+trigger1 = power != 3000
+value = 3000
+
+[State -2, Web Swing Counter Reset]
+type = VarSet
+triggerall = stateno != [1000,2999]
+trigger1 = enemynear, movetype != H
+v = 34
+value = 0
+
+[State -2, Web Throw Counter Reset]
+type = VarSet
+triggerall = stateno != [1000,2999]
+trigger1 = enemynear, movetype != H
+v = 35
+value = 0
+
+[State -2, Web Swing Position]
+type = VarSet
+triggerall = stateno != [1000,2999]
+trigger1 = enemynear, movetype != H
+v = 36
+value = 0
+
+[State 1340, Dash Abuse]
+type = Varset
+trigger1 = statetype != A
+v = 37
+value = 0
+
+[State -2, Web Kick Counter Reset]
+type = VarSet
+triggerall = stateno != [1000,2999]
+trigger1 = enemynear, movetype != H
+v = 38
+value = 0
+
+[State -2, Web Kick Counter Reset]
+type = VarSet
+triggerall = stateno < 3000
+trigger1 = enemynear, movetype != H
+v = 39
+value = 0
+
+[State -2, Web Swing Counter Reset]
+type = VarSet
+triggerall = statetype = S
+trigger1 = enemynear, movetype != H
+v = 52
+value = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = var(22) = 1
+flag = noFG
+ignorehitpause = 1
+
+[State -2]
+type = SelfState
+triggerall = stateno != 7722
+triggerall = StateType = A && MoveType != A
+trigger1 = Win
+value = 7722
+
+[State -2]
+type = VarSet
+triggerall = stateno != 1000 && stateno != 1001 ;& stateno != 1002
+trigger1 = var(44) < 12
+v = 44
+value = 12
+
+
+[State -2]
+type = VarSet
+trigger1 = stateno != 1106 && stateno != 1100 && var(41)>0
+v = 41
+value = 0
+
+[State -2]
+type = VarSet
+triggerall = var(23) = 0 && var(22) = 0
+trigger1 = 1
+v = 23
+value = 500;1005
+
+[State -2]
+type = VarSet
+triggerall = var(23) = 0 && var(22) = 1
+trigger1 = 1
+v = 22
+value = 0
+
+[State -2, contador]
+type = VarAdd
+triggerall = var(23) != 0 && var(22) = 1
+trigger1 = (GameTime % 1) = 0
+v = 23
+value = -1
+
+
+[State -2]
+type = VarSet
+triggerall = var(45) > 60 && p2stateno =[200,4999]
+trigger1 = 1
+v = 45
+value = 0
+
+[State -2, contador]
+type = VarAdd
+triggerall = var(46)=0
+triggerall = var(45) <= 60 && p2stateno =[200,4999]
+trigger1 = (GameTime % 1) = 0
+v = 45
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = var(45) > 60 && var(46) = 0 && p2stateno = [200,4999]
+v = 46
+value = 1
+
+ [State -2, VarSet]
+type = VarSet
+trigger1 =  var(45) <= 60 && var(46) = 1 && p2stateno != [200,4999]
+v = 46
+value = 0
+
+
+
+
+
+
+
+;---------------------------------------------
+
+;Pos Y
+[State -2]
+type = PosSet
+trigger1 = PrevStateno = [100,107] 
+trigger1 = StateType != A && Pos Y != 0
+y = 0
+
+;------------------------------------
+;run into screen
+
+[State -2]
+type = ScreenBound
+trigger1 = P2StateNo = [9020,9030]
+trigger2 = enemynear,stateno = [21570,21575]
+;trigger3 = enemynear,stateno = 21285
+value = 0
+
+
+[State -2, State]
+type = ChangeState
+triggerall = StateNo != 102 && StateType != A && ctrl
+trigger1 = P2Statetype = L; || P2MoveType != H
+trigger1 = BackEdgeDist < -10
+;trigger2 = FrontEdgeDist < -10
+value = 102
+
+
+;-------------------------------------
+;Life
+
+[State -2]
+type = varset
+trigger1 = !var(30)
+var(30) = floor(LifeMax/(100))
+
+[State -2]
+type = varset
+trigger1 = !var(31)
+var(31) = floor(const(data.life)/LifeMax/(100))
+
+[State -2]
+type = varset
+trigger1 = !var(33)
+trigger1 = numenemy > 1
+var(33) = floor(enemy(1),LifeMax/(100))
+
+
+
+;---------------------------------
+
+
+[State -2]
+type = AttackMulSet
+trigger1 = var(56) != 4
+trigger1 = roundstate = 2
+value = 0.8;+0.3*(var(50) > 1)
+
+
+[State -2]
+type = DefenceMulSet
+trigger1 = var(56) != 4
+trigger1 = roundstate = 2
+value = 1;-0.3*(var(49) >= 1)
+
+;--------------------------------
+
+
+;-------------------------------------------------------
+;Launcher reset
+
+
+[State -2]
+type = Varset
+trigger1 = p2movetype != H
+var(29) = 0
+ignorehitpause = 1 
+
+
+;-----------------------------------
+[State -2];Miss Hit
+type = VarSet
+triggerall = var(9)
+trigger1 = movetype != A
+var(9) = 0
+
+
+;---------------------------------------
+;-----------------------------------------------------
+
+
+[State -2,r]
+type = SelfState
+triggerall = stateno != 7777
+triggerall = var(56) = 4
+trigger1 = gethitvar(damage) >= life
+trigger2 = Life < 10
+value = 7777
+
+
+[State -2, Life]
+type = LifeAdd
+triggerall = Lose = 0
+triggerall = var(56) = 4
+trigger1 = Life < 70*Var(31)
+value = 30*Var(31)
+
+
+[State -2, Life]
+type = PowerAdd
+triggerall = Lose = 0
+trigger1 = Life < 70*Var(31)
+trigger1 = var(56) = 4
+value = 30*Var(31)
+
+
+;======================= Super Jump Enemy Locator xD
+[State -2, Blue/Red arrow]
+type = Explod
+triggerall = !NumExplod(9910)
+trigger1 = Pos Y < -200 && P2Dist Y > 50
+anim = 9910+(TeamSide = 1)
+ID = 9910
+pos = 0,-150
+postype = p2
+facing = 1
+bindtime = -1
+removetime = -1
+ontop = 1
+removeongethit = 1
+
+[State -3, 1p/2p name]
+type = Explod
+triggerall = !NumExplod(9912)
+trigger1 = Pos Y < -200 && P2Dist Y > 120
+anim = 9912+(TeamSide = 1)
+ID = 9912
+pos = 0,-200
+postype = p2
+facing = (facing*-1)
+bindtime = -1
+removetime = -1
+ontop = 1
+removeongethit = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(9910)
+trigger1 = P2Dist Y < 120
+id = 9910
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(9912)
+trigger1 = P2Dist Y < 120
+id = 9912
+
+;---------------------------------------------------
+;Web Capsul
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) > 900  && var(23) < 1000
+anim = 3101
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 900 && var(23) > 800
+anim = 3102
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 800 && var(23) > 700
+anim = 3103
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 700 && var(23) > 600
+anim = 3104
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 600 && var(23) > 500
+anim = 3105
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 500 && var(23) > 400
+anim = 3106
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 400 && var(23) > 300
+anim = 3107
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 300 && var(23) > 200
+anim = 3108
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, sense bar]
+type = Explod
+triggerall = var(22) = 1
+trigger1 = RoundState = 2 && var(23) <= 200 && var(23) > 100
+anim = 3109
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar capsule]
+type = null;Explod
+triggerall = var(22) != 1
+triggerall = var(42) = 0 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2
+anim = 1063
+pos = ifelse(TeamSide = 1, 21, 299), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1  && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 98
+anim = 1050
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 90 && var(40) < 99
+anim = 1051
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 80 && var(40) < 91
+anim = 1052
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 70 && var(40) < 81
+anim = 1053
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 60 && var(40) < 71
+anim = 1054
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 50 && var(40) < 61
+anim = 1055
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 40 && var(40) < 51
+anim = 1056
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 30 && var(40) < 41
+anim = 1057
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 20 && var(40) < 31
+anim = 1058
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 10 && var(40) < 21
+anim = 1059
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 5 && var(40) < 11
+anim = 1060
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) > 0 && var(40) < 6
+anim = 1061
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar]
+type = Explod
+triggerall = var(22) != 1 && stateno != 3510
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) <= 0
+anim = 1062
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -3, web bar vazia]
+type = Explod
+triggerall = var(22) != 1 && (stateno = 178 || stateno = 179)
+triggerall = var(28) = 0
+trigger1 = RoundState = 2 && var(40) <= 0
+trigger1 = timemod = 4,2
+anim = 1064
+pos = ifelse(TeamSide = 1, 1, 319), 240
+postype = left
+facing = ifelse(TeamSide = 1, 1, -1)
+bindtime = -1
+removetime = 1
+sprpriority = 5
+ignorehitpause = 1
+ownpal = 1
+
+[State -2, LifeAdd]
+type = null;LifeAdd
+triggerall = movetype != h
+trigger1 = timemod = 10,1
+value = 1
+kill = 1
+absolute = 0

@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "The Beast"
+displayname = "Beast"
+versiondate = 01/01/2011
+mugenversion = 1.0
+author = "Acey"
+pal.defaults = 1,4,2,3,4,5,6
+
+[Files]
+sprite = Beast.sff
+anim = Beast.air
+sound = Beast.snd
+cmd = Beast.cmd
+cns = Beast.cns
+stcommon = common1.cns
+st = Beast.cns
+pal1 = 01.act
+pal2 = 01.act
+pal3 = 01.act
+pal4 = 01.act
+pal5 = 01.act
+pal6 = 01.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

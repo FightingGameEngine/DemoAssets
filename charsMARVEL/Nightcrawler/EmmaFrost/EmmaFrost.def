@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Emma Frost"
+displayname = "Emma Frost"
+versiondate = 8/29/2013
+mugenversion = 1.0
+author = "Eclipse, X-Fields & ZVitor"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = Emma.sff
+anim = Emma.air
+sound = Emma.snd
+cmd = Emma.cmd
+cns = Emma.cns
+stcommon = common1.cns
+st = Emma.cns
+st1 = helpers.st
+st2 = state-2.cns
+st3 = state-3.cns
+pal1 = 01.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

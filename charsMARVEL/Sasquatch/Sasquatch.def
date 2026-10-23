@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Sasquatch"
+displayname = "Sasquatch"
+versiondate = 2015
+mugenversion = 2015
+author = "Regisc"
+pal.defaults = 1,2,3,4,5,6,7,8
+
+[Files]
+sprite = Sasquatch.sff
+anim = Sasquatch.air
+sound = Sasquatch.snd
+cmd = Sasquatch.cmd
+cns = Sasquatch.cns
+stcommon = common1.cns
+st = Sasquatch.cns
+st1 = Sasquatest_-2.cns
+st2 = Sasquatest_-3.cns
+st3 = Sasquatest_overide.cns
+pal1 = 1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = ending.def

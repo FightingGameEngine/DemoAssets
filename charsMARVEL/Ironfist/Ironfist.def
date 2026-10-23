@@ -1,0 +1,31 @@
+[Info]
+Name         ="Iron Fist"
+DisplayName  ="Iron Fist"
+VersionDate  =07,30,2010
+MugenVersion =06,14,2003
+Author       ="Ikaruga"
+Pal.Defaults =1,2,3,4,5,6
+
+[Files]
+Cmd      =Jyuzumaru.cmd
+Cns      =Jyuzumaru.cns
+St       =Jyuzumaru.cns
+;St3      = Jyuzumaru-2-3.cns
+StCommon =common1.cns
+Sprite   =Jyuzumaru.sff
+Anim     =Jyuzumaru.air
+Sound    =Jyuzumaru.snd
+pal1=Ironfist.act
+st1=Jyuzumaru-S.cns
+st2=Jyuzumaru-H.cns
+st3=Jyuzumaru-N.cns
+st4=config.cns
+st5=helper.cns
+
+;---カラーパレット---
+
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=Ironfirstend.def

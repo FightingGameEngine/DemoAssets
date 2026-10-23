@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Deadpool"
+displayname = "Deadpool"
+versiondate = 07,08,2007
+mugenversion = 04,14,2002
+author = "Unlimited Team - sprites, Wucash - code"
+pal.defaults = 6,3,4,2
+
+[Files]
+sprite = Deadpool.sff
+anim = Deadpool.air
+sound = Deadpool.snd
+cmd = Deadpool.cmd
+cns = Deadpool.cns
+stcommon = common1.cns
+st = Deadpool.cns
+pal1 = dead1.act
+pal2 = dead1.act
+pal3 = dead1.act
+pal4 = dead1.act
+pal5 = dead1.act
+pal6 = dead1.act
+pal7 = dead1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

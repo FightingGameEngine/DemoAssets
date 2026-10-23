@@ -1,0 +1,272 @@
+;BY: 	Doorhenge
+;EMAIL:	doorhenge@hotmail.com
+; Updated by XsLaught
+; - E-mail: xslaught@hotmail.com
+; - Added one more sprite for the floor that was easy to miss
+; - Added stage interaction compatibility
+; - Added correct time for the floor
+[Info]
+name = "Apocalypse Now! (XMvSF)"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -222	; Should be 224
+boundright = 222	; Should be 224
+boundhigh = -250
+boundlow = 0
+verticalfollow = 1
+floortension = 70
+tension = 60
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 27		; Stage identifier
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = -27		; Stage identifier
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+yscale = 0.2
+reflect = 0
+
+[Music]
+;bgmusic = 1.da
+bgmusic = sound/apoc.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/xmvsf_apocalypse_now.sff
+debugbg = 0
+
+[bg space1]
+type  = anim
+actionno = 1
+delta = .9, .8
+;delta = .6, .6
+
+[bg stage]
+type  = anim
+actionno = 2
+delta = .9, .8
+
+[bg space2]
+type  = anim
+actionno = 9
+delta = .9, .8
+
+[bg danpsy]
+type  = normal
+spriteno = 4, 0
+mask  = 1
+
+[bg dancry]
+type  = anim
+actionno = 3
+
+[bg danscratch]
+type  = anim
+actionno = 4
+
+[bg psyhead]
+type  = anim
+actionno = 5
+
+[bg balrogjar]
+type  = normal
+spriteno = 3, 0
+mask  = 1
+
+[bg balrogjarpunch]
+type  = anim
+actionno = 6
+
+[bg topjarl]
+type  = normal
+spriteno = 6, 0
+mask  = 1
+
+[bg topjarlpound]
+type  = anim
+actionno = 7
+
+[bg topjarr]
+type  = normal
+spriteno = 5, 0
+mask  = 1
+
+[bg topjarrpound]
+type  = anim
+actionno = 8
+
+[bg apocfloor]
+type  = anim
+actionno = 10
+
+;space1
+[Begin Action 1]
+0,0, 0,0, 200
+0,7, 0,0, 30
+0,1, 0,0, 200
+0,7, 0,0, 30
+0,2, 0,0, 200
+0,7, 0,0, 30
+0,4, 0,0, 200
+0,7, 0,0, 30
+0,5, 0,0, 200
+0,7, 0,0, 30
+0,6, 0,0, 200
+0,7, 0,0, 30
+
+;stage
+[Begin Action 2]
+2,1, 0,0, 20
+2,0, 0,0, 20
+2,1, 0,0, 20
+2,2, 0,0, 20
+
+;dancry
+[Begin Action 3]
+4,1, 0,0, 2
+4,9, 0,0, 2
+
+;danscratch
+[Begin Action 4]
+4,2, 0,0, 200
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,3, 0,0, 3
+4,2, 0,0, 3
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,3, 0,0, 3
+4,2, 0,0, 3
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,3, 0,0, 3
+4,2, 0,0, 3
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,3, 0,0, 3
+4,2, 0,0, 3
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,3, 0,0, 3
+4,2, 0,0, 3
+4,3, 0,0, 3
+
+;psyhead
+[Begin Action 5]
+4,5, 0,0, 100
+4,6, 0,0, 4
+4,7, 0,0, 4
+4,8, 0,0, 200
+4,7, 0,0, 4
+4,6, 0,0, 4
+4,5, 0,0, 300
+4,6, 0,0, 4
+4,7, 0,0, 4
+4,8, 0,0, 200
+4,7, 0,0, 4
+4,6, 0,0, 4
+4,8, 0,0, 300
+4,7, 0,0, 4
+4,6, 0,0, 4
+4,5, 0,0, 200
+4,6, 0,0, 4
+4,7, 0,0, 4
+4,8, 0,0, 200
+4,7, 0,0, 4
+4,6, 0,0, 4
+
+;balrogjarpunch
+[Begin Action 6]
+3,1, 0,0, 150
+3,2, 0,0, 5
+3,3, 0,0, 5
+3,4, 0,0, 5
+3,5, 0,0, 5
+3,6, 0,0, 5
+
+;topjarlpound
+[Begin Action 7]
+6,3, 0,0, 150
+6,2, 0,0, 5
+6,1, 0,0, 5
+6,2, 0,0, 5
+6,3, 0,0, 5
+6,2, 0,0, 5
+6,1, 0,0, 5
+6,2, 0,0, 5
+6,3, 0,0, 5
+6,2, 0,0, 5
+6,1, 0,0, 5
+6,3, 0,0, 5
+6,2, 0,0, 5
+6,1, 0,0, 5
+6,2, 0,0, 5
+
+;topjarrpound
+[Begin Action 8]
+5,3, 0,0, 150
+5,2, 0,0, 5
+5,1, 0,0, 5
+5,2, 0,0, 5
+5,3, 0,0, 5
+5,2, 0,0, 5
+5,1, 0,0, 5
+5,2, 0,0, 5
+5,3, 0,0, 5
+5,2, 0,0, 5
+5,1, 0,0, 5
+5,2, 0,0, 5
+5,3, 0,0, 5
+5,2, 0,0, 5
+5,1, 0,0, 5
+5,2, 0,0, 5
+
+;space2
+[Begin Action 9]
+0,7, 0,0, 200
+0,3, 0,0, 30
+0,7, 0,0, 200
+0,3, 0,0, 30
+0,7, 0,0, 200
+0,3, 0,0, 30
+0,7, 0,0, 200
+0,3, 0,0, 30
+0,7, 0,0, 200
+0,3, 0,0, 30
+0,7, 0,0, 200
+0,3, 0,0, 30
+
+;floor
+[Begin Action 10]
+1,0, 0,0, 11
+1,1, 0,0, 11
+1,2, 0,0, 11
+1,1, 0,0, 11

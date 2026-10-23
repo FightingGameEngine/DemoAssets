@@ -1,0 +1,33 @@
+;***************************************************************************;
+;***************************************************************************;
+;**************************** MUGEN TOURNAMENT 3 ***************************;
+;***************************************************************************;
+;***************************************************************************;
+
+[Info]
+name    	="Nate Grey"
+displayname 	="Nate Grey"
+pal.defaults	=1,2,3,4,5,6,7,8,9,10,11,12
+versiondate=8/3/2020
+mugenversion=
+author="ComedyHaHa"
+
+[Files]
+cmd     =nate.cmd     
+cns     =nate.cns     
+st      =nate.cns
+stcommon=common1.cns   
+sprite  =nate.sff     
+anim    =nate.air     
+sound	=nate.snd
+pal1=pal1.act
+pal2=pal2.act
+pal3=pal5.act
+pal4=pal3.act
+pal5=pal4.act
+pal6=pal6.act
+st1=nate1.cns
+
+[Arcade]
+intro.storyboard =
+ending.storyboard=

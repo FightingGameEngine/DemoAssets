@@ -1,0 +1,34 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Taskmaster"
+displayname ="Taskmaster"
+versiondate =06.08.2014
+mugenversion =0.93
+author ="rojin70"
+pal.defaults =1,2
+
+[Files]
+sprite =Taskmaster.sff
+anim =Taskmaster.air
+sound =Taskmaster.snd
+cmd =Taskmaster.cmd
+cns =Taskmaster.cns
+stcommon =common1.cns
+st =Taskmaster.cns
+pal1=act\1p.act
+pal2=act\2p.act
+st1=AimOfHawkeye.st
+st2=SwordMaster.st
+st3=HyperCombo.st
+st4=resident_states.st
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard = 
+;ending.storyboard = 

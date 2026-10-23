@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Spiderman"
+displayname = "Spiderman"
+versiondate = 08/27/2013
+mugenversion = 1.0
+author = "ZVitor"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = MVC2_Spiderman.sff
+anim = MVC2_Spiderman.air
+sound = MVC2_Spiderman.snd
+cmd = MVC2_Spiderman_Medium.cmd
+cns = MVC2_Spiderman.cns
+stcommon = common1.cns
+st = MVC2_Spiderman.cns
+st1 = MVC2_Spiderman_-2.cns
+st2 = MVC2_Spiderman_-3.cns
+st3 = MVC2_Spiderman_overide.cns
+st4 = AvX.cns
+pal1 = px04.act
+pal2 = px04.act
+pal3 = px04.act
+pal4 = px04.act
+pal5 = px04.act
+;pal6 = px04.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

@@ -1,0 +1,36 @@
+
+[Info]
+name ="Scarlet Witch"
+displayname ="Scarlet Witch"
+versiondate =04,14,2001
+mugenversion =1.0
+author ="Warecus, Acey, Ark_ & ZVitor"
+pal.defaults	=1,2,3,4,5,6
+
+[Files]
+sprite   =Template.sff
+anim     =Template.air
+sound    =Template.snd
+stcommon =common1.cns
+cmd      =Template.cmd
+cns      =Template.cns
+st       =basics.st
+pal1=px1.act
+pal2=px2.act
+pal3=px3.act
+pal4=px4.act
+pal5=zv1.act
+pal6=px6.act
+pal7=Black Queen.act
+pal8=White Queen.act
+pal9=custom2.act
+pal10=custom1.act
+pal11=custom3.act
+pal12=custom4.act
+st1=specials.st
+st2=hypers.st
+st3=overrides.st
+
+[Arcade]
+intro.storyboard =../AvX/Arcade.def
+ending.storyboard=../data/AvX/Ending01.def

@@ -1,0 +1,71 @@
+;--------------------------------------------------------------------
+;-----------------     Def file for Warmachine     -----------------
+;-----------------   http://www.scruffydragon.com   -----------------
+;--------------------------------------------------------------------
+;
+;
+;                  _                                      _
+;                _/(               <~\  /~>               )\_
+;              .~   ~-.            /^-~~-^\            .-~   ~.
+;           .-~        ~-._       : /~\/~\ :       _.-~        ~-.
+;        .-~               ~~--.__: \0/\0/ ;__,--~~               ~-.
+;       /                        ./\. ^^ ./\.                        \
+;      .                         |  ( )( )  |                         .
+;      -~~--.        _.---._    /~   U`'U   ~\    _.---._        .--~~-
+;            ~-. .--~       ~~-|              |-~~       ~--. .-~
+;               ~              |  :        :  |_             ~
+;                              `\,'  :  :  `./' ~~--._
+;                             .(<___.'  `,___>),--.___~~-.
+;                             ~ (((( ~--~ ))))      _.~  _)
+;                                ~~~      ~~~/`.--~ _.--~
+;                                            \,~~~~~
+;--------------------------------------------------------------------
+;--------------------------------------------------------------------
+;------------- Animation sprites and coded by Logansam --------------
+;--------------------------------------------------------------------
+;-------------        revised by ScruffyDragon         --------------
+;--------------------------------------------------------------------
+;--------------------------------------------------------------------
+
+[Info]
+name = "Warmachine"
+displayname = "Warmachine"
+versiondate = 19,01,2016
+mugenversion = 1.0
+author = "Logansam"
+pal.defaults = 1,4,3,2,5,6
+;localcoord= 384,224 ; scruffydragon set
+localcoord= 320,240 ; normal mugen
+
+[Files]
+sprite = Warmachine.sff
+anim = Warmachine.air
+sound = Warmachine.snd
+cmd = Warmachine.cmd
+cns = Warmachine.cns
+stcommon = marvel1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+;st5 = Flight.st
+;st6 = xcostume.txt
+
+[Palette Keymap]
+x  = 1
+y  = 2
+z  = 3
+a  = 4
+b  = 5
+c  = 6
+x2 = 7
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,975 @@
+;---------------------------------------------------------------------------
+; Pause Before running onto screen
+[Statedef 108]
+type = S
+movetype= I
+physics = N
+velset = 0, 0
+ctrl = 0
+anim = 108
+sprpriority = 2
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+x = backedgebodydist
+y = 0
+
+[State 655, ScreenBound]
+type = ScreenBound
+trigger1 = p2movetype = H
+value = 0
+movecamera = 0,0
+
+
+
+[state 659, run]
+type = ChangeState
+trigger1 = time > 25 && enemynear, vel x = 0;pos y >= 0
+trigger2 = time >= 50
+value = 109 ;101 ;run back onscreen state
+ctrl = 0
+
+
+;---------------------------------------------------------------------------
+;Run onto screen
+[Statedef 109]
+type    = S
+physics = S
+anim = 109
+sprpriority = 3
+
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 2 & time > 0 && time <= 20
+x = 19
+y = 0
+ignorehitpause = 1
+;persistent =
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem >=4
+x = .5
+ignorehitpause =1
+;persistent =
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 100, 10
+
+
+[State 101, 4]
+type = ChangeState
+trigger1 = animtime = 0
+value = 11
+ctrl = 1
+
+
+
+;---------------------------------------------------------------------------
+;Guard Push (Stand)
+[Statedef 6300]
+type    = S
+movetype= I
+physics = N
+poweradd= 0
+velset = 4,0
+ctrl = 0
+anim = 705
+sprpriority = 2
+
+[State 6300, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 6300,0
+
+
+[State 6300, a1]
+type = VelMul
+trigger1 = 1
+x = 0.75
+
+[State 6300, a2]
+type = VelSet
+trigger1 = Time = 10
+x = 0
+
+[State 6300, a3]
+type = Width
+trigger1 = 1
+value = 10,0
+
+[State 6300, a4]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA
+time = 35
+
+[State 6300, a5]
+type = Helper
+trigger1 = Time = 0
+helpertype = Normal
+name = "GuardPush"
+postype = P1
+pos = -70,0
+stateno = 6350
+ownpal = 1
+size.height = 200
+size.ground.back = 30
+size.ground.front = 30
+
+[State 6300, a6]
+type = Explod
+trigger1 = animelem = 1
+anim = 725
+postype = p1
+pos = 65,-60
+ownpal = 1
+vel = 0,0
+scale = 0.5,0.5
+ignorehitpause = 1
+sprpriority = 7
+
+[State 6300, a7]
+type = PlaySnd
+trigger1 = Time = 0
+value = 44,0
+volume = 255
+channel = 1
+
+[State 6300, a8]
+type = PlaySnd
+trigger1 = Time = 0
+value = 6,5
+channel = 0
+
+[State 6300, a9]
+type = ChangeState
+trigger1 = Time = 26
+value = 0
+ctrl = 1
+
+;------------------------------------------
+;Push Block (Crouch)
+[Statedef 6310]
+type    = C
+movetype= I
+physics = N
+poweradd= 0
+velset = 4,0
+ctrl = 0
+anim = 710
+sprpriority = 2
+
+[State 6310, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 6300,0
+
+
+[State 6310, a1]
+type = VelMul
+trigger1 = 1
+x = 0.75
+
+[State 6310, a2]
+type = VelSet
+trigger1 = Time = 10
+x = 0
+
+[State 6310, a3]
+type = Width
+trigger1 = 1
+value = 10,0
+
+[State 6310, a4]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA
+time = 35
+
+[State 6310, a5]
+type = Helper
+trigger1 = Time = 0
+helpertype = Normal
+name = "GuardPush"
+postype = P1
+pos = -20,0
+stateno = 6350
+ownpal = 1
+size.height = 200
+size.ground.back = 30
+size.ground.front = 30
+
+[State 6310, a6]
+type = Explod
+trigger1 = animelem = 1
+anim = 725
+postype = p1
+pos = 70,-45
+ownpal = 1
+vel = 0,0
+removetime = 24
+scale = 0.5,0.5
+ignorehitpause = 1
+sprpriority = 7
+
+[State 6300, a7]
+type = PlaySnd
+trigger1 = Time = 0
+value = 44,0
+volume = 255
+channel = 1
+
+[State 6310, a8]
+type = PlaySnd
+trigger1 = Time = 0
+value = 6,5
+channel = 0
+
+[State 6310, a9]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;---------------------------------------------
+;Push Block (Air)
+[Statedef 6320]
+type    = S
+movetype= I
+physics = N
+poweradd= 0
+velset = 4,0
+ctrl = 0
+anim = 715
+sprpriority = 2
+
+[State 6300, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 6300,0
+
+
+[State 6320, a1]
+type = VelMul
+trigger1 = 1
+x = 0.75
+
+[State 6320, a2]
+type = VelSet
+trigger1 = Time = 10
+x = 0
+
+[State 6320, a3]
+type = Width
+trigger1 = 1
+value = 10,0
+
+[State 6320, a4]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA
+time = 35
+
+[State 6320, a5]
+type = Helper
+trigger1 = Time = 0
+helpertype = Normal
+name = "GuardPush"
+postype = P1
+pos = -68,0
+stateno = 6350
+ownpal = 1
+size.height = 200
+size.ground.back = 30
+size.ground.front = 30
+
+[State 6320, a6]
+type = Explod
+trigger1 = animelem = 1
+anim = 725
+postype = p1
+removetime = 24
+pos = 65,-65
+ownpal = 1
+scale = 0.5,0.5
+vel = 0,0
+ignorehitpause = 1
+sprpriority = 7
+
+[State 6300, a7]
+type = PlaySnd
+trigger1 = Time = 0
+value = 44,0
+volume = 255
+channel = 1
+
+[State 6320, a8]
+type = PlaySnd
+trigger1 = Time = 0
+value = 6,5
+channel = 0
+
+[State 6320, a9]
+type = ChangeState
+trigger1 = Time = 26
+value = 51
+ctrl = 1
+
+;------------------------------------
+[Statedef 6350];guard push helper
+type    = S
+movetype= I
+physics = N
+poweradd= 0
+ctrl = 0
+anim = 720
+sprpriority = -4
+
+[State 6350, a1]
+type = PlayerPush
+trigger1 = Time >= 0
+value = 1
+
+[State 6350, a2]
+type = VelSet
+trigger1 = Time = [0,10]
+x = 30
+
+[State 6350, a3]
+type = VelSet
+trigger1 = Time = [11,13]
+x = 20
+
+[State 6350, a4]
+type = VelSet
+trigger1 = Time >= 14
+x = 10
+
+[State 6350, a5]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 6350, a6]
+type = DestroySelf
+trigger1 = Time >= 12
+
+;---------------------------------------------------------------------------
+; Guard Counter - Psi-Blade Spin (M)
+;CNS difficulty: easy
+[Statedef 760]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+velset = 0,0
+anim = 1100
+sprpriority = -2
+poweradd= -500
+
+[State 760, StateTypeSet]
+type = StateTypeSet
+trigger1 = stateno != 760 || stateno != 760 && p2movetype = A
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = A         ;A,C,S,N
+;ignorehitpause =
+;persistent =
+
+[State 760, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+pos = 25, -57
+anim = 1020
+sound = s230,10
+unhittable = 1
+Time = 30
+
+[State 760, Counter FX]
+type = Explod
+trigger1 = Time = 0
+anim = 921
+postype = p1
+pos = 0,-55
+ownpal = 1
+sprpriority = 5
+supermovetime = 50
+removeongethit = 1
+
+
+[State 760, vocal]
+type = PlaySnd
+trigger1 = time = 2
+value = 1200,0
+
+[State 760, a4]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA, AA, AT, AP
+time = 3
+
+[State 760, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1205
+ctrl = 0
+
+
+;---------------------------------------------------------------------------
+;Guard Counter - Psi-Blade Spin (M)
+;CNS difficulty: easy
+[Statedef 780]
+type    = A
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+velset = 0,0
+anim = 1100
+sprpriority = -2
+poweradd= -500
+
+[State 1020, StateTypeSet]
+type = StateTypeSet
+trigger1 = stateno != 780 || stateno != 780 && p2movetype = A
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = A         ;A,C,S,N
+;ignorehitpause =
+;persistent =
+
+[State 780, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+pos = 25, -57
+anim = 1020
+sound = s230,10
+unhittable = 1
+Time = 30
+
+[State 760, Counter FX]
+type = Explod
+trigger1 = Time = 0
+anim = 921
+postype = p1
+pos = 0,-55
+ownpal = 1
+sprpriority = 5
+supermovetime = 50
+removeongethit = 1
+
+
+[State 0, vocal]
+type = PlaySnd
+trigger1 = time = 2
+value = 1200,0
+
+[State 780, a4]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA, AA, AT, AP
+time = 3
+
+[State 780, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1205
+ctrl = 0
+
+
+;---------------------------------------------------------------------------------------------
+;Beginning of the super jump
+[Statedef 7000]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+sprpriority = 1
+
+[State 7000, ChangeState]
+type = ChangeState
+triggerall = prevstateno = 420 || prevstateno = 270
+trigger1 = Time = 0
+value = 7002
+ctrl = 1
+
+
+[State 7000, VarSet]
+type = VarSet
+trigger1 = Time = 0
+v = 11
+value = 0
+
+[State 7000, VarSet]
+type = VarSet
+trigger1 = command = "holdfwd"
+v = 11
+value = 1
+
+[State 7000, VarSet]
+type = VarSet
+trigger1 = command = "holdback"
+v = 11
+value = -1
+
+
+
+[State 7000, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7001
+ctrl = 1
+
+;---------------------------------------------------------------------------------------------
+;Super Jump
+[Statedef 7001]
+type = A
+physics = A
+ctrl = 1
+anim = 48; 41
+velset = 0,-14.8
+airjump.num = 0
+
+
+[State 0, Yell]
+type = PlaySnd
+trigger1 = animelem = 1
+value =  5, 0
+
+[State 0, Jump]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 10, 1
+
+
+[State 7001, VelAdd]
+type = VelAdd
+triggerall = Vel X >= -2.5
+trigger1 = command = "holdback"
+trigger1 = Anim != 43
+x = -0.2
+
+[State 7001, VelAdd]
+type = VelAdd
+triggerall = Vel X <= 3
+trigger1 = command = "holdfwd"
+trigger1 = Anim != 42
+trigger2 = var(59)>0;--------------AI
+trigger2 = Anim != 42
+x = 0.2
+
+;[State 7001, VelSet]
+;type = VelSet
+;trigger1 = Anim = 42
+;trigger1 = Time = [0,5]
+;x = 4
+
+;[State 7001, VelSet]
+;type = VelSet
+;trigger1 = Anim = 43
+;trigger1 = Time = [0,5]
+;x = -3.5
+
+[State 7001, ChangeAnim]
+type = ChangeAnim
+trigger1 = Var(11) = 0
+trigger1 = Time = [0,4]
+value = 49  ;41
+
+[State 7001, ChangeAnim]
+type = ChangeAnim
+trigger1 = Var(11) = 1
+trigger1 = Time = [0,4]
+value = 49 ; 41
+
+[State 7001, ChangeAnim]
+type = ChangeAnim
+trigger1 = Var(11) = -1
+trigger1 = Time = [0,4]
+value = 49 ; 41
+
+[State 7001, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 9999,5
+volume = 255
+
+[State 7001, VelAdd]
+type = VelAdd
+trigger1 = Vel Y > 0
+y= - 0.10  ;0.18
+
+[State 7001, Explod]
+type = Explod
+trigger1 = Time = 0
+ID = 7001
+anim = 905
+postype = p1
+pos = 0, 20
+bindtime = 1
+removetime = -2
+ownpal = 1
+sprpriority = 2
+scale = 0.7,0.7
+;scale = 1.20 - (time * 0.15), 1.54 - (time * 0.15)
+
+
+
+;---------------------------------------------------------------------------------------------
+;Super Jump (For Aerial Rave)
+[Statedef 7002]
+type = A
+physics = A
+ctrl = 1
+anim = 48; 41
+velset = 0,-14.1
+airjump.num = 0
+
+
+[State 0, Yell]
+type = PlaySnd
+trigger1 = animelem = 1
+value =  5, 0
+
+[State 0, Jump]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 10, 1
+
+
+[State 7001, VelAdd]
+type = VelAdd
+triggerall = Vel X >= -2.5
+trigger1 = command = "holdback"
+trigger1 = Anim != 43
+x = -0.2
+
+[State 7001, VelAdd]
+type = VelAdd
+triggerall = Vel X <= 3
+trigger1 = command = "holdfwd"
+trigger1 = Anim != 42
+trigger2 = var(59)>0;--------------AI
+trigger2 = Anim != 42
+x = 0.2
+
+;[State 7001, VelSet]
+;type = VelSet
+;trigger1 = Anim = 42
+;trigger1 = Time = [0,5]
+;x = 4
+
+;[State 7001, VelSet]
+;type = VelSet
+;trigger1 = Anim = 43
+;trigger1 = Time = [0,5]
+;x = -3.5
+
+[State 7001, ChangeAnim]
+type = ChangeAnim
+trigger1 = Var(11) = 0
+trigger1 = Time = [0,4]
+value = 49  ;41
+
+[State 7001, ChangeAnim]
+type = ChangeAnim
+trigger1 = Var(11) = 1
+trigger1 = Time = [0,4]
+value = 49 ; 41
+
+[State 7001, ChangeAnim]
+type = ChangeAnim
+trigger1 = Var(11) = -1
+trigger1 = Time = [0,4]
+value = 49 ; 41
+
+[State 7001, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 9999,5
+volume = 255
+
+[State 7001, VelAdd]
+type = VelAdd
+trigger1 = Vel Y > 0
+y= - 0.10  ;0.18
+
+[State 7001, Explod]
+type = Explod
+trigger1 = Time = 0
+ID = 7001
+anim = 905
+postype = p1
+pos = 0, 20
+bindtime = 1
+removetime = -2
+ownpal = 1
+sprpriority = 2
+scale = 0.7,0.7
+;scale = 1.20 - (time * 0.15), 1.54 - (time * 0.15)
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Rave_Timer"
+ID = 7003
+stateno = 7003
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+
+
+
+;---------------------------------------------------------
+;Aerial Rave Timer
+[Statedef 7003]
+physics = N
+anim = 3999
+sprpriority = -3
+
+[State 7003, 8]
+Type = Destroyself
+trigger1 = time = 100  || time > 10 && parent, vel y > 0 || parent, movetype = H
+
+
+
+
+;---------------------------------------------------------------------------
+; Wakeup Forward
+[Statedef 5155]
+type    = L
+movetype= I
+physics = N
+
+[State 5155, 1a] ;Get up anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim != [5111,5119]
+trigger2 = !SelfAnimExist(5155 + (anim % 10))
+value = 5155
+
+[State 5155, 1b] ;Get up anim (for hit up/diag-up)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim = [5111,5119]
+trigger1 = SelfAnimExist(5155 + (anim % 10))
+value = 5155 + (anim % 10)
+
+[State 5155, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 7
+y = 0
+
+
+[State 5155, 4]
+type = HitFallSet
+trigger1 = Time = 0
+value = 1
+
+[State 5155, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = AnimTime = 0
+value = , NT,ST,HT
+time = 10
+
+[State 5155, 6] ;Can't be hit right after getting up (short time)
+type = NotHitBy
+trigger1 = AnimTime = 0
+value2 = SCA
+time = 10
+
+
+
+[State 5155, 7]
+type = changestate
+trigger1 = AnimTime = 0
+Value = 0
+ctrl = 1
+
+
+;----------------------------------------------------
+; Wakeup Back
+[Statedef 5156]
+type    = L
+movetype= I
+physics = N
+
+[State 5156, 1a] ;Get up anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim != [5111,5119]
+trigger2 = !SelfAnimExist(5156 + (anim % 10))
+value = 5156
+
+[State 5156, 1b] ;Get up anim (for hit up/diag-up)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim = [5111,5119]
+trigger1 = SelfAnimExist(5156 + (anim % 10))
+value = 5156 + (anim % 10)
+
+
+[State 5156, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = -7
+y = 0
+
+
+[State 5156, 4]
+type = HitFallSet
+trigger1 = Time = 0
+value = 1
+
+[State 5156, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = AnimTime = 0
+value = , NT,ST,HT
+time = 10
+
+[State 5156, 6] ;Can't be hit right after getting up (short time)
+type = NotHitBy
+trigger1 = AnimTime = 0
+value2 = SCA
+time = 10
+
+
+
+[State 5156, 7]
+type = changestate
+trigger1 = AnimTime = 0
+Value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Wakeup Forward
+[Statedef 5157]
+type    = L
+movetype= I
+physics = N
+
+[State 5157, 1a] ;Get up anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim != [5111,5119]
+trigger2 = !SelfAnimExist(5157 + (anim % 10))
+value = 5157
+
+[State 5157, 1b] ;Get up anim (for hit up/diag-up)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim = [5111,5119]
+trigger1 = SelfAnimExist(5157 + (anim % 10))
+value = 5157 + (anim % 10)
+
+[State 5157, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 8.7
+y = 0
+
+
+[State 5157, 4]
+type = HitFallSet
+trigger1 = Time = 0
+value = 1
+
+[State 5157, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = AnimTime = 0
+value = SCA, NT,ST,HT
+time = 10
+
+[State 5157, 6] ;Can't be hit right after getting up (short time)
+type = NotHitBy
+trigger1 = AnimTime = 0
+value2 = SCA
+time = 10
+
+
+
+[State 5157, 7]
+type = changestate
+trigger1 = AnimTime = 0
+Value = 0
+ctrl = 1
+
+
+;----------------------------------------------------
+; Wakeup Back
+[Statedef 5158]
+type    = L
+movetype= I
+physics = N
+
+[State 5158, 1a] ;Get up anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim != [5111,5119]
+trigger2 = !SelfAnimExist(5158 + (anim % 10))
+value = 5158
+
+[State 5158, 1b] ;Get up anim (for hit up/diag-up)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim = [5111,5119]
+trigger1 = SelfAnimExist(5158 + (anim % 10))
+value = 5158 + (anim % 10)
+
+
+[State 5158, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = -8.7
+y = 0
+
+
+[State 5158, 4]
+type = HitFallSet
+trigger1 = Time = 0
+value = 1
+
+[State 5158, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = AnimTime = 0
+value = SCA, NT,ST,HT
+time = 10
+
+[State 5158, 6] ;Can't be hit right after getting up (short time)
+type = NotHitBy
+trigger1 = AnimTime = 0
+value2 = SCA
+time = 10
+
+
+
+[State 5158, 7]
+type = changestate
+trigger1 = AnimTime = 0
+Value = 0
+ctrl = 1
+
+
+

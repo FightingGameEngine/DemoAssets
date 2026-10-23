@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Nightcrawler"
+displayname = "Nightcrawler"
+versiondate = 11,11,10
+mugenversion = 1.0
+author = "Twinimage"
+pal.defaults = 1
+
+[Files]
+sprite = Nightcrawler.sff
+anim = Nightcrawler.air
+sound = Nightcrawler.snd
+cmd = States\Nightcrawler.cmd
+cns = States\Nightcrawler.cns
+stcommon = States\DCvsMarvelcommon1.cns
+st = States\basics.st
+st1 = States\specials.st
+st2 = States\hypers.st
+st3 = States\Excalibur.st
+st4 = States\overrides.st
+pal1 = Palettes\pal1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Apocalypse"
+displayname = "Apocalypse"
+versiondate = 12/05/2014
+mugenversion = 1.0
+author = "RobiWanKen0bi & MMV Team"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = Apocalypse.sff
+anim = Apocalypse.air
+sound = Apocalypse.snd
+cmd = Apocalypse.cmd
+cns = Apocalypse.cns
+stcommon = common1.cns
+st = Apocalypse.cns
+st1 = horsemen.st
+st2 = hugeapoc.cns
+st3 = hugeparts.cns
+st4 = hugeapoc-s.cns
+st5 = hugeapoc.cns
+st6 = hugeparts.cns
+st7 = hugeapoc-s.cns
+pal1 = Apoc04.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

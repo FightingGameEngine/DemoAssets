@@ -1,0 +1,111 @@
+[Info]
+name = "New York City Skyline"
+versiondate = 02,01,2009
+author = "Xslaught & Phantom.of.the.Server"
+
+[Music]
+bgmusic = ;sound/OnslaughtBGM.mp3
+bgvolume = 255
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -224
+boundright = 224
+boundhigh = -224
+boundlow = 0
+verticalfollow = .9
+floortension = 85
+tension = 60
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 26;11069	Limit = 254
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = -26;11069	Limit = -254
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 216
+;zoffsetlink = 1		; Stage interaction
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+intensity = 0
+color = 160,160,160
+yscale = .5
+fade.range = 0,0
+
+; MAIN BG DEFINITION
+[BGdef]
+spr = stages/new_york_city_skyline.sff
+debugbg = 0
+
+[BG space]
+type = normal
+spriteno = 0,2
+layerno = 0
+start = 0,240
+delta = .45,.725
+
+[BG city]
+type = normal
+spriteno = 0,1
+layerno = 0
+start = 0,240
+delta = .4,.87
+mask = 1
+
+[BG antenna]
+type = normal
+spriteno = 0,3
+layerno = 0
+start = 0,240
+delta = 1,1
+mask = 1
+
+[BG floor]
+type = normal
+spriteno = 0,0
+layerno = 0
+start = 0,240
+delta = 1,1
+mask = 1
+
+; Stage Interaction
+;[BG z]
+;type = dummy
+;start = 0, 216		; Initial Z-offset
+;id = 1
+
+;[BGCtrl stageID 1]
+;type = PosSet
+;time = 1
+;y = 10853		; ID = (9784 + 216) = 10000 + SLUS-01059 + 10 (Stage 10) = 11069
+;ctrlID = 1
+
+;[BGCtrl stageID 2]
+;type = PosSet
+;time = 2
+;y = 0
+;ctrlID = 1

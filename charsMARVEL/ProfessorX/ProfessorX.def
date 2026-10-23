@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Professor X"
+displayname = "Professor X"
+versiondate = 11,11,10
+mugenversion = 1.0
+author = "Twinimage"
+pal.defaults = 1
+
+[Files]
+sprite = ProfessorX.sff
+anim = ProfessorX.air
+sound = ProfessorX.snd
+cmd = States\ProfessorX.cmd
+cns = States\ProfessorX.cns
+stcommon = States\DCvsMarvelcommon1.cns
+st = States\basics.st
+st1 = States\specials.st
+st2 = States\hypers.st
+st3 = States\astral_projection.st
+st4 = States\xmen.st
+st5 = States\overrides.st
+pal1 = Palettes\pal1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,290 @@
+; Variables - May or may not list all variables used
+;---------------------------------------------------
+; Var(0) = AI - On/Off
+; Var(1) = AI - used by the XOR-ed commands method to detect recent custom states.
+; Var(2) = AI - the GameTime variable, required by the helper and XOR methods.
+; Var(3) = AI - Randomize moves
+; Var(4) = Unused - AI bits - 1 = Opponent has Super Armor
+; Var(5) = StateNo - For Super Armor
+; Var(6) = 
+; Var(7) = GetHit Take Counter - Determines when the Hurt Anim takes place
+; Var(8) = Randomizer - Used for Sparkle Pos X
+; Var(9) = Randomizer 2 - Used for Sparkle Pos Y
+; Var(10) = 
+; Var(11) = Onslaught - Glow Counter - To save glow time because of Super Armor
+;		  = Sentinel - Stand Smoke Counter
+; Var(12) = Float Counter - To save float time because of Super Armor. Used in Forms 1 and 2
+; Var(13) = State NumContact Counter - Since there is no NumContact, this will be used to keep track of hits and guarded hits in states. Used in Hyper Rush state (11401)
+; Var(14) = Onslaught (2nd Form) - Hit PalFx Counter
+;		  =	Sentinel - Hit PalFx Counter
+; Var(15) = Unused - NumGetHit Counter - Used to increase defense
+; Var(16) = Unused - GetHitTime - Used to reset NumGetHit to 0 when it reaches 0
+; Var(17) = Unused - Global NumContact Counter - Keeps track of hits and guarded hits globally
+; Var(18) = Partner Change - Timer
+; Var(20) = Onslaught (2nd Form) - Move Toggler - Used only for Rensha Beam
+; Var(21) = Life
+; Var(22) = Self-state Check. Since state -3 is not run through in opponent's state. Having it reset in state -3 and set to 1 in state -2 can check if the player is in the opponent's state when it is 1.
+; Var(23) = Forced Turn Check. Used to keep track of Facing in state -3.
+; Var(24) = Forced ChangeAnim Check. Used to keep track of Anim in state -3.
+; Var(25) = Forced ChangeAnim Elem Check. Used to keep track of AnimElemNo(0) in state -3.
+; Var(28) = Onslaught - GetHit Threshold - Anti-Spam - increases each time hurt anim takes place. Lowers when not in hurt anim
+; Var(29) = Sentinel's Life Red
+; Var(30) = Sentinel's Life
+; Var(31) = Temp State Timer - Used to keep count of time for states due to super armor
+;			Used for States 100 (Run Fwd) and 105 (Run Back)
+; Var(32) = Super Jump - Detects if Super Jump was performed to add correct Vel Y
+; Var(33) = Sentinel - Fly Switch
+; Var(34) = Sentinel - Fly timer
+; Var(35) = Sentinel - Plasma Storm - Charge timer
+; Var(36) = Sentinel - Plasma Storm - Extra energy ball limit
+; Var(37) = Sentinel - Plasma Storm - Extra energy ball command time limit
+; Var(38) = Sentinel - Plasma Storm - Charge level counter
+; Var(39) = Sentinel - KO Snd - Play once
+; Var(40) = Sentinel - Grab Switch
+; Var(41) = Sentinel - Grab Timer
+; Var(42) = Sentinel - Win Pose Decider
+; Var(43) = Sentinel - Dizzy Counter
+; Var(44) = Sentinel - Fly Direction - Used for ease of implementing AI
+; Var(45) = 
+; Var(47) = Announcer Hits
+; Var(48) = Announcer Text
+; Var(49) = Announcer Danger
+; Var(50) = Character: 0 = Onslaught (1st Form), 1 = Onslaught (2nd Form), 2 = Xavier, 3 = Sentinel
+; Var(51) = Rounds Lost to change Var(50). Rounds Won - Onslaught (2nd Form)
+; Var(52) = Unused - Stage Interaction: Fight Time; Var(52) = 3 = Trigger Floor
+; Var(53) = Sentinel - Enable as P1 Simplifier
+; Var(54) = P2 Life
+; Var(57) = AI - the primary AI variable
+; Var(58) = Training Mode Detection - Previous Power
+; Var(59) = Training Mode Detection
+; 
+;
+; Float Variables
+;-----------------
+; FVar(0) = Pos Y - Used for floating and correcting transition from Intro to Round Start position
+; FVar(1) = Pos X/Forced Pos X Check - Used to store Pos X so shaking will stay put. It is not set in state 15001 because if Onslaught is hit in that state, then the Pos X will be set to what his Pos X was in 15001 not the previous state's Pos X
+; FVar(2) = Pos Y - Before entering state. Used for floating for Onslaught (2nd Form)
+; FVar(3) = Forced Pos Y Check - If Pos Y != FVar(3) = custom state
+; FVar(10) = Attack Damage Dampener - 10% less damage with each consecutive hit
+; FVar(11) = Defense Damage Dampener - Used to reduce damage when enemy has more life
+; FVar(12) = Dash Punch - BackEdgeDist Check - used as a failsafe if BackEdgeDist is not met
+; FVar(20) = Sentinel - Win B - P2 Pos X
+; FVar(21) = Sentinel - Win B - TargetState - Successful
+; FVar(25) = Sentinel - Standing Medium Kick - Cornerpush
+; FVar(29) = BGMusic - Played
+; FVar(30) = Config - BGMusic
+; FVar(31) = Config - Resurrection
+; FVar(32) = Config - TimerFreeze
+; FVar(36) = Config - P2 Life Recovery Percentage - after resurrection
+
+; System Variables
+;-----------------
+; All have been left the default
+
+; Helpers
+;---------
+; Helper(215) = Sentinel, S. MP Missile A
+; Helper(217) = Sentinel, S. MP Missile B
+; Helper(221) = Sentinel, S. SP Energy Beam
+; Helper(222) = Sentinel, S. SP Beam
+;
+; Helper(10191) = Xavier (Intro)
+; - Var(0) = Special Intro
+; - Explod(10192) = Special Intro Message
+; Helper(10001) = Flaming Hand
+; Helper(10002) = Push Dummy - To prevent opponent from pushing
+; Helper(10003) = Sparkles
+; Helper(11010) = Sentinel Aerial Bomb - Sentinel Missile 1
+; Helper(11011) = Sentinel Aerial Bomb - Sentinel Missile 2
+; Helper(11030) = Sentinel Aerial Bomb - Bomb
+; Helper(11110) = Sentinel Assist - Sentinel
+; Helper(11205) = Hyper Grav - Orb Generator
+; Helper(11210) = Hyper Grav - Orb UL
+; Helper(11211) = Hyper Grav - Orb DL
+; Helper(11212) = Hyper Grav - Orb UR
+; Helper(11213) = Hyper Grav - Orb DR
+; Helper(11214) = Hyper Grav - Damager
+; - Var(0) = Shake X Random
+; - Var(1) = Shake Y Random
+; - FVar(0) = OffSet X
+; - FVar(1) = OffSet Y
+; - FVar(2) = Vector X
+; - FVar(3) = Vector Y
+; - FVar(4) = Vector Length
+; Helper(11320) = Magnetic Tempest - Projectile
+; - Var(0) = Animation Random
+; - Var(1) = Pos X
+; - Var(2) = Pos Y
+; - Var(3) = Vel X
+; - Var(4) = Vel Y
+; Helper(11410) = Hyper Rush
+; Helper(13010) = Magnetic Shockwave - Front Wave - 1st
+; - Var(0) = Num Shockwave - To avoid infinite shockwaves in a loop stage
+; Helper(13011) = Magnetic Shockwave - Front Wave - 2nd+
+; - Var(0) = Num Shockwave - To avoid infinite shockwaves in a loop stage
+; Helper(13110) = Mega Optic Blast - Beam
+; Helper(13201) = Partner Change - Onslaught in the background
+; Helper(13202) = Partner Change - Parallax Reference Point
+;
+; Onslaught (2nd Form)
+; Helper(20191) = Rock Generator
+; Helper(20192) = Rocks
+; - Var(0) = Anim (Rock Type)
+; - Var(1) = Pos X Random
+; - Var(2) = Vel Y Random
+; - Var(3) = Vel X Random
+; Helper(20300) = Head
+; - Helper(20200) = Neck
+; - Helper(20210) = Body
+; - Helper(20410) = Rensha Beam - Beam
+;   - Helper(20420) = Rensha Beam - Endpoint/Explosion
+;   - Var(0) = Anim
+;   - Var(1) = AnimElemNo
+; - Var(5) = StateNo - For Super Armor
+; - Var(6) = 
+; - Var(7) = GetHit Take Counter - Determines when the Hurt Anim takes place - Not used anymore. Using the parent's Var(7)
+; - Var(8) = PalFx Counter
+; Helper(25151) = Lose - Orb
+;  - Var(0) = Anim Random
+;  - Var(1) = Pos X Random
+;  - Var(2) = Pos Y Random
+;
+; Sentinel
+; Helper(1050) = Rocket Punch - Down - Arm
+; - Var(0) = Switch to attach once returned
+; - Var(1) = Time when switch to returning
+; - FVar(0) = Cornerpush Vel X
+; - FVar(1) = Cornerpush PosAdd X
+; Helper(1055) = Rocket Punch - Down - Wire
+; - Var(0) = NumExplod(1055)+
+; - Var(1) = Time when switch to returning
+; Helper(1060) = Rocket Punch - Forward - Arm
+; - Var(0) = Switch to attach once returned
+; - Var(1) = Time when switch to returning
+; - FVar(0) = Cornerpush Vel X
+; - FVar(1) = Cornerpush PosAdd X
+; Helper(1065) = Rocket Punch - Forward - Wire
+; - Var(0) = NumExplod(1065)+
+; - Var(1) = Time when switch to returning
+; Helper(1070) = Rocket Punch - Up - Arm
+; - Var(0) = Switch to attach once returned
+; - Var(1) = Time when switch to returning
+; - FVar(0) = Cornerpush Vel X
+; - FVar(1) = Cornerpush PosAdd X
+; Helper(1075) = Rocket Punch - Up - Wire
+; - Var(0) = NumExplod(1075)+
+; - Var(1) = Time when switch to returning
+; Helper(1150) = Aerial Rocket Punch - Down - Arm
+; - Var(0) = Switch to attach once returned
+; - Var(1) = Time when switch to returning
+; - FVar(0) = Cornerpush Vel X
+; - FVar(1) = Cornerpush PosAdd X
+; Helper(1155) = Aerial Rocket Punch - Down - Wire
+; - Var(0) = NumExplod(1155)+
+; - Var(1) = Time when switch to returning
+; Helper(1160) = Aerial Rocket Punch - Forward - Arm
+; - Var(0) = Switch to attach once returned
+; - Var(1) = Time when switch to returning
+; - FVar(0) = Cornerpush Vel X
+; - FVar(1) = Cornerpush PosAdd X
+; Helper(1165) = Aerial Rocket Punch - Forward - Wire
+; - Var(0) = NumExplod(1165)+
+; - Var(1) = Time when switch to returning
+; Helper(1170) = Aerial Rocket Punch - Up - Arm
+; - Var(0) = Switch to attach once returned
+; - Var(1) = Time when switch to returning
+; - FVar(0) = Cornerpush Vel X
+; - FVar(1) = Cornerpush PosAdd X
+; Helper(1175) = Aerial Rocket Punch - Up - Wire
+; - Var(0) = NumExplod(1175)+
+; - Var(1) = Time when switch to returning
+;
+; Helper(1205) = Sentinel Force - Sentinel 1
+; - Var(0) = Command buffer
+; Helper(1206) = Sentinel Force - Sentinel 2
+; - Var(0) = Command buffer
+; Helper(1207) = Sentinel Force - Sentinel 3
+; - Var(0) = Command buffer
+;
+; Explod
+;--------
+; Explod(1) = Sentinel - Smoke A
+; Explod(2) = Sentinel - Smoke B
+; Explod(1055)+ = Sentinel - Rocket Punch - Down - Wire
+; Explod(1065)+ = Sentinel - Rocket Punch - Forward - Wire
+; Explod(1075)+ = Sentinel - Rocket Punch - Up - Wire
+; Explod(1155)+ = Sentinel - Aerial Rocket Punch - Down - Wire
+; Explod(1165)+ = Sentinel - Aerial Rocket Punch - Forward - Wire
+; Explod(1175)+ = Sentinel - Aerial Rocket Punch - Up - Wire
+; Explod(1205) = Sentinel Force - Sentinel - Booster
+; Explod(11020) = Sentinel Aerial Bomb - Sentinel - Booster
+; Explod(11510) = Teleport - To give the teleport sprite it's own palette
+; Explod(12110) = Mega Optic Blast - Energy
+; Explod(12120) = Mega Optic Blast - P2 Explod
+; Explod(13210) = Partner Change - Telekinesis
+; Explod(25150) = Xavier - Lose
+; Onslaught (2nd Form)
+; Explod(20197) = Intro - Message
+; Explod(20400) = Rensha Beam - Energy
+; Explod(20431) = Rensha Beam - Flame
+
+; Projectiles
+;------------
+; ProjID(222) = Sentinel, S. SP Invisible Projectile
+; ProjID(13011) = Magnetic Shockwave
+; ProjID(13111) = Mega Optic Blast - Invisible Projectile
+; ProjID(20430) = Rensha Beam - Invisible Projectile
+
+[Data]
+life = 1000					; Amount of life to start with
+attack = 100				; 100% attack power (more is stronger)
+defence = 135				; 135% defensive power (more is stronger)
+fall.defence_up = 50		; Def goes up by 50% everytime player is hit on ground
+liedown.time = 38			; Time player takes before getting up from HIT_LIEDOWN
+power = 3000				; Maximum amount of power
+airjuggle = 15				; Can do 15 points of juggling
+sparkno = S7000				; Default spark number
+guard.sparkno = S7040		; Default guard spark number
+KO.echo = 0					; 1 to enable echo on KO
+volume = 0					; Volume offset (negative for softer)
+IntPersistIndex = 51		; Variable to persist
+FloatPersistIndex = 40		; Float Variable to persist
+
+[Size]
+xscale = 1					; Horizontal scaling factor.
+yscale = 1					; Vertical scaling factor.
+ground.back = 40			; Player width (back, ground)
+ground.front = 46			; Player width (front, ground) - Accurate value would be 48 but it appears jagged
+air.back = 34				; Player width (back, air)
+air.front = 24				; Player width (front, air)
+z.width = 3					; Player width (into and out)
+height = 100				; Height of player (for opponent to jump over)
+attack.width = 4,4			; Default attack width: back, front
+attack.dist = 160			; Default attack distance
+proj.attack.dist = 90		; Default attack distance for projectiles
+proj.doscale = 0			; Set to 1 to scale projectiles too   
+head.pos = -5, -90			; Approximate position of head
+mid.pos = -5, -60			; Approximate position of midsection
+shadowoffset = -1			; Number of pixels to vertically offset the shadow
+draw.offset = 0,0			; Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd  = 3				; Walk forward
+walk.back = -3				; Walk backward
+run.fwd  = 4.6, 0			; Run forward (x, y)  - if y<0, player will hop
+run.back = -4.5,-3.8		; Run backward (x, y) - if y=0, player will run
+jump.neu = 0,-8.4			; Neutral jumping velocity (x, y)
+jump.back = -2.55			; Jump back Speed (x, y)
+jump.fwd = 2.5				; Jump forward Speed (x, y)
+runjump.back = -2.55,-8.1	; Running jump speeds (opt)
+runjump.fwd = 4,-8.1		;.
+airjump.neu = 0,-8.1		;.
+airjump.back = -2.55		; Air jump speeds (opt)
+airjump.fwd = 2.5			;.
+
+[Movement]
+airjump.num = 0				; Number of air jumps allowed (opt)
+airjump.height = 35			; Minimum distance from ground before you can air jump (opt)
+yaccel = .22				; Vertical acceleration
+stand.friction = .94		; Friction coefficient when standing
+crouch.friction = .82		; Friction coefficient when crouching

@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "The Mighty Thor"
+displayname = "Thor"
+versiondate = 01,01,2006
+mugenversion = 14,11,2001
+author = "Loganir & BlackDragon"
+pal.defaults = 3,1,2,4,5
+
+[Files]
+sprite = Thor_AvX.sff
+anim = thor.air
+sound = thor.snd
+cmd = thor.cmd
+cns = thor.cns
+stcommon = thor1.cns
+st = thor.cns
+st1 = thor2notag.cns
+pal1 = FTFTYFIY.act
+pal2 = NEWWWMarvel Now!.act
+pal3 = 2marvel now!.act
+pal4 = Marvel Now!.act
+pal5 = px02.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Hulk"
+displayname = "Incredible Hulk"
+versiondate = 10/08/2011
+mugenversion = 1.0
+author = "Acey"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = IncredibleHulk.sff
+anim = IncredibleHulk.air
+sound = IncredibleHulk.snd
+cmd = IncredibleHulk.cmd
+cns = IncredibleHulk.cns
+stcommon = common1.cns
+st = IncredibleHulk.cns
+st1 = IncredibleHulk_-2.cns
+st2 = IncredibleHulk_-3.cns
+st3 = IncredibleHulk_overide.cns
+pal1 = 1.act
+;pal2 = 1.act
+;pal3 = 1.act
+;pal4 = 1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

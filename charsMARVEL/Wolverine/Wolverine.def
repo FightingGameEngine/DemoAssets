@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Wolverine"
+displayname = "Wolverine"
+versiondate = 08/28/2013
+mugenversion = 1.0
+author = "ZVitor"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = MarvelTemplate.sff
+anim = MarvelTemplate.air
+sound = MarvelTemplate.snd
+cmd = MarvelTemplate.cmd
+cns = MarvelTemplate.cns
+stcommon = DCvsMarvelcommon1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+st4 = amalgam.st
+pal1 = px1.act
+;pal2 = px1.act
+;pal3 = px1.act
+;pal4 = px1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

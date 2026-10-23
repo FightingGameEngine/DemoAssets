@@ -1,0 +1,97 @@
+M.U.G.E.N Character
+ Symbiote Spider-Man (Ultimate) Version 1.2
+
+Current M.U.G.E.N Author Working On This Character
+ Empawk
+
+M.U.G.E.N Character's Last Update
+ 05/06/2011
+
+Empawk's Website
+ http://www.freewebs.com/empawk
+
+
+Supers
+ Maximum Spider
+ Crawler Assault
+
+Specials
+ Standing Web Shot (down, down forward, forward, x/y/z)
+ Air Web Shot (down, down forward, forward, x/y/z)
+ Standing Spider-Sting (forward, down forward, forward, x/y/z)
+ Web Swing (down, down back, back, a)
+ Air Symbiote Serpents (down, down back, back, b)
+ Air Symbiote Cyclone (down, down back, back, c)
+ Standing Web Throw Horizontal (down, down back, back, x)
+ Standing Web Throw Diagonal (down, down back, back, y)
+ Standing Web Throw Vertical (down, down back, back, z)
+ Ultimate Web Throw (down, down back, back, b) <--While on ground
+ Wall Climb (down, down back, back, c) <--- While doing the air climb, you must move once while against the wall before you can attack
+ Standing Symbiote Hammer (down, down forward, forward, a/b/c)
+ Standing Symbiote Serpents (x+y)
+ Standing Symbiote Bite (hold back+x+y)
+ Standing Symbiote Cyclone (hold forward+x+y)
+ Standing Symbiote Tentacles (hold down+x+y)
+ Light Air Dive Kick (hold down+a/c)
+ Medium Air Dive Kick (hold down+b)
+
+Throws
+ Forwards Throw Air and Ground
+ Backwards Throw Air and Ground
+
+Attacks (Standard)
+ All MvC
+
+Last Updates
+ Spider-Man TAS (Symbiote Episodes) Sound Pack
+ Fixed some, but not all collision boxes in all animations
+ Improved artificial intelligence
+ Improved some sprites
+ Additional symbiote reach attacks
+ Speed Adjustment
+ Player mode can now scoot forward or backward by holding the direction button during jump up
+ Fixed all pallets
+
+Potential Future Updates
+ Add a new throw 
+ Custom Intro against Spider-Man:TAS enemies
+ Change walking animations (FWD & Back)
+ Complete the combo announcer
+ Add a level 2 super and level 3 super
+ Add more symbiote attacks (projectiles and maybe a striker)
+ Add custom hitsparks
+
+Issues
+ Sometimes the Spider-Man freezes when he gets hit performing Ultimate Web Throw.
+ Some characters can't be throw by Ultimate Web Throw. He needs some coding to force other character to be compatible.
+ Not all of the sprites have been resprited. So the style isn't completely consistent.
+ Sometimes the announcer voices lag.
+
+-Credits-
+
+Seth Zankuten - Original beta sound rips, sprites, programming
+Sei - Original beta additional symbiote animations
+Acey - Original beta spriting
+SS5ACE - Sprites, beta Testing, ideas
+Maximof - Don't remember how to spell his name - Sound files
+Sander71113 - Weapon X Coding
+Noir, Big Eli King, DCvsMarvel Project - Started ideas and advertised beta
+acglass - Additional beta symbiote sprites & programing for symbiote & iron spider
+Empawk - Additional and some re-spriting of symbiote animations and some attacks, minor generic coding for new attacks, beta testing, new portraits, glitch fixes, AI programming, Spider-Man TAS sounds.
+Femmril - For MVC style speed and mid-air turning codes
+Rajaa, iTorres, Cyanide - Tips and tricks for coding
+Bovery23 - For M.U.G.E.N Fighter Factory tutorials
+Reuben Kee - Inspiration for aggressive AI
+Capcom - For making Marvel Vs. Capcom 1 & 2, which were the original inspiration for the sprites
+Stan Lee - For creating the original Spider-Man, Venom, Carnage and Symbiote Spider-Man characters
+You - For downloading our group's character and helping spread this character across the globe.
+
+
+
+    
+ 
+
+
+
+
+

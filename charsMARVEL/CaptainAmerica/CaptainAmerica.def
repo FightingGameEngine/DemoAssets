@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Captain America"
+displayname = "Cap America By Acey"
+versiondate = 08/30/2013
+mugenversion = 1.0
+author = "Acey"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = captainamerica.sff
+anim = captainamerica.air
+sound = captainamerica.snd
+cmd = captainamerica.cmd
+cns = captainamerica.cns
+stcommon = common1.cns
+st = captainamerica.cns
+pal1 = 01.act
+pal2 = 01.act
+;pal3 = 01.act
+;pal4 = 01.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

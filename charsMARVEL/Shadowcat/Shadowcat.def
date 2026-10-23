@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Shadowcat"
+displayname = "Shadowcat"
+versiondate = 06.07.2008
+mugenversion = 1.0
+author = "Arkady, Hypersonic & B-5"
+pal.defaults = 1,2,3,4,5,6,7
+
+[Files]
+sprite = Shadowcat.sff
+anim = Shadowcat.air
+sound = Shadowcat.snd
+cmd = Shadowcat.cmd
+cns = Shadowcat.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Float.st
+st6 = Extra.st
+pal1 = 1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

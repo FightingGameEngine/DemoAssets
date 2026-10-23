@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Captain Marvel"
+displayname = "Captain Miss Marvel"
+versiondate = 12/21/2012
+mugenversion = 1.0
+author = "Ultraroboninja & ZVitor"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = Template.sff
+anim = Template.air
+sound = Template.snd
+cmd = Template.cmd
+cns = Template.cns
+stcommon = common1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+pal1 = modern.act
+pal2 = modern.act
+pal3 = modern.act
+pal4 = modern.act
+pal5 = modern.act
+pal6 = modern.act
+pal7 = modern.act
+pal8 = modern.act
+pal9 = modern.act
+pal10 = modern.act
+pal11 = modern.act
+pal12 = modern.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

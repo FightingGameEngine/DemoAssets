@@ -1,0 +1,38 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "She Hulk"
+displayname = "She Hulk"
+versiondate = 06,07,2008
+mugenversion = 1.0
+author = "Cravd, Arkady, Mistah Jorge, Shining and volzzilla"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = SheHulk.sff
+anim = SheHulk.air
+sound = SheHulk.snd
+cmd = SheHulk.cmd
+cns = SheHulk.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Extra.st
+pal1 = Default.act
+pal2 = Default.act
+pal3 = Default.act
+pal4 = Default.act
+pal5 = Default.act
+pal6 = Default.act
+pal7 = Default.act
+pal8 = Default.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

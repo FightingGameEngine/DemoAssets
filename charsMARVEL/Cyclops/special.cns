@@ -1,0 +1,1298 @@
+[Statedef 1000]
+type    = S
+movetype= A
+physics = S
+juggle = 0;  = 4
+poweradd= 50
+ctrl = 0
+velset = 0,0
+anim = 1000
+sprpriority = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,3
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 4
+helpertype = normal ;player
+name = "Raio Reto"
+ID = 1001
+stateno = 1001
+pos = 0,-88
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+
+
+
+[State 1000, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 1001]
+type = A
+movetype = A
+physics = N
+anim = 1001
+velset = 0,0
+sprpriority = 99
+
+[State 1001, ParentVarSet]
+type = ParentVarSet
+trigger1 = enemynear,movetype = H
+fv = 26
+value = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SP
+damage = ifelse(enemynear,name="Havok",40,80),5
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30, 0; (enemynear,pos y)
+animtype = Heavy
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = ifelse(enemynear,name="Havok",0,-15),ifelse(enemynear,name="Havok",0,-4)
+guard.velocity = -5
+air.velocity = ifelse(enemynear,name="Havok",0,-14),ifelse(enemynear,name="Havok",0,8)
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1000
+;ignorehitpause =
+;persistent =
+
+[Statedef 1010]
+type    = S
+movetype= A
+physics = S
+juggle = 0;  = 4
+poweradd= 50
+ctrl = 0
+velset = 0,0
+anim = 1010
+sprpriority = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,3
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem =4
+helpertype = normal ;player
+name = "Raio Baixo"
+ID = 1011
+stateno = 1011
+pos = 0,-84
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+
+[State 1010, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 1011]
+type = A
+movetype = A
+physics = N
+anim = 1011
+velset = 0,0
+sprpriority = 99
+
+[State 1001, ParentVarSet]
+type = ParentVarSet
+trigger1 = enemynear,movetype = H
+fv = 26
+value = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SP
+damage = ifelse(enemynear,name="Havok",40,80),2
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30,floor(-(enemynear, pos y) + ifelse(enemynear,pos y < pos y,-20,0))
+animtype = Heavy
+ground.type = low
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -15
+guard.velocity = -5
+air.velocity = -14,8
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1010
+;ignorehitpause =
+;persistent =
+
+[Statedef 1020]
+type    = S
+movetype= A
+physics = S
+juggle = 0;  = 4
+poweradd= 50
+ctrl = 0
+velset = 0,0
+anim = 1020
+sprpriority = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,3
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 4
+helpertype = normal ;player
+name = "Raio Cima"
+ID = 1021
+stateno = 1021
+pos = -6,-90
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+
+[State 1000, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 1021]
+type = A
+movetype = A
+physics = N
+anim = 1021
+velset = 0,0
+sprpriority = 99
+
+[State 1001, ParentVarSet]
+type = ParentVarSet
+trigger1 = enemynear,movetype = H
+fv = 26
+value = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SP
+damage = ifelse(enemynear,name="Havok",40,80),2
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30,floor((enemynear, pos y) - 10)
+animtype = Heavy
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -18,ifelse(enemynear,name="Havok",0,-10)
+guard.velocity = -5
+air.velocity = -14,-6
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1020
+;ignorehitpause =
+;persistent =
+
+;RAIO RETO PULO
+[Statedef 1050]
+type    = A
+movetype= A
+physics = A
+juggle = 0;  = 4
+poweradd= 45
+ctrl = 0
+anim = 1050
+sprpriority = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = (vel x)/2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = timemod = 4,2
+y = -0.3
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,3
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3
+helpertype = normal ;player
+name = "Raio Reto"
+ID = 1051
+stateno = 1051
+pos = 0,-88
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+
+[State 1000, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 900
+
+
+[Statedef 1051]
+type = A
+movetype = A
+physics = N
+anim = 1001
+velset = 0,0
+sprpriority = 99
+
+[State 1001, ParentVarSet]
+type = ParentVarSet
+trigger1 = enemynear,movetype = H
+fv = 26
+value = 1
+
+[State 1510, PosSet]
+type = PosSet
+trigger1 = 1
+x = parent, Pos X
+y = parent, Pos Y - 88
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SP
+damage = ifelse(enemynear,name="Havok",35,70),1
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30,0
+animtype = Heavy
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -15,-4
+guard.velocity = -5
+air.velocity = -14,0
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1050
+
+;RAIO cima PULO
+[Statedef 1060]
+type    = A
+movetype= A
+physics = A
+juggle = 0;  = 4
+poweradd= 45
+ctrl = 0
+anim = 1060
+sprpriority = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = (vel x)/2
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = timemod = 4,2
+y = -0.3
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3
+helpertype = normal ;player
+name = "Raio Reto"
+ID = 1061
+stateno = 1061
+pos = 0,-88
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+
+[State 1000, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 900
+
+
+[Statedef 1061]
+type = A
+movetype = A
+physics = N
+anim = 1061
+velset = 0,0
+sprpriority = 99
+
+[State 1001, ParentVarSet]
+type = ParentVarSet
+trigger1 = enemynear,movetype = H
+fv = 26
+value = 1
+
+[State 1510, PosSet]
+type = PosSet
+trigger1 = 1
+x = parent, Pos X + 10
+y = parent, Pos Y - 88
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SP
+damage = ifelse(enemynear,name="Havok",35,70),1
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30,floor((pos y - enemynear, pos y) + ifelse(enemynear,pos y < pos y,-30,0))
+animtype = Heavy
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -15,ifelse(enemynear,name="Havok",0,-4)
+guard.velocity = -5
+air.velocity = -14,-4
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1060
+
+;RAIO baixo PULO
+[Statedef 1070]
+type    = A
+movetype= A
+physics = A
+juggle = 0;  = 4
+poweradd= 45
+ctrl = 0
+anim = 1070
+sprpriority = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = (vel x)/2
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = timemod = 4,2
+y = -0.3
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3
+helpertype = normal ;player
+name = "Raio Reto"
+ID = 1071
+stateno = 1071
+pos = 0,-88
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+
+[State 1000, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 900
+
+
+[Statedef 1071]
+type = A
+movetype = A
+physics = N
+anim = 1071
+velset = 0,0
+sprpriority = 99
+
+[State 1001, ParentVarSet]
+type = ParentVarSet
+trigger1 = enemynear,movetype = H
+fv = 26
+value = 1
+
+[State 1510, PosSet]
+type = PosSet
+trigger1 = 1
+x = parent, Pos X
+y = parent, Pos Y - 100
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SP
+damage = ifelse(enemynear,name="Havok",35,70),1
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30,floor(-(pos y - enemynear, pos y) - 20); + ifelse(enemynear,pos y < pos y,-20,0)
+animtype = Heavy
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -15,ifelse(enemynear,name="Havok",0,-4)
+guard.velocity = -5
+air.velocity = -14,8
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1070
+
+
+
+[Statedef 1100]
+type    = S
+movetype= A
+physics = N
+juggle = 0;  = 3
+poweradd= 60
+ctrl = 0
+velset = 0,0
+anim = 1100
+sprpriority = 0
+facep2 = 1
+
+[State 1470]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1101
+
+[Statedef 1101]
+type    = S
+movetype= A
+physics = N
+juggle = 0;  = 3
+ctrl = 0
+velset = 0,0
+anim = 1101
+sprpriority = 0
+facep2 = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 1109
+ID =  1109
+pos = 17, -108
+postype = p1  ;p2,front,back,left,right
+bindtime = -1
+removetime = -2
+sprpriority = 2
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,11
+
+
+[State 0, Projectile]
+type = Projectile
+trigger1 =  animelem = 2
+ProjID = 1110
+projanim = 1110
+projhitanim = 6000
+projremanim =  6000
+projcancelanim = 6000
+projscale = 1.5,.5
+projremove = 1
+projremovetime = -1
+velocity = 15 ,0.5*(2  - random/250)
+velmul = 1
+projhits = 1
+projsprpriority = 3
+offset = 0, -95
+postype = p1         ;p2,front,back,left,right
+attr = S,SP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAF        ;HLAFD+-
+guardflag = MA         ;HLA
+animtype = light          ;light,medium,hard,back,up,diagup
+air.animtype = light
+;fall.animtype = Back
+priority = 1,Hit   ;Hit,Miss,Dodge
+damage = ifelse(enemynear,name="Havok",5,7),1
+pausetime = 0,0
+;guard.pause,0
+sparkno = -1;S6000
+guard.sparkno = -1
+hitsound = 5,0
+guardsound = 6,0
+ground.type = High      ;Low,Trip,None
+ground.hit = 10
+air.hittime = 5
+ground.slidetime = 10
+ground.hittime  = 5
+ground.velocity = -1,0
+air.velocity = -2,0
+sprpriority = 10
+
+[State 1000, contador]
+type = VarAdd
+trigger1 = animelem = 2
+v = 44
+value = -2
+
+[State 1470]
+type = ChangeState
+trigger1 = AnimTime = 0 && command != "holda" && command != "holdb" && command != "holdc"
+trigger2 =  var(44) <= 0
+trigger3 = AnimTime = 0 && var(59) && random < 600;saida da IA do web bullet
+value = 1102
+
+[State 1470]
+type = ChangeState
+trigger1 = AnimTime = 0 && (command = "holda" ||command = "holdb" || command = "holdc" )
+value = 1101
+
+[Statedef 1102]
+type    = S
+movetype= A
+physics = N
+juggle = 0;  = 3
+ctrl = 0
+velset = 0,0
+anim = 1102
+sprpriority = 0
+facep2 = 1
+
+[State 1102]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[StateDef 1200]
+type = A
+movetype = A
+physics = N
+anim = 1200
+ctrl = 0
+velset = 0,0
+sprpriority = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 2
+x = 0
+y = -5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =  animelem = 2
+value = 0,0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time > 15
+value = 1201
+
+[StateDef 1201]
+type = A
+movetype = A
+physics = N
+anim = 1201
+ctrl = 0
+velset = 0,0
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 171,12
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2
+helpertype = normal ;player
+name = "Raio Terremoto"
+ID = 1202
+stateno = 1202
+pos = 40,50
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 2
+anim = 1204
+ID = 1204
+pos = 30,-90
+postype = p1  ;p2,front,back,left,right
+removetime = -2
+sprpriority = 3
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 900
+
+[Statedef 1202]
+type = C
+movetype = A
+physics = N
+anim = 1203
+velset = 0,0
+sprpriority = 99
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 5080,0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 220, HitDef]
+type = HitDef
+triggerall = parent,fvar(29)=0
+trigger1 = time= 0
+attr = C, SA
+damage = 60
+hitflag = MFD
+guardflag = M
+pausetime = 0,0
+hitsound = -1
+guardsound = -1
+sparkno = -1
+sparkxy = 0,0
+animtype = Back
+ground.type = trip
+ground.slidetime = 15
+ground.hittime  = 30
+ground.velocity = -2,-10
+guard.velocity = -2
+air.velocity = -3,-10
+fall = 1
+;p2stateno = 5130
+;p2getp1state = 0
+
+[State 1200, VarSet]
+type = parentVarSet
+trigger1 = fvar(29)!=1
+trigger1 = movehit
+fv = 29
+value = 1
+ignorehitpause = 1
+
+[State 8900, 1]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+freq = 120;10
+ampl = -8;2
+phase = 90
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 1202
+ID = 1202
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+removetime = -2
+sprpriority = 110
+scale = 0.5,0.5
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 1205
+ID = 1205
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+removetime = -2
+sprpriority = 115
+scale = 1,1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 3405
+ID = 3405
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+removetime = -2
+sprpriority = -110
+scale = 1,1
+bindtime = -1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  time = 52
+
+
+[Statedef 1300]
+type    = A
+movetype= A
+physics = A
+juggle = 0;  = 4
+poweradd= 40
+velset = 4,-7
+ctrl = 0
+anim = 1300
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 0,2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,10
+
+[State 600, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = A, SA
+damage = 30
+guardflag = MA
+pausetime = 4,30
+hitsound = 5,0
+guardsound = 6,0
+sparkxy = -10,-55
+sparkno = 1
+animtype = heavy
+ground.type =High
+ground.slidetime = 10
+ground.hittime  = 10
+ground.velocity = -3
+guard.velocity = -7
+air.velocity = -2,-3
+air.fall = 1
+
+[State 600, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1301
+
+[Statedef 1301]
+type    = C
+movetype= A
+physics = C
+juggle = 0;  = 4
+velset = 0,0
+poweradd= 20
+ctrl = 0
+anim = 1301
+sprpriority = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y != 0
+y = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 171,10
+
+[State 600, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = A, SA
+damage = 30
+guardflag = MA
+pausetime = 4,8
+hitsound = 5,0
+guardsound = 6,0
+sparkno = 1
+sparkxy = -10,0
+animtype = heavy
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 10
+ground.velocity = -3
+guard.velocity = -7
+air.velocity = -2,-3
+air.fall = 1
+;p1stateno = 1302
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit
+value = 1302
+ctrl = 0
+;anim =
+;ignorehitpause =
+;persistent =
+
+
+[State 600, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+[Statedef 1302]
+type    = C
+movetype= A
+physics = C
+juggle = 0;  = 4
+poweradd= 10
+velset = 0,0
+ctrl = 0
+anim = 1302
+sprpriority = 0
+
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y != 0
+y = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 171,3
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3
+helpertype = normal ;player
+name = "Raio Baixo"
+ID = 1310
+stateno = 1310
+pos = 9,-65
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+[State 600, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+[Statedef 1310]
+type = A
+movetype = A
+physics = N
+anim = 1011
+velset = 0,0
+sprpriority = 99
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SA
+damage = ifelse(enemynear,name="Havok",35,60)
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6002
+guard.sparkno = S6004
+sparkxy = -30,floor((enemynear, pos y))
+animtype = Heavy
+ground.type = low
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -15
+guard.velocity = -5
+air.velocity = -14,8
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= ifelse(enemynear,name="Havok",0,1)
+fall = ifelse(enemynear,name="Havok",0,1)
+envshake.time = 7
+envshake.ampl = 4
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1302
+;ignorehitpause =
+;persistent =
+
+ ;shoryuken
+[Statedef 1400]
+type    = A
+movetype= A
+physics = N
+juggle = 0;  = 16
+ctrl = 0
+velset = 0,0
+anim = 1400
+poweradd = 55
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0,0
+
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 3
+x = 4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 4
+x = 5
+y = -7
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 5
+x = 1
+y = -2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 6
+x = 0
+y = -2
+;ignorehitpause =
+;persistent =
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =  animelem = 7
+x = 0
+y = 0
+
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = animelem = 4
+attr = S,SA
+damage = 50,5
+animtype = High
+guardflag = MA
+hitflag = MAF
+priority = 6, Hit
+pausetime = 4,4
+sparkno = 2
+sparkxy = -10, -100
+hitsound = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 30
+ground.hittime  = 30
+ground.velocity = 1,-11
+air.velocity = 2,-11
+p2stateno = 5060
+;p2getp1state = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit
+value = 1401
+ctrl = 0
+
+[State 220, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 900
+
+[Statedef 1401]
+type    = A
+movetype= A
+physics = N
+juggle = 0;  = 7
+ctrl = 0
+anim = 1401
+poweradd = 15
+sprpriority = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 1
+y = -5
+;ignorehitpause =
+;persistent =
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =  animelem = 2
+x = 3
+y = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =  animelem = 3
+x = 0
+y = 0
+
+[State 100, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 171,3
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 4
+helpertype = normal ;player
+name = "Raio Cima"
+ID = 1410
+stateno = 1410
+pos = 3,-110
+postype = p1    ;p2,front,back,left,right
+bindtime = -1
+size.shadowoffset =0
+
+[State 220, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 900
+
+
+[Statedef 1410]
+type = A
+movetype = A
+physics = N
+anim = 1402
+juggle = 0;  = 8
+velset = 0,0
+sprpriority = 99
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time= 0
+attr = S, SA
+damage = ifelse(enemynear,name="Havok",30,50)
+guardflag = MA
+pausetime = 10,10
+hitsound = S7,1
+guardsound = S171,4
+sparkno = S6003
+sparkxy = -10,40+floor((enemynear, pos y))
+animtype = Heavy
+ground.type = low
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = 0,-12
+guard.velocity = -5
+air.velocity = -1,-12
+airguard.velocity = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+air.fall= 1
+fall = 1
+envshake.time = 7
+envshake.ampl = 4
+p2stateno = 5060
+;p2getp1state = 0
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =  animtime = 0
+trigger2 = parent, anim != 1401
+;ignorehitpause =
+;persistent =
+
+
+

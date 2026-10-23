@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Ironman"
+displayname = "Ironman"
+versiondate = 08/31/2013
+mugenversion = 1.0
+author = "ZVitor"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = Template.sff
+anim = Template.air
+sound = Template.snd
+cmd = Template.cmd
+cns = Template.cns
+stcommon = common1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+pal1 = px01.act
+pal2 = px01.act
+;pal3 = px01.act
+;pal4 = px01.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

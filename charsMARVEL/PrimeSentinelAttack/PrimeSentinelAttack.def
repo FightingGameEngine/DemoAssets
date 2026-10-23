@@ -1,0 +1,28 @@
+
+; ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+;====================<DEFINITION>====================
+[Info]
+name        ="Prime Sentinels"
+displayname ="Prime Sentinels"
+versiondate =03,23,2009
+mugenversion =1.0
+author      ="ZVitor, Sei, Eclipse, Bigpimp and P.O.T.S."
+pal.defaults=1,2,3,4,5,6
+
+[Files]
+cmd     =Command.cmd
+cns     =Constants.cns
+st      =States.st
+stcommon=common1.cns
+sprite  =Sprite.sff
+anim    =Anim.air
+sound   =Sound.snd
+pal1=Palettes/px01.act
+st1=CONFIG.txt
+
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard= ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=

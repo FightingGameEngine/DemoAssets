@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Punisher"
+displayname = "Punisher"
+versiondate = 05.12.11
+mugenversion = 1.0
+author = "aPoCaLyPsE"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = animation\EOH.sff
+anim = animation\EOH.air
+sound = sound\EOH.snd
+cmd = command\EOH.cmd
+cns = cns\EOH.cns
+stcommon = cns\common1.cns
+st = cns\EOH.cns
+st1 = cns\supers.cns
+st2 = cns\hypers.cns
+pal1 = act\EOH03.act
+pal2 = act\EOH03.act
+pal3 = act\EOH03.act
+pal4 = act\EOH03.act
+
+[Arcade]
+intro.storyboard = storyboards\intro.def
+ending.storyboard = storyboards\ending.def

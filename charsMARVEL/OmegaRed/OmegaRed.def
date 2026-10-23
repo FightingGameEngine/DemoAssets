@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Omega Red"
+displayname = "Omega Red"
+versiondate = 04,14,2001
+mugenversion = 04,14,2001
+author = "ZVitor"
+pal.defaults = 1,5
+
+[Files]
+sprite = MarvelTemplate.sff
+anim = MarvelTemplate.air
+sound = MarvelTemplate.snd
+cmd = MarvelTemplate.cmd
+cns = MarvelTemplate.cns
+stcommon = DCvsMarvelcommon1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+st4 = amalgam.st
+pal1 = px4.act
+pal2 = px4.act
+pal3 = px4.act
+pal4 = px4.act
+pal5 = px4.act
+pal6 = px4.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = ..\data\Ending01.def

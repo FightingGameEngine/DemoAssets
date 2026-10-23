@@ -1,0 +1,41 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Ultron"
+displayname = "Ultron"
+versiondate = 01,08,2011
+mugenversion = 04,14,2001
+author = "McCready, Enzo, Magus & Scruffydragon + Mugenesis Team"
+pal.defaults = 10,4,1,7
+
+[Files]
+sprite = ultron.sff
+anim = ultron.air
+sound = ultron.snd
+cmd = ultron.cmd
+cns = ultron.cns
+stcommon = marvel1.cns
+st = basics.st
+st1 = throws.st
+st2 = specials.st
+st3 = hypers.st
+st4 = overrides.st
+pal1 = silver01.act
+pal2 = silver05.act
+pal3 = silver06.act
+pal4 = gold01.act
+pal5 = silver02.act
+pal6 = silver03.act
+pal7 = gold04.act
+pal8 = gold05.act
+pal9 = gold06.act
+pal10 = silver01.act
+pal11 = gold02.act
+pal12 = gold03.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

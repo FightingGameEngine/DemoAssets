@@ -1,0 +1,37 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Iron Patriot"
+displayname = "Iron Patriot"
+versiondate = 06.07.2008
+mugenversion = 1.0
+author = "Andersontavars & Iron-Angelus"
+pal.defaults = 1
+
+[Files]
+sprite = Template.sff
+anim = Template.air
+sound = Template.snd
+cmd = Template.cmd
+cns = Template.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Flight.st
+st6 = Extra.st
+pal1 = pal2.act
+pal2 = pal2.act
+pal3 = pal2.act
+pal4 = pal2.act
+pal5 = pal2.act
+pal6 = pal2.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

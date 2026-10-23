@@ -1,0 +1,39 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Groot"
+displayname = "Groot"
+versiondate = 09/01/2017
+mugenversion = 06,14,2003
+author = "Shining and regisc updated by LESSARD"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10
+
+[Files]
+sprite = Groot7.sff
+anim = Groot14.air
+sound = Groot4.snd
+cmd = Groot_Medium6.cmd
+cns = Groot10.cns
+stcommon = common1.cns
+st = Groot10.cns
+st1 = Groot_-2.cns
+st2 = Groot_-3.cns
+st3 = Groot_overide.cns
+st4=Specials2.cns
+st5=Supers2.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

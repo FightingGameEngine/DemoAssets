@@ -1,0 +1,29 @@
+[Info]
+name ="Abomination"
+displayname ="Abomination"
+versiondate =04,14,2014
+mugenversion =1.0
+author ="Cravd & Arkady"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =Abomination.sff
+anim =Abomination.air
+sound =Abomination.snd
+cmd =Abomination.cmd
+cns =Abomination.cns
+stcommon =common1.cns
+st =basics.st
+pal1=AvX1.act
+pal2=AvX2.act
+pal3=AvX3.act
+pal4=AvX4.act
+pal5=AvX5.act
+pal6=AvX6.act
+st1=specials.st
+st2=hypers.st
+st3=overrides.st
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard=

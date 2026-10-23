@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Black Widow"
+displayname = "Black Widow"
+versiondate = 28,03,2013
+mugenversion = 1.0
+author = "Arkady, NIco & Hyper"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = BlackWidow.sff
+anim = BlackWidow.air
+sound = BlackWidow.snd
+cmd = BlackWidow.cmd
+cns = BlackWidow.cns
+stcommon = Common1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+pal1 = 1.act
+pal2 = 1.act
+pal3 = 1.act
+pal4 = 1.act
+
+[Arcade]
+intro.storyboard = ..\AvX\Arcade.def
+ending.storyboard = ..\data\AvX\Ending01.def

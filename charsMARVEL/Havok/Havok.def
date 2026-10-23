@@ -1,0 +1,56 @@
+;======================================================================================
+;HAVOK by Z999 & Arkady
+; with special thanks to Rgop, ShockDingo & Zvitor for the effort they put in to help
+;======================================================================================
+
+[Info] 
+name		="Havok"
+displayname	="Havok"
+versiondate 	=3/26/2012
+mugenversion 	=1.0
+author 		="Z999 & Arkady"
+pal.defaults	=1,2,3,4,5,6,7
+
+[Files]
+cmd		=Havok.cmd
+cns		=Havok.cns
+stcommon	=common1.cns
+st		=Havok.cns
+sprite		=Havok.sff
+anim		=Havok.air
+sound		=Havok.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=7.act
+pal9=7.act
+pal10=7.act
+pal11=7.act
+pal12=7.act
+
+[Arcade]
+intro.storyboard	=intro.def
+ending.storyboard	=ending.def
+
+
+;;;;Sprites by Z999 & Arkady
+;;;;;;Smart Pallet by Rgop & Arkady
+;;;;;;;Voiced by ShockDingo
+;;;;;;;;;Coded by Arkady
+
+;;;;;;;;;;;COMMANDS;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;DF+p  Cosmic Beam        ;;;;;
+;;;;;DB+p  Omni Blast         ;;;;;
+;;;;;DF+k  Hammer Punch       ;;;;;
+;;;;;DB+k  Dash Kick          ;;;;;
+;;;;;DF+PP Hyper Cosmic Blast ;;;;;
+;;;;;DB+PP Hyper Omni Blast(A);;;;;
+;;;;;DF+KK Hyper Hammer Punch ;;;;;
+;;;;;DB+KK Cosmic Charge (L2) ;;;;;
+;;;;;DF+PK Omni Overload (L3) ;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

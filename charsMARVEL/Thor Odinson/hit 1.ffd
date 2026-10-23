@@ -1,0 +1,72 @@
+
+;Sprite 1
+[SpriteDef]
+group = 0
+image = 0
+xaxis = 67
+yaxis = 132
+pcximage = hit 1-0,0.pcx
+prevpalette = 1
+
+;Sprite 2
+[SpriteDef]
+group = 0
+image = 1
+xaxis = 67
+yaxis = 132
+pcximage = hit 1-0,1.pcx
+prevpalette = 1
+
+;Sprite 3
+[SpriteDef]
+group = 0
+image = 2
+xaxis = 68
+yaxis = 132
+pcximage = hit 1-0,2.pcx
+prevpalette = 1
+
+;Sprite 4
+[SpriteDef]
+group = 0
+image = 3
+xaxis = 73
+yaxis = 132
+pcximage = hit 1-0,3.pcx
+prevpalette = 1
+
+;Sprite 5
+[SpriteDef]
+group = 0
+image = 4
+xaxis = 82
+yaxis = 132
+pcximage = hit 1-0,4.pcx
+prevpalette = 1
+
+;Sprite 6
+[SpriteDef]
+group = 0
+image = 5
+xaxis = 81
+yaxis = 132
+pcximage = hit 1-0,5.pcx
+prevpalette = 1
+
+;Sprite 7
+[SpriteDef]
+group = 0
+image = 6
+xaxis = 68
+yaxis = 132
+pcximage = hit 1-0,6.pcx
+prevpalette = 1
+
+;Sprite 8
+[SpriteDef]
+group = 0
+image = 7
+xaxis = 67
+yaxis = 132
+pcximage = hit 1-0,7.pcx
+prevpalette = 1

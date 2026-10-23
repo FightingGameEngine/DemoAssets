@@ -1,0 +1,43 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Drax The Destroyer"
+displayname = "Drax"
+versiondate = 26.03.2020
+mugenversion =
+author = "RobsonMSH"
+Pal.Defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = Template.sff
+anim = Template.air
+sound = Template.snd
+cmd = Template.cmd
+cns = Template.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Flight.st
+st6 = Extra.st
+pal1 = Drax01.act
+pal2 = Drax02.act
+pal3 = Drax03.act
+pal4 = Drax04.act
+pal5 = Drax05.act
+pal6 = Drax06.act
+pal7 = Drax07.act
+pal8 = Drax08.act
+pal9 = Drax09.act
+pal10 = Drax10.act
+pal11 = Drax11.act
+pal12 = Drax12.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

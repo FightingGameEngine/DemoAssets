@@ -1,0 +1,38 @@
+[Info]
+name ="M.O.D.O.K"
+displayname ="M.O.D.O.K"
+versiondate =5,3,2013
+mugenversion =1.0
+author ="volzzilla, Pilgrim, and flammableking"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files]
+cmd      =M.O.D.O.K.cmd
+cns      =M.O.D.O.K.cns
+st       =M.O.D.O.K.cns
+st       =drone.cns
+stcommon =common1.cns
+sprite   =M.O.D.O.K.sff
+anim     =M.O.D.O.K.air
+sound    =M.O.D.O.K.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=8.act
+pal9=9.act
+pal10=10.act
+pal11=11.act
+pal12=12.act
+
+
+;[Arcade]
+;ending.storyboard = ending.def
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

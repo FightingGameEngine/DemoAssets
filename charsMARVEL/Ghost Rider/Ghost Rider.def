@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Ghost Rider"
+displayname = "Ghost Rider"
+versiondate = 11,15,2014
+mugenversion = 1.0
+author = "Dark Rider"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = GhostRider.sff
+anim = Ghost Rider.air
+sound = Ghost Rider.snd
+cmd = Ghost Rider.cmd
+cns = Ghost Rider.cns
+stcommon = common1.cns
+st = Ghost Rider.cns
+pal1 = AvX1.act
+pal2 = AvX1.act
+pal3 = AvX1.act
+pal4 = AvX1.act
+pal5 = AvX1.act
+pal6 = AvX1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

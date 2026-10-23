@@ -1,0 +1,33 @@
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="logan The Wolverine"
+displayname ="Logan"
+pal.defaults =1,5,8,3,4,2,6,7,9
+versiondate=09/05/2008
+mugenversion=06,14,2003
+author="angeljerry and 21"
+
+; Files for the player
+[Files]
+;cmd     =MVC2_Wolverine_Hard.cmd
+cmd     =MVC2_Wolverine_Medium.cmd
+;cmd     =MVC2_Wolverine_Easy.cmd
+cns     =MVC2_Wolverine.cns
+st      =MVC2_Wolverine.cns
+stcommon =common1.cns
+sprite  =MVC2_Wolverine.sff
+anim    =MVC2_Wolverine.air
+sound   =MVC2_Wolverine.snd
+pal1=logan.act
+st1=MVC2_Wolverine_-2.cns
+st2=MVC2_Wolverine_-3.cns
+st3=MVC2_Wolverine_overide.cns
+
+; Arcade mode
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard =intro.def
+;ending.storyboard =ending.def

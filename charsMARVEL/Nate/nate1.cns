@@ -1,0 +1,1445 @@
+;***************************************************************************;
+;***************************************************************************;
+;**************************** MUGEN TOURNAMENT 3 ***************************;
+;***************************************************************************;
+;***************************************************************************;
+; by Comedy
+
+;---------------------------------------------------------------------------;
+;MIND BLAST
+
+[Statedef 10000]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 110
+velset = 0,0
+anim = 10000
+ctrl = 0
+sprpriority = 2
+
+; GROUND FLASH
+[State 3000, Ground Flash]
+type = Explod
+trigger1 = time = 0
+anim = 9995
+ID = 9995
+supermove = 1
+sprpriority = 4
+ownpal = 1
+postype = P1
+
+[State 220, 0]	
+type = PlaySnd
+trigger1 = Time = 1
+value = S1000, 13
+[State 220, 0]	
+type = PlaySnd
+trigger1 = Time = 1
+value = S1000, 13
+
+[State 10000, 1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1000, 0
+
+[State 10000, 2]
+type = Projectile
+trigger1 = AnimElem = 3
+ProjID = 10011
+projanim = 10011
+projhitanim = 10011
+projremovetime = 16
+offset = 50,-45
+velocity = 0,0
+attr = S, SP
+damage    = 50,2
+getpower  = 60
+givepower = 40
+guardflag = MA
+pausetime = 0,12
+guard.sparkno = S7065
+guardsound = S2,0
+sparkxy = floor(P2Dist X - 45),-5
+sparkno = S7063
+hitsound = S1000,12
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -8
+airguard.velocity = -3.5      
+air.velocity = -2.5,-5.5
+air.juggle = 3
+
+[State 10000, explod]
+type = explod
+ownpal = 1
+trigger1 = time = 0
+anim = 3001
+pos = 50,-45
+postype = p1
+sprpriority = 3
+removetime = 10
+removeongethit = 1
+bindtime = -1
+scale = 0.5,0.5
+trans = add
+
+[State 10000, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------;
+;AIR MIND BLAST
+
+[Statedef 10010]
+type    = A
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 110
+velset = 0,0
+anim = 10010
+ctrl = 0
+sprpriority = 2
+
+[State 10010, 0]	
+type = PlaySnd
+trigger1 = Time = 1
+value = S1000, 13
+[State 10010, 0]	
+type = PlaySnd
+trigger1 = Time = 1
+value = S1000, 13
+
+[State 10010, 1]
+type = PlaySnd
+trigger1 = time = 3	
+value = 1000, 0
+
+[State 10010, 2]
+type = Projectile
+trigger1 = time = 3	
+ProjID = 10011
+projanim = 10011
+projhitanim = 10011
+projremovetime = 16
+offset = 15,-103
+postype = p1
+velocity = 0,0
+attr = A, SP
+damage    = 50,2
+getpower  = 60
+givepower = 40
+guardflag = MA
+pausetime = 0,12
+guard.sparkno = S7065
+guardsound = S2,0
+sparkno = S7063
+hitsound = S1000,12
+sparkxy = floor(P2Dist X - 45),-5
+type = High
+slidetime = 15
+hittime  = 20
+air.velocity = -3,-5
+ground.velocity = -3,-5
+airguard.velocity = -3.5      
+velocity = -2.5,-5.5
+juggle = 3
+air.fall = 1
+fall = 1
+fall.recovery = 0
+
+[State 10010, explod]
+type = explod
+ownpal = 1
+trigger1 = time = 0
+anim = 3001
+pos = 10,-102
+postype = p1
+sprpriority = 3
+removetime = 10
+removeongethit = 1
+bindtime = -1
+scale = 0.5,0.5
+trans = add
+
+[state 10010,change]
+type = changestate
+trigger1 = time > 20
+value = 50
+ctrl = 0
+
+;---------------------------------------------------------------------------;
+;TELEKINETIC SHIELD
+
+[Statedef 11100]
+type    = S
+movetype= I
+physics = S
+juggle  = 4
+poweradd= 110
+velset = 0,0
+anim = 11100
+ctrl = 0
+sprpriority = 2
+
+; GROUND FLASH
+[State 3000, Ground Flash]
+type = Explod
+trigger1 = time = 0
+anim = 9995
+ID = 9995
+supermove = 1
+sprpriority = 4
+ownpal = 1
+postype = P1
+
+[State 11100, 1]
+type = PlaySnd
+trigger1 = Time = 3
+value = 1100, 0
+[State 11100, 1]
+type = PlaySnd
+trigger1 = Time = 3
+value = 1100, 0
+
+[State 11100, 2]
+type = Helper
+trigger1 = Time = 4
+ID = 11101
+name = "Sheild"
+pos = 0, 0
+stateno = 11101
+
+[State 11100, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Telekinetic Shield (Shield)
+[Statedef 11101]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 11101		
+ctrl = 0
+sprpriority = 3
+
+[State 11101, 1]
+type = BindtoParent
+trigger1 = 1
+pos = 0,0
+
+[State 11101, 2]
+type = HitOverride
+trigger1 = Anim = 1101
+trigger1 = AnimTime = 0
+trigger2 = 1
+attr = SCA, AA, AT, AP
+stateno = 11102		
+time = -1
+
+[State 11101, 3]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA
+time = -1
+
+[State 11101, 4]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 11102		
+
+[State 11101, 5]
+type = HitDef
+trigger1 = Anim = 11102
+trigger1 = MoveContact = 0
+trigger2 = Time % 15 = 0
+attr = S, SP
+ID = 11101		
+damage    = 50,2
+getpower  = 60
+givepower = 40
+guardflag = MA
+pausetime = 0,8
+guard.sparkno = S7065
+guardsound = S2,0
+sparkno = S7063
+sparkxy = -floor(P2Dist X)+75,-60
+hitsound = S1000,12
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -4, -4
+airguard.velocity = -4.5      
+air.velocity = -3.5,-5.5
+air.juggle = 3
+fall = -1
+
+[State 11101, 6]
+type = ChangeState
+trigger1 = MoveHit
+value = 11102			
+
+[State 11101, 7]
+type = DestroySelf
+trigger1 = Time = 30
+
+;Telekinetic Shield (Shield Hit)
+[Statedef 11102]
+velset = 0,0
+
+[State 11102, 1]
+type = BindtoParent
+trigger1 = 1
+pos = 0,0
+
+[State 11101, 3]
+type = DestroySelf
+trigger1 = Time = 10
+
+;---------------------------------------------------------------------------;
+;PLASMA TARGET
+
+[Statedef 4000]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+poweradd =-1000
+anim = 4000
+ctrl = 0
+sprpriority = 2
+
+[State 4000, Snd]
+type = Posset
+trigger1 = anim = 4000
+y = 0
+
+[State 4000, Super Pause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 50	;25
+pos = 25, -57
+anim = 4000
+sound = S3000,1
+
+; SPECIAL EFFECT
+[State 3000, Hyper Explode]
+type = Explod
+trigger1 = time = 0
+anim = 9994
+postype = p1
+pos = 0,-85
+ownpal = 1
+sprpriority = 5
+movetime = 50
+supermovetime = 50
+
+; GROUND FLASH
+[State 3000, Ground Flash]
+type = Explod
+trigger1 = time = 0
+anim = 9995
+ID = 9995
+supermove = 1
+sprpriority = 4
+ownpal = 1
+postype = P1
+
+; HYPER PORTRAIT
+[State 3000, Hyper Portrait]
+type = explod
+trigger1 = time = 0
+anim = 32717
+scale = 0.55,0.55
+postype = back
+sprpriority = -2
+supermovetime = -1
+removetime = 50	
+pos = 0,0
+bindtime = -1
+removeongethit = 1
+
+[State 3000, assertspecial]
+type = assertspecial
+trigger1 = time = [0,50]
+flag = noBG
+flag2 = noFG
+flag3 = noBardisplay
+ignorehitpause = 1
+
+: DARK SCREEN
+[State 3000, dark Screen]
+type = Explod
+trigger1 = Time = 0
+removetime = 50
+id = 32718
+anim = 32718
+pos = 0,0
+postype = Left
+scale = 1,1
+sprpriority = -5
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 50
+pausemovetime = 50
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 50
+removetime = 100
+id =4010
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -4
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 4000, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1000,14
+
+[State 4000, End]
+type = ChangeState
+trigger1 = animtime=0
+trigger1 = BackEdgeBodyDist > -1
+value = 4010
+ctrl = 1
+
+;PLASMA
+[Statedef 4010]
+type = S
+movetype = A
+physics = S
+juggle = 4
+ctrl = 0
+anim = 4010
+sprpriority = 2
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+removetime = 100
+id =32710
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -9
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 4010, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 100
+
+[State 4010, Afterimage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 70
+id = 4010
+TimeGap = 1
+FrameGap = 2
+PalContrast = 75,75,255
+PalBright = 0,0,0
+PalAdd = 0,0,0
+PalMul = .75,.75,.75
+
+;---- BEAM ----
+
+[State 4010, Beam Helper Call]
+type = Helper
+trigger1 = AnimElem = 3
+pos = 5,-40	;30,-50
+postype = p1
+stateno = 4020
+helpertype = normal
+name = "Beam"
+keyctrl = 0
+ownpal = 1
+supermovetime = 1
+sprpriority = 2
+
+[State 4010, End]
+type = ChangeState
+trigger1= AnimTime = 0
+value = 0
+ctrl = 1
+
+;Beam Helper
+[StateDef 4020]
+type = S
+movetype = A
+physics = S
+juggle = 0
+anim = 4020
+ctrl = 0
+
+[State 4020, PlaySnd 1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,1
+
+[State 4020, HitDef]
+type = HitDef
+damage = 13,5
+animtype = Heavy
+trigger1 = Time%3 = 0
+attr = A, NT
+hitflag = MAF
+guardflag =MA
+priority = 5
+sprpriority = 3
+pausetime = 0,0
+guard.sparkno = s7065
+guardsound = S2,0
+sparkno = s7064
+sparkxy = -40, 10
+hitsound = S0,3
+ground.type = low
+ground.slidetime = 18
+ground.hittime  = 25
+ground.velocity = -15,-0.5
+air.velocity = -15,-0.7
+air.fall = 1
+air.hittime = 25
+air.fall = 1
+fall = 1
+air.recover = 0
+fall.recover = 0
+envshake.time = 10
+envshake.ampl = 5
+
+[State 4020, DestroySelf]
+type = DestroySelf
+trigger1 = time >=70
+trigger2 = parent,movetype=H
+
+;---------------------------------------------------------------------------;
+;ROCK SHOWER
+
+[Statedef 3500]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 3500
+ctrl = 0
+sprpriority = 2
+
+[State 3500, Width]
+type = Width
+trigger1 = AnimElem = 2, >= 0
+value = 15,0
+
+[State 3600, Super Pause]
+type = SuperPause
+trigger1 = animelem = 2, =1
+time = 50	
+pos = 25, -57
+anim = 4000
+sound = S3000,1
+
+; SPECIAL EFFECT
+[State 3000, Hyper Explode]
+type = Explod
+trigger1 = time = 0
+anim = 9994
+postype = p1
+pos = 0,-105
+ownpal = 1
+sprpriority = 5
+movetime = 50
+supermovetime = 50
+
+; GROUND FLASH
+[State 3000, Ground Flash]
+type = Explod
+trigger1 = time = 0
+anim = 9995
+ID = 9995
+supermove = 1
+sprpriority = 4
+ownpal = 1
+postype = P1
+
+; HYPER PORTRAIT
+[State 3000, Hyper Portrait]
+type = explod
+trigger1 = time = 0
+anim = 32717
+scale = 0.55,0.55
+postype = back
+sprpriority = -2
+supermovetime = -1
+removetime = 50	
+pos = 0,0
+bindtime = -1
+removeongethit = 1
+
+[State 3000, assertspecial]
+type = assertspecial
+trigger1 = time = [0,50]
+flag = noBG
+flag2 = noFG
+flag3 = noBardisplay
+ignorehitpause = 1
+
+: DARK SCREEN
+[State 3000, dark Screen]
+type = Explod
+trigger1 = Time = 0
+removetime = 50
+id = 32718
+anim = 32718
+pos = 0,0
+postype = Left
+scale = 1,1
+sprpriority = -5
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 50
+pausemovetime = 50
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 50
+removetime = 100
+id =4010
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -4
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 3500, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,0
+[State 3500, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,0
+
+[State 3500, Super B]
+type = AfterImage
+trigger1 = AnimElem = 2, = 1
+time = 2
+
+[State 3500, Super C]
+type = AfterImageTime
+trigger1 = AnimElemTime(2) >= 1 && Time < 60
+time = 2
+
+[State 3500, Super D]
+type = NotHitBy
+trigger1 = AnimElem = 2
+value = , NA, SA, AT
+time = 12
+
+[State 3500, Super E]
+type = NotHitBy
+trigger1 = AnimElemTime(2) >= 0 && Time < 30
+value2 = C, NA
+time = 1
+
+[State 3500, Afterimage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 70
+id = 3500
+TimeGap = 1
+FrameGap = 2
+PalContrast = 75,75,255
+PalBright = 0,0,0
+PalAdd = 0,0,0
+PalMul = .75,.75,.75
+
+[State 3500, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 3501
+
+;Telekinetic Rock Shower 
+[Statedef 3501]
+movetype= A
+physics = N
+juggle  = 4
+velset = 0,0
+anim = 3501
+sprpriority = 2
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+removetime = 80
+id =32710
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -9
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 3501, 1]
+type = EnvShake
+trigger1 = Time = 0
+time = 80
+
+[State 3501, 2]
+type = PlaySnd
+trigger1 = Time = 0
+trigger2 = Time = 15
+trigger3 = Time = 30
+trigger4 = Time = 45
+trigger5 = Time = 60
+value = 3500, 0
+
+[State 3501, 3]
+type = Projectile
+trigger1 = Time = 0
+trigger2 = Time = 12
+trigger3 = Time = 24
+trigger4 = Time = 36
+trigger5 = Time = 48
+trigger6 = Time = 60
+ProjID = 3502
+projanim = 3502
+projhitanim = 3503
+projedgebound = 200
+projheightbound = -600,1
+offset = floor(Random/5+P2Dist X)-320,-250
+velocity = 12,8
+attr = S, HP
+damage    = 50,2
+getpower  = 0
+givepower = 40
+guardflag = MA
+pausetime = 0,12
+guard.sparkno = s7065
+guardsound = S2,0
+sparkno = s7064
+sparkxy = 69,-10	;-40, 10
+hitsound = S3500,1	;S0,3
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -8
+airguard.velocity = -3.5      
+air.velocity = -2.5,-5.5
+air.juggle = 3
+
+[State 3501, 4]
+type = ChangeState
+trigger1 = Time = 60
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------;
+;AIR ROCK SHOWER
+
+[Statedef 3600]
+type    = A
+movetype= A
+physics = N
+velset = 0,0
+anim = 3600
+ctrl = 0
+sprpriority = 2
+
+[State 3600, Width]
+type = Width
+trigger1 = AnimElem = 2, >= 0
+value = 15,0
+
+[State 3600, Super Pause]
+type = SuperPause
+trigger1 = animelem = 2, =1
+time = 50	
+pos = 25, -57
+anim = 4000
+sound = S3000,1
+
+; SPECIAL EFFECT
+[State 3000, Hyper Explode]
+type = Explod
+trigger1 = time = 0
+anim = 9994
+postype = p1
+pos = 0,-105
+ownpal = 1
+sprpriority = 5
+movetime = 50
+supermovetime = 50
+
+; GROUND FLASH
+[State 3000, Ground Flash]
+type = Explod
+trigger1 = time = 0
+anim = 9995
+ID = 9995
+supermove = 1
+sprpriority = 4
+ownpal = 1
+postype = P1
+
+; HYPER PORTRAIT
+[State 3000, Hyper Portrait]
+type = explod
+trigger1 = time = 0
+anim = 32717
+scale = 0.55,0.55
+postype = back
+sprpriority = -2
+supermovetime = -1
+removetime = 50	
+pos = 0,0
+bindtime = -1
+removeongethit = 1
+
+[State 3000, assertspecial]
+type = assertspecial
+trigger1 = time = [0,50]
+flag = noBG
+flag2 = noFG
+flag3 = noBardisplay
+ignorehitpause = 1
+
+: DARK SCREEN
+[State 3000, dark Screen]
+type = Explod
+trigger1 = Time = 0
+removetime = 50
+id = 32718
+anim = 32718
+pos = 0,0
+postype = Left
+scale = 1,1
+sprpriority = -5
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 50
+pausemovetime = 50
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 50
+removetime = 100
+id =4010
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -4
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 3500, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,0
+[State 3500, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,0
+
+[State 3600, Super B]
+type = AfterImage
+trigger1 = AnimElem = 2, = 1
+time = 2
+
+[State 3600, Super C]
+type = AfterImageTime
+trigger1 = AnimElemTime(2) >= 1 && Time < 60
+time = 2
+
+[State 3600, Super D]
+type = NotHitBy
+trigger1 = AnimElem = 2
+value = , NA, SA, AT
+time = 12
+
+[State 3600, Super E]
+type = NotHitBy
+trigger1 = AnimElemTime(2) >= 0 && Time < 30
+value2 = C, NA
+time = 1
+
+[State 3600, Afterimage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 70
+id = 3600
+TimeGap = 1
+FrameGap = 2
+PalContrast = 75,75,255
+PalBright = 0,0,0
+PalAdd = 0,0,0
+PalMul = .75,.75,.75
+
+[State 3600, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 3601
+
+;Telekinetic Rock Shower
+[Statedef 3601]
+movetype= A
+physics = N
+juggle  = 4
+velset = 0,0
+anim = 3601
+sprpriority = 2
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+removetime = 80
+id =32710
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -9
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 3601, 1]
+type = EnvShake
+trigger1 = Time = 0
+time = 80
+
+[State 3601, 2]
+type = PlaySnd
+trigger1 = Time = 0
+trigger2 = Time = 15
+trigger3 = Time = 30
+trigger4 = Time = 45
+trigger5 = Time = 60
+value = 3500, 0
+
+[State 3601, 3]
+type = Projectile
+trigger1 = Time = 0
+trigger2 = Time = 12
+trigger3 = Time = 24
+trigger4 = Time = 36
+trigger5 = Time = 48
+trigger6 = Time = 60
+ProjID = 3502
+projanim = 3502
+projhitanim = 3503
+projedgebound = 200
+projheightbound = -600,1
+offset = floor(Random/5+P2Dist X)-320,-250
+velocity = 12,8
+attr = S, HP
+damage    = 50,2
+getpower  = 0
+givepower = 40
+guardflag = MA
+pausetime = 0,12
+guard.sparkno = s7065
+guardsound = S2,0
+sparkno = s7064
+sparkxy = 69,-10	;-40, 10
+hitsound = S3500,1	;S0,3
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -8
+airguard.velocity = -3.5      
+air.velocity = -2.5,-5.5
+air.juggle = 3
+
+[state 3601,4]
+type = changestate
+trigger1 = time =60
+value = ifelse(movetype = A,50,0)
+ctrl = 0
+
+;---------------------------------------------------------------------------;
+;AGE OF APOCALIPSE - 'mind ilusion'
+
+[StateDef 3300]
+type    = S
+movetype= A
+physics = S;N
+ctrl = 0
+anim = 3300
+velset = 0,0
+poweradd = -1000
+
+[State 3000, Super Pause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 50	
+pos = 25, -57
+anim = 3300
+sound = S3000,1
+
+; SPECIAL EFFECT
+[State 3000, Hyper Explode]
+type = Explod
+trigger1 = time = 0
+anim = 9994
+postype = p1
+pos = 0,-105
+ownpal = 1
+sprpriority = 5
+movetime = 50
+supermovetime = 50
+
+; GROUND FLASH
+[State 3000, Ground Flash]
+type = Explod
+trigger1 = time = 0
+anim = 9995
+ID = 9995
+supermove = 1
+sprpriority = 4
+ownpal = 1
+postype = P1
+
+[State 3000, assertspecial]
+type = assertspecial
+trigger1 = time = [0,50]
+flag = noBG
+flag2 = noFG
+ignorehitpause = 1
+
+; HYPER PORTRAIT
+[State 3000, Hyper Portrait]
+type = explod
+trigger1 = time = 0
+anim = 32717
+scale = 0.55,0.55
+postype = back
+sprpriority = -2
+supermovetime = -1
+removetime = 50	
+pos = 0,0
+bindtime = -1
+removeongethit = 1
+
+: DARK SCREEN
+[State 3000, dark Screen]
+type = Explod
+trigger1 = Time = 0
+removetime = 60
+id = 32718
+anim = 32718
+pos = 0,0
+postype = Left
+scale = 1,1
+sprpriority = -9999
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 50
+pausemovetime = 50
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = animelem = 2
+removetime = 50
+id = 3300
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -4
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 3500, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,0
+[State 3500, Snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s13,0
+
+[State 3300, Afterimage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 70
+id = 3300
+TimeGap = 1
+FrameGap = 2
+PalContrast = 75,75,255
+PalBright = 0,0,0
+PalAdd = 0,0,0
+PalMul = .75,.75,.75
+
+[State 3300, back to stance]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3301
+
+;----------------
+;HIT STATE
+[StateDef 3301]
+anim = 3301
+ctrl = 0
+type = S
+movetype = A
+physics = N
+velset = 0,0
+sprpriority = 0
+facep2 = 1
+
+[State 3301, Width]
+type = Width
+trigger1 = AnimElem = 2, >= 0
+value = 15,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 8,0
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = S, NA
+damage = 40,10
+guardflag = MA
+pausetime = 8,8
+guard.sparkno = s7065
+guardsound = S2,0
+sparkno = s7064
+sparkxy = -20,-70
+hitsound = S0,3
+animtype = Heavy
+ground.type = High
+ground.slidetime = 30
+ground.hittime  = 30
+ground.velocity = -1
+guard.velocity = -5
+air.velocity = -4,4
+
+[State 220, explod]
+type = explod
+ownpal = 1
+trigger1 = time = 0
+anim = 3001
+pos = 50,-105
+postype = p1
+sprpriority = 2
+removetime = 20
+removeongethit = 1
+bindtime = -1
+scale = 0.5,0.5
+trans = add
+
+[state 195,2]
+type = Afterimage
+trigger1 = animtime = 0
+time = 99999
+paladd = 0,0,0
+length = 25
+PalMul = 1,1,1
+FrameGap = 5
+palcolor = 256
+palinvertall = 0
+palbright = 12,12,12
+palcontrast = 130,130,130
+trans = add
+	
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit
+value = 3302
+ctrl = 0
+
+[State 3110, back to stance]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;--------------
+;ilusion
+[StateDef 3302]
+anim = 3302
+ctrl = 0
+type = S
+movetype = A
+physics = S
+velset = 0,0
+
+; HYPER BACKGROUND
+[State 3000, Explod]
+type = Explod
+trigger1 = time = 0
+removetime = 250
+id = 3302
+anim =32710
+pos = 230,-5
+postype = Left
+scale = 1,1		
+sprpriority = -4
+facing = 1
+vfacing = 1
+ownpal = 1
+bindtime = -1
+ontop = 0
+ownpal = 1
+supermove = 1
+pausemove = 1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+supermovetime = 9999
+pausemovetime =  9999
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 2
+stateno = 3103
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem= 2		
+trigger2 = animelem= 7		
+trigger3 = animelem= 12		
+trigger4 = animelem= 20		
+trigger5 = animelem= 24	
+trigger6 = animelem= 30		
+trigger7 = animelem= 37		
+trigger8 = animelem= 43		
+trigger9 = animelem= 49		
+trigger10 = animelem= 52	
+trigger11 = animelem= 55	
+trigger12 = animelem= 57	
+trigger13 = animelem= 60	
+trigger14 = animelem= 63	
+trigger15 = animelem= 67	
+trigger16 = animelem= 70	
+value = 0,3
+channel=1	;-1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem= 3	
+trigger2 = animelem= 8	
+trigger3 = animelem= 13	
+trigger4 = animelem= 21	
+trigger5 = animelem= 25	
+trigger6 = animelem= 31	
+trigger7 = animelem= 38	
+trigger8 = animelem= 44	
+trigger9 = animelem= 50	
+trigger10 = animelem= 53	
+trigger11 = animelem= 56	
+trigger12 = animelem= 58	
+trigger13 = animelem= 61	
+trigger14 = animelem= 64	
+trigger15 = animelem= 68	
+trigger16 = animelem= 71
+x = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem= 69
+x = 0
+
+[State 220, HitDef]
+type = HitDef
+trigger1 = animelem= 3	
+trigger2 = animelem= 8	
+trigger3 = animelem= 13	
+trigger4 = animelem= 21	
+trigger5 = animelem= 25	
+trigger6 = animelem= 31	
+trigger7 = animelem= 38	
+trigger8 = animelem= 44	
+trigger9 = animelem= 50	
+trigger10 = animelem= 53	
+trigger11 = animelem= 56	
+trigger12 = animelem= 58	
+trigger13 = animelem= 61	
+trigger14 = animelem= 64	
+trigger15 = animelem= 68	
+trigger16 = animelem= 71
+attr = S, NA
+damage = 9,2
+guardflag = MA
+pausetime = 3,3
+priority = 4,hit
+sparkxy = -20,-60-floor(random/100)
+guard.sparkno = S7065
+guardsound = S2,0
+sparkno = S7063
+hitsound = S1000,12
+animtype = Heavy
+ground.type = High
+ground.slidetime = 30
+ground.hittime  = 30
+ground.velocity = -0.01 -10*(animelem=71)
+guard.velocity = -2
+air.velocity = -4,4
+fall= (animelem=71)
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+
+[state 195,2]
+type = Afterimage
+trigger1 = time = 0
+time = 99999
+paladd = 0,0,0
+length = 25
+PalMul = 1,1,1
+FrameGap = 5
+palcolor = 256
+palinvertall = 0
+palbright = 12,12,12
+palcontrast = 130,130,130
+trans = add
+
+[State 3302, back to stance]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1

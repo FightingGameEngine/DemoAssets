@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Magneto"
+displayname = "Magneto"
+versiondate = 08/31/2013
+mugenversion = 1.0
+author = "ZVitor"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = Magneto.sff
+anim = Magneto.air
+sound = MarvelTemplate.snd
+cmd = MarvelTemplate.cmd
+cns = MarvelTemplate.cns
+stcommon = DCvsMarvelcommon1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+st4 = amalgam.st
+pal1 = px4.act
+pal2 = px4.act
+pal3 = px4.act
+pal4 = px4.act
+pal5 = px4.act
+pal6 = px4.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

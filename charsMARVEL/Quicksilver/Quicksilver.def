@@ -1,0 +1,45 @@
+;=======================================;
+;           {character name}            ;
+;             for WinMUGEN              ;
+;     http://www.scruffydragon.com/     ;
+;=======================================;
+
+[Info]
+name ="Quicksilver"
+displayname ="Quicksilver"
+versiondate =04,14,2001
+mugenversion =04,14,2001
+author =""
+pal.defaults =1,4
+
+[Files]
+sprite   =Template.sff
+anim     =Template.air
+sound    =Template.snd
+stcommon =common1.cns
+cmd      =Template.cmd
+cns      =Template.cns
+st       =basics.st
+pal1=px1.act
+pal2=px2.act
+pal3=px3.act
+pal4=px4.act
+pal5=px5.act
+pal6=px6.act
+st1=specials.st
+st2=hypers.st
+st3=overrides.st
+
+
+;-----------------------
+;  DCvM Template Files
+;      provided by
+;       Buyog2099
+;(based on MEE template
+;  by Kitsune Sniper)
+;         ***
+;   Thanks, Kitsune!
+;-----------------------
+[Arcade]
+intro.storyboard=
+ending.storyboard=../data/Ending01.def

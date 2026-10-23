@@ -1,0 +1,37 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Daredevil"
+displayname = "Daredevil"
+versiondate = 3/26/2015
+mugenversion = 1.0
+author = "Arkady"
+pal.defaults = 1,2,3,4,5,6,7
+
+[Files]
+sprite = DareDevil.sff
+anim = DareDevil.air
+sound = DareDevil.snd
+cmd = DareDevil.cmd
+cns = DareDevil.cns
+stcommon = common1.cns
+st = DareDevil.cns
+pal1 = Avx1.act
+pal2 = Avx1.act
+pal3 = Avx1.act
+pal4 = Avx1.act
+pal5 = Avx1.act
+pal6 = Avx1.act
+pal7 = Avx1.act
+pal8 = Avx1.act
+pal9 = Avx1.act
+pal10 = Avx1.act
+pal11 = Avx1.act
+pal12 = Avx1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

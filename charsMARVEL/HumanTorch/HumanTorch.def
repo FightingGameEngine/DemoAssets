@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Human Torch"
+displayname = "Human Torch"
+versiondate = 10/08/2011
+mugenversion = 1.0
+author = "Acey"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = HumanTorch.sff
+anim = HumanTorch.air
+sound = HumanTorch.snd
+cmd = HumanTorch.cmd
+cns = HumanTorch.cns
+stcommon = common1.cns
+st = HumanTorch.cns
+pal1 = 01.act
+pal2 = 01.act
+pal3 = 01.act
+pal4 = 01.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

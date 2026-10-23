@@ -1,0 +1,360 @@
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+
+[Statedef -3]
+
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Cable Training"
+value = 3
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Scarlet Witch"
+value = 4
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Spiderman"
+value = 5
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Wolverine"
+value = 6
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Black Widow"
+value = 7
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Captain America"
+value = 8
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Ironman"
+value = 9
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Red Hulk"
+value = 10
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "The Thing"
+value = 11
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "The Mighty Thor"
+value = 12
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Luke Cage"
+value = 13
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "MissMarvel"
+value = 14
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Hope"
+value = 15
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Iceman"
+value = 16
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Psylocke"
+value = 17
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Emma Frost"
+value = 18
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Cyclops"
+value = 19
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Magneto"
+value = 20
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Namor"
+value = 21
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Colossonaught"
+value = 22
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Storm"
+value = 23
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "The Beast"
+value = 24
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Rogue"
+value = 25
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Deadpool"
+value = 26
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Captain Marvell"
+value = 27
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Phoenix Force"
+value = 28
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "SentinelStage"
+value = 29
+
+[State VictoryQuote]
+Type = null;VictoryQuote
+trigger1 = p2name != "Cable Training"
+trigger1 = p2name != "Scarlet Witch"
+trigger1 = p2name != "Spiderman"
+trigger1 = p2name != "Wolverine"
+trigger1 = p2name != "Black Widow"
+trigger1 = p2name != "Captain America"
+trigger1 = p2name != "Ironman"
+trigger1 = p2name != "Red Hulk"
+trigger1 = p2name != "The Thing"
+trigger1 = p2name != "The Mighty Thor"
+trigger1 = p2name != "Luke Cage"
+trigger1 = p2name != "MissMarvel"
+trigger1 = p2name != "Hope"
+trigger1 = p2name != "Iceman"
+trigger1 = p2name != "Psylocke"
+trigger1 = p2name != "Emma Frost"
+trigger1 = p2name != "Cyclops"
+trigger1 = p2name != "Magneto"
+trigger1 = p2name != "Namor"
+trigger1 = p2name != "Colossonaught"
+trigger1 = p2name != "Storm"
+trigger1 = p2name != "The Beast"
+trigger1 = p2name != "Rogue"
+trigger1 = p2name != "Deadpool"
+trigger1 = p2name != "Captain Marvell"
+trigger1 = p2name != "Phoenix Force"
+value = 1 + random%2
+
+[State -3, Cable Stage]
+type = Explod
+triggerall = numexplod(29872)=0
+triggerall = p2name = "Cable Training"
+triggerall = StageVar(info.name) =  "B"
+trigger1 = Teamside = 1
+triggerall = stateno != [2000,3999] ;Special Spider-man code
+anim = F29872
+ID =  29872
+pos = 50,200;-40,-22
+postype = left  ;p1
+removetime = -2
+scale = 1,1
+sprpriority = -10000
+ownpal = 1
+
+[State -3, ModifyExplod]
+type = ModifyExplod
+trigger1 = anim = 3510
+ID =  29872
+scale = .01,.01
+
+[State -3, ModifyExplod]
+type = ModifyExplod
+trigger1 = anim != 3510
+ID =  29872
+scale = 1,1
+
+[State -3, SuperPause]
+type = SuperPause
+triggerall = var(22) = 1 && var(45) !=0
+triggerall = p2stateno = [200,4999] ;&& (stateno = [0,999] || stateno = [5000,6000])
+trigger1 = timemod = 2,1 ;&& time < 10
+Time = 2
+pos = 9999,-9951
+movetime = 2
+darken = 0
+
+;[State 33120, efeito spider sense]
+;type  = Explod
+;trigger1 = var(22) = 1 && var(24) = 0 && p2stateno = [200,4999]
+;anim = 3110
+;postype = left
+;ID = 3110
+;sprpriority = -7
+;removetime = 3
+;pos = 0,0
+;scale = 1,1
+;bindtime = -1
+;;facing=1
+;ignorehitpause=1
+
+[State 4001, bgpalfx]
+type = bgpalfx
+trigger1 = var(22) = 1 && var(24) = 0 && p2stateno = [200,4999]
+invertall = 1
+add = 150,110,10
+sinadd = -50,-50,-50,80
+color = 0
+time = 40
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(22) = 1 && var(24) = 0 && p2stateno = [200,4999]
+v = 24
+value = 1
+
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(22) = 1 && var(24) = 1 && p2stateno != [200,4999]
+v = 24
+value = 0
+
+;[State 33120]
+;type  = Explod
+;triggerall = var(22) = 1
+;triggerall = p2stateno = [200,4999] ;&& (stateno = [0,999] || stateno = [5000,6000])
+;trigger1 = numexplod = 0
+;anim = 3101
+;postype = left
+;ID = 3101
+;sprpriority = -4
+;removetime = 3
+;pos = 0,0
+;scale = 1,1
+;bindtime = -1
+;;facing=1
+;ignorehitpause=1
+
+[State -3, hurt Sound 1]
+type = PlaySnd
+triggerall = Time = 1
+triggerall = random < 200
+trigger1 = Stateno = 5000 || stateno = 5010 || Stateno = 5020
+trigger1 = movetype = H
+trigger1 = GetHitVar(animtype) <= 2
+value = 5000,GetHitVar(animtype)
+
+[State -3, hurt Sound 2]
+type = PlaySnd
+triggerall = Time = 1
+triggerall = random < 200
+trigger1 = Stateno = 5070 || stateno = 5080
+trigger1 = movetype = H
+value = 5000,random%3
+
+[State -3]
+type = null;PalFx
+trigger1 = Time = 0 
+trigger1 = MoveType != H
+time = 0
+add = 0,0,0
+
+[State -3]
+type = AfterImage
+trigger1 = time = 0  && !var(57)
+time = 0
+length = 7
+palbright = 30,30,130
+palpostbright = 0,0,50
+palcontrast =120,120,220
+paladd = 0,0,0
+palmul = 1,1,1
+palcolor = 0
+timegap = 2
+framegap = 3
+
+[State -2]
+type = null;ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+;-----------------------------------------
+;Ground Hit
+
+[State -3]
+type = null;Helper
+triggerall = NumEnemy = [1,2]
+triggerall = NumHelper(7755) = 0
+triggerall = enemy(0),stateno != [120,159]
+trigger1 = enemy(0),movetype = h
+trigger1 = enemy(0),pos y >= 0
+trigger1 = enemy(0),vel y > 5
+stateno = 7755
+id = 7755
+postype = p2
+
+[State -3]
+type = null;Helper
+triggerall = NumEnemy = 2
+triggerall = NumHelper(7756) = 0
+triggerall = enemy(1),stateno != [120,159]
+trigger1 = enemy(1),movetype = h
+trigger1 = enemy(1),pos y >= 0
+trigger1 = enemy(1),vel y > 5
+stateno = 7755
+id = 7756
+postype = p2
+
+;----------------------------------------------
+
+;----------------------------------------------
+;KO Sound
+[State -3]
+type = Helper
+triggerall = !alive
+trigger1 = NumHelper(7760) = 0
+stateno = 7760
+id = 7760
+
+;----------------------------------------------
+;KO Delay
+[State -3]
+type = null;helper
+trigger1 = roundstate = 2 && !numhelper(7600)
+helpertype = Normal
+id = 7600
+pos = 0,0
+postype = p1
+name = "Ko Helper"
+stateno = 7600
+supermovetime = 9999999999
+pausemovetime = 9999999999
+
+------------------------
+
+[State -3, hit ground Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 5100
+value = 5100,0
+
+[State 130]
+type = AssertSpecial
+trigger1 = 1
+trigger1 = Stateno = [120,155]
+flag = NoWalk
+
+[State -3,r]
+type = SelfState
+triggerall = stateno != 7777
+triggerall = var(56) = 4
+trigger1 = gethitvar(damage) >= life
+trigger2 = Life < 10
+value = 7777
+
+[State -3,ai]
+type = varset
+trigger1 = !var(58)
+trigger1 = var(59)
+var(58) = 1

@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Black Heart"
+displayname = "Black Heart"
+versiondate = 07/03/2017
+mugenversion = 
+author = ""
+pal.defaults = 1,2,3,4,5
+
+[Files]
+sprite = Blackheart.sff
+anim = Blackheart.air
+sound = Blackheart.snd
+cmd = Blackheart.cmd
+cns = Blackheart.cns
+stcommon = common1.cns
+st = Blackheart.cns
+pal1 = Blackheart00.act
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

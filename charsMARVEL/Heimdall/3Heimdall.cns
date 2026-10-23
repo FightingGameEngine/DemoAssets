@@ -1,0 +1,512 @@
+[Statedef -2]
+
+;===============================================================================
+;-------------------------------------------------------------------------------
+
+;Shield of Asgard
+[State -2, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = var(19) = 3
+value = 0.01
+
+;Shield of Asgard
+[State -2, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = var(19) = 0
+value = 1
+
+;Shield of Asgard
+[State -2, VarSet]
+type = VarSet
+trigger1 = var(19)!= 0 && numexplod(3301) = 0
+v = 19
+value = 0
+
+;-------------------------------------------------------------------------------
+
+[State -2]
+type = PlaySnd
+triggerall = time = 1
+triggerall= stateno = 5000
+triggerall = alive
+triggerall = Random <= 111
+trigger1 = Anim = 5000
+trigger2 = Anim = 5010
+trigger3 = Anim = 5012
+value = S0,40
+volume = 150
+
+[State -2]
+type = PlaySnd
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = Random <= 222
+trigger1 = Anim = 5001
+trigger2 = Anim = 5011
+trigger3 = Anim = 5011
+value = S11,2
+volume = 150
+
+[State -2]
+type = PlaySnd
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = Random <= 222
+trigger1 = Anim = 5002
+trigger2 = Anim = 5012
+trigger3 = Anim = 5012
+value = S11,1
+volume = 150
+
+[State -2]
+type = PlaySnd
+triggerall = time = 1
+triggerall = stateno = 5101
+triggerall = Random <= 111
+;trigger1=Anim=5170
+trigger1 = alive
+value = S11,0
+volume = 150
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A
+trigger1 = stateno = 200 || stateno = 400 || stateno = 600
+trigger1 = Animelem = 3
+trigger2 = stateno = 205
+trigger2 = Animelem = 4
+value = 1,0
+channel = 1
+volume = -150
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A
+trigger1 = stateno = 235
+trigger1 = Animelem = 3
+trigger2 = stateno = 230 || stateno = 430 || stateno = 630
+trigger2 = Animelem = 4
+value = 1,1
+channel = 1
+volume = 0
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A
+trigger1 = stateno = 210 || stateno = 215
+trigger1 = AnimElem = 4
+trigger2 = stateno = 610
+trigger2 = Animelem = 3
+trigger3 = stateno = 300
+trigger3 = Animelem = 6
+trigger4 = stateno = 310
+trigger4 = Animelem = 5
+trigger5 = stateno = 320
+trigger5 = Animelem = 7
+value = 1,2
+channel = 1
+volume = -50
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A
+trigger1 = stateno = 240 || stateno = 640
+trigger1 = AnimElem = 4
+value = 1,3
+channel = 1
+volume = -100
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A
+trigger1 = stateno = 410
+trigger1 = AnimElem = 4
+trigger2 = stateno = 440
+trigger2 = Animelem = 5
+value = 1,20
+channel = 1
+volume = 20
+
+;------------------------------------------
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 800
+trigger1 = stateno = 200 || stateno = 205 || stateno = 400
+trigger1 = AnimElem = 3
+value = S0,5
+volume = 200
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 800
+trigger1 = stateno = 600
+trigger1 = AnimElem = 3
+value = S0,0
+volume = 250
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 800
+trigger1 = stateno = 210
+trigger1 = AnimElem = 3
+trigger2 = stateno = 440
+trigger2 = AnimElem = 4
+value = S0,1
+volume = 250
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 900
+trigger1 = stateno = 610
+trigger1 = AnimElem = 2
+trigger2 = stateno = 640
+trigger2 = AnimElem = 3
+value = S0,2
+volume = 250
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 900
+trigger1 = stateno = 240
+trigger1 = AnimElem = 4
+value = S0,3
+volume = 250
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 800
+trigger1 = stateno = 300
+trigger1 = AnimElem = 5
+value = S0,4
+volume = 250
+
+[State -2]
+type = PlaySnd
+triggerall = Movetype = A && random < 800
+trigger1 = stateno = 310
+trigger1 = AnimElem = 4
+value = S0,5
+volume = 250
+
+[State -2]
+type=AfterImagetime
+trigger1=movetype=H
+time=0
+
+
+[State -2]
+type = varset
+trigger1 = fvar(28) = 1
+trigger1 = power >= 3000 || fvar(10) != 0
+fvar(9) = 1
+
+[State -2]
+type =varset
+trigger1 = fvar(28) = 1
+trigger1 = power >= 3000
+fvar(10) = 396
+
+[State -2]
+type = varadd
+trigger1 = roundstate = 2
+trigger1 = var(10) = 1
+trigger1 = gametime %15 = 0
+fvar(10) = ifelse(fvar(28)=0,(-22.5/4),(-22.5/3))
+
+[State -2]
+type = varadd
+triggerall = time = 4 && var(10) = 1
+trigger1 = stateno = 3000 || stateno = 3010 || stateno = 3100
+fvar(10) = -132
+
+[State -2]
+type = varadd
+triggerall = time = 4 && var(10) = 1
+trigger1 = stateno = 3200
+fvar(10) = -264*2
+
+[State -2]
+type = varadd
+triggerall = time = 1 && var(10) = 1
+trigger1 = stateno = 385 || stateno = 325
+fvar(10) = -66
+
+
+[State -2]
+type = varset
+trigger1 = fvar(10) <= 0
+fvar(9) = 0
+
+[State -2]
+type = varset
+trigger1 = var(10) = 0
+var(9) = 0
+
+[State -2]
+type = varset
+trigger1 = var(9) <= 0 && fvar(9)
+var(9) = ceil(power)
+
+[State -2]
+type = varset
+trigger1 = fvar(9) = 1
+var(10) = 1
+;------------------------------
+[State -2]
+type = Powerset
+trigger1 = fvar(28) = 0
+trigger1 = fvar(9) && var(9)
+value = var(9)
+;------------------------------
+[State -2]
+type = varset
+trigger1 = fvar(9) = 0
+trigger2 = roundstate = 3
+var(10) = 0
+
+[State -2]
+type = varset
+triggerall = var(10) = 1
+triggerall = !(stateno = 200 && (animelem = 3,>= 1 && animelem = 5,<= 0))
+triggerall = !(Stateno = 205 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+triggerall = !(Stateno = 230 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+triggerall = !(Stateno = 235 && (animelem = 3,>= 1 && animelem = 5,<= 0))
+triggerall = !(Stateno = 400 && (animelem = 3,>= 1 && animelem = 5,<= 0))
+triggerall = !(stateno = 430 && (animelem = 4,>= 0 && animelem = 6,<= 0))
+triggerall = !(Stateno = 440 && (animelem = 5,>= 1 && animelem = 7,<= 0))
+triggerall = !(stateno = 300 && (animelem = 6,>= 1 && animelem = 9,<= 0))
+triggerall = !(stateno = 310 && (animelem = 5,>= 1 && animelem = 7,<= 0))
+triggerall = !(stateno = 410 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+triggerall = !(Stateno = 215 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+
+trigger1 = 1
+var(11) = 1
+
+[State -2]
+type = varset
+triggerall = var(10) = 1
+trigger1 = ((stateno = 200) && (animelem = 3,>= 1 && animelem = 5,<= 0))
+trigger2 = (Stateno = 205 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+trigger3 = (Stateno = 230 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+trigger4 = (Stateno = 235 && (animelem = 3,>= 1 && animelem = 5,<= 0))
+trigger5 = (Stateno = 400 && (animelem = 3,>= 1 && animelem = 5,<= 0))
+trigger6 = (stateno = 430 && (animelem = 4,>= 0 && animelem = 6,<= 0))
+trigger7 = (Stateno = 440 && (animelem = 5,>= 1 && animelem = 7,<= 0))
+trigger8 = (stateno = 300 && (animelem = 6,>= 1 && animelem = 9,<= 0))
+trigger9 = (stateno = 310 && (animelem = 5,>= 1 && animelem = 7,<= 0))
+trigger10 = (stateno = 410 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+trigger11 = stateno = [3000,3998]
+trigger12 = (Stateno = 215 && (animelem = 4,>= 1 && animelem = 6,<= 0))
+var(11) = 0
+
+[State -2]
+type = varset
+trigger1 = var(10) = 1
+trigger1 = movecontact && var(11)
+fvar(11) = 1
+
+[State -2]
+type = varset
+trigger1 = movetype != A
+trigger2 = stateno = [800,910]
+fvar(11) = 0
+
+[State -2]
+type = varset
+trigger1 = var(10)
+var(27) = ceil(fvar(27)*-10)
+
+;------------------------------------
+
+;----------------------------
+[State -2]
+type=Width
+trigger1=Stateno=[5100,5120]
+trigger1=BackEdgeBodyDist<=12
+value = 0,-5
+
+[State -2]
+type=Width
+trigger1 = Frontedgebodydist <= 15
+trigger1 = (EnemyNear,StateNo = [5100,5150]) || EnemyNear,PrevStateNo = 5120
+value = 0,15
+;----------------------------
+
+[State -2]
+type = StateTypeSet
+triggerall = Movetype = A
+trigger1 = animelem = 4
+trigger1 = anim = 200
+trigger2 = animelem = 5
+trigger2 = anim = 235 || anim = 400
+trigger3 = animelem = 6
+trigger3 = anim = 205 || anim = 210 || anim = 215 || anim = 230 || anim = 430
+trigger4 = animelem = 7
+trigger4 = anim = 5999
+trigger5 = animelem = 8
+trigger5 = anim = 240 || anim = 310 || anim = 315 || anim = 410
+trigger6 = animelem = 9
+trigger6 = anim = 300 || anim = 305 || anim = 440
+trigger7 = AnimElem = 10
+trigger7 = anim = 325
+trigger8 = AnimElem = 11
+trigger8 = anim = 320
+movetype = I
+
+[State -2]
+type = VarSet
+trigger1 = var(5) != 0
+trigger1 = movetype = H || movetype = I
+var(5) = 0
+
+;===============================================================================
+[State -2]
+type = varSet
+triggerall = var(12)
+trigger1 = statetype = A
+trigger2 = MoveType = A || Movetype = H
+trigger3 = command = "holddown2"
+trigger4 = stateno = 52 || stateno = 50 || stateno = 56
+trigger5 = stateno = 0
+trigger5 = time >= 3
+trigger6 = stateno = [10,12]
+trigger6 = time >= 7
+trigger7 = stateno = 20
+trigger7 = time >= 5
+var(12) = 0
+
+[State -2]
+type = varSet
+triggerall = var(12) = 0
+triggerall = movetype != A
+trigger1 = command = "down"
+trigger1 = stateno != 52 && stateno != 50 && stateno != 56 && (stateno != [40,41])
+var(12) = 1
+
+;---------------------------------------------
+
+[State -2]
+type = varset
+trigger1 = enemy,statetype = C
+fvar(31) =.25
+
+[State -2]
+type = varset
+trigger1 = enemy,statetype != C
+fvar(31) = 0
+
+[State -2]
+type = varset
+trigger1 = enemy,movetype = A
+fvar(32) = .1
+
+[State -2]
+type = varset
+trigger1 = enemy,movetype != A
+fvar(32) = 0
+
+[State -2]
+type = varset
+trigger1 = fvar(9)
+fvar(33) = -.2
+
+[State -2]
+type = varset
+trigger1 = fvar(9) = 0
+fvar(33) = 0
+
+[State -2]
+type = varset
+trigger1 = var(1)
+fvar(34) = .05
+
+[State -2]
+type = varset
+trigger1 = enemy,movetype = H
+trigger1 = (Stateno = [1000,2999]) || (Stateno = [11000,12999])
+fvar(29) = -.2
+
+[State -2]
+type = varset
+trigger1 = movecontact || enemy,movetype != H
+fvar(29) = 0
+
+[STate -2]
+type = varSet
+trigger1 = alive
+fvar(30) = (1.1+fvar(31)+fvar(32)+fvar(33)+fvar(34)+fvar(29))
+
+[STate -2]
+type = varSet
+trigger1 = fvar(30) < 0.1
+fvar(30) = 0.1
+
+[State -2]
+type = attackMulSet
+trigger1 = alive
+value = fvar(30)
+
+[State -2]
+type = varset
+trigger1 = enemy,statetype = C
+fvar(35) = 2
+
+[State -2]
+type = varset
+trigger1 = enemy,statetype != C
+fvar(35) = 0
+
+[State -2]
+type = helper
+;trigger1 = numprojid(3060) = 1
+trigger1 = Projhit(3060) = 1
+;trigger2 = numprojid(3061) = 1
+trigger2 = Projhit(3061) = 1
+;trigger3 = numprojid(3062) = 1
+trigger3 = Projhit(3062) = 1
+;trigger4 = numprojid(3063) = 1
+trigger4 = Projhit(3063) = 1
+stateno = 3070
+sprpriorty = 5
+pos = -10,-75
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[State -2]
+type = helper
+;trigger1 = numprojid(3060) = 1
+trigger1 = Projguarded(3060) = 1
+;trigger2 = numprojid(3061) = 1
+trigger2 = Projguarded(3061) = 1
+;trigger3 = numprojid(3062) = 1
+trigger3 = Projguarded(3062) = 1
+;trigger4 = numprojid(3063) = 1
+trigger4 = Projguarded(3063) = 1
+stateno = 3075
+sprpriorty = 5
+pos = -10,-75
+postype = p2
+ownpal = 1
+ignorehitpause = 1
+
+[State -2]
+type = PlaySnd
+trigger1 = NumTarget
+trigger1 = target,movetype = H
+trigger1 = target,Stateno = 840
+trigger1 = target,Time = 1
+value = 6,0
+volume = -150
+
+[State -2, Stop Intro Sound]
+type = StopSnd
+trigger1 = roundstate = 2
+channel = 5
+  
+;[Statedef -3]
+;==============================================================================
+
+

@@ -1,0 +1,1310 @@
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+[Statedef -2]
+
+;Stolen Moves Testing-----------------
+[State -2, VarSet]
+type = null;VarSet
+trigger1 = 1
+v = 40
+value = 24;(13-69)
+
+;=========AvX Menu Pause===========
+
+[State -2, Pause Menu]
+Type = null;Helper
+trigger1 = AILevel = 0
+trigger1 = NumHelper(40500) = 0
+Name = "Pause"
+ID = 40500
+Pos = 0, 0
+PosType = left
+StateNo = 40500
+KeyCtrl = 1
+OwnPal = 1
+
+;=========AvX Public Release Damage Dampiner===========
+;The AvX project contains a Damage Multiplier. Such a system would create
+;an unfair advantage outside of the closed game proejct. A damage dampiner
+;has been added to the character in order to balance the large combo system
+;found in the AvX game.
+
+[State -2, Damage based on hits]
+type=varset
+trigger1= numenemy
+fvar(12)= enemynear,gethitvar(hitcount)
+ignorehitpause=1
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(12)=0
+
+[State -2, Dampener]
+type=varset
+trigger1=1
+fvar(10)= ifelse(fvar(12)<9,ifelse(fvar(12)=0, 1, ifelse(fvar(12)=1, .9, .86**fvar(12))),.25)
+ignorehitpause=1
+
+[State -2, Dampener itself]
+type=attackmulset
+trigger1= 1
+value= fvar(10)
+ignorehitpause=1
+ignorehitpause=1
+
+;=========AvX Special Get Hit State Recognition===========
+;Fvar(30)
+;0 = Not Hit
+;1 = Ground Bounce - stateno 5130
+;2 = Wall Bounce - stateno 5045
+;3 = Both
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 0
+trigger1 = enemynear,stateno = 5132 ;Ground Bounce
+fv = 30
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 0
+trigger1 = enemynear,stateno = 5048 ;Wall Bounce
+fv = 30
+value = 2
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 2
+trigger1 = enemynear,stateno = 5132 ;Ground Bounce
+trigger2 = fvar(30) = 1
+trigger2 = enemynear,stateno = 5048 ;Wall Bounce
+fv = 30
+value = 3
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) > 0
+trigger1 = enemynear,movetype!=H
+fv = 30
+value = 0
+
+[State -2, VarSet];OTG Recognition
+type = VarSet
+trigger1 = fvar(29) > 0
+trigger1 = enemynear,movetype!=H
+trigger1 = enemynear,stateno != 5110
+fv = 29
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, NA, NP, NT
+trigger1 = enemynear, movetype =H
+fv = 25
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, NA, NP, NT
+trigger1 = enemynear, movetype =H
+fv = 25
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 25
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, SA, SP, ST
+trigger1 = enemynear, movetype =H
+fv = 26
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, SA, SP, ST
+trigger1 = enemynear, movetype =H
+fv = 26
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 26
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, HA, HP, HT
+trigger1 = enemynear, movetype =H
+fv = 27
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, HA, HP, HT
+trigger1 = enemynear, movetype =H
+fv = 27
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 27
+value = 0
+
+[State -2, Varadd];hitcount
+type = Varadd
+trigger1 = movehit
+trigger1 = enemynear, time = 0
+trigger1 = p2stateno = [5000,5899]
+fv = 28
+value = 1
+ignorehitpause = 1
+
+[State -2, VarSet];hitcount
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+trigger1 = p2stateno != [5000,5899]
+fv = 28
+value = 0
+
+
+
+[State -2, PowerAdd]
+type = null;PowerAdd
+triggerall = StageVar(info.name) =  "B"
+triggerall = roundno = 1
+trigger1 = p2name = "Cable Training"
+trigger1 = enemynear,var(40)>= 4
+value = 3000
+
+[State -2, PowerAdd]
+type = null;PowerAdd
+triggerall = StageVar(info.name) =  "B"
+triggerall = roundno = 2
+trigger1 = roundstate < 2
+trigger1 = p2name = "Cable Training"
+value = -3000
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 0
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 1
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 2
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15650
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15651
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15660
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15661
+
+;==============================
+
+
+[State -2, Stop Intro Sound]
+type = StopSnd
+trigger1 = roundstate = 2
+channel = 20
+
+[State -2] ;Omega Red Life Drain
+type = lifeadd
+triggerall = roundstate = 2
+trigger1 = enemynear, name = "Omega Red"
+trigger1 = timemod = 50,0
+value = -1
+
+[State -2, PowerSet]
+type = PowerSet
+triggerall = enemynear, name ="Trainingroom"
+trigger1 = power != 3000
+value = 3000
+
+[State -2, Move Miss Reset]
+type = VarSet
+trigger1 = 1
+var(9) = 0
+
+[State -2, VarSet];Rapid Punch Limiter (1450-1470)
+type = VarSet
+trigger1 = var(18)!=0
+trigger1 = enemynear, movetype != H 
+v = 18
+value = 0
+
+[State -2, VarSet];Dive Punch OTG Counter (1540-1560)
+type = VarSet
+trigger1 = var(24)!=0
+trigger1 = enemynear, movetype != H 
+v = 24
+value = 0
+
+[State -2, VarSet];Stolen Power Counter
+type = VarSet
+trigger1 = var(28)!=0
+trigger1 = enemynear, movetype != H 
+v = 28
+value = 0
+
+[State 17158, VarSet];Hope Phoenix Projectile
+type = VarSet
+triggerall = var(28)!=1
+trigger1 = projhit(2554)>=1
+v = 28
+value = 1
+
+[State -2, VarSet];Dive Kick OTG Counter (721)
+type = VarSet
+trigger1 = var(38)!=0
+trigger1 = enemynear, movetype != H 
+v = 38
+value = 0
+
+[State -2, VarSet];Stolen Power Counter
+type = VarSet
+trigger1 = var(56)!=0
+trigger1 = enemynear, movetype != H 
+v = 56
+value = 0
+
+[State Debug Display]
+type = DisplayToClipboard
+text = "PowerID = %d, Jacket = %d" ;text = "%f %f %f %f "
+params = var(40), numhelper(20000);pos x,pos y,P2BodyDist X, P2BodyDist Y   ;Pos X,Pos Y
+trigger1 = 1
+;[State Append]
+;type = AppendToClipboard
+;text = "%d %d %d %d %d"
+;params = prevstateno,FrontEdgeDist,BackEdgeDist,var(38),NumHelper;
+;trigger1 = 1
+
+[State Append]
+type = AppendToClipboard
+text = ", Speed %d, Defense %d, Power %d, Life %d, Counter %d"
+params = var(39),var(49),var(50),var(42), var(28)
+trigger1 = 1
+
+[State -2]
+type = SelfState
+triggerall = stateno != 7722
+triggerall = StateType = A && MoveType != A
+trigger1 = Win
+value = 7722
+
+;Jacket Helper------------------------
+
+[State -2, Jacket Helper]
+type = Helper
+trigger1 = NumHelper(20000) = 0
+trigger1 = palno >= 3
+helpertype = Normal
+name = "Jacket"
+ID = 20000
+pos = 0,0
+postype = P1
+stateno = 20000
+ownpal = 0
+;size.ground.back = 20
+;size.ground.front = 20
+ignorehitpause = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = var(22) = 1
+v = 23
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = var(22) = 0
+v = 22
+value = 1
+
+;Remove Explode------------------------
+
+[State 21491, Power Name Box]
+type = Explod
+triggerall = numexplod(1609)=0
+triggerall = Var(40)>=10
+trigger1 = anim = 1491 && animelem = 2
+trigger2 = RoundState = 1
+anim = 1609
+id = 1609
+pos = ifelse(TeamSide = 1, 2, 283), 215
+postype = left
+facing = 1
+bindtime = -1
+removetime = -2
+sprpriority = 84
+ignorehitpause = 1
+scale = .5,.5
+ontop = 1
+ownpal = 1
+
+[State 21491, Stolen Power Name]
+type = Explod
+triggerall = numexplod(1610)=0
+triggerall = Var(40)>=10
+trigger1 = anim = 1491 && animelem = 2
+trigger2 = RoundState = 1
+anim = 1600 + var(40)
+id = 1610
+pos = ifelse(TeamSide = 1, 2, 283), 215
+postype = left
+facing = 1
+bindtime = -1
+removetime = -2
+sprpriority = 90
+ignorehitpause = 1
+scale = .5,.5
+ontop = 1
+ownpal = 1
+
+[State -2, Stolen Power Name]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+trigger3 = (enemynear, name = "Cable Training")||(enemynear, name = "SentinelStage")||(enemynear, name = "PhoenixForce")
+trigger3 = enemynear, stateno = 5149
+id = 1610
+
+[State -2, Power Name Box]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+id = 1609
+
+[State -2, Booster Meter]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+trigger3 = (enemynear, name = "Cable Training")||(enemynear, name = "SentinelStage")||(enemynear, name = "PhoenixForce")
+trigger3 = enemynear, stateno = 5149
+id = 1600
+
+[State -2, Defense]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+id = 1601
+
+[State -2, Life]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+id = 1602
+
+[State -2, Speed]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+id = 1603
+
+[State -2, Power]
+type = RemoveExplod
+trigger1 = anim = 1490
+trigger2 = var(37) = 1
+id = 16014
+
+;-------------------------------------------------------
+;Fireball Charging
+
+[State -2]
+type = VarAdd
+triggerall = var(40) <68 ;Not Rogue, Not Parasite
+triggerall = var(41) = [1,720]
+trigger1 = command = "holda"
+trigger2 = command = "holdb"
+trigger3 = command = "holdc"
+var(41) = 1
+
+[State -2]
+type = VarSet
+triggerall = var(40) <68 ;Not Rogue, Not Parasite
+triggerall = var(41)
+trigger1 = roundstate = [3,4]
+var(41) = 0
+
+[State -2]
+type = PalFx
+triggerall = var(40) <68 ;Not Rogue, Not Parasite
+triggerall = var(41) = 2
+trigger1 = command = "holda"
+trigger2 = command = "holdb"
+trigger3 = command = "holdc"
+time = 60
+add = 64,64,64
+sinadd = 64,64,64,30
+
+[State -2]
+type = PalFx
+triggerall = var(40) <68 ;Not Rogue, Not Parasite
+trigger1 = var(41) = 61
+time = -1
+add = 255,63,-255
+sinadd = 128,32,128,30
+
+[State -2]
+type = PalFx
+triggerall = (var(40) = 12) || (var(40) = 49)
+trigger1 = stateno = 2002
+time = 0
+add = 0,0,0
+
+[State -2];reset
+type = PalFx
+triggerall = var(40) = 12 || (var(40) = 49)
+triggerall = (command != "holda") && (command != "holdb") && (command != "holdc")
+trigger1 = anim = 70
+trigger2 = stateno = 0
+time = 0
+add = 0,0,0
+
+[State -2, PlaySnd]
+type = PlaySnd
+trigger1 = var(41) = 8
+value = S2000,12
+
+
+;---------------------------------
+;Flight
+
+[State -2]
+type = varadd
+trigger1 = var(54) = [1,1320]
+var(54) = 1
+
+
+
+[State -2]
+type = varset
+trigger1 = var(54) > 1320
+trigger2 = StateType != A && var(54)
+trigger2 = stateno != 1330
+trigger3 = roundstate = 3
+var(54) = 0
+
+
+[State -2]
+type = AssertSpecial
+trigger1 = var(54)
+flag = noairguard
+ignorehitpause=1
+
+
+;------------------------------------
+;run into screen
+
+[State -2]
+type = ScreenBound
+trigger1 = P2StateNo = [9020,9030]
+trigger2 = enemynear,stateno = 857
+;trigger3 = enemynear,stateno = 21285
+value = 0
+
+[State -2, State]
+type = ChangeState
+triggerall = StateNo != 100 && StateType != A && ctrl
+triggerall = P2MoveType = H
+;triggerall = P2StateNo = 9027 || (enemynear,stateno = 823)
+trigger1 = BackEdgeDist < -10
+trigger2 = FrontEdgeDist < -10
+value = 100
+
+;---------------------------------
+;Pal FX
+
+[State -2, Silver Armor]
+type = PalFX
+;trigger1 = var(49) ;Defense
+trigger1 = var(40) = 1;insert Silver Surfer's var here
+time = 20
+add = 100,100,100
+mul = 200,200,200
+sinadd = 20,20,20,15
+invertall = 0
+color = 0
+
+[State -2, Ice Color]
+type = PalFX
+trigger1 = var(40) = 18
+time = 20
+add = 0,100,256
+;mul = 200,200,256
+;sinadd = 0,0,0,1
+invertall = 0
+color = 0
+persistent = 1
+
+
+;---------------------------------
+;Defense Booster (Heavy and Defense)
+[State -2]
+type = varadd
+trigger1 = var(49) = [1,500]
+var(49) = 1
+
+;[State -2]
+;type = PalFx
+;trigger1 = var(49)
+;trigger1 = var(40)=0
+;trigger1 = GameTime%8 = 0
+;color = 256
+;time = 4
+;add = -32,64,-32
+
+[State -2]
+type = varset
+trigger1 = var(49) > 500
+trigger2 = roundstate = 3
+var(49) = 0
+
+[State -2]
+type = null;VelAdd
+trigger1 = var(49) = [1,50]
+trigger1 = StateType = A
+y = 0.5
+
+;---------------------------------
+;Power Booster
+[State -2]
+type = varadd
+trigger1 = var(50) = [1,500]
+var(50) = 1
+
+;[State -2]
+;type = PalFx
+;trigger1 = var(50)
+;trigger1 = GameTime%8 = 0
+;color = 256
+;time = 4
+;add = 64,-32,-32
+
+[State -2]
+type = varset
+trigger1 = var(50) > 500
+trigger2 = roundstate = 3
+var(50) = 0
+
+;---------------------------------------------
+;Speed  Booster
+[State -2]
+type = varadd
+trigger1 = var(39) = [1,500]
+var(39) = 1
+
+[State -2]
+type = ChangeAnim
+triggerall = var(39)
+trigger1 = (stateno !=[3000,4999]) && (stateno !=[30000,400000])
+triggerall = (RoundState = 2) && (MoveType != H)
+trigger1 = AnimElemTime(AnimElemNo(0) + 1) < 0
+trigger1 = AnimElemTime(AnimElemNo(0)) > floor ((AnimElemTime(AnimElemNo(0)) - AnimElemTime(AnimElemNo(0) + 1))/2)
+ignorehitpause = 1
+value = anim
+elem = AnimElemNo(0) + 1
+
+;[State -2]
+;type = PalFx
+;trigger1 = var(39)
+;trigger1 = GameTime%8 = 0
+;color = 256
+;time = 4
+;add = -32,-32,64
+
+
+[State -2]
+type = varset
+trigger1 = var(39) > 500
+trigger2 = roundstate = 3
+var(39) = 0
+
+;---------------------------------
+;Life Booster
+[State -2]
+type = varadd
+trigger1 = var(42) = [1,500]
+var(42) = 1
+
+;[State -2]
+;type = PalFx
+;trigger1 = var(42)
+;trigger1 = GameTime%8 = 0
+;color = 256
+;time = 4
+;add = 64,-32,-32
+
+;[state 1101, twister]
+;type = afterimage
+;trigger1 = var(42)
+;trigger1 = GameTime%8 = 0
+;time = 8
+;ignorehitpause = 1
+;PalBright = 0, 0, 0
+;PalContrast =  105,105,105;255
+;PalAdd = 0, 0, 0
+;PalMul = 1,1,1
+;trans = add1;AS250D250;none
+;Length = 8
+;FrameGap = 2
+
+[State -2]
+type = varset
+trigger1 = var(42) > 500
+trigger2 = roundstate = 3
+var(42) = 0
+
+;-------------------------------------
+;System Variables
+;[State -2]
+;type = varset
+;trigger1 = !var(30)
+;trigger1 = numenemy > 1
+;var(30) = floor((enemy(0),LifeMax/(100)+enemy(1),LifeMax/(100)/2))
+
+[State -2];Attack Damage
+type = varset
+trigger1 = !var(30)
+var(30) = 6
+
+[State -2]
+type = varset
+trigger1 = !var(31)
+var(31) = floor(const(data.life)/LifeMax/(100))
+
+[State -2]
+type = varset
+trigger1 = !var(33)
+trigger1 = numenemy > 1
+var(33) = floor(enemy(1),LifeMax/(100))
+
+
+
+;---------------------------------
+;Booster Effects
+
+;[State -2]
+;type = AttackMulSet
+;trigger1 = var(56) != 4
+;trigger1 = roundstate = 2
+;value = 0.8+0.3*(var(50) > 1)
+;
+;[State -2]
+;type = DefenceMulSet
+;trigger1 = var(56) != 4
+;trigger1 = roundstate = 2
+;value = 1-0.3*(var(49) >= 1)
+;
+;[State -2]
+;type = LifeAdd
+;trigger1 = (var(42) >=1)
+;value = 1
+;kill = 1
+;trigger1 = TimeMod = 20,0
+;absolute = 0
+
+
+[State -2]
+type = AttackMulSet
+trigger1 =  numexplod(1604)= 0
+value = 1
+
+[State -2]
+type = AttackMulSet
+trigger1 =  numexplod(1604)= 1
+value = 1.1
+
+[State -2]
+type = DefenceMulSet
+trigger1 = numexplod(1601)=0
+value = 1
+
+[State -2]
+type = DefenceMulSet
+trigger1 = numexplod(1601)=1
+value = 0.9
+
+
+[State -2]
+type = LifeAdd
+trigger1 =  numexplod(1602)=1
+trigger1 = life > 50
+value = 1
+kill = 1
+trigger1 = TimeMod = 20,0
+absolute = 0
+
+;--------------------------------
+
+[State -2]
+type = null;Ctrlset
+trigger1 = roundstate < 2
+value = 0
+
+;-------------------------------------------------------
+;Launcher reset
+
+
+[State -2]
+type = Varset
+trigger1 = p2movetype != H
+var(29) = 0
+ignorehitpause = 1 
+
+
+;-----------------------------------
+[State -2];Miss Hit
+type = VarSet
+triggerall = var(9)
+trigger1 = movetype != A
+var(9) = 0
+
+;-----------------------------------
+[State -2];Light Hit
+type = VarSet
+triggerall = var(19)
+trigger1 = movetype != A
+trigger2 = p2movetype != H
+var(19) = 0
+
+;-----------------------------------
+
+[State -2];Medium Hit
+type = VarSet
+triggerall = var(20)
+trigger1 = movetype != A
+trigger2 = p2movetype != H
+var(20) = 0
+
+;-----------------------------------
+[State -2];Hard Hit
+type = VarSet
+triggerall = var(21)
+trigger1 = movetype != A
+trigger2 = p2movetype != H
+var(21) = 0
+
+;---------------------------------------
+;hitcounts
+
+[State -2]
+type = VarSet
+trigger1 = P2MoveType = H
+trigger1 = Var(25) = 0
+var(25) = 1
+
+[State -2]
+type = VarSet
+trigger1 = HitCount > 0
+trigger1 = Var(25) != 0
+var(26) = HitCount
+
+[State -2]
+type = VarSet
+triggerall = Var(25) != 0
+trigger1 = HitCount = 0
+trigger2 = P2MoveType != H
+var(27) = Var(27) + Var(26)
+
+[State -2, Projectile Hits]
+type = VarSet
+triggerall = Var(25) != 0
+trigger1 = ProjHit = 1
+var(27) = Var(27) + 1
+
+[State -2, Reset]
+type = VarSet
+trigger1 = HitCount = 0
+trigger1 = Var(25) != 0
+var(26) = 0
+
+[State -2]
+type = VarSet
+trigger1 = EnemyNear, MoveType != H
+trigger1 = Var(25) != 0
+var(26) = 0
+
+[State -2, Reset]
+type = VarSet
+triggerall = Var(25) != 0
+trigger1 = EnemyNear, MoveType != H
+var(25) = 0
+
+[State -2, Reset]
+type = VarSet
+trigger1 = Var(25) = 0
+trigger1 = Var(27) > 0
+var(27) = 0
+
+;-----------------------------------------------------
+
+
+[State -2,r]
+type = SelfState
+triggerall = stateno != 7777
+triggerall = var(56) = 4
+trigger1 = gethitvar(damage) >= life
+trigger2 = Life < 10
+value = 7777
+
+
+;[State -2, Life]
+;type = LifeAdd
+;triggerall = Lose = 0
+;triggerall = var(56) = 4
+;trigger1 = Life < 70*Var(31)
+;value = 30*Var(31)
+
+
+;[State -2, Life]
+;type = PowerAdd
+;triggerall = Lose = 0
+;trigger1 = Life < 70*Var(31)
+;trigger1 = var(56) = 4
+;value = 30*Var(31)
+
+
+
+;---------------------------------------------------------------
+
+
+[State -2,t]
+type = varset
+trigger1 = Time = 0
+trigger2 = !gethitvar(isbound) 
+v = 11
+value = 12
+
+
+
+
+[State -2,t]
+type = varset
+trigger1 = gethitvar(isbound)
+v = var(11)
+value = enemynear,prevstateno
+
+
+
+[State -2,t]
+type = varadd
+trigger1 = gethitvar(isbound)
+trigger1 = var(11) < 14
+v = 11
+value = 1
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(43)
+var(43) = var(12)
+
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(44)
+trigger1 = var(12) != var(43)
+var(44) = var(12)
+
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(45)
+trigger1 = var(12) != var(43)
+trigger1 = var(12) != var(44)
+var(45) = var(12)
+
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(46)
+trigger1 = var(12) != var(43)
+trigger1 = var(12) != var(44)
+trigger1 = var(12) != var(45)
+var(46) = var(12)
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(47)
+trigger1 = var(12) != var(43)
+trigger1 = var(12) != var(44)
+trigger1 = var(12) != var(45)
+trigger1 = var(12) != var(46)
+var(47) = var(12)
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(48)
+trigger1 = var(12) != var(43)
+trigger1 = var(12) != var(44)
+trigger1 = var(12) != var(45)
+trigger1 = var(12) != var(46)
+trigger1 = var(12) != var(47)
+var(48) = var(12)
+
+
+
+[State -2,t]
+type = varset
+trigger1 = !gethitvar(isbound)
+trigger1 = !var(49)
+trigger1 = var(12) != var(43)
+trigger1 = var(12) != var(44)
+trigger1 = var(12) != var(45)
+trigger1 = var(12) != var(46)
+trigger1 = var(12) != var(47)
+trigger1 = var(12) != var(48)
+var(49) = var(12)
+
+;--------------------------------------------------------------------------------------
+
+; ====Screenpack Combo Messages and Score control ======= 
+
+;var(13) Combo adder 
+;Var(14) number and text decider 
+;Var(15) is Danger 
+;var(16) normalize 
+
+;[State -2, VS_Combo]
+;type = VarSet
+;trigger1 = var(13) >= 3
+;trigger2 = var(13)=-1 && (movehit || p2stateno = 6300 || p2stateno = [5000,5899])
+;var(14) = 1+(var(13)>4)+(var(13)>5)+(var(13)>7)+(var(13)>9)+(var(13)>29)+(var(13)>49)+(var(13)>69)-(var(13)=-1)
+;ignorehitpause = 1
+;
+;[State -2, Danger]
+;type = VarSet
+;trigger1 = var(15) !=1 && roundstate=2 && life = [1,250]
+;var(14) = 9
+;ignorehitpause = 1
+;
+;[State -2, First Attack]
+;type = PlaySnd
+;triggerall = var(13)=-1
+;triggerall = NumExplod(8701) = 0
+;trigger1 = var(13)=-1 && (movehit || p2stateno = 6300 || p2stateno = [5000,5899])
+;persistent = 0
+;value = S230,0
+;volume = 255
+;ignorehitpause = 1
+;
+;[State -2, Combo Sound]
+;type = PlaySnd
+;trigger1 = NumExplod(8701) = 0
+;trigger1 = var(13)=0 && var(14)!=0
+;persistent = 0
+;value = S230,var(14)
+;volume=255
+;ignorehitpause = 1
+;
+;[State -2, Left]
+;type = explod
+;trigger1 = var(13)=0 && var(14)!=0
+;trigger2 = var(13)=-1 && (movehit || p2stateno = 6300 || p2stateno = [5000,5899])
+;triggerall = TeamSide = 1 && NumExplod(8701) = 0
+;anim = f8000 + var(14)
+;ID = 8701
+;postype = left
+;pos = 0,80
+;ontop = 1
+;bindtime = -1
+;removetime = 60
+;supermovetime = 60
+;pausemovetime = 60
+;scale = 0.5,0.5
+;persistent = 0
+;ignorehitpause = 1
+;
+;[State -2, Right]
+;type = explod
+;trigger1 = var(13)=0 && var(14)!=0
+;trigger2 = var(13)=-1 && (movehit || p2stateno = 6300 || p2stateno = [5000,5899])
+;triggerall = TeamSide = 2 && NumExplod(8701) = 0
+;anim = f8100+ var(14)
+;ID = 8701
+;postype = right
+;pos = -1,80
+;ontop = 1
+;bindtime = -1
+;removetime = 60
+;supermovetime = 60
+;pausemovetime = 60
+;scale = 0.5,0.5
+;persistent = 0;1
+;ignorehitpause = 1
+;
+;[State -2, VS_Combo]
+;type = VarAdd
+;trigger1 = enemynear, time = 0
+;trigger1 = enemynear, Hitshakeover = 0
+;trigger1 = p2stateno = 6300 || p2stateno = [5000,5899]
+;trigger2 = var(13)=-1 && (movehit || p2stateno = 6300 || p2stateno = [5000,5899])
+;var(13) = 1 + (var(13)=-1)
+;ignorehitpause = 1
+;
+;[State -2, VS_Combo]
+;type = VarSet
+;trigger1 = var(13)!=-1 && (p2movetype!=H || enemynear, ctrl)
+;trigger2 = var(13)=-1 && stateno = [5000,5899]
+;var(13) = 0 - (roundstate<2)
+;ignorehitpause = 1
+;
+;[State -2, VS_Combo]
+;type = VarSet
+;triggerall = numexplod(8701)!=0
+;trigger1 = var(13)=0
+;var(14) = 0
+;ignorehitpause = 1
+;
+;[State -2, Score]
+;type = Varadd
+;trigger1 = enemynear, time=0
+;trigger1 = enemynear, Hitshakeover=0
+;trigger1 = moveguarded || p2stateno = 6300 || p2stateno = [5000,5899]
+;trigger2 = var(13)=-1 && (movehit || p2stateno = 6300 || p2stateno = [5000,5899])
+;trigger3 = roundstate=4 && time=0 && stateno = [180,189]
+;var(16) = ceil(stateno/50)*var(13) + (life)*(roundstate=4) + (moveguarded)
+;ignorehitpause = 1
+;
+;[State -2, Normalize Score]
+;type = Varset
+;triggerall = numpartner=1
+;trigger1 = var(16)< partner, var(16)
+;var(16) = partner, var(16)
+;
+;[State -2, Is Danger]
+;type = VarSet
+;trigger2 = var(15) = 0 && life <= 250
+;trigger1 = var(15) = 1 && roundstate!=2
+;var(15) = (roundstate>1)
+;ignorehitpause = 1
+;
+;[State -2, Is First Attack p3]
+;type = VarSet
+;triggerall = numpartner=1
+;trigger1 = partner, movehit
+;trigger1 = partner, var(13) != -1
+;var(13) = 0
+;ignorehitpause = 1
+;; ============
+;
+
+;P2 Flames------------------------
+
+[State -2, P2 Flames]
+type = Explod
+triggerall = NumExplod(2528) = 0
+trigger1 = (StateNo = 17140) && MoveHit
+trigger2 = (StateNo = 171401) && MoveHit
+trigger3 = (prevstateno = 171401)&&(StateNo = 17107) && MoveHit
+trigger4 = (StateNo = 37140) && Movehit && hitcount < 7
+trigger5 = projhit2500 = 1
+trigger6 = (StateNo = 37141) && Movehit
+ID = 2528
+anim = 2528
+postype = p2
+pos = fvar(2), fvar(3)
+bindtime = -1
+removetime = -2
+sprpriority = -4
+ownpal = 1
+ignorehitpause = 9999
+
+
+[State -2, P2 Flames]
+type = VarSet
+trigger1 = 1
+fv = 2
+value = floor(EnemyNear, const(size.mid.pos.x))
+
+[State -2, P2 Flames]
+type = VarSet
+trigger1 = 1
+fv = 3
+value = floor(EnemyNear, const(size.mid.pos.y))
+
+[State -2, P1 Flames]
+type = Explod
+triggerall = NumExplod(2541) = 0
+trigger1 = (StateNo = 37141)
+ID = 2541
+anim = 2541
+postype = p1
+pos = 20,-40
+bindtime = -1
+removetime = -2
+sprpriority = -4
+ownpal = 1
+ignorehitpause = 9999
+
+[State -2, Fire Helper]
+type = Helper
+triggerall = stateno !=[5100,5199]
+triggerall = roundstate = [2,3]
+trigger1 = numhelper (2141) = 0
+trigger1 = var(40) = 47
+helpertype = normal ;player
+name = "Fire"
+ID = 2141
+stateno = 2141
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 9999
+size.xscale = .75
+size.yscale = .75
+
+[State -2, Fire PalFX];Human Torch
+type = PalFX
+triggerall = stateno !=[5100,5199]
+triggerall = roundstate = [2,3]
+trigger1 = var(40) = 47
+time = 20
+add = 256,40,0
+mul = 256,256,256
+invertall = 0
+color = 256
+persistent = 1
+
+;Nightcrawler Tail------------------------
+
+[State -2, Tail]
+type = Helper
+triggerall = stateno !=[5030,5199]
+triggerall = stateno < 10000
+triggerall = var(23)= 0;custom state
+trigger1 = numhelper (2126) = 0
+trigger1 = var(40) = 32;Nightcrawler
+helpertype = normal
+name = "Tail"
+ID = 2126
+stateno = 2126
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 9999
+size.xscale = 1
+size.yscale = 1
+
+;Hovering while falling------------------------
+
+[State -2, VelAdd]
+type = VelAdd
+triggerall = statetype = A
+triggerall = vel y > 2
+triggerall = movetype != A
+triggerall = movetype != H
+triggerall = ctrl
+trigger1= command = "holdup"
+y = -0.5
+
+[State -2, ChangeState]
+type = ChangeState
+trigger1 =  pos y < -400
+trigger1 = stateno = [1330,1349]
+value = 50
+ctrl = 0
+
+;Change Skin Color------------------------
+;1 = Regular
+;2 = Blue
+;3 = Green
+;4 = Metal
+;5 = Red
+;6 = Lblue
+;7 = Smart Palette
+
+[state -2,palette1];Blue
+type=remappal
+trigger1=var(40)=30
+trigger2=var(40)=31
+trigger3=var(40)=32
+source=7,1
+dest=2,palno
+
+[state -2,palette];Green
+type=remappal
+trigger1=var(40)=39
+trigger2=var(40)=65
+source=7,1
+dest=3,palno
+
+[state -2,palette];Metal
+type=remappal
+trigger1=var(40)=26
+source=7,1
+dest=6,palno
+
+[state -2,palette];Red
+type=remappal
+trigger1=var(40)=61
+source=7,1
+dest=5,palno
+persistent = 1
+
+[state -2,palette]
+type=remappal
+trigger1=var(40)!=18
+trigger1=var(40)!=26
+trigger1=var(40)!=30
+trigger1=var(40)!=31
+trigger1=var(40)!=32
+trigger1=var(40)!=39
+trigger1=var(40)!=47
+trigger1=var(40)!=61
+trigger1=var(40)!=65
+source=7,1
+dest=1,palno

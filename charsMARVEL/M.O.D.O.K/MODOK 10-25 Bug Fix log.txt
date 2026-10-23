@@ -1,0 +1,31 @@
+A small fix patch for Xasor's feedback:
+
+note1:  to me, any attacks that involve aura, I don't cover their hit box with hurt box, it is like the "a sword should have hurt box" MUGEN debate
+note2:  for any attacks that involve no aura but only limbs, I added hurt box to their hit box
+
+>> - z and crouching c attack is incredibly cheap
+1. used an invisible Projectile related to the big round aura behind M.O.D.O.K., instead of using HitDef for z
+2. added a Projectile type corner push
+3. adjusted the hit box size and timing according to the big round aura behind M.O.D.O.K.
+4. found out the "hit box on 1st animation frame making P2 unable to guard" bug for crouching c - fixed!
+5. found out crouching c dealt some guard damage which is not good for normal attacks - fixed!
+6. changed the crouching c HitDef trigger from AnimElem = 3 to Time = 10 to delay the attack landing a bit, in hope of making the attack less cheap
+
+>> - infinite priority on x,y,a
+1. for any attacks that involve no aura but only limbs, I added hurt box to their hit box, so M.O.D.O.K. and P2 can trade hits for a fair play
+2. changed the HitDef/Projectile hit priorities this way:  light=>3, medium=>4, hard=>5
+
+- some attacks have really large and ridiculous clsn's you can simplify them
+1. except for the z standing attack, all other aura-type attacks' hit boxes remain the same because the aura is large so the hit box needs to be large too.........anybody please feels free to correct me on this one.....
+
+>> -DB,DB,  x,y doesn't register as a combo which means the enemy can defend after the first goon hits
+1. fixed!  now it can register as a 12-hit combo even with a small-sized P2 like Bubblun :)
+
+>> - missing blue clsn on MODOK on b attack
+1. fixed!  somehow default hurt Clsn box couldn't be used for this attack.......
+
+>> - the gameplay and movement is clunky as hell you can't flow a combo from a launcher etc. the moves feel disconnected from each other
+1. kind of fixed, I assume the launcher is crouching c, now after M.O.D.O.K. crouching c hits P2, it sends P2 up high in air without letting P2 do any air recovery so M.O.D.O.K. may continue to do air attacks to P2, provided that holding UP right after the hit now lets M.O.D.O.K. do a super jump
+2. for the rest of air combos........I didn't do it because I am not familiar with MVsC type air combos.......so all air attacks remain unchanged......I think each air attack need to have a MVsC type after-launch version....not sure though....
+
+** also I fixed a spark position for Stand Medium Punch, and disabled M.O.D.O.K. PlayerPush near the end of M.O.D.O.K.'s throw M.O.D.O.K. won't be pushed by a thrown backward P2 anymore **

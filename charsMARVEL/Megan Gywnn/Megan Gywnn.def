@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Megan Gywnn"
+displayname = "Pixie"
+versiondate = 04,14,2001
+mugenversion = 04,14,2001
+author = "mathri"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = Template.sff
+anim = Template.air
+sound = Template.snd
+cmd = Template.cmd
+cns = Template.cns
+stcommon = common1.cns
+st = basics.st
+st1 = specials.st
+st2 = hypers.st
+st3 = overrides.st
+pal1 = Pixie.act
+pal2 = Pixie.act
+pal3 = Pixie.act
+pal4 = Pixie.act
+pal5 = Pixie.act
+pal6 = Pixie.act
+pal7 = Pixie.act
+pal8 = Pixie.act
+pal9 = Pixie.act
+pal10 = Pixie.act
+pal11 = Pixie.act
+pal12 = Pixie.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

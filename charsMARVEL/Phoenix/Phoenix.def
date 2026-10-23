@@ -1,0 +1,39 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Phoenix"
+displayname ="Phoenix"
+versiondate =25/06/2018
+mugenversion =1.0
+author ="Original -Topper and CidLover1, sprites by Riklaionel, Edit By Abnerrse4, Palettes by Yolomate"
+pal.defaults =1,2
+
+[Files]
+sprite =Phoenix.sff
+anim =Phoenix.air
+sound =Phoenix.snd
+cmd =Phoenix.cmd
+cns =Phoenix_Constants.cns
+stcommon =Phoenix_Common.cns
+st =Phoenix_Basics.cns
+pal1=Phoenix.act
+pal2=pals/2-Phoenix02.act
+pal3=pals/3-Phoenix03.act
+pal4=pals/5-Phoenix05.act
+pal5=pals/9-Phoenix09.act
+pal6=pals/8-Phoenix08.act
+pal7=pals/phoenix13version2.act
+pal8=pals/10-Phoenix10.act
+pal9=pals/11-Phoenix11.act
+pal10=pals/12-Phoenix12.act
+pal11=pals/4-Phoenix04.act
+pal12=pals/6-Phoenix06.act
+st1=Specials.st
+st2=Hypers.st
+st3=helpers.cns
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

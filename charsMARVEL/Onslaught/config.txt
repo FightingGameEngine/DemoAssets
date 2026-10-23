@@ -1,0 +1,39 @@
+;---------------------------------------------------------------------------
+; Initialize (at the start of the round)
+[Statedef 5900]
+type = S
+
+[State 5900, VarRangeSet]	; Sets all int variables to 0
+type = VarRangeSet
+trigger1 = !roundsexisted	; roundno = 1
+value = 0
+last = 58
+
+[State 5900, VarRangeSet]	; Sets all float variables to 0
+type = VarRangeSet
+trigger1 = roundno = 1
+fvalue = 0
+
+[State 5900, ChangeForm]
+type = VarSet
+trigger1 = Var(51)	; Round Lost
+var(50) = 1
+
+[State 5900, Config]
+type = Null
+trigger1 = 1
+;trigger1 = (Var(50) := 0) + 1					; Play as Onslaught (1st Form) only - Remove it's resurrection as well
+;trigger1 = (Var(50) := 3) + !(Var(53) := 1)	; Play as Sentinel only
+trigger1 = (FVar(30) := 1) + 1					; BGMusic on
+;trigger1 = (FVar(31) := 1) + 1					; Form 1 - Resurrection on
+;trigger1 = (FVar(32) := 1) + 1					; Timer Freeze
+trigger1 = (FVar(36) := 100) + 1				; P2 Life Recovery Percentage - Change to 0 to disable
+;trigger1 = Var(51) = 3							; Resets to Form 1 after losing
+;trigger1 = (Var(51) := 0) + 1					; Uncomment if above option is enabled
+;trigger1 = (Var(50) := 0) + 1					; Resets to Form 1 each round if above 2 are disabled. Uncomment if above 2 are enabled
+;trigger1 = (Var(50) := 1) + 1					; Play as Onslaught (2nd Form) only. Uncomment above 3 if used.
+
+[State 5900, ChangeState]
+type = ChangeState
+trigger1 = 1
+value = 190

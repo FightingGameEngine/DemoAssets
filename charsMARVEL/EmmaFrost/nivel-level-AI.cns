@@ -1,0 +1,20 @@
+;A.I: (matchno * var(11)) > random
+;---------------------------------------------------------------------------
+; Nivel progressivo de AI - growing AI level (arcade mode & team modes)
+; de (mais burro) 1 à 999 (mais esperto)
+; from (dummy) 1 to 999 (smart)
+
+[Statedef 6] 
+type = U 
+ctrl = 0 
+
+[State 1205, 1] 
+type = parentVarSet 
+trigger1 = 1 
+var(11) = 80 ; <= Olha a.i.!
+
+; parei aqui
+
+[State 8381, 3] 
+type = DestroySelf 
+trigger1 = Time = 0

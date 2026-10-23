@@ -1,0 +1,34 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Carnage_MMV"
+displayname = "Carnage"
+versiondate = 06.07.2008
+mugenversion = 
+author = "theFuTuR3 & T.O.P.S"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = resource\carnage_sff.sff
+anim = resource\carnage_air.air
+sound = resource\carnage_snd.snd
+cmd = code\carnage_cmd.cmd
+cns = code\carnage_cns.cns
+stcommon = code\Common1.cns
+st = code\Basics.st
+st1 = code\Specials.st
+st2 = code\Hypers.st
+st3 = code\Statedef-2.st
+st4 = code\Statedef-3.st
+st5 = code\Extra.st
+pal1 = pals\default.act
+pal2 = pals\default.act
+;pal3 = pals\default.act
+;pal4 = pals\default.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

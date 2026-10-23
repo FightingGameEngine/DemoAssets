@@ -1,0 +1,706 @@
+; Quem_sou_eu [Var(39)]: 0-Morto, 1-Primeiro, 2-Segundo
+; Colaboração [Var(38)]: 1-Lutar só, 2-Duplo Especial, 3-Um Ataque, 4-Counter
+; Vez na luta [Var(37)]: 1-Primeiro, 2-Segundo
+; Verificação [Var(36)]: Meu ID
+;             [Var(35)]: 0-Proíbe sair de tela, 1-Permite sair de tela
+; P3 life     [Var(34)]: Memoriza a vida
+; Recuperação [Var(33)]: Memoriza a vida
+
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+;=========AvX Menu Pause===========
+
+[State -2, Pause Menu]
+Type = null;Helper
+trigger1 = AILevel = 0
+trigger1 = NumHelper(40500) = 0
+Name = "Pause"
+ID = 40500
+Pos = 0, 0
+PosType = left
+StateNo = 40500
+KeyCtrl = 1
+OwnPal = 1
+
+;=========AvX Public Release Damage Dampiner===========
+;The AvX project contains a Damage Multiplier. Such a system would create
+;an unfair advantage outside of the closed game proejct. A damage dampiner
+;has been added to the character in order to balance the large combo system
+;found in the AvX game.
+
+[State -2, Damage based on hits]
+type=varset
+trigger1= numenemy
+fvar(12)= enemynear,gethitvar(hitcount)
+ignorehitpause=1
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(12)=0
+
+[State -2, Dampener]
+type=varset
+trigger1=1
+fvar(10)= ifelse(fvar(12)<9,ifelse(fvar(12)=0, 1, ifelse(fvar(12)=1, .9, .86**fvar(12))),.25)
+ignorehitpause=1
+
+[State -2, Dampener itself]
+type=attackmulset
+trigger1= 1
+value= fvar(10)
+ignorehitpause=1
+ignorehitpause=1
+
+;=========AvX Special Get Hit State Recognition===========
+;Fvar(30)
+;0 = Not Hit
+;1 = Ground Bounce - stateno 5130
+;2 = Wall Bounce - stateno 5045
+;3 = Both
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 0
+trigger1 = enemynear,stateno = 5132 ;Ground Bounce
+fv = 30
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 0
+trigger1 = enemynear,stateno = 5048 ;Wall Bounce
+fv = 30
+value = 2
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) = 2
+trigger1 = enemynear,stateno = 5132 ;Ground Bounce
+trigger2 = fvar(30) = 1
+trigger2 = enemynear,stateno = 5048 ;Wall Bounce
+fv = 30
+value = 3
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = fvar(30) > 0
+trigger1 = enemynear,movetype!=H
+fv = 30
+value = 0
+
+[State -2, VarSet];OTG Recognition
+type = VarSet
+trigger1 = fvar(29) > 0
+trigger1 = enemynear,movetype!=H
+trigger1 = enemynear,stateno != 5110
+fv = 29
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, NA, NP, NT
+trigger1 = enemynear, movetype =H
+fv = 25
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, NA, NP, NT
+trigger1 = enemynear, movetype =H
+fv = 25
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 25
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, SA, SP, ST
+trigger1 = enemynear, movetype =H
+fv = 26
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, SA, SP, ST
+trigger1 = enemynear, movetype =H
+fv = 26
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 26
+value = 0
+
+[State -2, VarSet]
+type = ParentVarSet
+trigger1 = hitdefattr = SCA, HA, HP, HT
+trigger1 = enemynear, movetype =H
+fv = 27
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = hitdefattr = SCA, HA, HP, HT
+trigger1 = enemynear, movetype =H
+fv = 27
+value = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+fv = 27
+value = 0
+
+[State -2, Varadd];hitcount
+type = Varadd
+trigger1 = movehit
+trigger1 = enemynear, time = 0
+trigger1 = p2stateno = [5000,5899]
+fv = 28
+value = 1
+ignorehitpause = 1
+
+[State -2, VarSet];hitcount
+type = VarSet
+trigger1 = movetype !=A
+trigger1 = enemynear, movetype !=H
+trigger1 = p2stateno != [5000,5899]
+fv = 28
+value = 0
+
+
+
+[State -2, PowerAdd]
+type = null;PowerAdd
+triggerall = StageVar(info.name) =  "B"
+triggerall = roundno = 1
+trigger1 = p2name = "Cable Training"
+trigger1 = enemynear,var(40)>= 4
+value = 3000
+
+[State -2, PowerAdd]
+type = null;PowerAdd
+triggerall = StageVar(info.name) =  "B"
+triggerall = roundno = 2
+trigger1 = roundstate < 2
+trigger1 = p2name = "Cable Training"
+value = -3000
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 0
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 1
+
+[State -2, StopSnd]
+type = null;StopSnd
+trigger1 = p2stateno = 5149
+channel = 2
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15650
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15651
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15660
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(15601)=0
+id = 15661
+
+;==============================
+
+
+[State -2, Stop Intro Sound]
+type = StopSnd
+trigger1 = roundstate = 2
+channel = 20
+
+[State -2] ;Omega Red Life Drain
+type = lifeadd
+triggerall = roundstate = 2
+trigger1 = enemynear, name = "Omega Red"
+trigger1 = timemod = 50,0
+value = -1
+
+[State -1, PowerSet]
+type = PowerSet
+triggerall = enemynear, name ="Trainingroom"
+trigger1 = power != 3000
+value = 3000
+
+[State -1, StopSnd]
+type = StopSnd
+trigger1 = roundstate = 2
+channel = 10
+
+[State -1, StopSnd]
+type = StopSnd
+trigger1 = stateno != 195
+channel = 11
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = numexplod(2599) > 0
+trigger1 = stateno!=2500
+trigger1 = stateno!=2502
+id = 2599
+
+[State -2, 1] ; debug
+type = DisplayToClipboard
+trigger1 = roundstate >= 0
+;text="numprojid(1003) %d,numprojid(1004) %d,numexplod(1006) %d,numexplod(1007) %d"
+;params = numprojid(1003), numprojid(1004), numexplod(1006),numexplod(1007)
+text="ctrl %d, back %d, OTG %d, NA %d, SA %d, HA %d"
+params = var(55),backedgedist, var(31), fvar(25), fvar(26),fvar(27)
+
+[State -2, VarSet];Diamond Hard Punch
+type = VarSet
+triggerall = var(30)!= 0
+trigger1 =  enemynear, movetype!= H
+v = 30
+value = 0
+
+[State -2, VarSet]
+type = VarSet
+triggerall = var(31)!= 0
+trigger1 =  enemynear, movetype!= H
+v = 31
+value = 0
+
+[State -2, VarSet]
+type = VarSet
+triggerall = var(32)!= 0
+trigger1 =  enemynear, movetype!= H
+v = 32
+value = 0
+
+[State -2, VarSet]
+type = VarSet
+triggerall = stateno != 9000
+triggerall = movetype != H
+trigger1 =  !ctrl
+v = 55
+value = 0
+
+[State -2, VarSet]
+type = VarSet
+triggerall = stateno != 9000
+triggerall = movetype != H
+trigger1 =  ctrl
+v = 55
+value = 1
+
+[State -2, AssertSpecial];Diamond MOde
+type = AssertSpecial
+trigger1 = var(21)=1
+flag = nostandguard
+flag2 = nocrouchguard
+
+;---------------------------------------------------------------------------
+;Exclusivo da Emma
+; =============================
+;zvitor resetando variaveis da projeção
+[State -2, VarSet]
+type = VarSet
+triggerall =  var(27) != 0
+trigger1 = stateno != 2500 && stateno != 2502
+v = 27
+value = 0
+
+[State -2, VarSet]
+type = VarSet
+triggerall =  var(26) != 0
+trigger1 = stateno != 2500 && stateno != 2502
+v = 26
+value = 0
+
+[State -2, VarSet]
+type = VarSet
+triggerall =  var(25) != 0
+trigger1 = stateno != 2500 && stateno != 2502
+v = 25
+value = 0
+
+;
+
+;[State -2, NotHitBy]; não pode ser agarrada
+;trigger1 = 1
+;trigger1 = var(21) = 1
+;type = NotHitBy
+;value = , NT
+
+[State -2, controle de arpão]; controle de arpão
+type = explod
+trigger1 = ProjContactTime(1102) = 1 && numtarget!=0
+ID = 1102
+anim = 1003
+pos = 0,(target, const(size.head.pos.y))
+postype = p2
+scale= 0.75,0.75
+removetime = -1;60
+sprpriority = 2
+ownpal = 1
+ignorehitpause=1
+velocity=0,-.5
+
+[State -2, RemoveExplod]; remove explod arpão
+type = RemoveExplod
+trigger1 = numtarget = 0 
+id = 1102
+
+[State -2, Create Helper]; bilho de acerto
+type = null;Helper
+trigger1 = !NumHelper(7103)
+triggerall = var(21) = 1
+trigger1 = movetype = H &&  HitShakeOver = 0
+ID = 7103
+name = "blink"
+StateNo = 7103
+postype = p1
+pos = 0, 0
+ownpal = 1
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+trigger1 = anim > 1 
+id = 0003
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+trigger1 = anim > 1
+id = 0004
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+trigger1 = anim > 1
+id = 0005
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+triggerall = Var(21) = 0
+trigger1 = anim > 11
+id = 0006
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+triggerall = Var(21) = 0
+trigger1 = anim > 11
+id = 0007
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+triggerall = Var(21) = 0
+trigger1 = anim > 11
+id = 0008
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+triggerall = Var(21) = 1
+trigger1 = anim > 14
+id = 0006
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+triggerall = Var(21) = 1
+trigger1 = anim > 14
+id = 0007
+
+[State -2, RemoveExplod]; remove brilho
+type = RemoveExplod
+triggerall = Var(21) = 1
+trigger1 = anim > 14
+id = 0008
+
+[State -2, Create Helper]; helper de sangue baixo
+type = null;Helper
+triggerall = var(7) = 0
+triggerall = !NumHelper(7100)
+trigger1 = Life <= 200
+ID = 7100
+name = "Vida"
+StateNo = 7100
+postype = p1
+pos = 0, 0
+ownpal = 1
+
+[State -2, RemoveExplod]; remove rastro no projétil teleguiado
+type = RemoveExplod
+trigger1 = numprojid(1002)=0 && numprojid(1003)=0 && numprojid(1004)=0
+trigger1 = numexplod(1006)!=0 || numexplod(1007)!=0
+id = 1006 + (numexplod(1007)!=0)
+
+[State 3000,7]; cor do modo blindado
+type = PalFX
+trigger1 = (gametime%6)=0 && var(21)=1
+time = 50
+add = 6,28,108
+color = 128
+sinadd = 6,28,108,10
+ignorehitpause=1
+
+;[State 3000,7]; cor do modo blindado
+;type = PalFX
+;trigger1 = (gametime%6)=0 && var(21)=1
+;time = 20
+;add = 16,48,128
+;color = 128
+;ignorehitpause=1
+
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = var(21)=1
+value = 0.9
+
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = var(21)=0
+value = 1
+
+
+;[State -2, 1];dobra força
+;type = AttackMulSet
+;trigger1 = 1
+;value = 1 + 0.1 * (var(21)>0)
+
+[State -2, enfeite]; enfeite para modo blindado
+type = Explod
+triggerall = Var(21) = 1
+trigger1 = (gametime % 10)=0
+anim = 60001 + ceil(random/333)
+id = 60001
+pos = 0,(const(size.mid.pos.y)+20)*(statetype!=L)+30*(statetype=C)
+postype = p1
+scale= 0.5+0.25*(((gametime % 15)=0)),0.5+0.25*(((gametime % 15)=0))
+removetime = -2
+sprpriority = -1 + 2 * ((gametime % 30)=0)
+ownpal = 1
+random = 45+60*(statetype=L),50-40*(statetype=L);75,30;statetype!=C && 
+;random = 45+60*(statetype=C || stateno=[5110,5150]),30 + 30*(statetype!=C || stateno!=[5110,5150]);75,30
+;shadow = -1,0,0
+
+[State -2, ChangeAnim]; Troca animação para blindado
+type = ChangeAnim
+trigger1 = var(21)=1 && selfanimexist(anim+60000) && animelem=1
+value = anim+60000
+ignorehitpause=1
+persistent=1
+
+;--------[ Blindagem ]------------------------------------------
+
+
+
+; Gethit PalFX
+;[State -2, PalfX]
+;type = PalFX
+;triggerall = var(52) > 0
+;trigger1 = (var(52) % 4) = 1
+;add = 164,11,0
+;mul = 358,256,256
+;time = 2
+;ignorehitpause = 1
+
+[State -2, Add]
+type = VarAdd
+trigger1 = var(52) > 0
+v = 52
+value = 1
+ignorehitpause = 1
+
+[State -2, Clear]
+type = VarSet
+trigger1 = var(52) > 16
+v = 52
+value = 0 
+ignorehitpause = 1
+
+[State -2, Super Armor Changestate]
+type = SelfState
+triggerall= (StateNo = 5000) || (StateNo = 5010); || StateNo = 5070); || StateNo = 5020
+triggerall = life>0
+triggerall = var(21)=1
+trigger1 = (time = 0) && (var(59) < 15) 
+value = 9000;3002
+
+[State -2, Set Var if in Custom state]
+type = VarSet
+trigger1 = (StateNo != 5000) && (StateNo != 5010)
+trigger2 = StateNo != 5070 && var(21)>0
+triggerall = var(21)>0
+v = 56
+value = ifelse(var(58) - var(57) = 0, 1, 0)
+
+[State -2, Set Var]
+type = VarSet
+trigger1 = 1
+v = 57
+value = var(58)
+
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+
+[State -2, acertou a parede]
+type = Explod
+triggerall = numtarget!=0
+trigger1 = target, statetype = A && target, movetype= H;
+trigger1 = target, backedgedist < 2
+trigger1 = target, anim= 5030 || target, anim= 5035
+trigger1 = numexplod(8250)=0
+trigger1 = target, vel x < 0;movehit && 
+id = 8250
+anim = f70;8250
+pos = -(target,const(size.air.back)),(target,const(size.mid.pos.y))
+postype = P2
+removetime = -2
+bindtime = 1
+;sprpriority = 1
+ownpal = 1
+ontop = 1
+persistent = 0
+ignorehitpause=1
+
+[State -2, acertou a parede]; - freio]
+type = targetvelset
+triggerall = numtarget!=0
+trigger1 = numexplod(8250)!=0
+trigger1 = target, vel x < 0
+x=0
+
+[State -2]; Indicador do time (moldura)
+type = removeexplod
+trigger1 = var(9)>=0 && numexplod(8520)=1
+id = 8520
+
+[State -2]; Indicador do time (linha)
+type = removeexplod
+trigger1 = var(9)>=0 && numexplod(8521)=1
+id = 8521
+
+
+[State -2];sou DOS ou Win?
+type = Varadd
+trigger1 = (var(17)%2=0) && (movecontact) > (movecontact=1)
+v=17
+value = 1
+
+[State -2];screenpack mvsc2?
+type = Varadd
+trigger1 = var(17)<10 && roundstate<2 && numexplod(8522)!=0
+v=17
+value = 10
+
+;---------------------------------------------------------------------------
+
+;=======================================================
+;Contagem de combo
+;=======================================================
+
+[State -2, VS_Combo]
+type = VarSet
+trigger1 = var(13) >= 3
+trigger2 = var(13)=-1 && (movehit || p2stateno = 8000 || p2stateno = [5000,5899])
+var(1) = 1+(var(13)>4)+(var(13)>5)+(var(13)>7)+(var(13)>9)+(var(13)>29)+(var(13)>49)+(var(13)>69)-(var(13)=-1)
+ignorehitpause = 1
+
+[State -2, Danger]
+type = VarSet
+trigger1 = var(18) !=1 && roundstate=2 && life = [1,250]
+var(1) = 9; * (var(13)=-1)
+ignorehitpause = 1
+
+
+
+[State -2, VS_Combo]
+type = VarAdd
+trigger1 = enemynear, time=0;animelemtime(1)=0;-1
+trigger1 = enemynear, Hitshakeover=0;PauseTime = 1
+trigger1 = p2stateno = 8000 || p2stateno = [5000,5899]
+trigger2 = var(13)=-1 && (movehit || p2stateno = 8000 || p2stateno = [5000,5899])
+;trigger1 = p2movetype=H && p2stateno != [120,170]
+var(13) = 1 + (var(13)=-1)
+ignorehitpause = 1
+
+[State -2, VS_Combo]
+type = VarSet
+;triggerall = numexplod(8701)=0
+trigger1 = var(13)!=-1 && (p2movetype!=H || enemynear, ctrl)
+trigger2 = var(13)=-1 && stateno = [5000,5899]
+var(13) = 0 - (roundstate<2)
+ignorehitpause = 1
+
+[State -2, VS_Combo]
+type = VarSet
+triggerall = numexplod(8701)!=0
+trigger1 = var(13)=0
+var(1) = 0
+ignorehitpause = 1
+
+[State -2, score]
+type = Varadd
+trigger1 = enemynear, time=0
+trigger1 = enemynear, Hitshakeover=0
+trigger1 = moveguarded || p2stateno = 8000 || p2stateno = [5000,5899]
+trigger2 = var(13)=-1 && (movehit || p2stateno = 8000 || p2stateno = [5000,5899])
+trigger3 = roundstate=4 && time=0 && stateno = [180,189]
+var(19) = ceil(stateno/5)*var(13)+(moveguarded)+(var(13)=-1)*500
+ignorehitpause = 1
+
+[State -2, normaliza score]
+type = Varset
+triggerall = numpartner=1
+trigger1 = var(19)< partner, var(19)
+var(19) = partner, var(19)
+
+[State -2, zera Danger]
+type = VarSet
+trigger2 = var(18) = 0 && life <= 250
+trigger1 = var(18) = 1 && roundstate!=2
+var(18) = (roundstate>1)
+ignorehitpause = 1
+
+[State -2, zera first attack p3]
+type = VarSet
+triggerall = numpartner=1
+trigger1 = partner, movehit;var(13) = -1 && 
+trigger1 = partner, var(13) != -1; && partner, movehit
+var(13) = 0
+ignorehitpause = 1
+
+
+
+[State -2, contador de tempo]
+type = varset
+trigger1 = roundstate=1
+trigger2 = roundstate=2
+var(0)=(var(0)+1)*(roundstate=2)
+
+

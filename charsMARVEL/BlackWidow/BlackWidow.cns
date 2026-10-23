@@ -1,0 +1,92 @@
+; {character}'s constants and state file.
+
+[Data]
+life = 1200			;Amount of life to start with
+attack = 120			;attack power (more is stronger)
+defence = 110			;defensive power (more is stronger)
+fall.defence_up = 50		;Percentage to increase defense everytime player is knocked down
+liedown.time = 50		;Time which player lies down for, before getting up
+airjuggle = 45;15			;Number of points for juggling
+sparkno = 2			;Default hit spark number for HitDefs
+guard.sparkno = 40		;Default guard spark number
+KO.echo = 0			;1 to enable echo on KO
+volume = 0			;Volume offset (negative for softer)
+
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 60
+FloatPersistIndex = 40
+
+
+[Size]
+xscale = 1            ;Horizontal scaling factor.
+yscale = 1            ;Vertical scaling factor.
+ground.back = 12      ;Player width (back, ground)
+ground.front = 16     ;Player width (front, ground)
+air.back = 12         ;Player width (back, air)
+air.front = 16        ;Player width (front, air)
+height = 92           ;Height of player (for opponent to jump over)
+attack.dist = 160     ;Default attack distance
+proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.doscale = 0      ;Set to 1 to scale projectiles too
+head.pos = 10, -95   ;Approximate position of head
+mid.pos = 0, -70     ;Approximate position of midsection
+shadowoffset = 0      ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0     ;Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd  = 3.4           ;Walk forward
+walk.back = -3.2          ;Walk backward
+run.fwd  = 9.5, 0         ;Run forward (x, y)
+run.back = -7.3,-6     ;Hop backward (x, y)
+jump.neu = 0,-10
+jump.back =  -4.5,-13
+jump.fwd = 4.4,-12
+runjump.fwd = 6,-9
+runjump.back = -4.5,-11
+airjump.neu = 0,-9.3	;.
+airjump.back = -3.9	;Air jump speeds (opt)
+airjump.fwd = 3.9   ;.
+
+[Movement]
+airjump.num = 1      ;Number of air jumps allowed (opt)
+airjump.height = 40
+yaccel = .5
+stand.friction = .80
+crouch.friction = .83;Friction coefficient when crouching
+
+[Quotes]
+victory1 = "You have two choices: stand down peacefully or resist and end up in a body cast."
+victory2 = "I promise this will be over quick."
+victory3 = "The X-Men are about to attack. They will soon regret vexing the Widow."
+victory4 = "You're not nearly as tough as they say you are."
+victory5 = "They say the female spider is more deadly than the male. Guess I prove that to be true."
+victory6 = "You say you're the best there is at what you do? I'm better at it."
+victory7 = "Another Skrull? I thought we took care of them already?"
+victory8 = "Looks like you're losing your touch Steve?"
+victory9 = "Maybe you should focus less on using your toys and more on actual fighting, Tony."
+victory10 = "Please, you're just a poor man's Hulk."
+victory11 = "I'd say that this fight was less than fantastic, wouldn't you?"
+victory12 = "I'm no Asgardian, but I think I can handle myself quite well."
+victory13 = "Just stand down Cage. This is out of your league."
+victory14 = "Please, is that all you've got?"
+victory15 = "Please ... for your safety, and the safety of everyone else, come with us."
+victory16 = "Hit on me again and I'll turn you into crushed ice."
+victory17 = "Try to use less powers, more skill."
+victory18 = "Um ... what advantage does dressing like THAT give you?"
+victory19 = "If you're leading the X-Men, then they're being lead to their death."
+victory20 = "So much for your mutant powers."
+victory21 = "No! You can not have me as your woman."
+victory22 = "SHIELD Database, send me all the information you have on this 'Crimson Gem of Cyttorak'."
+victory23 = "Give my regards to T'Challa, Ororo."
+victory24 = "You use to be an Avenger Hank, you should know what I'm capable of."
+victory25 = "You can take others' powers, but you can't seem to take their skill as well."
+victory26 = "I know a bullet to the head won't kill you, but I'll take whatever satisfaction I can get."
+victory27 = "Now you can't stand in our way any longer."
+victory28 = "As both a SHIELD agent and an Avenger, it's my responsibility to protect the world."
+victory29 = "Stand down Capt Marvel or I'll take you down myself."

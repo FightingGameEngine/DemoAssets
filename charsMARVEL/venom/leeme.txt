@@ -1,0 +1,239 @@
+****************************************************************************************
+
+                                    VENOM@CARNAGE
+
+****************************************************************************************
+
+Venom  es como muchos sabreis, es como el reverso de spiderman, el echa la culpa de que todo
+lo malo que le pasa es por spiderman. Este personaje tiene poderes parecidos a spiderman
+dichos poderes se los da un simbionte, que como Venom comparte un odio especial hacia 
+spiderman. El simbionte y la musculatura de Erick Brock hacen de este personaje un enemi
+go temible.
+
+Una vez hecha esta introduccion paso a detallar lo que posee este personaje para mugen:
+
+Este personaje esta sacado del juego Marvel Capcom  que para mi uno de los mejores juegos de cap
+com. 
+
+Basicos    = 100%
+Especiales = 110% 
+Hyper      = 100%
+Agarres    = 100%
+Victorias  = 100%
+Taunt      = 110%
+AirCombo   = Si
+SuperCombos= Si
+Sprites   = 900
+
+
+D = Abajo
+F = Adelante
+B = Atras
+U = Arriba
+
+Los botones son identicos al juego original salvo el comboaereo y defensatotal
+
+Puños   =  A B C
+Patadas =  X Y Z
+
+Si das a Start + algun boton Venom se convertira en Carnage cambiando algunas tecnicas.
+
+
+=========================[Especiales Venom]========================
+                          
+                          VENOM RUSH
+
+nombre = "Venom Rush1"
+command = ~D,DF,F,a
+Alcance = Corto
+
+
+nombre = "Venom Rush2"
+command = ~D,DF,F,a
+Alcance = Medio
+
+
+nombre = "Venom Rush3"
+command = ~D,DF,F,a
+Alcance = Largo
+
+
+*******************************************************************************
+                           VENOM FANG
+
+
+
+nombre = "Venom Fang1"
+command =~D, DF, F,x
+alcance = corto
+
+
+nombre= "Venom Fang2"
+command =~D, DF, F,y
+alcance = medio
+
+
+nombre = "Venom Fang3"
+command =~D, DF, F,z
+alcance = largo
+
+************************************************************************************
+                         Agarre Venom con teleraña
+
+nombre = "web1"
+command = ~D, DB,B,x 
+Tipo = Telaraña lanzada de frente al adversario
+
+nombre = "web2"
+command = ~D, DB,B,y
+Tipo = Telaraña lanzada hacia arriba
+
+nombre = "web3"
+command = ~D, DB,B,z
+Tipo = Telaraña lanzada hacia arriba
+
+************************************************************************************
+
+                          Mordida Venom ( Nuevo )
+
+[Command]
+name = "mordida1"
+command =~D, DB, B,a
+
+
+[Command]
+name = "mordida2"
+command =~D, DB, B,b
+
+
+[Command]
+name = "mordida3"
+command = ~D, DB, B,c
+
+
+
+***************************************************************************************
+
+                              **Supersalto**
+
+                                   a+b+c
+***************************************************************************************
+
+************************************************************************************
+                               **AGARRES***
+
+
+************************************************************************************
+
+Venom hace diversos agarres, como no se los nombres dire lo que hace :
+
+Si estamos cerca del enemigo y damos hacia adelante y apretamos la tecla "Y" veremos que
+Venom estrellara a su enemigo contra el suelo. Este ataque podemos usarlo tambien en el aire
+
+Y 
+
+Otro agarre envolvera al enemigo con una telaraña podiendo hacer lo que queramos con el
+para ejecutar dicho movimiento debemos estar cerca del enemigo y dar a la tecla "B".
+
+B
+
+**************************************************************************************
+                              **CONTRATAQUE**
+
+
+***************************************************************************************
+
+Esta tecnica se usa para los rivales muy molestosos, solo se ejecutara cuando te estes 
+cubriendo, el resultado sera que empujara al enemigo lejos.
+
+                        a+b  estando en posicion de cubrirse
+
+***************************************************************************************
+
+                          **Levantarse Rapido**
+
+***************************************************************************************
+Venom tiene una peculiaridad y es que puede levantarse desplazandose para evitar enemigos
+esta tecnica solo funcionara cuando estemos en el suelo, y simplemente dando a izquierda
+o derecha para elegir el lugar donde queremos desplazarnos.
+
+****************************************************************************************
+***************************************************************************************
+
+                          ** Superespeciales**
+
+*****************************************************************************************
+*****************************************************************************************
+
+Venom posee dos supers y un supercomboaereo:
+
+                                ** Venomweb**
+
+El venomweb envolvera al adversario con una telaraña y hara un combo realmente espectacular
+si haces esta super y le dejas KO sobre la pantalla se pondra la tecnica con la que le has
+dejado KO.
+
+name = "venonweb"
+command = ~D, DB, B,x+a ------------------  Power 1000
+
+name = "venonweb"
+command = ~D, DF, F,x+a ------------------  Power 1000
+
+                                  **Death Bite**
+
+Esta tecnica es muy parecida a Venom Rush solo que esta vez los simbiontes seran demasiado
+rapidas es parecida a la tecnica de arcade solo que mucho mas rapida espero mejorarla en
+proximas versiones. Si cuando haces esta super dejas KO al adversario en la pantalla se 
+pondra la tecnica con la que le has dejado KO
+
+
+name = "Death Bite"
+command =~D, DB, B,a+b ----------------------Power 1000
+
+
+[Command]
+name = "Death Bite"
+command = ~D, DF, F,a+b----------------------Power 1000
+
+
+                               **Super Combo aereo **
+
+Este supercombo requiere 2000 de energia porque es un combo largo que quita mucho para hacer
+lo solo debes apretar dos botones y hacer un medio circulo y venom lanzara a tu enemigo ha
+ciendo un espectacular combo aereo
+
+name = "comboair"
+command = ~D, DF, F,a+c   ----------------------Power 2000
+
+name = "comboair"
+command = ~D, DB, B,a+c   ----------------------Power 2000
+
+
+*******************************************************************************************
+                                           Notas Finales 
+*******************************************************************************************
+
+Este personaje ademas de las tecnicas anteriormente dichas en si son dos personajes en uno y utili
+za la tecnica de las paletas separadas, utiliza una paleta para los personajes y otra para las magias
+ademas si apretamos a start + algun boton Venom se convertira en otro personaje llamado Carnage que 
+tiene tecnicas diferentes con lo que el trabajo a sido doble. Carnage era un personaje oculto que 
+podias escoger si pasabas a venom, este char es mas rapido y hace mas daño. Tambien este personaje tiene
+bonificacion si haces el primer ataque, quitando mas. Ademas para terminar tiene un monton de sonidos que
+te ayudaran a saber los niveles de magia y muchas cosas mas.
+
+********************************************************************************************
+          
+                                            Agradecimientos 
+********************************************************************************************
+
+Primero he de agradecer en especial a una persona que me ha apoyado siempre su nombre es Ana y me animado
+en seguir en este maravilloso mundo que es el mugen. Muchas gracias Ani te quiero!!
+
+Segundo a Clarens por hacer unas magnificas paletas, a Lumina por apoyarme siempre y a todo el canal de mugen
+de España, asi como a Inverse por ayudarme con fallos, y darme muy buenos consejos. A carnificia por su anterior
+Venom . Y a Micromor por sus magnificas paletas.
+
+Pues nada que disfrutes de Venom que trabajo ha costado byeeeeeeeee.....
+
+                                        JUAN CARLOS tony7@wanadoo.es
+

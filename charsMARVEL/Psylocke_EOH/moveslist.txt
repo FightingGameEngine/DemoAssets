@@ -1,0 +1,320 @@
+
+Moveslist for Psylocke - Super MvC: EOH Version 
+
+
+---KEY NOTATION=---------------------------------------------------------------------------
+
+F  = Forward           x = LP (Light Punch)          a = LK (Light Kick) 
+
+B  = Back              y = MP (Medium Punch)         b = MK (Medium Kick)   
+
+D  = Down              z = HP (Heavy Punch)          c = HK (Heavy Kick)
+
+U  = Up                s = Start 
+
+
+2P / 3P = Any Two Punches / All Three Punches 
+
+2K / 3K = Any Two Kicks / All Three Kicks    
+
+
+
+---=BASIC SYSTEM=------------------------------------------------------------------------
+
+Jump Up         = U 
+
+Jump Forward    = UF
+
+Jump Backwards  = UF
+
+Walk Forward    = Hold F
+
+Walk backward   = Hold B
+
+Crouch          = Hold D             
+
+High Guard      = Hold B as opponent attacks
+
+Low Guard       = Hold DB as opponent attacks
+
+Dash Forward    = F, F 
+
+Back Dash       = B, B        
+
+Air Recovery    = x+y when falling in midair
+
+Ground Recovery = x+y when falling near the ground
+
+
+
+---=MVC SYSTEM=----------------------------------------------------------------------------
+
+Advancing Guard	    = PP (Ground or Air)
+
+Aerial Rave 	    = U, UF, or UB after opponent is launched to perform an air combo
+
+Escape Roll - Short = Hold F (Forward) or B (Backward) 
+
+Escape Roll - Long  = PP (Forward) or KK (Backward)
+
+Variable Counter    = B,DB,D + P or K while blocking (Ground or air, uses 500 pts from the Super 
+		      Guage) 
+
+Super Jump          = D, U
+
+Launcher            = D+HP or Vanity Flip (see the Combos section for more about this)
+
+OTG Combo Starter   = D+LK 
+
+
+---=ADVANCED MOVES=-----------------------------------------------------------------------
+
+Dodge Kick     - B+HK
+
+Heel Drop      - F+MK
+
+Evasive Roll   - Hold Forward during standing HK or Dodge Kick
+
+Moonsault Kick - U+HK (Can perform Triple Moonsault Kick through this)
+
+Vanity Flip    - B+HK (see the Combos section on more about this)
+
+Triple Jump    - U or UB or UF twice while in midair or after jumping off the ground
+
+
+---=THROWS=------------------------------------------------------------------------------
+
+GROUND
+------
+
+Hell Ride - Close, F+HP
+
+Toss-Up   - Close, F+HK
+
+
+AIR
+---
+
+Revolver  - Close, F+HP 
+
+
+---=SPECIAL MOVES=-----------------------------------------------------------------------
+
+1) PSI-BLAST - D,DF,F + P (Ground/Air)
+   --------
+Desc: Blast of psychic energy. Button pressed determines direction of blast.
+
+LP - Down
+MP - Forward
+HP - Up 
+
+
+2) PSI-BLADE SPIN - D,DF,F + K, press a different K strength to chain more hits (Up to 3 times) (Ground/Air)
+   --------------
+Desc: Spinning attack with psychic knives on Psylocke's hands.  Button pressed determines 
+      direction of spin.
+
+LK - Diagonal-Up
+MK - Straight Forward
+HK - Straight Up
+
+
+3) NINJUTSU - F,D,B + P or K, Press any button & direction to perform a Thrust Attack (Ground/Air)
+   --------
+Desc: Psylocke teleports at different points around her opponent, Button determines position 
+      of reappearance.
+
+LP; High, before of opponent
+MP: Next to opponent 
+HP: High, behind opponent
+LK: Low, before opponent
+MK: Same location
+HK: Low, behind opponent
+
+
+4) HAYATE NO JUTSU - B,D,DB + P (Ground)
+   ---------------
+Desc: Dodge & rush attack. Button determines distance of dodge and rush respectively. Can 
+      follow up with any of the choices below under the required conditions:
+				
+<During Dodge Roll>          <After Rush Punch hits>       <During Flip Over (midair)>
+a) Hold 2P (Cascade Rush)    a) P (Pierce)         	   a) P (Over Strike)
+b) Hold 2K (Catapult)        b) K (Spin Chain) 
+                             c) Hold back (Retreat)
+                             d) Hold up (Flip Over)
+                             e) Hold Down (Duck Down)
+           
+<During Flip Over (Land & no attack)>          <During Duck Down>
+a) Hold 2P (Cascade Rush)                      a) P (Launcher)
+b) Hold 2K (Catapult)                          b) K (Sweep)                
+                                               c) Hold back (Dodge Kick)
+                                               d) Hold forward (Evasive Roll)
+                                               e) Hold Up (Flip Over)
+
+<During Dodge Kick (landing)                   <Dodge Kick hits>
+a) Hold 2P (Cascade Rush)                      a) Hold Forward (Evasive Roll) 
+b) Hold 2K (Catapult)
+                                       
+
+---=HYPER COMBO LVL 1 (Requires 1 bar in the Super Meter)=-------------------------------------
+
+1) PSI-THRUST - D,DF,F + 2P (Ground/Air)
+   ----------
+Desc: Powerful psi-knife thrust attack. Change direction/extend attack by rapidly pressing any P
+      button.
+
+2) KOUCHOU GAKURE - D,DB,B + 2K (Ground/Air)
+   --------------
+Desc: Multiple phychic butterflies encircling Psylocke. Direction held will determine butterflies'
+      departure path:
+
+Nothing   : 4-directional split
+Right     : Fly forward
+Left      : Fly behind Psylocke 
+Up        : Fly up
+Down      : Fly down
+Right-Up  : Fly diag. up-forward
+Right-Down: Fly diag. down-forward
+Left-Up   : Fly diag. up-back
+Left-Down : Fly diag down-back
+
+
+3) PSYCHIC VEIL - D, D + 2K (Ground)
+   ------------
+Desc: Covering her eyes Psylocke will counter her opponent from any direction. Outcome of counter
+      Depends on opponent's position:
+
+a) Doppelganger (Opponent's on the ground)
+b) Tornado (Opponent's in the air)   
+
+
+---=HYPER COMBO LVL 2 (Requires 2 bars in the Super Meter)=-------------------------------------
+
+1) PSI-MALESTROM - D,DF,F + 2K, press K rapidly to add more hits & damage (Ground)
+   -------------
+Desc: Super spinnig psi-knife attack, all hits will connect upon contact.
+
+
+2) ILLUSION - F,D,B + 2P (random invincibility, cannot use other Hypers during this)
+   --------
+Desc: Psylocke emits a psychic pulse, making the opponent see multiple images of her. Attacks
+      towards Psylocke will randomly miss. Lasts for a limited amount of time.
+
+
+---=INFINITY HYPER COMBO (Requires 3 bars in the Super Meter)=---------------------------------
+
+1) CONCUSSION - B,D,DB + 2P 
+   ----------
+Desc: Psychic knife stab that induces immobilization and neutralizes her opponent's senses, 
+      leaving him/her open for a psychic slash assault.
+
+
+---=CHAIN COMBOS=-----------------------------------------------------------------------
+
+Chain Type = L-M-H, P-K, Air and Ground, Standing-Crouching, Crouching-Standing, and Air to Ground
+
+Moonsault Kick = Can chain into itself 3 times for Triple Moon Kick (hold U & rapidly press HK)   
+
+
+---=CANCEL SYSTEM=-----------------------------------------------------------------------
+
+Basic-to-Specials = All basics (except Crouch HK) can cancel into all Specials
+
+Basic-to-Hypers = All basics (except Crouch HK) can cancel into all Hypers except Concussion and
+                  Psychic Veil*. 
+
+Heel Drop = Can hypercancel into Kouchou Gakure and Ps-Thrust
+
+Triple Moonasault Kick = Can hypercancel into Kouchou Gakure and Ps-Thrust during 1st or 2nd 
+                         Moonsault only)
+
+Vanity Flip = Can only hypercancel into Psi-Thrust and Kouchou Gakure   
+
+
+Specials-to-Hypers = The following can cancel into Hypers (except Concussion and Psychic Veil):
+                     a) Psi-Blade Spin (only initial attack, if chained into another Psi-Blade 
+                        variant you cannot cancel into Hypers; cannot cancel into Psi-Malestrom)
+                     b) Hayate no Jutsu (Pierce, Sweep, 1st part of Spin Chain, and Launcher 
+                        only)
+
+*Note that you can cancel into Psychic Veil through Forward Dash
+
+
+---=VANITY FLIP=-------------------------------------------------------------------------------
+
+Vanity Flip can only be accessed through certain combos Here's the possible means to using 
+Vanity Flip:
+
+STAND                           CROUCH                        AIR
+-----                           ------                        ---
+LP-B+HK                         LP-B+HK                       LP (after landing), B+HK
+LP-MP-B+HK                      LP-MP-B+HK
+LP-LK-B+HK                      LP-LK-B+HK
+LP-HP-B+HK                      LP-HP-B+HK
+LP-HK-B+HK                      LP-HK-B+HK
+LP-LK-MP-MK-B+HK                LP-LK-MP-MK-B+HK
+
+Standing and crouching combos can be mixed together and still execute Vanity Flip. While jumping, 
+if LP is pressed right before landing or the only attack down while in the air, Psylocke will 
+going into a special landing state that allows her to execute Vanity Flip on its own. Vanity Flip 
+acts like a launcher upon the 2nd hit, giving Psylocke the ability to super jump after her opponent 
+and go into an Aerial Rave.
+
+
+---=NOTES=-------------------------------------------------------------------------------
+
+-Forward Dash and Back Dash have slight invincibility upon start up.
+
+-Cascade Rush and Catapult are special throws that are only executable during Hayate no Jutsu.
+
+-The opponent can recover around the peak of their flight up after being thrown by Catapult.
+
+-Opponent can recover after being thrown by Hell Ride
+
+-Cascade Rush has two outcomes. If it connects with an opponent on the ground, it becomes its true outcome 
+ (Cascade Rush). However, if it connects with an airborne opponent, then it becomes Revolver.
+
+-Psylocke has random invincibility during Illusion, which changes after a set period of time. 
+ She will gain invincibility to physical attacks and projectiles for 15 ticks in intervals of 40 
+ ticks, while she'll be invincible to throws for 30 ticks in intervals of 50 ticks. Note that her
+ invincibilty to projectiles and physical attacks do not take place at the same time, but work when 
+ the other's not in play. Also, if Psylocke is hit at anytime, her invincibility will become null 
+ until she fully recovers. 
+
+-Psi-Thrust can change directions if Psylocke runs into a wall or the floor of the stage only if you
+ didn't extend Psi-Thrust ahead of time. Also, holding in the opposite direction after Psi-Thrust 
+ finishes allows Psylocke to leap away and gain distance (only if she's some distance away from the ground).
+
+-Psychic Veil is a counter Hyper, where the opponent needs to attack her in order for it to initiate.
+ Psylocke can only counter against normal, special, and hyper physical attacks; projectiles and 
+ throws of all types will do damage on her. On top of that, Psychic Veil has room for error, for it 
+ can miss even if Psylocke successfully counters her opponent's attack. 
+
+-If Psychic Veil counters an airborne opponent's attack, Psylocke will do the counter Tornado, which
+ spirals her opponent & leaves them open for a followup attack. On the other hand, if a grounded 
+ opponent's attack is countered, Psylocke will perform Doppelganger, a multihit attack. Both versions 
+ have their strong points, so learn how to use them well.
+
+-Although Hayate no Jutsu has many followups, it is not too confusing to use. Just keep in mind that 
+ after inputting a followup you cannot do another one except for a few cases. If you do Duck Down 
+ after Psylocke hits the opponent with the Rush Punch, you can follow up with either an Evasive Roll,
+ Dodge Kick, Sweep, Launcher, or a Flip Over. During Dodge Kick, just as Psylocke lands, you can 
+ interrupt it through Cascade Rush or Catapult.
+
+-During Hayate no Jutsu, if you perform Flip Over, you either have the option of doing an air attack
+ or Cascade Rush or Catapult. If you do the Over Strike, you cannot do any of the throws once Psylocke
+ lands, for both throws are only executable if Psylocke stays in the Flip Over throughout. 
+
+
+
+Translations
+------------
+
+Hayate no Jutsu = Speed Arts
+
+Kouchou Gakure = Hidden amongst shimmering/glowing butterflies
+
+Taki Otoshi = Cascade Rush
+
+Jigoku Guruma = Hell Ride
+

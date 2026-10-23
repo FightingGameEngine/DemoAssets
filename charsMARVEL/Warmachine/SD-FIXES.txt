@@ -1,0 +1,57 @@
+Modificado entre 15-25/04/2017
+Básicos:
+**FIXED**- Falta animacion de Turn.
+**FIXED**- No tiene animacion de lose.
+**FIXED**- A Todos los intros les falta transicion al stand
+**FIXED**- El intro state 191 cuando carga energía en la mano no hay sonido.
+**FIXED**- El intro state 192 donde sale Ironman en vez del sonido de superjump que haga propulsión de cohete, arreglar que solo salga el helper cuando no es contra Ironman.
+**FIXED**- El intro  state 193 no esta bien sincronizado el sprite del jetpack con los de WM e, se ven los huecos donde debería ir y no hay animación que haga que se desaparezca el jetpack, ni de cuando cae WM, le faltan mas frames del fuego de propulsión y el sonido.
+**FIXED**- Detalles en winposes, alineaciones y FX faltantes.
+**WIP**- Las voces de las winposes o intros en unas no hay sentido :/
+**FIXED**- La animación de crouch no esta bien alineada, se da uno cuenta porque la sombra no esta bien pegada al pie, por ende toda las animaciones de crouch también están mal ubicadas 
+**FIXED**- La winpose cuando se arrodilla y le sale humo que creo debería ser la de lose, ahí chécalo porque la anim de lose no existe, si pierde por tiempo se va blanco.
+**FIXED**- Los golpes de brinco no se alinean bien con la animación de salto, primero alinea el salto un poco mas arriba de la cruz XY 0,0 una vez colocada en el sprite 41,2 que es cuando esta como encorvado del brinco activa el skin layer en ese sprite en el sff después en el air alineas los golpes con ese, así ya te queda mejor.
+**FIXED**- El agarre no esta sincronizado bien los movimientos con la posición del P2.
+**FIXED**- Las animaciones de dash forward y backward en el aire no tienen sprite, supongo es de otro personaje y se te paso remover el comando con warmachine, aunque no costaría agregar esas animaciones.
+**FIXED**- En el cns los básicos dale una revisada a los HitDef de todos, en algunos tiene animtype = High ese no funciona, debe ser light, medium, hard o heavy.  Y note por ejemplo el del puño fuerte que el P2 se recupera muy rápido después del golpe, es porque en la línea del pausetime dejaste vacío el segundo parámetro que es el que pausa al P2 tu tienes pausetime= 12,  si dejas asi  Warmachine se pausa 12 ticks y el P2 nada ,ponle pausetime=12, 14 o algo así para que se frene también, sino el P2 si tiene AI te destroza revisa que no haya mas como ese.
+**FIXED**- Las animaciones de dash no les pusiste sonido de propulsión,  y creo que la velocidad de desplazamiento es muy alta para mi, pero ya es a tu gusto.
+**FIXED**- Sugerencia en el golpe fuerte stand, esta muy corto y casi inútil, agrégale un velset para que se desplace que comience en la tercera frame y pones los fx de propulsión para que sea mas vistoso.
+**FIXED**- Patada fuerte en el aire que tenga mas duración la frame que da el golpe.
+**FIXED**- Si quieres que tu explod se mueva, la línea de parámetro es “velocity” y tu tienes “velset” ese no te funciona en explods.
+**FIXED**- Patada debil en el aire, se ve muy mal porque ese sprite es uno de transicion, no un rodillazo, necesita otra.
+**WIP** Las patadas media y fuerte parado le faltan detallitos para que se vea mas al estilo de warmachine el sombreado si se nota el cambio.
+**WIP** 450, necesita mas transición de cuando va al piso y cuando conecta el golpe y regresa a crouch. 
+**FIXED**- Algo muy importante en el CMD los comandos de los hypers en el stated def -1 tienen que ser escritos antes que los supers y estos a su vez antes que los básicos, asi le indicas a mugen que estos tienen prioridad cuando estas haciendo los comandos mientras juegas,  por ejemplo el hyper del readme que se llama air rocket  o el poder de dizzer no salen  con nada que intente, porque mugen toma de prioridad el misil de hombro de super  o el de metralla que esta escrito antes en el cmd, y todos lo que sea referente a la AI ponlo al final después de los básicos, así no hay interrupciones y el personaje tiene mejor respuesta a los comandos. 
+**FIXED**- De igual forma comandos mas difíciles como ~F, D , DF + x  tienen que estar escritos antes que los que son ~D, DF, F + x porque sino toman prioridad los que están escritos primero y no salen.
+ 
+Specials:
+**WIP**- Como sugerencia deberías tener  3 variedades de daño en los poderes dependiendo el botón con que se active, por ejemplo que la bomba salga mas corta y menos daño el misil mas rápido mas daño y así, no es obligatoria  mi también me da luego flojera hacer las variantes jaja, pero es un plus.
+**FIXED**- Un detalle que a muchos se les pasa,  es que cada vez que el personaje hace un poder special o hyper es que levanten polvo al inicio de este, el tamaño del efecto depende si es special o hyper obviamente, parece tonto pero cambia bastante en lo visual. 
+**FIXED**- La mayoria de las animaciones no tienen frames de regreso a la posicion de stand.
+**FIXED**- El poder de la granada su anim 7805 no le dibujaste colisiones azules,  y el helper de la granada 1007 cuando no hace contacto y explota no tiene sonido y deberías ponerle también caja de colisión azul y condición de hitdef para que explote automáticamente al contacto y no solamente al tiempo, se puede de las dos formas, y puedo sacar bombas seguidas modifica el cmd para que si esta el helper de la granada activa no haga el movimiento para sacar otra.
+**FIXED**- Igual la anim 7005 no tiene colisión azul.
+**FIXED**- El FX del uppercut deberías desparecerlo después de que mueve el bastón o hacer que siga la trayectoria del bastón porque se queda ahí en el aire y se ve feo, aparte se sus atributos estan erroneos.
+**FIXED**- El  poder  state 1001 el misil después que sale de la pantalla se queda estático si el P2 camina hacia atrás se lo encuentra flotando, hay que destruirlo o que se siga moviendo.
+**FIXED**- 7005, cuando sale el cañon no esta fluido  aparece y desaparece y no se ve bien, y el misil la prioridad del helper debería ir debajo del cañón.
+**WIP** 2400, cuando dispara la ametralladora debería haber un feedback de movimiento en el cuerpo.
+**WIP** 7810, que se mueva hacia atrás de feedback por el disparo.
+**FIXED**(Esta el modo de vuelo pero sin los FX hay que cambiar las animaciones de todos modos)** - El comando del modo de vuelo esta activo pero obvio me dijiste que no funciona jeje aun asi se queda warmachine  caminando en aire.
+ 
+Hypers:
+**FIXED**- Los daños de los hyper están muy altos para ser level 1, maximo que bajen entre 290 -310 de vida, level 2 unos 400, level 3 unos 500.
+**FIXED**- El hyper Air rocket, entiendo que quieras que WM se haga hacia atrás con los disparos pero el velset que no sea permanente, sino en cada disparo y aparte que el anim se mueva hacia atrás un poco de feedback, le faltan frames así seguido no me gusta como se ve. 
+**FIXED(solo habia que destruirlos)**- State 3001  donde lanza misiles al aire sugiero otra codificación para los helpers, ya que si los haces dos o tres veces seguido excedes el numero de helpers y explods de default de mugen y ya deja de disparar, solo hace el movimiento y no saca ya misiles y eso afecta también al proton canon ya que no dispara tampoco sus helpers, hay que reiniciar mugen para arreglarlo y no debería ser, igual solo destruyendo el helper mas rápido porque sino ahí se quedan y mugen los sigue contando y por eso deja de salir.
+**FIXED**- Sugiero cambio de comando  para el proton canon, tiene el mismo que air misil solo que hay que presionar los tres botones pero sale cuando quiere, mejor ponle ~F, D , DF podrías igual solo colocarlo mas arriba en el cmd como te dije antes, pero igual es confuso que tengan el mismo comando y solo cambie un presionarle un botón, no salía cuando quería.
+**FIXED**- El hyper del látigo cuando destruye el piso debería tener FX de sonido y si el P2 esta en el piso debe de darle.
+**FIXED**- Lo hyper bg estan vistozos pero ¿porque no hacen mirror? jeje
+**FIXED**- En unos hyper el helper del portrait sale retardado y no en la superpausa
+**FIXED**- Igual que en los super la mayoria de las anim no hay frames de regreso al stand.
+
+Otros:
+**WIP(lo mejor que se pudo, como no es mi char hay mucho que no se de donde venga o si se necesite, hay muchas paletas de FX que igual ni se usan)** - Remover cosas que no se necesiten de otros personajes anteriores en el sff, air, snd etc etc.... 
+**FIXED(nada mas comente las secciones de ese codigo, si lo quieres reactivar, descomentalo nada mas)** -  Ese codigo de seleccionar paleta al inicio es una molestia, un char como este no se necesita.
+**WIP** A muchos sprites les falto que el cañon de hombro, y en algunos no esta editado bien el pecho, sigue igual que en ironman.
+**WIP** Faltan muchas frames en animaciones comparndo con Ironman, algo flojo -_-.
+**WIP(Ya esta el plan de contingencia para arreglar esto.)** Cuando editaste al hacer el swap color de un ironman a los colores de Warmachine se te fueron algunos tonos... en muchos sprites se nota que faltan destellos de luz o sombreados, por eso nunca hay que editar en tonos negros o grises... se te van detalles sin querer.
+ 
+Todo lo que diga *WIP* será corregido en otra version, la mayoria son cosas graficas y hay que editar o re editar. 

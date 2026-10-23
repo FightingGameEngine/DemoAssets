@@ -1,0 +1,1264 @@
+;-----------------------------------------------------------------------------
+;スロー処理
+;-----------------------------------------------------------------------------
+[Statedef 4900]
+type     = A
+movetype = I
+physics  = N
+juggle   = 0
+ctrl     = 0
+anim     = 9999
+sprpriority = 1
+
+[State 1001,]
+type = Pause
+triggerall = p2life > 0
+trigger1 = (GameTime%3) = 0
+trigger1 = time = [0,20]
+time = 1
+
+[State 1001,]
+type = Pause
+triggerall = p2life > 0
+trigger1 = (GameTime%6) = 0
+trigger1 = time = [21,30]
+time = 1
+
+[State 4110, DestroySelf]
+type = DestroySelf
+trigger1 = time = 31
+
+;-----------------------------------------------------------------------------
+; カウンターヒットエフェクト
+;-----------------------------------------------------------------------------
+[Statedef 8800]
+type    = A
+movetype= I
+physics = N
+anim = 8800
+velset = 0,0
+ctrl = 0
+sprpriority = 5
+
+[State 8800, PalFX]
+type = PalFX
+trigger1 = time = 0
+time = 1
+add = 0,0,0
+
+[State 8800, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+
+[State 8800, Transparency]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 8800, VarSet]
+type = VarSet
+trigger1 = Time = 0
+fvar(1) = .1375
+
+[State 8800, VarAdd]
+type = VarAdd
+trigger1 = fvar(1) > 0
+fvar(1) = .025
+
+[State 8800, Scale]
+type = AngleDraw
+trigger1 = 1
+scale = fvar(1),fvar(1)
+
+[State 8800, PalFX]
+type = PalFX
+trigger1 = time = 5
+time = 1
+add = -50,-50,-50
+
+[State 8800, PalFX]
+type = PalFX
+trigger1 = time = 6
+time = 1
+add = -120,-120,-120
+
+[State 8800, PalFX]
+type = PalFX
+trigger1 = time = 7
+time = 1
+add = -190,-190,-190
+
+[State 8800, DestroySelf]
+type = DestroySelf
+trigger1 = Time > 7
+
+;-----------------------------------------------------------------------------
+;ガードクラッシュエフェクト
+;-----------------------------------------------------------------------------
+[Statedef 8720]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+anim = 8720
+ctrl = 0
+sprpriority = 5
+
+[State 951, 1]
+type = PlaySnd
+trigger1 = time = 0
+value = s2,8
+
+[State 951, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 951, 1]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 951, 5]
+type = DestroySelf
+trigger1 = animtime  = 0
+
+;-----------------------------------------------------------------------------
+; アーマー判定ヘルパー
+;-----------------------------------------------------------------------------
+[Statedef 9000]
+type     = A
+movetype = I
+physics  = N
+anim     = 9999
+sprpriority = -1
+
+[State 9000, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(1) = 0
+
+[State 9000, VarSet]
+type = VarAdd
+trigger1 = GetHitVar(damage)
+var(1) = 1
+
+[State 9000, 0/CHs]; 不具合対策
+type = ChangeState
+trigger1 = !IsHelper
+value = 0
+ctrl = 1
+
+[State 9000, AssertSpecial]
+type = AssertSpecial
+Trigger1 = 1
+flag = NoShadow
+flag2 = invisible
+
+[State 9000, 開始時だけ無敵（重複被弾防止）]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 1
+
+[State 9000, 投げ無敵]
+type = NotHitBy
+trigger1 = 1
+value = ,AT
+time = 2
+
+[State 9000, -1/Tra]; 透過処理
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,130
+
+[State 9000, -1/Ass]; 影消し
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+
+[State 9000, -1/Pos]; 本体に追従
+type = BindToParent
+trigger1 = 1
+time = 1
+facing = 1
+pos = 0,0
+
+[State 9000, -1/CHa]; 判定を揃える
+type = ChangeAnim
+trigger1 = SelfAnimExist(Parent,Anim)
+value = Parent,Anim
+elem = Parent,AnimElemNo(0)
+
+[State 9000, -1/HOR]; 打撃／飛び道具を受けたらステートを繰り返す
+type = HitOverRide
+trigger1 = IsHelper(9000)
+attr = SCA,AA,AP
+stateno = 9000
+
+[State 9000, -1/Ds]; 本体がアーマーパートを過ぎたら消滅１
+type = DestroySelf
+trigger1 = Parent,StateNo != 710 && Parent,StateNo != 715
+trigger2 = Parent,StateNo = 715 && Parent,AnimElem = 5
+
+;-----------------------------------------------------------------------------
+; KO勝利演出
+;-----------------------------------------------------------------------------
+;(HELPER)KO勝利演出・待機
+
+[Statedef 9900]
+type     = A
+movetype = I
+physics  = N
+anim     = 9999
+velset   = 0,0
+poweradd = 0
+ctrl     = 0
+sprpriority = -2
+
+[State 9901, VarSet]
+type = varset
+trigger1 = root,stateno != [3000,4999]
+var(1) = 0
+
+[State 9901, VarSet]
+type = varset
+trigger1 = root,stateno = [3000,4999]
+var(1) = 1
+
+[State 9900, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[State 9900, bindtoroot]
+type = bindtoroot
+trigger1 = 1
+pos = 0,0
+
+[State 9900, ChangeState]
+type = ChangeState
+triggerall = var(1) = 0
+trigger1 = winko
+value = 9901
+
+[State 9900, ChangeState]
+type = ChangeState
+triggerall = var(1) = 1
+trigger1 = winko
+value = 9902
+
+;---------------------------------------------------------------------------
+;(HELPER)KO勝利演出・KOF2002仕様
+
+[Statedef 9901]
+type     = A
+movetype = I
+physics  = N
+anim     = 9999
+velset   = 0,0
+poweradd = 0
+ctrl     = 0
+sprpriority = -2
+
+[State 9901, AssertSpecial]
+type = AssertSpecial
+trigger1 = matchover
+trigger1 = winko
+flag = nomusic
+
+[State 9901, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = s9001,1
+
+[State 9901, Pause]
+type = Pause
+trigger1 = time = 0
+time = 15
+movetime = 15
+
+[State 9901, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 15
+freq = 120
+ampl = -3
+phase = 90
+
+;---------------------------------------------------------------------------
+;(HELPER)KO勝利演出・KOFXI仕様
+
+[Statedef 9902]
+type     = A
+movetype = I
+physics  = N
+anim     = 9999
+velset   = 0,0
+poweradd = 0
+ctrl     = 0
+sprpriority = -2
+
+[State 9902, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 58
+flag = NoBarDisplay
+flag2 = NoFG
+
+[State 9902, AssertSpecial]
+type = AssertSpecial
+trigger1 = matchover
+trigger1 = winko
+trigger2 = Time < 58
+flag = nomusic
+
+[State 9901, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = s9001,0
+
+[State 9901, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = s9001,1
+
+[State 9901, PlaySnd]
+type = PlaySnd
+trigger1 = time = 10
+value = s9001,2
+
+[State 9901, Pause]
+type = Pause
+trigger1 = time = 0
+time = 15
+movetime = 15
+
+[State 9901, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 15
+freq = 120
+ampl = -3
+phase = 90
+
+[State 9001, Explod]
+type = Explod
+trigger1 = (!Time)
+anim = 9001
+id = 9001
+pos = 0,0
+postype	= left
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale = 1,1
+removetime = 45
+supermove = 0
+supermovetime = 99999
+pausemovetime = 99999
+scale = 1,1
+sprpriority = -3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 9001, Explod]
+type = Explod
+trigger1 = (!Time)
+anim = 9005
+id = 9005
+pos = 0,0
+postype	= left
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale = 1,1
+removetime = 68
+supermove = 0
+supermovetime = 99999
+pausemovetime = 99999
+scale = 1,1
+sprpriority = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+;-----------------------------------------------------------------------------
+; 超必殺技の演出
+;-----------------------------------------------------------------------------
+; レベル1
+
+[StateDef 10000]
+type = A
+physics = N
+moveType = I
+anim = 10000
+ctrl = 0
+velSet = 0,0
+sprPriority = 5
+
+[State 10010, Assert: NoShadow]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignoreHitPause = 1
+
+[State 10010, Rotate]
+type = AngleSet
+trigger1 = !Time
+value = 6 * (Random % 60)
+
+[State 10010, Rotate]
+type = AngleAdd
+trigger1 = 1
+value = -6
+
+[State 10010, Scale]
+type = AngleDraw
+trigger1 = Time < 16
+scale = (0.03125 * Time), (0.03125 * Time)
+ignoreHitPause = 1
+
+[State 10010, Scale]
+type = AngleDraw
+trigger1 = Time >= 16
+scale = 0.5,0.5
+ignoreHitPause = 1
+
+[State 10010, Transparency]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+alpha = 256,256
+ignoreHitPause = 1
+
+[State 10010, Lines Explod]
+type = Explod
+trigger1 = Time = 0 || Time = 8 || Time = 16 || Time = 24
+anim = 10001
+ID = ifElse(Time = 24, 4, ifElse(Time = 16, 3, ifElse(Time = 8, 2, 1)))
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500, -1, 1)
+vFacing = ifElse(Random < 500, -1, 1)
+removeTime = 16
+superMoveTime = -1
+
+[State 10010, Scale Lines Explod 1]
+type = ModifyExplod
+trigger1 = NumExplod(1)
+ID = 1
+scale = 1 - (0.0625 * Time), 1 - (0.0625 * Time)
+trans = AddAlpha
+alpha = ifElse(Time < 4, 64 * Time, 256), 256
+
+[State 10010, Scale Lines Explod 2]
+type = ModifyExplod
+trigger1 = NumExplod(2)
+ID = 2
+scale = 1 - (0.0625 * (Time - 8)), 1 - (0.0625 * (Time - 8))
+trans = AddAlpha
+alpha = ifElse((Time - 8) < 4, 64 * (Time - 8), 256), 256
+
+[State 10010, Scale Lines Explod 3]
+type = ModifyExplod
+trigger1 = NumExplod(3)
+ID = 3
+scale = 1 - (0.0625 * (Time - 16)), 1 - (0.0625 * (Time - 16))
+trans = AddAlpha
+alpha = ifElse((Time - 16) < 4, 64 * (Time - 16), 256), 256
+
+[State 10010, Scale Lines Explod 3]
+type = ModifyExplod
+trigger1 = NumExplod(4)
+ID = 4
+scale = 1 - (0.0625 * (Time - 24)), 1 - (0.0625 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24) < 4, 64 * (Time - 24), 256), 256
+
+[State 10010, Circle Explod]
+type = Explod
+trigger1 = Time = 24
+anim = 10002
+ID = 10
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500, -1, 1)
+vFacing = ifElse(Random < 500, -1, 1)
+removeTime = 32
+superMoveTime = -1
+
+[State 10010, Scale Circle Explod]
+type = ModifyExplod
+trigger1 = NumExplod(10)
+ID = 10
+scale = 2 - (0.125 * (Time - 24)), 2 - (0.125 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24) < 4, 64 * (Time - 24), 256), 256
+
+[State 10000, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 10003
+id = 10000
+pos = 0,0
+postype = back
+ownpal = 1
+bindtime = -1
+removetime = -1
+supermove = 1
+sprpriority = -100
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10005
+stateno = 10005
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10006
+stateno = 10006
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10010, Remove Explods]
+type = RemoveExplod
+trigger1 = Time >= 40
+
+[State 10010, End]
+type = DestroySelf
+trigger1 = Time >= 40
+
+;---------------------------------------------------------------------------
+; 残像処理1
+
+[Statedef 10005]
+physics = N
+anim = root,anim
+sprpriority = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+ignorehitpause = 1
+
+[State 0, BindToParent]
+type = BindToroot
+trigger1 = time = 0
+time = 1
+pos = 0,0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = .6
+y = ifelse((root,statetype != A),0,-.6)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans=addalpha
+alpha=120-2*(time),256
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time >= 46
+trigger2 = root,stateno != [3000,4999]
+trigger3 = root,movetype = H
+
+;---------------------------------------------------------------------------
+; 残像処理2
+
+[Statedef 10006]
+physics = N
+anim = root,anim
+sprpriority = 1
+
+[State 0, BindToParent]
+type = BindToroot
+trigger1 = time = 0
+time = 1
+pos = 0,0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = -.6
+y = ifelse((root,statetype != A),0,.6)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans=addalpha
+alpha=120-2*(time),256
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time >= 46
+trigger2 = root,stateno != [3000,4999]
+trigger3 = root,movetype = H
+
+;---------------------------------------------------------------------------
+; レベル2
+
+[StateDef 10010]
+type = A
+velSet = 0,0
+anim = 10010
+sprPriority = 5
+
+[State 10010, Assert: NoShadow]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignoreHitPause = 1
+
+[State 10010, Rotate]
+type = AngleSet
+trigger1 = !Time
+value = 6 * (Random % 60)
+
+[State 10010, Rotate]
+type = AngleAdd
+trigger1 = 1
+value = -6
+
+[State 10010, Scale]
+type = AngleDraw
+trigger1 = Time < 16
+scale = (0.03125 * Time), (0.03125 * Time)
+ignoreHitPause = 1
+
+[State 10010, Scale]
+type = AngleDraw
+trigger1 = Time >= 16
+scale = 0.5,0.5
+ignoreHitPause = 1
+
+[State 10010, Transparency]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+alpha = 256,256
+ignoreHitPause = 1
+
+[State 10010, Lines Explod]
+type = Explod
+trigger1 = Time = 0 || Time = 8 || Time = 16 || Time = 24
+anim = 10011
+ID = ifElse(Time = 24, 4, ifElse(Time = 16, 3, ifElse(Time = 8, 2, 1)))
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500, -1, 1)
+vFacing = ifElse(Random < 500, -1, 1)
+removeTime = 16
+superMoveTime = -1
+
+[State 10010, Scale Lines Explod 1]
+type = ModifyExplod
+trigger1 = NumExplod(1)
+ID = 1
+scale = 1 - (0.0625 * Time), 1 - (0.0625 * Time)
+trans = AddAlpha
+alpha = ifElse(Time < 4, 64 * Time, 256), 256
+
+[State 10010, Scale Lines Explod 2]
+type = ModifyExplod
+trigger1 = NumExplod(2)
+ID = 2
+scale = 1 - (0.0625 * (Time - 8)), 1 - (0.0625 * (Time - 8))
+trans = AddAlpha
+alpha = ifElse((Time - 8) < 4, 64 * (Time - 8), 256), 256
+
+[State 10010, Scale Lines Explod 3]
+type = ModifyExplod
+trigger1 = NumExplod(3)
+ID = 3
+scale = 1 - (0.0625 * (Time - 16)), 1 - (0.0625 * (Time - 16))
+trans = AddAlpha
+alpha = ifElse((Time - 16) < 4, 64 * (Time - 16), 256), 256
+
+[State 10010, Scale Lines Explod 3]
+type = ModifyExplod
+trigger1 = NumExplod(4)
+ID = 4
+scale = 1 - (0.0625 * (Time - 24)), 1 - (0.0625 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24) < 4, 64 * (Time - 24), 256), 256
+
+[State 10010, Circle Explod]
+type = Explod
+trigger1 = Time = 24
+anim = 10012
+ID = 10
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500, -1, 1)
+vFacing = ifElse(Random < 500, -1, 1)
+removeTime = 32
+superMoveTime = -1
+
+[State 10010, Scale Circle Explod]
+type = ModifyExplod
+trigger1 = NumExplod(10)
+ID = 10
+scale = 2 - (0.125 * (Time - 24)), 2 - (0.125 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24) < 4, 64 * (Time - 24), 256), 256
+
+[State 10000, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 10013
+id = 10000
+pos = 0,0
+postype = back
+ownpal = 1
+bindtime = -1
+removetime = -1
+supermove = 1
+sprpriority = -100
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10005
+stateno = 10005
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10006
+stateno = 10006
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10010, Remove Explods]
+type = RemoveExplod
+trigger1 = Time >= 40
+
+[State 10010, End]
+type = DestroySelf
+trigger1 = Time >= 40
+
+;---------------------------------------------------------------------------
+; 未使用
+
+[StateDef 10020]
+type = A
+velSet = 0,0
+anim = 10020
+sprPriority = 5
+
+[State 10020, Assert: NoShadow]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignoreHitPause = 1
+
+[State 10020, Rotate]
+type = AngleSet
+trigger1 = !Time
+value =6 * (Random % 60)
+
+[State 10020, Rotate]
+type = AngleAdd
+trigger1 = 1
+value = -6
+
+[State 10020, Scale]
+type = AngleDraw
+trigger1 = Time < 16
+scale = (0.03125 * Time), (0.03125 * Time)
+ignoreHitPause = 1
+
+[State 10020, Scale]
+type = AngleDraw
+trigger1 = Time >= 16
+scale = 0.5, 0.5
+ignoreHitPause = 1
+
+[State 10020, Transparency]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+alpha = 256,256
+ignoreHitPause = 1
+
+[State 10020, Lines Explod]
+type = Explod
+trigger1 = Time = 0 || Time = 8 || Time = 16 || Time = 24
+anim = 10021
+ID = ifElse(Time = 24, 4, ifElse(Time = 16, 3, ifElse(Time = 8, 2, 1)))
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500, -1, 1)
+vFacing = ifElse(Random < 500, -1, 1)
+removeTime = 16
+superMoveTime = -1
+
+[State 10020, Scale Lines Explod 1]
+type = ModifyExplod
+trigger1 = NumExplod(1)
+ID = 1
+scale = 1 - (0.0625 * Time), 1 - (0.0625 * Time)
+trans = AddAlpha
+alpha = ifElse(Time < 4, 64 * Time, 256), 256
+
+[State 10020, Scale Lines Explod 2]
+type = ModifyExplod
+trigger1 = NumExplod(2)
+ID = 2
+scale = 1 - (0.0625 * (Time - 8)), 1 - (0.0625 * (Time - 8))
+trans = AddAlpha
+alpha = ifElse((Time - 8) < 4, 64 * (Time - 8), 256), 256
+
+[State 10020, Scale Lines Explod 3]
+type = ModifyExplod
+trigger1 = NumExplod(3)
+ID = 3
+scale = 1 - (0.0625 * (Time - 16)), 1 - (0.0625 * (Time - 16))
+trans = AddAlpha
+alpha = ifElse((Time - 16) < 4, 64 * (Time - 16), 256), 256
+
+[State 10020, Scale Lines Explod 4]
+type = ModifyExplod
+trigger1 = NumExplod(4)
+ID = 4
+scale = 1 -(0.0625 * (Time - 24)), 1 - (0.0625 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24) < 4, 64 * (Time - 24), 256), 256
+
+[State 10020, Circle Explod]
+type = Explod
+trigger1 = Time = 24
+anim = 10022
+ID = 10
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500,-1,1)
+vFacing = ifElse(Random < 500,-1,1)
+removeTime = 32
+superMoveTime = -1
+
+[State 10020, Scale]
+type = ModifyExplod
+trigger1 = NumExplod(10)
+ID = 10
+scale = 2 - (0.125 * (Time - 24)), 2 - (0.125 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24)<4, 64 * (Time - 24), 256), 256
+
+[State 10000, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 10023
+id = 10000
+pos = 0,0
+postype = back
+ownpal = 1
+bindtime = -1
+removetime = -1
+supermove = 1
+sprpriority = -100
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10005
+stateno = 10005
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10006
+stateno = 10006
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10020, Remove Explods]
+type = RemoveExplod
+trigger1 = Time >= 40
+
+[State 10020, End]
+type = DestroySelf
+trigger1 = Time >= 40
+
+;---------------------------------------------------------------------------
+; レベル3
+
+[StateDef 10030]
+type = A
+velset = 0,0
+anim = 10030
+sprpriority = 5
+
+[State 10020, Assert: NoShadow]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignoreHitPause = 1
+
+[State 10020, Rotate]
+type = AngleSet
+trigger1 = !Time
+value =6 * (Random % 60)
+
+[State 10020, Rotate]
+type = AngleAdd
+trigger1 = 1
+value = -6
+
+[State 10020, Scale]
+type = AngleDraw
+trigger1 = Time < 16
+scale = (0.03125 * Time), (0.03125 * Time)
+ignoreHitPause = 1
+
+[State 10020, Scale]
+type = AngleDraw
+trigger1 = Time >= 16
+scale = 0.5, 0.5
+ignoreHitPause = 1
+
+[State 10020, Transparency]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+alpha = 256,256
+ignoreHitPause = 1
+
+[State 10020, Lines Explod]
+type = Explod
+trigger1 = Time = 0 || Time = 8 || Time = 16 || Time = 24
+anim = 10031
+ID = ifElse(Time = 24, 4, ifElse(Time = 16, 3, ifElse(Time = 8, 2, 1)))
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500, -1, 1)
+vFacing = ifElse(Random < 500, -1, 1)
+removeTime = 16
+superMoveTime = -1
+
+[State 10020, Scale Lines Explod 1]
+type = ModifyExplod
+trigger1 = NumExplod(1)
+ID = 1
+scale = 1 - (0.0625 * Time), 1 - (0.0625 * Time)
+trans = AddAlpha
+alpha = ifElse(Time < 4, 64 * Time, 256), 256
+
+[State 10020, Scale Lines Explod 2]
+type = ModifyExplod
+trigger1 = NumExplod(2)
+ID = 2
+scale = 1 - (0.0625 * (Time - 8)), 1 - (0.0625 * (Time - 8))
+trans = AddAlpha
+alpha = ifElse((Time - 8) < 4, 64 * (Time - 8), 256), 256
+
+[State 10020, Scale Lines Explod 3]
+type = ModifyExplod
+trigger1 = NumExplod(3)
+ID = 3
+scale = 1 - (0.0625 * (Time - 16)), 1 - (0.0625 * (Time - 16))
+trans = AddAlpha
+alpha = ifElse((Time - 16) < 4, 64 * (Time - 16), 256), 256
+
+[State 10020, Scale Lines Explod 4]
+type = ModifyExplod
+trigger1 = NumExplod(4)
+ID = 4
+scale = 1 -(0.0625 * (Time - 24)), 1 - (0.0625 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24) < 4, 64 * (Time - 24), 256), 256
+
+[State 10020, Circle Explod]
+type = Explod
+trigger1 = Time = 24
+anim = 10032
+ID = 10
+sprPriority = 5
+posType = P1
+facing = ifElse(Random < 500,-1,1)
+vFacing = ifElse(Random < 500,-1,1)
+removeTime = 32
+superMoveTime = -1
+
+[State 10020, Scale]
+type = ModifyExplod
+trigger1 = NumExplod(10)
+ID = 10
+scale = 2 - (0.125 * (Time - 24)), 2 - (0.125 * (Time - 24))
+trans = AddAlpha
+alpha = ifElse((Time - 24)<4, 64 * (Time - 24), 256), 256
+
+[State 10000, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 10033
+id = 10000
+pos = 0,0
+postype = back
+ownpal = 1
+bindtime = -1
+removetime = -1
+supermove = 1
+sprpriority = -100
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10005
+stateno = 10005
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10000, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "AfterImage"
+ID = 10006
+stateno = 10006
+pos = 0,0
+postype = p1
+size.xscale = 1 * root,const(size.xscale)
+size.yscale = 1 * root,const(size.yscale)
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 10020, Remove Explods]
+type = RemoveExplod
+trigger1 = Time >= 40
+
+[State 10020, End]
+type = DestroySelf
+trigger1 = Time >= 40
+
+;-----------------------------------------------------------------------------
+; カウンターヒット表示
+;-----------------------------------------------------------------------------
+[Statedef 10300]
+type    = S
+movetype= I
+physics = S
+anim = 9999
+velset = 0,0
+poweradd = 0
+ctrl = 0
+sprpriority = -5
+
+[State 10300, 文字]
+type = Explod
+trigger1 = Teamside = 1
+trigger1 = time = 0
+anim = 10300
+ID = 10300
+pos = 40,100
+postype = Left
+facing = 1
+bindtime = -1
+sprpriority = 20
+ownpal = 1
+ontop = 1
+removeongethit = 0
+supermovetime = 60
+pausemovetime = 60
+ignorehitpause = 1
+persistent = 0
+
+[State 10300, 文字]
+type = Explod
+trigger1 = Teamside = 2
+trigger1 = time = 0
+anim = 10301
+ID = 10300
+pos = -40,100
+postype = right
+facing = 1
+bindtime = -1
+sprpriority = 20
+ownpal = 1
+ontop = 1
+removeongethit = 0
+supermovetime = 60
+pausemovetime = 60
+ignorehitpause = 1
+persistent = 0
+
+[State 1]
+type = DestroySelf
+trigger1 = NumExplod(10300) = 0
+
+;-----------------------------------------------------------------------------
+; ガードクラッシュ表示
+;-----------------------------------------------------------------------------
+[Statedef 10310]
+type    = S
+movetype= I
+physics = S
+anim = 9999
+velset = 0,0
+poweradd = 0
+ctrl = 0
+sprpriority = -5
+
+[State 10310, 文字]
+type = Explod
+trigger1 = Teamside = 1
+trigger1 = time = 0
+anim = 10310
+ID = 10310
+pos = 50,100
+postype = Left
+facing = 1
+bindtime = -1
+sprpriority = 20
+ownpal = 1
+ontop = 1
+removeongethit = 0
+supermovetime = 60
+pausemovetime = 60
+ignorehitpause = 1
+persistent = 0
+
+[State 10310, 文字]
+type = Explod
+trigger1 = Teamside = 2
+trigger1 = time = 0
+anim = 10311
+ID = 10310
+pos = -50,100
+postype = right
+facing = 1
+bindtime = -1
+sprpriority = 20
+ownpal = 1
+ontop = 1
+removeongethit = 0
+supermovetime = 60
+pausemovetime = 60
+ignorehitpause = 1
+persistent = 0
+
+[State 1]
+type = DestroySelf
+trigger1 = NumExplod(10310) = 0
+
+;この下、一行以上空ける事。

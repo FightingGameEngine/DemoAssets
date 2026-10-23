@@ -1,0 +1,36 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Storm"
+displayname = "Storm"
+versiondate = 03,23,2006
+mugenversion = 1.0
+author = "Alucard & WhiteMagic2002"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = storm.sff
+anim = storm.air
+sound = storm.snd
+cmd = storm.cmd
+cns = storm.cns
+stcommon = common1.cns
+st = storm.cns
+st1 = storm2.cns
+st2 = specials.cns
+st3 = hypers.cns
+st4 = other.cns
+st5 = helpers.cns
+pal1 = px5.act
+pal2 = px5.act
+pal3 = px5.act
+pal4 = px5.act
+pal5 = px5.act
+pal6 = px5.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

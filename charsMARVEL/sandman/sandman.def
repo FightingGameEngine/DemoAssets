@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Sandman"
+displayname = "Sandman"
+versiondate = 07,22,2007
+mugenversion = 06,14,2003
+author = "McCready & Loganir"
+pal.defaults = 1
+
+[Files]
+sprite = sand.sff
+anim = sand.air
+sound = sand.snd
+cmd = states\sandeasyai.cmd
+cns = states\sand.cns
+stcommon = states\sandcommon.cns
+st = states\sand.cns
+st1 = states\sandhs.st
+st2 = states\sand-2.st
+st3 = states\sand-3.st
+pal1 = palettes\pal1.act
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

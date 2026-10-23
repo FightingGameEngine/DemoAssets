@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Hawkeye"
+displayname = "Hawkeye"
+versiondate = 12/12/2012
+mugenversion = 1.0
+author = "Nicotinefist & Arkady"
+pal.defaults = 1,2,3,4,5,6,7
+
+[Files]
+sprite = Hawkeye.sff
+anim = Hawkeye.air
+sound = Hawkeye.snd
+cmd = Hawkeye.cmd
+cns = Hawkeye.cns
+stcommon = common1.cns
+st = Hawkeye.cns
+pal1 = Avx1.act
+pal2 = Avx1.act
+pal3 = Avx1.act
+pal4 = Avx1.act
+pal5 = Avx1.act
+pal6 = Avx1.act
+pal7 = Avx1.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

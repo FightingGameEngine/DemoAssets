@@ -1,0 +1,24 @@
+[Info]
+name="Rocket Racoon"
+displayname="Rocket Raccoon"
+versiondate=
+mugenversion=
+author=""
+pal.defaults=1,2,3,4
+[Files]
+sprite=rocket.sff
+sound=rocket.snd
+anim=M_AI/rocket.air
+cmd=M_AI/rocket.cmd
+cns=M_AI/rocket.cns
+st=M_AI/rocket.cns
+st1 = M_AI/specials.st
+st2 = M_AI/Hypers.st
+st3 = M_AI/Confing.st
+st4 = M_AI/CustomState.st
+st5 = M_AI/extra.st
+stcommon=M_AI/common1.cns
+pal1=rocket.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

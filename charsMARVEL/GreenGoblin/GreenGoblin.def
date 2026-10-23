@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Green Goblin"
+displayname = "Green Goblin"
+versiondate = 10/08/2011
+mugenversion = 1.0
+author = "Acey"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+sprite = GreenGoblin.sff
+anim = GreenGoblin.air
+sound = greengoblin.snd
+cmd = GreenGoblin.cmd
+cns = GreenGoblin.cns
+stcommon = ggc01.cns
+st = GreenGoblin.cns
+pal1 = GreenGoblin.act
+;pal2 = GreenGoblin.act
+;pal3 = GreenGoblin.act
+pal4 = GreenGoblin.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

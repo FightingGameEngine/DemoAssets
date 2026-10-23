@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Luke Cage"
+displayname = "Luke Cage"
+versiondate = 28.03.2012
+mugenversion = 1.0
+author = "Arkady"
+pal.defaults = 1,2,3,4,5,6,7
+
+[Files]
+sprite = LukeCage.sff
+anim = LukeCage.air
+sound = LukeCage.snd
+cmd = LukeCage.cmd
+cns = LukeCage.cns
+stcommon = Common1.cns
+st = Basics.st
+st1 = Specials.st
+st2 = Hypers.st
+st3 = Statedef-2.st
+st4 = Statedef-3.st
+st5 = Flight.st
+st6 = Extra.st
+pal1 = 1.act
+;pal2 = 1.act
+;pal3 = 1.act
+;pal4 = 1.act
+
+[Arcade]
+intro.storyboard = ..\AvX\Arcade.def
+ending.storyboard = ..\data\AvX\Ending01.def

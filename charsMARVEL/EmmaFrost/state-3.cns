@@ -1,0 +1,173 @@
+;A.I: (matchno * var(11)) > random
+;---------------------------------------------------------------------------
+; Nivel progressivo de AI - growing AI level (arcade mode & team modes)
+; de (mais burro) 1 à 999 (mais esperto)
+; from (dummy) 1 to 999 (smart)
+
+[Statedef 6] 
+type = U 
+ctrl = 0 
+
+[State 1205, 1] 
+type = parentVarSet 
+trigger1 = 1 
+var(11) = 80 ; <= Olha a.i.!
+
+; parei aqui
+
+[State 8381, 3] 
+type = DestroySelf 
+trigger1 = Time = 0
+
+[Statedef -3]
+
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Cable Training"
+value = 3
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Scarlet Witch"
+value = 4
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Spiderman"
+value = 5
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Wolverine"
+value = 6
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Black Widow"
+value = 7
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Captain America"
+value = 8
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Ironman"
+value = 9
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Red Hulk"
+value = 10
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "The Thing"
+value = 11
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "The Mighty Thor"
+value = 12
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Luke Cage"
+value = 13
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "MissMarvel"
+value = 14
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Hope"
+value = 15
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Iceman"
+value = 16
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Psylocke"
+value = 17
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Emma Frost"
+value = 18
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Cyclops"
+value = 19
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Magneto"
+value = 20
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Namor"
+value = 21
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Colossonaught"
+value = 22
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Storm"
+value = 23
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "The Beast"
+value = 24
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Rogue"
+value = 25
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Deadpool"
+value = 26
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Captain Marvell"
+value = 27
+[State VictoryQuote]
+Type = VictoryQuote
+Trigger1 = p2name = "Phoenix Force"
+value = 28
+
+[State VictoryQuote]
+Type = null;VictoryQuote
+trigger1 = p2name != "Cable Training"
+trigger1 = p2name != "Scarlet Witch"
+trigger1 = p2name != "Spiderman"
+trigger1 = p2name != "Wolverine"
+trigger1 = p2name != "Black Widow"
+trigger1 = p2name != "Captain America"
+trigger1 = p2name != "Ironman"
+trigger1 = p2name != "Red Hulk"
+trigger1 = p2name != "The Thing"
+trigger1 = p2name != "The Mighty Thor"
+trigger1 = p2name != "Luke Cage"
+trigger1 = p2name != "MissMarvel"
+trigger1 = p2name != "Hope"
+trigger1 = p2name != "Iceman"
+trigger1 = p2name != "Psylocke"
+trigger1 = p2name != "Emma Frost"
+trigger1 = p2name != "Cyclops"
+trigger1 = p2name != "Magneto"
+trigger1 = p2name != "Namor"
+trigger1 = p2name != "Colossonaught"
+trigger1 = p2name != "Storm"
+trigger1 = p2name != "The Beast"
+trigger1 = p2name != "Rogue"
+trigger1 = p2name != "Deadpool"
+trigger1 = p2name != "Captain Marvell"
+trigger1 = p2name != "Phoenix Force"
+value = 1 + random%1
+
+[State -3, Cable Stage]
+type = Explod
+triggerall = numexplod(29872)=0
+triggerall = p2name = "Cable Training"
+triggerall = StageVar(info.name) =  "B"
+trigger1 = Teamside = 1
+anim = F29872
+ID =  29872
+pos = 50,200;-40,-22
+postype = left  ;p1
+removetime = -2
+scale = 1,1
+sprpriority = -10000
+ownpal = 1
+

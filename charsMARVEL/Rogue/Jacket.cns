@@ -1,0 +1,6363 @@
+;-------------------------------------
+; Jacket Helper State
+;-------------------------------------
+
+[Statedef 20000]
+type    = S
+movetype = I
+physics = N
+sprpriority = 2
+anim = 20000000
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent,var(23)= 1)
+trigger1 = parent, ctrl = 0
+value = 28000
+
+[State 20000, BindToParent];Normal Bind
+type = BindToParent
+trigger1 = 1
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20000, BindToParent];While walking/dashing into opponent
+type = BindToParent
+triggerall = (parent, vel x > 0) && (parent, p2bodydist x <= 5)
+trigger1 = parent, stateno = [100,110]
+trigger2 = parent, stateno = 20
+facing = 1
+pos = -3,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20000, BindToParent];While opponent walking into Rogue
+type = BindToParent
+triggerall = (parent, stateno = 0) && (parent, backedgedist > 0)
+trigger1 = (p2stateno = 20) && (parent, p2bodydist x <= 0)
+facing = 1
+pos = -1.5,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20000, BindToParent];While opponent dashing into Rogue
+type = BindToParent
+triggerall = (parent, stateno = 0) && (parent, backedgedist > 0)
+trigger1 = (p2stateno = [100,110]) && (parent, p2bodydist x <= 0)
+facing = 1
+pos = -4,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 0) && (parent, AnimElemTime(1) >= 0)
+Value = 20000001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 0) && (parent, AnimElemTime(2) >= 0)
+Value = 20000002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 0) && (parent, AnimElemTime(3) >= 0)
+Value = 20000004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 0) && (parent, AnimElemTime(4) >= 0)
+Value = 20000005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 0) && (parent, AnimElemTime(5) >= 0)
+Value = 20000006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5) && (parent, AnimElemTime(1) >= 0)
+Value = 20005000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5) && (parent, AnimElemTime(2) >= 0)
+Value = 20005001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 6) && (parent, AnimElemTime(1) >= 0)
+Value = 20006000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 6) && (parent, AnimElemTime(2) >= 0)
+Value = 20006001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 6) && (parent, AnimElemTime(3) >= 0)
+Value = 20006002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 10) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 10) && (parent, AnimElemTime(2) >= 0)
+Value = 20010001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 10) && (parent, AnimElemTime(3) >= 0)
+Value = 20010002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 11) && (parent, AnimElemTime(1) >= 0)
+Value = 20011000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 12) && (parent, AnimElemTime(1) >= 0)
+Value = 20010002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 12) && (parent, AnimElemTime(2) >= 0)
+Value = 20010001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 12) && (parent, AnimElemTime(3) >= 0)
+Value = 20010000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(1) >= 0)
+Value = 20020000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(2) >= 0)
+Value = 20020001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(3) >= 0)
+Value = 20020002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(4) >= 0)
+Value = 20020003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(5) >= 0)
+Value = 20020004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(6) >= 0)
+Value = 20020005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(7) >= 0)
+Value = 20020006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(8) >= 0)
+Value = 20020007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(9) >= 0)
+Value = 20020008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(10) >= 0)
+Value = 20020009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(11) >= 0)
+Value = 20020010
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(12) >= 0)
+Value = 20020011
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(13) >= 0)
+Value = 20020012
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(14) >= 0)
+Value = 20020013
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(15) >= 0)
+Value = 20020014
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(16) >= 0)
+Value = 20020015
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(17) >= 0)
+Value = 20020016
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(18) >= 0)
+Value = 20020017
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(19) >= 0)
+Value = 20020018
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20) && (parent, AnimElemTime(20) >= 0)
+Value = 20020019
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(1) >= 0)
+Value = 20020019
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(2) >= 0)
+Value = 20020018
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(3) >= 0)
+Value = 20020017
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(4) >= 0)
+Value = 20020016
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(5) >= 0)
+Value = 20020015
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(6) >= 0)
+Value = 20020014
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(7) >= 0)
+Value = 20020013
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(8) >= 0)
+Value = 20020012
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(9) >= 0)
+Value = 20020011
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(10) >= 0)
+Value = 20020010
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(11) >= 0)
+Value = 20020009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(12) >= 0)
+Value = 20020008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(13) >= 0)
+Value = 20020007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(14) >= 0)
+Value = 20020006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(15) >= 0)
+Value = 20020005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(16) >= 0)
+Value = 20020004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(17) >= 0)
+Value = 20020003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(18) >= 0)
+Value = 20020002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(19) >= 0)
+Value = 20020001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 21) && (parent, AnimElemTime(20) >= 0)
+Value = 20020000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 40) && (parent, AnimElemTime(1) >= 0)
+Value = 20200000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 41) && (parent, AnimElemTime(1) >= 0)
+Value = 20041001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 41) && (parent, AnimElemTime(2) >= 0)
+Value = 20041010
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 42) && (parent, AnimElemTime(1) >= 0)
+Value = 20042000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 42) && (parent, AnimElemTime(2) >= 0)
+Value = 20042001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 43) && (parent, AnimElemTime(1) >= 0)
+Value = 20043000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 43) && (parent, AnimElemTime(2) >= 0)
+Value = 20043001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(1) >= 0)
+Value = 20041002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(2) >= 0)
+Value = 20041003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(3) >= 0)
+Value = 20041004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(4) >= 0)
+Value = 20041005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(5) >= 0)
+Value = 20041006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(6) >= 0)
+Value = 20041007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(7) >= 0)
+Value = 20041008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 44) && (parent, AnimElemTime(8) >= 0)
+Value = 20041011
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(1) >= 0)
+Value = 20042002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(2) >= 0)
+Value = 20042003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(3) >= 0)
+Value = 20042004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(4) >= 0)
+Value = 20042005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(5) >= 0)
+Value = 20042006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(6) >= 0)
+Value = 20042007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(7) >= 0)
+Value = 20042008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 45) && (parent, AnimElemTime(8) >= 0)
+Value = 20042009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(1) >= 0)
+Value = 20043002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(2) >= 0)
+Value = 20043003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(3) >= 0)
+Value = 20043004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(4) >= 0)
+Value = 20043005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(5) >= 0)
+Value = 20043006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(6) >= 0)
+Value = 20043007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(7) >= 0)
+Value = 20043008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 46) && (parent, AnimElemTime(8) >= 0)
+Value = 20043009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 47) && (parent, AnimElemTime(1) >= 0)
+Value = 20041009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 48) && (parent, AnimElemTime(1) >= 0)
+Value = 20041009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 49) && (parent, AnimElemTime(1) >= 0)
+Value = 20041009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 51) && (parent, AnimElemTime(1) >= 0)
+Value = 20041001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 51) && (parent, AnimElemTime(2) >= 0)
+Value = 20041010
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 52) && (parent, AnimElemTime(1) >= 0)
+Value = 20042000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 52) && (parent, AnimElemTime(2) >= 0)
+Value = 20042001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 53) && (parent, AnimElemTime(1) >= 0)
+Value = 20043000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 53) && (parent, AnimElemTime(2) >= 0)
+Value = 20043001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(1) >= 0)
+Value = 20041002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(2) >= 0)
+Value = 20041003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(3) >= 0)
+Value = 20041004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(4) >= 0)
+Value = 20041005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(5) >= 0)
+Value = 20041006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(6) >= 0)
+Value = 20041007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(7) >= 0)
+Value = 20041008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 54) && (parent, AnimElemTime(8) >= 0)
+Value = 20041011
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(1) >= 0)
+Value = 20042002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(2) >= 0)
+Value = 20042003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(3) >= 0)
+Value = 20042004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(4) >= 0)
+Value = 20042005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(5) >= 0)
+Value = 20042006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(6) >= 0)
+Value = 20042007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(7) >= 0)
+Value = 20042008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 55) && (parent, AnimElemTime(8) >= 0)
+Value = 20042009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(1) >= 0)
+Value = 20043002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(2) >= 0)
+Value = 20043003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(3) >= 0)
+Value = 20043004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(4) >= 0)
+Value = 20043005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(5) >= 0)
+Value = 20043006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(6) >= 0)
+Value = 20043007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(7) >= 0)
+Value = 20043008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 56) && (parent, AnimElemTime(8) >= 0)
+Value = 20043009
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 70) && (parent, AnimElemTime(1) >= 0)
+Value = 20041007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 70) && (parent, AnimElemTime(2) >= 0)
+Value = 20041008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 70) && (parent, AnimElemTime(3) >= 0)
+Value = 20041011
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 71) && (parent, AnimElemTime(1) >= 0)
+Value = 20043007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 71) && (parent, AnimElemTime(2) >= 0)
+Value = 20041008
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 71) && (parent, AnimElemTime(3) >= 0)
+Value = 20041011
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 100) && (parent, AnimElemTime(1) >= 0)
+Value = 20100001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 100) && (parent, AnimElemTime(2) >= 0)
+Value = 20100002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 101) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 101) && (parent, AnimElemTime(2) >= 0)
+Value = 20100004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 101) && (parent, AnimElemTime(3) >= 0)
+Value = 20100005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 101) && (parent, AnimElemTime(4) >= 0)
+Value = 20100006
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 101) && (parent, AnimElemTime(5) >= 0)
+Value = 20100007
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 105) && (parent, AnimElemTime(1) >= 0)
+Value = 20105001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 105) && (parent, AnimElemTime(2) >= 0)
+Value = 20105002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 106) && (parent, AnimElemTime(1) >= 0)
+Value = 20105003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 106) && (parent, AnimElemTime(2) >= 0)
+Value = 20105004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 106) && (parent, AnimElemTime(3) >= 0)
+Value = 20105005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 106) && (parent, AnimElemTime(4) >= 0)
+Value = 20005001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 120) && (parent, AnimElemTime(1) >= 0)
+Value = 20120000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 121) && (parent, AnimElemTime(1) >= 0)
+Value = 20121000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 122) && (parent, AnimElemTime(1) >= 0)
+Value = 20122000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 130) && (parent, AnimElemTime(1) >= 0)
+Value = 20120001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 131) && (parent, AnimElemTime(1) >= 0)
+Value = 20121001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 132) && (parent, AnimElemTime(1) >= 0)
+Value = 20122001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 140) && (parent, AnimElemTime(1) >= 0)
+Value = 20120001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 141) && (parent, AnimElemTime(1) >= 0)
+Value = 20121002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 142) && (parent, AnimElemTime(1) >= 0)
+Value = 20122002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 150) && (parent, AnimElemTime(1) >= 0)
+Value = 20120001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 151) && (parent, AnimElemTime(1) >= 0)
+Value = 20121001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 152) && (parent, AnimElemTime(1) >= 0)
+Value = 20122001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 170) && (parent, AnimElemTime(1) >= 0)
+Value = 25300003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 170) && (parent, AnimElemTime(2) >= 0)
+Value = 25300004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 170) && (parent, AnimElemTime(3) >= 0)
+Value = 25300005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 171) && (parent, AnimElemTime(1) >= 0)
+Value = 25300003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 171) && (parent, AnimElemTime(2) >= 0)
+Value = 25300004
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 171) && (parent, AnimElemTime(3) >= 0)
+Value = 25300005
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 183) && (parent, AnimElemTime(1) >= 0)
+Value = 20043000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 183) && (parent, AnimElemTime(2) >= 0)
+Value = 20043001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 183) && (parent, AnimElemTime(3) >= 0)
+Value = 20043002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 183) && (parent, AnimElemTime(4) >= 0)
+Value = 20043003
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 192) && (parent, AnimElemTime(4) >= 0)
+Value = 21540000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 193) && (parent, AnimElemTime(1) >= 0)
+Value = 20192000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 193) && (parent, AnimElemTime(2) >= 0)
+Value = 20192001
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 193) && (parent, AnimElemTime(3) >= 0)
+Value = 20192002
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 193) && (parent, AnimElemTime(4) >= 0)
+Value = 20005000
+
+[State 20000, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 193) && (parent, AnimElemTime(5) >= 0)
+Value = 20005001
+
+[State 20000, Change Animation - Blank Frame]
+type = ChangeAnim
+trigger1 = (parent, Anim = 181)
+trigger2 = (parent, Anim = 182)
+trigger3 = (parent, Anim = 183) && (parent,animelemtime (5) >= 0)
+trigger4 = (parent, Anim = 184)
+trigger5 = (parent, Anim = 195)
+trigger7 = (parent, Anim = [6183, 6187])
+Value = 28000000
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=200) && (parent, Anim < 1000)
+value = 20001
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=1000) && (parent, Anim < 2000)
+value = 20002
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2000) && (parent, Anim < 2046)
+value = 20003
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2046) && (parent, Anim < 3000)
+value = 20004
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=3000)
+value = 20005
+ctrl = 0
+
+[Statedef 20001]
+type    = S
+movetype = I
+physics = N
+sprpriority = 2
+anim = 20000000
+ctrl = 0
+
+[State 20001, ChangeState]
+type = ChangeState
+trigger1 = (parent,var(23)= 1)
+trigger1 = parent, ctrl = 0
+value = 28000
+
+[State 20001, BindToParent]
+type = BindToParent
+trigger1 = 1
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 200) && (parent, AnimElemTime(1) >= 0)
+trigger2 = (parent, Anim = 201) && (parent, AnimElemTime(1) >= 0)
+Value = 20200000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 200) && (parent, AnimElemTime(2) >= 0)
+trigger2 = (parent, Anim = 201) && (parent, AnimElemTime(2) >= 0)
+Value = 20200001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 200) && (parent, AnimElemTime(3) >= 0)
+trigger2 = (parent, Anim = 201) && (parent, AnimElemTime(9) >= 0)
+Value = 20200002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 200) && (parent, AnimElemTime(4) >= 0)
+trigger2 = (parent, Anim = 201) && (parent, AnimElemTime(10) >= 0)
+Value = 20200003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(1) >= 0)
+Value = 20210000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(2) >= 0)
+Value = 20210001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(3) >= 0)
+Value = 20210002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(4) >= 0)
+Value = 20210003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(5) >= 0)
+Value = 20210004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(6) >= 0)
+Value = 20210005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 210) && (parent, AnimElemTime(7) >= 0)
+Value = 20210006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(1) >= 0)
+Value = 20220000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(2) >= 0)
+Value = 20220001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(3) >= 0)
+Value = 20220002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(4) >= 0)
+Value = 20220003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(5) >= 0)
+Value = 20220004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(6) >= 0)
+Value = 20220005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(7) >= 0)
+Value = 20220006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(8) >= 0)
+Value = 20220007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(9) >= 0)
+Value = 20220008
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(10) >= 0)
+Value = 20210005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 220) && (parent, AnimElemTime(11) >= 0)
+Value = 20210006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(1) >= 0)
+Value = 20310000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(2) >= 0)
+Value = 20310001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(3) >= 0)
+Value = 20310002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(4) >= 0)
+Value = 20310003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(5) >= 0)
+Value = 20310004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(6) >= 0)
+Value = 20310005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(7) >= 0)
+Value = 20310006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(8) >= 0)
+Value = 20300001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(9) >= 0)
+Value = 20310007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(10) >= 0)
+Value = 20300004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 17229) && (parent, AnimElemTime(11) >= 0)
+Value = 20300000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 300) && (parent, AnimElemTime(1) >= 0)
+Value = 20300000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 300) && (parent, AnimElemTime(2) >= 0)
+Value = 20300001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 300) && (parent, AnimElemTime(3) >= 0)
+Value = 20300002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 300) && (parent, AnimElemTime(4) >= 0)
+Value = 20300003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 300) && (parent, AnimElemTime(5) >= 0)
+Value = 20300004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(1) >= 0)
+Value = 20310000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(2) >= 0)
+Value = 20310001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(3) >= 0)
+Value = 20310002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(4) >= 0)
+Value = 20310003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(5) >= 0)
+Value = 20310004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(6) >= 0)
+Value = 20310005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(7) >= 0)
+Value = 20310006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(8) >= 0)
+Value = 20310007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 310) && (parent, AnimElemTime(9) >= 0)
+Value = 20300004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(1) >= 0)
+Value = 20320000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(2) >= 0)
+Value = 20320001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(3) >= 0)
+Value = 20320001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(4) >= 0)
+Value = 20320002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(5) >= 0)
+Value = 20320003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(6) >= 0)
+Value = 20320004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(7) >= 0)
+Value = 20320005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(8) >= 0)
+Value = 20320006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(9) >= 0)
+Value = 25120003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(10) >= 0)
+Value = 25120004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 320) && (parent, AnimElemTime(11) >= 0)
+Value = 25120005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 400) && (parent, AnimElemTime(1) >= 0)
+trigger2 = (parent, Anim = 401) && (parent, AnimElemTime(1) >= 0)
+Value = 20400000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 400) && (parent, AnimElemTime(2) >= 0)
+trigger2 = (parent, Anim = 401) && (parent, AnimElemTime(2) >= 0)
+Value = 20400001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 400) && (parent, AnimElemTime(3) >= 0)
+trigger2 = (parent, Anim = 401) && (parent, AnimElemTime(10) >= 0)
+Value = 20400002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 400) && (parent, AnimElemTime(4) >= 0)
+trigger2 = (parent, Anim = 401) && (parent, AnimElemTime(11) >= 0)
+Value = 20400003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(1) >= 0)
+Value = 20410000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(2) >= 0)
+Value = 20410001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(3) >= 0)
+Value = 20410002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(4) >= 0)
+Value = 20410003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(5) >= 0)
+Value = 20410004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(6) >= 0)
+Value = 20410005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(7) >= 0)
+Value = 20006001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 410) && (parent, AnimElemTime(8) >= 0)
+Value = 20006002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(1) >= 0)
+Value = 20420000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(2) >= 0)
+Value = 20420001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(3) >= 0)
+Value = 20420002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(4) >= 0)
+Value = 20420003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(5) >= 0)
+Value = 20420004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(6) >= 0)
+Value = 20420005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(7) >= 0)
+Value = 20420006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(8) >= 0)
+Value = 20420007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(9) >= 0)
+Value = 20420008
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(10) >= 0)
+Value = 20420009
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(11) >= 0)
+Value = 20010001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 420) && (parent, AnimElemTime(12) >= 0)
+Value = 20010002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 500) && (parent, AnimElemTime(1) >= 0)
+Value = 20500000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 500) && (parent, AnimElemTime(2) >= 0)
+Value = 20500001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 500) && (parent, AnimElemTime(3) >= 0)
+Value = 20500002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 510) && (parent, AnimElemTime(1) >= 0)
+Value = 20500002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 510) && (parent, AnimElemTime(2) >= 0)
+Value = 20510001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 510) && (parent, AnimElemTime(3) >= 0)
+Value = 20510002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 510) && (parent, AnimElemTime(4) >= 0)
+Value = 20510003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 510) && (parent, AnimElemTime(5) >= 0)
+Value = 20510004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 510) && (parent, AnimElemTime(6) >= 0)
+Value = 20500002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(1) >= 0)
+Value = 20520000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(2) >= 0)
+Value = 20520001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(3) >= 0)
+Value = 20520002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(4) >= 0)
+Value = 20520004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(5) >= 0)
+Value = 20520005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(6) >= 0)
+Value = 20520006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 520) && (parent, AnimElemTime(7) >= 0)
+Value = 20520007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(1) >= 0)
+Value = 20620000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(2) >= 0)
+Value = 20620001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(3) >= 0)
+Value = 20620002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(4) >= 0)
+Value = 20620003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(5) >= 0)
+Value = 20620007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(6) >= 0)
+Value = 20620004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(7) >= 0)
+Value = 20620005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 590) && (parent, AnimElemTime(8) >= 0)
+Value = 20620006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 600) && (parent, AnimElemTime(1) >= 0)
+trigger2 = (parent, Anim = 601) && (parent, AnimElemTime(1) >= 0)
+Value = 20600000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 600) && (parent, AnimElemTime(2) >= 0)
+trigger2 = (parent, Anim = 601) && (parent, AnimElemTime(2) >= 0)
+Value = 20600001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 600) && (parent, AnimElemTime(3) >= 0)
+trigger2 = (parent, Anim = 601) && (parent, AnimElemTime(10) >= 0)
+Value = 20600002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 600) && (parent, AnimElemTime(4) >= 0)
+trigger2 = (parent, Anim = 601) && (parent, AnimElemTime(11) >= 0)
+Value = 20600003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 610) && (parent, AnimElemTime(1) >= 0)
+Value = 20610000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 610) && (parent, AnimElemTime(2) >= 0)
+Value = 20610001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 610) && (parent, AnimElemTime(3) >= 0)
+Value = 20610002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 610) && (parent, AnimElemTime(4) >= 0)
+Value = 20610003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 610) && (parent, AnimElemTime(5) >= 0)
+Value = 20610004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(1) >= 0)
+Value = 20620000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(2) >= 0)
+Value = 20620001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(3) >= 0)
+Value = 20620002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(4) >= 0)
+Value = 20620003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(5) >= 0)
+Value = 20620007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(6) >= 0)
+Value = 20620004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(7) >= 0)
+Value = 20620005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 620) && (parent, AnimElemTime(8) >= 0)
+Value = 20620006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 700) && (parent, AnimElemTime(1) >= 0)
+Value = 20600000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 700) && (parent, AnimElemTime(2) >= 0)
+Value = 20700000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 700) && (parent, AnimElemTime(3) >= 0)
+Value = 20700001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 700) && (parent, AnimElemTime(4) >= 0)
+Value = 20700002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 710) && (parent, AnimElemTime(1) >= 0)
+Value = 20600000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 710) && (parent, AnimElemTime(2) >= 0)
+Value = 20710000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 710) && (parent, AnimElemTime(3) >= 0)
+Value = 20710001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 710) && (parent, AnimElemTime(4) >= 0)
+Value = 20710002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 710) && (parent, AnimElemTime(5) >= 0)
+Value = 20710003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 710) && (parent, AnimElemTime(6) >= 0)
+Value = 20700002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(1) >= 0)
+Value = 20720000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(2) >= 0)
+Value = 20720001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(3) >= 0)
+Value = 20720002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(4) >= 0)
+Value = 20720003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(5) >= 0)
+Value = 20720004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(6) >= 0)
+Value = 20720005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(7) >= 0)
+Value = 20720006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 720) && (parent, AnimElemTime(8) >= 0)
+Value = 20720007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 721) && (parent, AnimElemTime(1) >= 0)
+Value = 20720007
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 721) && (parent, AnimElemTime(2) >= 0)
+Value = 20721000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 721) && (parent, AnimElemTime(3) >= 0)
+Value = 20721001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 721) && (parent, AnimElemTime(4) >= 0)
+Value = 20721002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 800) && (parent, AnimElemTime(1) >= 0)
+Value = 20200000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 800) && (parent, AnimElemTime(2) >= 0)
+Value = 20210006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 800) && (parent, AnimElemTime(3) >= 0)
+Value = 20210005
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 800) && (parent, AnimElemTime(4) >= 0)
+Value = 20210006
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(1) >= 0)
+Value = 20810001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(2) >= 0)
+Value = 20810000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(3) >= 0)
+Value = 20810001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(4) >= 0)
+Value = 20810001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(5) >= 0)
+Value = 20810002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(6) >= 0)
+Value = 20810002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 810) && (parent, AnimElemTime(7) >= 0)
+Value = 20810003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 811) && (parent, AnimElemTime(1) >= 0)
+Value = 20810004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 830) && (parent, AnimElemTime(1) >= 0)
+Value = 20041003
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 900) && (parent, AnimElemTime(1) >= 0)
+trigger2 = (parent, Anim = 906) && (parent, AnimElemTime(1) >= 0)
+Value = 22000061
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 900) && (parent, AnimElemTime(2) >= 0)
+trigger2 = (parent, Anim = 906) && (parent, AnimElemTime(2) >= 0)
+Value = 22000062
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 900) && (parent, AnimElemTime(3) >= 0)
+trigger2 = (parent, Anim = 906) && (parent, AnimElemTime(3) >= 0)
+Value = 22000077
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 900) && (parent, AnimElemTime(4) >= 0)
+trigger2 = (parent, Anim = 906) && (parent, AnimElemTime(4) >= 0)
+Value = 22000078
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 900) && (parent, AnimElemTime(5) >= 0)
+trigger2 = (parent, Anim = 906) && (parent, AnimElemTime(5) >= 0)
+Value = 22000079
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(1) >= 0)
+Value = 22000063
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(2) >= 0)
+Value = 22000064
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(3) >= 0)
+Value = 22000065
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(4) >= 0)
+Value = 22000066
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(5) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(6) >= 0)
+Value = 22000074
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(7) >= 0)
+Value = 22000073
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(8) >= 0)
+Value = 22000072
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(9) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(10) >= 0)
+Value = 22000074
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(11) >= 0)
+Value = 22000073
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(12) >= 0)
+Value = 22000072
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(13) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(14) >= 0)
+Value = 22000074
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(15) >= 0)
+Value = 22000073
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(16) >= 0)
+Value = 22000072
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(17) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(18) >= 0)
+Value = 22000074
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(19) >= 0)
+Value = 22000073
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(20) >= 0)
+Value = 22000072
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(21) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(22) >= 0)
+Value = 22000074
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(23) >= 0)
+Value = 22000073
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(24) >= 0)
+Value = 22000072
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(25) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(26) >= 0)
+Value = 22000074
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(27) >= 0)
+Value = 22000073
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(28) >= 0)
+Value = 22000072
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 901) && (parent, AnimElemTime(29) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 903) && (parent, AnimElemTime(1) >= 0)
+Value = 22000071
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 903) && (parent, AnimElemTime(4) >= 0)
+Value = 20041004
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 905) && (parent, AnimElemTime(1) >= 0)
+Value = 20010001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 905) && (parent, AnimElemTime(2) >= 0)
+Value = 20010000
+
+[State 20001, SprPriority]
+type = SprPriority
+trigger1 = parent, anim = [900,906]
+value = 6
+
+[State 20001, SprPriority]
+type = SprPriority
+trigger1 = parent, anim != [900,906]
+value = 2
+
+[State 20001, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim < 200)
+value = 20000
+ctrl = 0
+
+[State 20001, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=1000) && (parent, Anim < 2000)
+value = 20002
+ctrl = 0
+
+[State 20001, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2000) && (parent, Anim < 2046)
+value = 20003
+ctrl = 0
+
+[State 20001, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2046) && (parent, Anim < 3000)
+value = 20004
+ctrl = 0
+
+[State 20001, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=3000)
+value = 20005
+ctrl = 0
+
+[Statedef 20002]
+type    = S
+movetype = I
+physics = N
+sprpriority = 2
+anim = 20000000
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent,var(23)= 1)
+trigger1 = parent, ctrl = 0
+value = 28000
+
+[State 20002, BindToParent]
+type = BindToParent
+trigger1 = 1
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1330) && (parent, AnimElemTime(1) >= 0)
+Value = 20041001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1330) && (parent, AnimElemTime(2) >= 0)
+Value = 20041010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(1) >= 0)
+Value = 21331000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(2) >= 0)
+Value = 21331001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(3) >= 0)
+Value = 21331002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(4) >= 0)
+Value = 21331003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(5) >= 0)
+Value = 21331004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(6) >= 0)
+Value = 21331005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(7) >= 0)
+Value = 21331006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(8) >= 0)
+Value = 21331007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(9) >= 0)
+Value = 21331008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(10) >= 0)
+Value = 21331009
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(11) >= 0)
+Value = 21331010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1331) && (parent, AnimElemTime(12) >= 0)
+Value = 21331011
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(1) >= 0)
+Value = 20100000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(2) >= 0)
+Value = 21450004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(3) >= 0)
+Value = 21450005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(4) >= 0)
+Value = 21450006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(5) >= 0)
+Value = 21450007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(6) >= 0)
+Value = 21450000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(7) >= 0)
+Value = 21450001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(8) >= 0)
+Value = 21450002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(9) >= 0)
+Value = 21450003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(10) >= 0)
+Value = 21450004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(11) >= 0)
+Value = 21450008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(12) >= 0)
+Value = 21450009
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(13) >= 0)
+Value = 21450010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(14) >= 0)
+Value = 20420003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(15) >= 0)
+Value = 20420004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(16) >= 0)
+Value = 20420005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(17) >= 0)
+Value = 20420006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(18) >= 0)
+Value = 20420007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1450) && (parent, AnimElemTime(19) >= 0)
+Value = 20420008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1451) && (parent, AnimElemTime(1) >= 0)
+Value = 20420009
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(1) >= 0)
+Value = 20100000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(2) >= 0)
+Value = 21450004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(3) >= 0)
+Value = 21450005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(4) >= 0)
+Value = 21450006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(5) >= 0)
+Value = 21450007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(6) >= 0)
+Value = 21450000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(7) >= 0)
+Value = 21450001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(8) >= 0)
+Value = 21450002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(9) >= 0)
+Value = 21450003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(10) >= 0)
+Value = 21450004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(11) >= 0)
+Value = 21450008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(12) >= 0)
+Value = 21450009
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(13) >= 0)
+Value = 21450010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(14) >= 0)
+Value = 20420003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(15) >= 0)
+Value = 20420004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(16) >= 0)
+Value = 20420005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(17) >= 0)
+Value = 20420006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(18) >= 0)
+Value = 20420007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1452) && (parent, AnimElemTime(19) >= 0)
+Value = 20420008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1480) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1480) && (parent, AnimElemTime(2) >= 0)
+Value = 20100000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1480) && (parent, AnimElemTime(3) >= 0)
+Value = 20100001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1480) && (parent, AnimElemTime(4) >= 0)
+Value = 20100002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1481) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1481) && (parent, AnimElemTime(2) >= 0)
+Value = 20100004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1481) && (parent, AnimElemTime(3) >= 0)
+Value = 20100005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1481) && (parent, AnimElemTime(4) >= 0)
+Value = 20100006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1481) && (parent, AnimElemTime(5) >= 0)
+Value = 20100007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(1) >= 0)
+Value = 21490000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(2) >= 0)
+Value = 21490001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(3) >= 0)
+Value = 21490002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(4) >= 0)
+Value = 21490003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(5) >= 0)
+Value = 21490004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(6) >= 0)
+Value = 21490005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(7) >= 0)
+Value = 21490006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(8) >= 0)
+Value = 21490007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(9) >= 0)
+Value = 21490008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1490) && (parent, AnimElemTime(10) >= 0)
+Value = 21490009
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1491) && (parent, AnimElemTime(1) >= 0)
+Value = 21490010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1491) && (parent, AnimElemTime(2) >= 0)
+Value = 21490011
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1491) && (parent, AnimElemTime(3) >= 0)
+Value = 21490012
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(1) >= 0)
+Value = 25002000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(2) >= 0)
+Value = 25002000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(3) >= 0)
+Value = 25002000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(4) >= 0)
+Value = 25002010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(5) >= 0)
+Value = 25002010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(6) >= 0)
+Value = 25012000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(7) >= 0)
+Value = 25012000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(8) >= 0)
+Value = 25012000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(9) >= 0)
+Value = 25012000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1500) && (parent, AnimElemTime(10) >= 0)
+Value = 25012000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1501) && (parent, AnimElemTime(1) >= 0)
+Value = 25012000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1501) && (parent, AnimElemTime(2) >= 0)
+Value = 25032010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1501) && (parent, AnimElemTime(3) >= 0)
+Value = 25032030
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(1) >= 0)
+Value = 21510000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(2) >= 0)
+Value = 21510001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(3) >= 0)
+Value = 21510002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(4) >= 0)
+Value = 21510003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(5) >= 0)
+Value = 21510004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(6) >= 0)
+Value = 21510005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(7) >= 0)
+Value = 21510006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(8) >= 0)
+Value = 21510008
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(9) >= 0)
+Value = 20620000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(10) >= 0)
+Value = 20620001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(11) >= 0)
+Value = 20620002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(12) >= 0)
+Value = 20620003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(13) >= 0)
+Value = 20620004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1510) && (parent, AnimElemTime(14) >= 0)
+Value = 20620005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(1) >= 0)
+Value = 20041001
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(2) >= 0)
+Value = 20041010
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(3) >= 0)
+Value = 20100003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(4) >= 0)
+Value = 20100003
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(5) >= 0)
+Value = 20100000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(6) >= 0)
+Value = 20100000
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1540) && (parent, AnimElemTime(7) >= 0)
+Value = 21540007
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1541) && (parent, AnimElemTime(1) >= 0)
+Value = 25120002
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1541) && (parent, AnimElemTime(2) >= 0)
+Value = 25120004
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1541) && (parent, AnimElemTime(3) >= 0)
+Value = 25120005
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1541) && (parent, AnimElemTime(4) >= 0)
+Value = 25120006
+
+[State 20002, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 1541) && (parent, AnimElemTime(5) >= 0)
+Value = 20005001
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim < 200)
+value = 20000
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=200) && (parent, Anim < 1000)
+value = 20001
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2000) && (parent, Anim < 2046)
+value = 20003
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2046) && (parent, Anim < 3000)
+value = 20004
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=3000)
+value = 20005
+ctrl = 0
+
+[Statedef 20003]
+type    = S
+movetype = I
+physics = N
+sprpriority = 2
+anim = 20000000
+ctrl = 0
+
+[State 20003, ChangeState]
+type = ChangeState
+trigger1 = (parent,var(23)= 1)
+trigger1 = parent, ctrl = 0
+value = 28000
+
+[State 20003, BindToParent]
+type = BindToParent
+trigger1 = 1
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Colossus Moves
+type = BindToParent
+trigger1 = (parent, anim = 2035) && (parent, AnimElemTime(2) >= 0)
+facing = 1
+pos = -19,7
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Colossus Moves
+type = BindToParent
+trigger1 = parent, anim = 2036
+trigger2 = parent, anim = 2037
+trigger3 = parent, anim = 2038
+facing = 1
+pos = 0,5
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Cable Crackdown
+type = BindToParent
+trigger1 = (parent, anim = 2045) && (parent, AnimElemTime(4) >= 0)
+facing = 1
+pos = 0,-25
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Cable Crackdown
+type = BindToParent
+trigger1 = (parent, anim = 2045) && (parent, AnimElemTime(11) >= 0)
+facing = 1
+pos = 0,-10
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(2) >= 0)
+facing = 1
+pos = -9,2
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(3) >= 0)
+facing = 1
+pos = -3,18
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(4) >= 0)
+facing = 1
+pos = -1,14
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(5) >= 0)
+facing = 1
+pos = -3,15
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(6) >= 0)
+trigger2 = (parent, anim = 2097) && (parent, AnimElemTime(1) >= 0)
+facing = 1
+pos = 0,9
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(7) >= 0)
+trigger2 = (parent, anim = 2097) && (parent, AnimElemTime(2) >= 0)
+facing = 1
+pos = -3,9
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2044) && (parent, AnimElemTime(8) >= 0)
+trigger2 = (parent, anim = 2097) && (parent, AnimElemTime(3) >= 0)
+facing = 1
+pos = -1,10
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, BindToParent];Restore Position
+type = BindToParent
+trigger1 = (parent, anim = 2045) && (parent, AnimElemTime(12) >= 0);Cable Crackdown
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(1) >= 0)
+Value = 22000002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(2) >= 0)
+Value = 22000003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(3) >= 0)
+Value = 22000004
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(4) >= 0)
+Value = 22000005
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(5) >= 0)
+Value = 22000006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(6) >= 0)
+Value = 22000007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(7) >= 0)
+Value = 22000008
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(8) >= 0)
+Value = 22000009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(9) >= 0)
+Value = 22000010
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(10) >= 0)
+Value = 22000008
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(11) >= 0)
+Value = 22000009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(12) >= 0)
+Value = 22000010
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2000) && (parent, AnimElemTime(13) >= 0)
+Value = 22000011
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(1) >= 0)
+Value = 22000012
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(2) >= 0)
+Value = 22000013
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(3) >= 0)
+Value = 22000014
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(4) >= 0)
+Value = 22000015
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(5) >= 0)
+Value = 22000016
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(6) >= 0)
+Value = 22000017
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(7) >= 0)
+Value = 22000018
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(8) >= 0)
+Value = 22000019
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2001) && (parent, AnimElemTime(9) >= 0)
+Value = 22000020
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(1) >= 0)
+Value = 22000021
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(2) >= 0)
+Value = 22000022
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(3) >= 0)
+Value = 22000023
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(4) >= 0)
+Value = 22000024
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(5) >= 0)
+Value = 22000025
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(6) >= 0)
+Value = 22000026
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2002) && (parent, AnimElemTime(7) >= 0)
+Value = 22000027
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(1) >= 0)
+Value = 22000028
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(2) >= 0)
+Value = 22000029
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(3) >= 0)
+Value = 22000030
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(4) >= 0)
+Value = 22000031
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(5) >= 0)
+Value = 22000032
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(6) >= 0)
+Value = 22000033
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(7) >= 0)
+Value = 22000034
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(8) >= 0)
+Value = 22000035
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(9) >= 0)
+Value = 22000036
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(10) >= 0)
+Value = 22000037
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(11) >= 0)
+Value = 22000038
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2003) && (parent, AnimElemTime(12) >= 0)
+Value = 22000039
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(1) >= 0)
+Value = 22000040
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(2) >= 0)
+Value = 22000041
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(3) >= 0)
+Value = 22000042
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(4) >= 0)
+Value = 22000043
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(5) >= 0)
+Value = 22000044
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(6) >= 0)
+Value = 22000045
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(7) >= 0)
+Value = 22000046
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(8) >= 0)
+Value = 22000047
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(9) >= 0)
+Value = 22000048
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(10) >= 0)
+Value = 22000049
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(11) >= 0)
+Value = 22000050
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(12) >= 0)
+Value = 22000051
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(13) >= 0)
+Value = 22000052
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(14) >= 0)
+Value = 22000053
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2004) && (parent, AnimElemTime(15) >= 0)
+Value = 22000054
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(1) >= 0)
+Value = 22000055
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(2) >= 0)
+Value = 22000056
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(3) >= 0)
+Value = 22000057
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(4) >= 0)
+Value = 22000058
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(5) >= 0)
+Value = 22000059
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(6) >= 0)
+Value = 22000058
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(7) >= 0)
+Value = 22000059
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(8) >= 0)
+Value = 22000058
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(9) >= 0)
+Value = 22000059
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2005) && (parent, AnimElemTime(10) >= 0)
+Value = 22000060
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(1) >= 0)
+Value = 20200000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(2) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(3) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(4) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(5) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(6) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(7) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(8) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(9) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(10) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(11) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(12) >= 0)
+Value = 20200003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(13) >= 0)
+Value = 20041009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2006) && (parent, AnimElemTime(14) >= 0)
+Value = 20041009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2007) && (parent, AnimElemTime(1) >= 0)
+Value = 20200000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2007) && (parent, AnimElemTime(2) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2007) && (parent, AnimElemTime(3) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2007) && (parent, AnimElemTime(4) >= 0)
+Value = 20200001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2007) && (parent, AnimElemTime(5) >= 0)
+Value = 20200002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2007) && (parent, AnimElemTime(6) >= 0)
+Value = 20200003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2008) && (parent, AnimElemTime(1) >= 0)
+Value = 20120001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2008) && (parent, AnimElemTime(2) >= 0)
+Value = 20120000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2009) && (parent, AnimElemTime(1) >= 0)
+Value = 20600000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2009) && (parent, AnimElemTime(2) >= 0)
+Value = 20600001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2009) && (parent, AnimElemTime(3) >= 0)
+Value = 20600002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2009) && (parent, AnimElemTime(4) >= 0)
+Value = 20600001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2009) && (parent, AnimElemTime(5) >= 0)
+Value = 20600002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2009) && (parent, AnimElemTime(6) >= 0)
+Value = 20600003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2010) && (parent, AnimElemTime(1) >= 0)
+Value = 20041002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2010) && (parent, AnimElemTime(2) >= 0)
+Value = 20041003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2010) && (parent, AnimElemTime(3) >= 0)
+Value = 20041004
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2010) && (parent, AnimElemTime(4) >= 0)
+Value = 20041003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2011) && (parent, AnimElemTime(1) >= 0)
+Value = 20122000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2011) && (parent, AnimElemTime(2) >= 0)
+Value = 20122001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(1) >= 0)
+Value = 22000055
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(2) >= 0)
+Value = 22000056
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(3) >= 0)
+Value = 22000057
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(4) >= 0)
+Value = 22000058
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(5) >= 0)
+Value = 22000059
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(6) >= 0)
+Value = 22000058
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(7) >= 0)
+Value = 22000059
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(8) >= 0)
+Value = 22000058
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(9) >= 0)
+Value = 22000059
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(10) >= 0)
+Value = 22000057
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(11) >= 0)
+Value = 22000056
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2012) && (parent, AnimElemTime(12) >= 0)
+Value = 22000055
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(1) >= 0)
+Value = 22000061
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(2) >= 0)
+Value = 22000062
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(3) >= 0)
+Value = 22000063
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(4) >= 0)
+Value = 22000064
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(5) >= 0)
+Value = 22000065
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(6) >= 0)
+Value = 22000066
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(7) >= 0)
+Value = 22000067
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(8) >= 0)
+Value = 22000068
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(9) >= 0)
+Value = 22000069
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(10) >= 0)
+Value = 22000070
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(11) >= 0)
+Value = 22000071
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(12) >= 0)
+Value = 22000072
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(13) >= 0)
+Value = 22000073
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(14) >= 0)
+Value = 22000074
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(15) >= 0)
+Value = 22000075
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2020) && (parent, AnimElemTime(16) >= 0)
+Value = 22000076
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2021) && (parent, AnimElemTime(1) >= 0)
+Value = 22000077
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2021) && (parent, AnimElemTime(2) >= 0)
+Value = 22000078
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2021) && (parent, AnimElemTime(3) >= 0)
+Value = 22000079
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2022) && (parent, AnimElemTime(1) >= 0)
+Value = 20005000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2022) && (parent, AnimElemTime(2) >= 0)
+Value = 20005001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2023) && (parent, AnimElemTime(1) >= 0)
+Value = 27610002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2023) && (parent, AnimElemTime(2) >= 0)
+Value = 27610001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2024) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2024) && (parent, AnimElemTime(2) >= 0)
+Value = 20010001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2024) && (parent, AnimElemTime(3) >= 0)
+Value = 21450006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2024) && (parent, AnimElemTime(4) >= 0)
+Value = 21450007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2024) && (parent, AnimElemTime(5) >= 0)
+Value = 20105000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2024) && (parent, AnimElemTime(6) >= 0)
+Value = 20105003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(1) >= 0)
+Value = 20220000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(2) >= 0)
+Value = 20220001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(3) >= 0)
+Value = 21450009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(4) >= 0)
+Value = 21450001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(5) >= 0)
+Value = 21450002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(6) >= 0)
+Value = 21450008
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(7) >= 0)
+Value = 21450005
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2025) && (parent, AnimElemTime(8) >= 0)
+Value = 21450006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2028) && (parent, AnimElemTime(1) >= 0)
+Value = 21450007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2028) && (parent, AnimElemTime(2) >= 0)
+Value = 20210006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(1) >= 0)
+Value = 22000002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(2) >= 0)
+Value = 22000004
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(3) >= 0)
+Value = 22000006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(4) >= 0)
+Value = 22000007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(5) >= 0)
+Value = 22000008
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(6) >= 0)
+Value = 22000009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(7) >= 0)
+Value = 22000010
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(8) >= 0)
+Value = 22000007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(9) >= 0)
+Value = 22000008
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(10) >= 0)
+Value = 22000009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(11) >= 0)
+Value = 22000010
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(12) >= 0)
+Value = 22000011
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(13) >= 0)
+Value = 22000012
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2029) && (parent, AnimElemTime(14) >= 0)
+Value = 22000012
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(1) >= 0)
+Value = 22000002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(2) >= 0)
+Value = 22000003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(3) >= 0)
+Value = 22000004
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(4) >= 0)
+Value = 22000005
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(5) >= 0)
+Value = 22000006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(6) >= 0)
+Value = 20410001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(7) >= 0)
+Value = 20410002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2032) && (parent, AnimElemTime(8) >= 0)
+Value = 20410004
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2035) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2035) && (parent, AnimElemTime(2) >= 0)
+Value = 20100000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2036) && (parent, AnimElemTime(1) >= 0)
+Value = 21450000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2037) && (parent, AnimElemTime(1) >= 0)
+Value = 21450000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2037) && (parent, AnimElemTime(2) >= 0)
+Value = 21450000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2037) && (parent, AnimElemTime(3) >= 0)
+Value = 21450000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2037) && (parent, AnimElemTime(4) >= 0)
+Value = 21450000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2038) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(1) >= 0)
+Value = 20300000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(2) >= 0)
+Value = 22000084
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(3) >= 0)
+Value = 22000085
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(4) >= 0)
+Value = 22000086
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(5) >= 0)
+Value = 22000087
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(6) >= 0)
+Value = 22000088
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(7) >= 0)
+Value = 22000089
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(8) >= 0)
+Value = 22000090
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(9) >= 0)
+Value = 22000088
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(10) >= 0)
+Value = 22000089
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(11) >= 0)
+Value = 22000090
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(12) >= 0)
+Value = 22000088
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(13) >= 0)
+Value = 22000089
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(14) >= 0)
+Value = 22000090
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(15) >= 0)
+Value = 22000088
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(16) >= 0)
+Value = 22000089
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(17) >= 0)
+Value = 22000090
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(18) >= 0)
+Value = 22000088
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(19) >= 0)
+Value = 20410001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2039) && (parent, AnimElemTime(20) >= 0)
+Value = 20410000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(2) >= 0)
+Value = 20100000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(3) >= 0)
+Value = 20720000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(4) >= 0)
+Value = 20720001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(5) >= 0)
+Value = 20720002
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(6) >= 0)
+Value = 20183003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(7) >= 0)
+Value = 20183000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(8) >= 0)
+Value = 20183001
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2044) && (parent, AnimElemTime(9) >= 0)
+Value = 20183000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(1) >= 0)
+Value = 20105004
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(2) >= 0)
+Value = 20105005
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(3) >= 0)
+Value = 20100003
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(4) >= 0)
+Value = 21450009
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(5) >= 0)
+Value = 21450005
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(6) >= 0)
+Value = 21450006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(7) >= 0)
+Value = 21450007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(8) >= 0)
+Value = 21450007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(9) >= 0)
+Value = 21450007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(10) >= 0)
+Value = 21450007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(11) >= 0)
+Value = 20100000
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(12) >= 0)
+Value = 20100006
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2045) && (parent, AnimElemTime(13) >= 0)
+Value = 20100007
+
+[State 20003, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2051) && (parent, AnimElemTime(1) >= 0)
+Value = 20105005
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim < 200)
+value = 20000
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=200) && (parent, Anim < 1000)
+value = 20001
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=1000) && (parent, Anim < 2000)
+value = 20002
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2046) && (parent, Anim < 3000)
+value = 20004
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=3000)
+value = 20005
+ctrl = 0
+
+[Statedef 20004]
+type    = S
+movetype = I
+physics = N
+sprpriority = 2
+anim = 20000000
+ctrl = 0
+
+[State 20000, ChangeState]
+type = ChangeState
+trigger1 = (parent,var(23)= 1)
+trigger1 = parent, ctrl = 0
+value = 28000
+
+[State 20004, BindToParent]
+type = BindToParent
+trigger1 = 1
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2048) && (parent, AnimElemTime(2) >= 0)
+facing = 1
+pos = 1,9
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2048) && (parent, AnimElemTime(3) >= 0)
+facing = 1
+pos = 0,13
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2048) && (parent, AnimElemTime(4) >= 0)
+facing = 1
+pos = -4,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2048) && (parent, AnimElemTime(5) >= 0)
+trigger2 = (parent, anim = 2049) && (parent, AnimElemTime(1) >= 0)
+facing = 1
+pos = -14,-17
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2048) && (parent, AnimElemTime(6) >= 0)
+facing = 1
+pos = -2,-50
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2049) && (parent, AnimElemTime(2) >= 0)
+facing = 1
+pos = -2,18
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2049) && (parent, AnimElemTime(3) >= 0)
+facing = 1
+pos = -2,14
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Beast
+type = BindToParent
+trigger1 = (parent, anim = 2049) && (parent, AnimElemTime(4) >= 0)
+facing = 1
+pos = -2,8
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Quicksilver
+type = BindToParent
+trigger1 = (parent, anim = 2075) && (parent, AnimElemTime(3) >= 0)
+facing = 1
+pos = 0,-10
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Deadpool Hyper
+type = BindToParent
+trigger1 = (parent, anim = 2091)
+facing = 1
+pos = -20,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2097) && (parent, AnimElemTime(1) >= 0)
+facing = 1
+pos = 0,9
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2097) && (parent, AnimElemTime(2) >= 0)
+facing = 1
+pos = -3,9
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Strong Guy
+type = BindToParent
+trigger1 = (parent, anim = 2097) && (parent, AnimElemTime(3) >= 0)
+facing = 1
+pos = -1,10
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Black Widow
+type = BindToParent
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(1) >= 0)
+facing = 1
+pos = 0,50
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, BindToParent];Black Widow
+type = BindToParent
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(5) >= 0)
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2048) && (parent, AnimElemTime(1) >= 0)
+Value = 20100000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2048) && (parent, AnimElemTime(2) >= 0)
+Value = 20183001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2048) && (parent, AnimElemTime(3) >= 0)
+Value = 20183002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2048) && (parent, AnimElemTime(4) >= 0)
+Value = 22000116
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2048) && (parent, AnimElemTime(5) >= 0)
+Value = 22000117
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2048) && (parent, AnimElemTime(6) >= 0)
+Value = 22000124
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2049) && (parent, AnimElemTime(1) >= 0)
+Value = 22000117
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2049) && (parent, AnimElemTime(2) >= 0)
+Value = 20042006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2049) && (parent, AnimElemTime(3) >= 0)
+Value = 20042007
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2049) && (parent, AnimElemTime(4) >= 0)
+Value = 20042008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2049) && (parent, AnimElemTime(5) >= 0)
+Value = 20042009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2050) && (parent, AnimElemTime(1) >= 0)
+Value = 20105004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2050) && (parent, AnimElemTime(2) >= 0)
+Value = 20105005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2050) && (parent, AnimElemTime(3) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2051) && (parent, AnimElemTime(1) >= 0)
+Value = 20105005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2052) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2052) && (parent, AnimElemTime(2) >= 0)
+Value = 22000002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2052) && (parent, AnimElemTime(3) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(1) >= 0)
+Value = 20210000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(2) >= 0)
+Value = 20210001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(3) >= 0)
+Value = 20210002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(4) >= 0)
+Value = 20210003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(5) >= 0)
+Value = 20210004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(6) >= 0)
+Value = 20210005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2053) && (parent, AnimElemTime(7) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2054) && (parent, AnimElemTime(1) >= 0)
+Value = 20210002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2054) && (parent, AnimElemTime(2) >= 0)
+Value = 20210005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2054) && (parent, AnimElemTime(3) >= 0)
+Value = 20210000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2054) && (parent, AnimElemTime(4) >= 0)
+Value = 20210000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2054) && (parent, AnimElemTime(5) >= 0)
+Value = 20210000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(1) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(2) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(3) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(4) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(5) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(6) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(7) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2055) && (parent, AnimElemTime(8) >= 0)
+Value = 20210006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2056) && (parent, AnimElemTime(1) >= 0)
+Value = 20041001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2056) && (parent, AnimElemTime(2) >= 0)
+Value = 20041002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2056) && (parent, AnimElemTime(7) >= 0)
+Value = 20041003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2056) && (parent, AnimElemTime(8) >= 0)
+Value = 20041002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2060) && (parent, AnimElemTime(1) >= 0)
+Value = 22000109
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2060) && (parent, AnimElemTime(2) >= 0)
+Value = 22000110
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2060) && (parent, AnimElemTime(3) >= 0)
+Value = 22000111
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2061) && (parent, AnimElemTime(1) >= 0)
+Value = 22000112
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2062) && (parent, AnimElemTime(1) >= 0)
+Value = 22000113
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2062) && (parent, AnimElemTime(2) >= 0)
+Value = 22000114
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2063) && (parent, AnimElemTime(1) >= 0)
+Value = 22000115
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2070) && (parent, AnimElemTime(1) >= 0)
+Value = 25000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2070) && (parent, AnimElemTime(2) >= 0)
+Value = 25000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2071) && (parent, AnimElemTime(1) >= 0)
+Value = 25020000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2071) && (parent, AnimElemTime(2) >= 0)
+Value = 25020010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2072) && (parent, AnimElemTime(1) >= 0)
+Value = 25000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2072) && (parent, AnimElemTime(2) >= 0)
+Value = 25060000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2075) && (parent, AnimElemTime(1) >= 0)
+Value = 20210000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2075) && (parent, AnimElemTime(2) >= 0)
+Value = 20210001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2075) && (parent, AnimElemTime(3) >= 0)
+Value = 21450001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2076) && (parent, AnimElemTime(1) >= 0)
+Value = 21450009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2076) && (parent, AnimElemTime(2) >= 0)
+Value = 20100000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2076) && (parent, AnimElemTime(3) >= 0)
+Value = 20100006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2076) && (parent, AnimElemTime(4) >= 0)
+Value = 20100007
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2077) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2077) && (parent, AnimElemTime(2) >= 0)
+Value = 20100004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2077) && (parent, AnimElemTime(3) >= 0)
+Value = 20100005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2077) && (parent, AnimElemTime(4) >= 0)
+Value = 20100004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2077) && (parent, AnimElemTime(5) >= 0)
+Value = 20100006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2077) && (parent, AnimElemTime(6) >= 0)
+Value = 20100007
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2078) && (parent, AnimElemTime(1) >= 0)
+Value = 20005000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2078) && (parent, AnimElemTime(2) >= 0)
+Value = 20005000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2078) && (parent, AnimElemTime(3) >= 0)
+Value = 20005000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(1) >= 0)
+Value = 25070000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(2) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(3) >= 0)
+Value = 25070010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(4) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(5) >= 0)
+Value = 25070010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(6) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(7) >= 0)
+Value = 25070020
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(8) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(9) >= 0)
+Value = 25070020
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(10) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(12) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(13) >= 0)
+Value = 25070020
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(14) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(16) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(17) >= 0)
+Value = 25070020
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2079) && (parent, AnimElemTime(18) >= 0)
+Value = 20000000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2080) && (parent, AnimElemTime(1) >= 0)
+Value = 22000060
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2080) && (parent, AnimElemTime(2) >= 0)
+Value = 22000061
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2080) && (parent, AnimElemTime(3) >= 0)
+Value = 22000062
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2080) && (parent, AnimElemTime(4) >= 0)
+Value = 22000077
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2080) && (parent, AnimElemTime(5) >= 0)
+Value = 22000078
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2080) && (parent, AnimElemTime(6) >= 0)
+Value = 22000079
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2084) && (parent, AnimElemTime(1) >= 0)
+Value = 22000060
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2084) && (parent, AnimElemTime(2) >= 0)
+Value = 22000061
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2086) && (parent, AnimElemTime(1) >= 0)
+Value = 21450000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(1) >= 0)
+Value = 22000085
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(2) >= 0)
+Value = 22000086
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(3) >= 0)
+Value = 22000087
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(4) >= 0)
+Value = 22000088
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(5) >= 0)
+Value = 22000089
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(6) >= 0)
+Value = 22000090
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(7) >= 0)
+Value = 22000088
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(8) >= 0)
+Value = 22000089
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(9) >= 0)
+Value = 22000090
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(10) >= 0)
+Value = 22000088
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2087) && (parent, AnimElemTime(11) >= 0)
+Value = 22000089
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(2) >= 0)
+Value = 20010001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(3) >= 0)
+Value = 20010002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(4) >= 0)
+Value = 20410001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(5) >= 0)
+Value = 20410002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(6) >= 0)
+Value = 20410003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(7) >= 0)
+Value = 20220001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(8) >= 0)
+Value = 20210001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(9) >= 0)
+Value = 20210002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(10) >= 0)
+Value = 20210003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(11) >= 0)
+Value = 20200000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(12) >= 0)
+Value = 20200001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(13) >= 0)
+Value = 20200002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(14) >= 0)
+Value = 20500000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(15) >= 0)
+Value = 20500001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(16) >= 0)
+Value = 20006000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(17) >= 0)
+Value = 20320000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(18) >= 0)
+Value = 20320001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(19) >= 0)
+Value = 20320002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(20) >= 0)
+Value = 20320003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(21) >= 0)
+Value = 20320004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(22) >= 0)
+Value = 20320005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(23) >= 0)
+Value = 20520001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(24) >= 0)
+Value = 20520002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(25) >= 0)
+Value = 20520002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(26) >= 0)
+Value = 20510001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(27) >= 0)
+Value = 20510002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(28) >= 0)
+Value = 20510003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(29) >= 0)
+Value = 20510004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(30) >= 0)
+Value = 20420000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(31) >= 0)
+Value = 20420001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(32) >= 0)
+Value = 20420002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(33) >= 0)
+Value = 20420003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(34) >= 0)
+Value = 20420004
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(35) >= 0)
+Value = 20420005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(36) >= 0)
+Value = 20420006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(37) >= 0)
+Value = 20420007
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(38) >= 0)
+Value = 20420008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2089) && (parent, AnimElemTime(39) >= 0)
+Value = 20420009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(2) >= 0)
+Value = 20010001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(3) >= 0)
+Value = 20010002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(4) >= 0)
+Value = 20410001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(5) >= 0)
+Value = 20410002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(36) >= 0)
+Value = 20420006
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(37) >= 0)
+Value = 20420007
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(38) >= 0)
+Value = 20420008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2090) && (parent, AnimElemTime(39) >= 0)
+Value = 20420009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2091) && (parent, AnimElemTime(1) >= 0)
+Value = 20184000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2091) && (parent, AnimElemTime(2) >= 0)
+Value = 20184002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2091) && (parent, AnimElemTime(3) >= 0)
+Value = 20184005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2091) && (parent, AnimElemTime(4) >= 0)
+Value = 20184005
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(1) >= 0)
+Value = 22000040
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(2) >= 0)
+Value = 22000041
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(3) >= 0)
+Value = 22000042
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(4) >= 0)
+Value = 22000043
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(5) >= 0)
+Value = 22000044
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(6) >= 0)
+Value = 22000045
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(7) >= 0)
+Value = 22000046
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2092) && (parent, AnimElemTime(8) >= 0)
+Value = 22000047
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(1) >= 0)
+Value = 22000007
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(2) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(3) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(4) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(5) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(6) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(7) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(8) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(9) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(10) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(11) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(12) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(13) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(14) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(15) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(16) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(17) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(18) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(19) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(20) >= 0)
+Value = 22000008
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(21) >= 0)
+Value = 22000009
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(22) >= 0)
+Value = 22000010
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2093) && (parent, AnimElemTime(23) >= 0)
+Value = 22000011
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2095) && (parent, AnimElemTime(1) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2095) && (parent, AnimElemTime(2) >= 0)
+Value = 20010001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2095) && (parent, AnimElemTime(3) >= 0)
+Value = 20010002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2097) && (parent, AnimElemTime(1) >= 0)
+Value = 20183003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2097) && (parent, AnimElemTime(2) >= 0)
+Value = 20183000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2097) && (parent, AnimElemTime(3) >= 0)
+Value = 20183001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2097) && (parent, AnimElemTime(4) >= 0)
+Value = 20183000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2098) && (parent, AnimElemTime(1) >= 0)
+Value = 22000147
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(1) >= 0)
+Value = 20183000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(2) >= 0)
+Value = 20183001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(3) >= 0)
+Value = 20183002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(4) >= 0)
+Value = 20183003
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(5) >= 0)
+Value = 20500002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(6) >= 0)
+Value = 20050000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(7) >= 0)
+Value = 20500001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(8) >= 0)
+Value = 20500002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(9) >= 0)
+Value = 22000149
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(10) >= 0)
+Value = 22000150
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(11) >= 0)
+Value = 22000151
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(12) >= 0)
+Value = 22000153
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(13) >= 0)
+Value = 22000154
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(14) >= 0)
+Value = 22000155
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(15) >= 0)
+Value = 22000157
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(16) >= 0)
+Value = 22000158
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(17) >= 0)
+Value = 22000159
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(18) >= 0)
+Value = 22000160
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(19) >= 0)
+Value = 20010002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(20) >= 0)
+Value = 20010001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(21) >= 0)
+Value = 20010000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(22) >= 0)
+Value = 20700002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(23) >= 0)
+Value = 20700000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(24) >= 0)
+Value = 20700001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(25) >= 0)
+Value = 20700002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2101) && (parent, AnimElemTime(26) >= 0)
+Value = 20041011
+
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2106) && (parent, AnimElemTime(1) >= 0)
+Value = 20500002
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2106) && (parent, AnimElemTime(2) >= 0)
+Value = 20500000
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2106) && (parent, AnimElemTime(3) >= 0)
+Value = 20500001
+
+[State 20004, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2106) && (parent, AnimElemTime(4) >= 0)
+Value = 20500002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(1) >= 0)
+Value = 20810001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(2) >= 0)
+Value = 20810000
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(3) >= 0)
+Value = 20810001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(4) >= 0)
+Value = 20810001
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(5) >= 0)
+Value = 20810002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(6) >= 0)
+Value = 20810002
+
+[State 20001, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 2107) && (parent, AnimElemTime(7) >= 0)
+Value = 20810003
+
+[State 20004, Change Animation - Blank Frame]
+type = ChangeAnim
+trigger1 = (parent, Anim =  2054) && (parent, AnimElemTime(6) >= 0);Mystique Special
+trigger2 = (parent, Anim = 2095) && (parent, AnimElemTime(4) >= 0) ;Mystique Hyper
+trigger3 = (parent, Anim = 2056) ;Nightcrawler Special
+trigger3 = (parent, AnimElemTime(3) >= 0)&&(parent, AnimElemTime(7) < 0)
+trigger4 = (parent, Anim = 2090) ;Nightcrawler Hyper
+trigger4 = (parent, AnimElemTime(6) >= 0)&&(parent, AnimElemTime(36) < 0)
+trigger5 = (parent, Anim = 2096) ;Megaman Hyper
+trigger6 = (parent, Anim = 2099) ;Ghost Rider Hyper
+Value = 28000000
+
+[State 20004, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim < 200)
+value = 20000
+ctrl = 0
+
+[State 20004, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=200) && (parent, Anim < 1000)
+value = 20001
+ctrl = 0
+
+[State 20004, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=1000) && (parent, Anim < 2000)
+value = 20002
+ctrl = 0
+
+[State 20004, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2000) && (parent, Anim < 2046)
+value = 20003
+ctrl = 0
+
+[State 20004, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=3000)
+value = 20005
+ctrl = 0
+
+[Statedef 20005]
+type    = S
+movetype = I
+physics = N
+sprpriority = 2
+anim = 20000000
+ctrl = 0
+
+[State 20005, ChangeState]
+type = ChangeState
+trigger1 = (parent,var(23)= 1)
+trigger1 = parent, ctrl = 0
+value = 28000
+
+[State 20005, BindToParent]
+type = BindToParent
+trigger1 = 1
+facing = 1
+pos = 0,0
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20005, BindToParent];Omega Red Power while walking
+type = BindToParent
+trigger1 = parent, Anim = 62023
+facing = 1
+pos = 18,13
+time = ifelse (parent, Var(23) = 0, -1, 0)
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3000) && (parent, AnimElemTime(1) >= 0)
+Value = 22000055
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3000) && (parent, AnimElemTime(2) >= 0)
+Value = 22000056
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3000) && (parent, AnimElemTime(3) >= 0)
+Value = 22000056
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3000) && (parent, AnimElemTime(4) >= 0)
+Value = 22000056
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3001) && (parent, AnimElemTime(1) >= 0)
+Value = 22000057
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3001) && (parent, AnimElemTime(2) >= 0)
+Value = 20100000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3001) && (parent, AnimElemTime(3) >= 0)
+Value = 20100001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3001) && (parent, AnimElemTime(4) >= 0)
+Value = 20100002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3012) && (parent, AnimElemTime(1) >= 0)
+Value = 20041001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3012) && (parent, AnimElemTime(2) >= 0)
+Value = 20041010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(1) >= 0)
+Value = 20100003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(2) >= 0)
+Value = 20100004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(3) >= 0)
+Value = 20100005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(4) >= 0)
+Value = 20100006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(5) >= 0)
+Value = 20100007
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(6) >= 0)
+Value = 20041000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3019) && (parent, AnimElemTime(7) >= 0)
+Value = 20041009
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3900) && (parent, AnimElemTime(1) >= 0)
+Value = 20005000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3900) && (parent, AnimElemTime(2) >= 0)
+Value = 25300003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3900) && (parent, AnimElemTime(3) >= 0)
+Value = 25300004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3900) && (parent, AnimElemTime(4) >= 0)
+Value = 25300005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 3900) && (parent, AnimElemTime(5) >= 0)
+Value = 20010000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5000) && (parent, AnimElemTime(1) >= 0)
+Value = 25000000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5001) && (parent, AnimElemTime(1) >= 0)
+Value = 25000010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5002) && (parent, AnimElemTime(1) >= 0)
+Value = 25000020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5005) && (parent, AnimElemTime(1) >= 0)
+Value = 25000000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5005) && (parent, AnimElemTime(2) >= 0)
+Value = 25000001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5005) && (parent, AnimElemTime(3) >= 0)
+Value = 25000000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5006) && (parent, AnimElemTime(1) >= 0)
+Value = 25000010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5006) && (parent, AnimElemTime(2) >= 0)
+Value = 25000012
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5006) && (parent, AnimElemTime(3) >= 0)
+Value = 25000013
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5006) && (parent, AnimElemTime(4) >= 0)
+Value = 25000001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5006) && (parent, AnimElemTime(5) >= 0)
+Value = 25000000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(1) >= 0)
+Value = 25000020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(2) >= 0)
+Value = 25000021
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(3) >= 0)
+Value = 25000022
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(4) >= 0)
+Value = 25000023
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(5) >= 0)
+Value = 25000024
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(6) >= 0)
+Value = 25000025
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(7) >= 0)
+Value = 25000026
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5007) && (parent, AnimElemTime(8) >= 0)
+Value = 25000027
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5010) && (parent, AnimElemTime(1) >= 0)
+Value = 25010000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5011) && (parent, AnimElemTime(1) >= 0)
+Value = 25010010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5012) && (parent, AnimElemTime(1) >= 0)
+Value = 25010020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5015) && (parent, AnimElemTime(1) >= 0)
+Value = 25010000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5015) && (parent, AnimElemTime(2) >= 0)
+Value = 25010001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5016) && (parent, AnimElemTime(1) >= 0)
+Value = 25010010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5016) && (parent, AnimElemTime(2) >= 0)
+Value = 25010011
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5016) && (parent, AnimElemTime(3) >= 0)
+Value = 25010001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5016) && (parent, AnimElemTime(4) >= 0)
+Value = 25010000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5017) && (parent, AnimElemTime(1) >= 0)
+Value = 25010020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5017) && (parent, AnimElemTime(2) >= 0)
+Value = 25010021
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5017) && (parent, AnimElemTime(3) >= 0)
+Value = 25010022
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5020) && (parent, AnimElemTime(1) >= 0)
+Value = 25020000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5021) && (parent, AnimElemTime(1) >= 0)
+Value = 25020010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5022) && (parent, AnimElemTime(1) >= 0)
+Value = 25020020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5025) && (parent, AnimElemTime(1) >= 0)
+Value = 25020000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5025) && (parent, AnimElemTime(2) >= 0)
+Value = 25020001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5026) && (parent, AnimElemTime(1) >= 0)
+Value = 25020010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5026) && (parent, AnimElemTime(2) >= 0)
+Value = 25020000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5026) && (parent, AnimElemTime(3) >= 0)
+Value = 25020001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5027) && (parent, AnimElemTime(1) >= 0)
+Value = 25020020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5027) && (parent, AnimElemTime(2) >= 0)
+Value = 25020021
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5027) && (parent, AnimElemTime(3) >= 0)
+Value = 25020022
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5027) && (parent, AnimElemTime(4) >= 0)
+Value = 25020023
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5027) && (parent, AnimElemTime(5) >= 0)
+Value = 25020000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5027) && (parent, AnimElemTime(6) >= 0)
+Value = 25020001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5030) && (parent, AnimElemTime(1) >= 0)
+Value = 25030010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5035) && (parent, AnimElemTime(1) >= 0)
+Value = 25035000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5040) && (parent, AnimElemTime(1) >= 0)
+Value = 27800000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5040) && (parent, AnimElemTime(2) >= 0)
+Value = 27800003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5040) && (parent, AnimElemTime(3) >= 0)
+Value = 27800002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5040) && (parent, AnimElemTime(4) >= 0)
+Value = 27800001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5050) && (parent, AnimElemTime(1) >= 0)
+Value = 25030000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5050) && (parent, AnimElemTime(2) >= 0)
+Value = 25030001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5051) && (parent, AnimElemTime(1) >= 0)
+Value = 25060000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5051) && (parent, AnimElemTime(2) >= 0)
+Value = 25060001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5055) && (parent, AnimElemTime(1) >= 0)
+Value = 25055000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5055) && (parent, AnimElemTime(2) >= 0)
+Value = 25055001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5060) && (parent, AnimElemTime(1) >= 0)
+Value = 25030010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5060) && (parent, AnimElemTime(2) >= 0)
+Value = 25030030
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5060) && (parent, AnimElemTime(3) >= 0)
+Value = 25030040
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5061) && (parent, AnimElemTime(1) >= 0)
+Value = 25030010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5061) && (parent, AnimElemTime(2) >= 0)
+Value = 25030030
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5061) && (parent, AnimElemTime(3) >= 0)
+Value = 25030040
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5061) && (parent, AnimElemTime(4) >= 0)
+Value = 25060010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5070) && (parent, AnimElemTime(1) >= 0)
+Value = 25170000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5070) && (parent, AnimElemTime(2) >= 0)
+Value = 25170001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5070) && (parent, AnimElemTime(3) >= 0)
+Value = 25170002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5072) && (parent, AnimElemTime(1) >= 0)
+Value = 020
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5080) && (parent, AnimElemTime(1) >= 0)
+Value = 25040023
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5090) && (parent, AnimElemTime(1) >= 0)
+Value = 25160000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5100) && (parent, AnimElemTime(1) >= 0)
+Value = 25040000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5100) && (parent, AnimElemTime(2) >= 0)
+Value = 25040001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5160) && (parent, AnimElemTime(1) >= 0)
+Value = 25160000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5160) && (parent, AnimElemTime(2) >= 0)
+Value = 25160001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5170) && (parent, AnimElemTime(1) >= 0)
+Value = 25040010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5110) && (parent, AnimElemTime(1) >= 0)
+Value = 25040010
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5110) && (parent, AnimElemTime(2) >= 0)
+Value = 25040011
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5110) && (parent, AnimElemTime(3) >= 0)
+Value = 25040012
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5150) && (parent, AnimElemTime(1) >= 0)
+Value = 25040012
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5200) && (parent, AnimElemTime(1) >= 0)
+Value = 27800000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5200) && (parent, AnimElemTime(2) >= 0)
+Value = 27800003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5200) && (parent, AnimElemTime(3) >= 0)
+Value = 27800002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5200) && (parent, AnimElemTime(4) >= 0)
+Value = 27800001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5210) && (parent, AnimElemTime(1) >= 0)
+Value = 27800000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5210) && (parent, AnimElemTime(2) >= 0)
+Value = 27800003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5210) && (parent, AnimElemTime(3) >= 0)
+Value = 27800002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5210) && (parent, AnimElemTime(4) >= 0)
+Value = 27800001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5250) && (parent, AnimElemTime(1) >= 0)
+Value = 25250000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5250) && (parent, AnimElemTime(2) >= 0)
+Value = 25250001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5250) && (parent, AnimElemTime(3) >= 0)
+Value = 25250002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5250) && (parent, AnimElemTime(4) >= 0)
+Value = 25250003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5250) && (parent, AnimElemTime(5) >= 0)
+Value = 25250004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5250) && (parent, AnimElemTime(6) >= 0)
+Value = 25250005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5251) && (parent, AnimElemTime(1) >= 0)
+Value = 25251000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5251) && (parent, AnimElemTime(2) >= 0)
+Value = 25251001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5251) && (parent, AnimElemTime(3) >= 0)
+Value = 25251002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5251) && (parent, AnimElemTime(4) >= 0)
+Value = 25251003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5251) && (parent, AnimElemTime(5) >= 0)
+Value = 25251004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5251) && (parent, AnimElemTime(6) >= 0)
+Value = 25251005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5300) && (parent, AnimElemTime(1) >= 0)
+Value = 25300005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7610) && (parent, AnimElemTime(1) >= 0)
+Value = 27610001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7610) && (parent, AnimElemTime(2) >= 0)
+Value = 27610000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7610) && (parent, AnimElemTime(3) >= 0)
+Value = 27610001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7610) && (parent, AnimElemTime(4) >= 0)
+Value = 27610002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7610) && (parent, AnimElemTime(5) >= 0)
+Value = 27610003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7615) && (parent, AnimElemTime(1) >= 0)
+Value = 27615001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7615) && (parent, AnimElemTime(2) >= 0)
+Value = 27615000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7615) && (parent, AnimElemTime(3) >= 0)
+Value = 27615001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7615) && (parent, AnimElemTime(4) >= 0)
+Value = 27615002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7615) && (parent, AnimElemTime(5) >= 0)
+Value = 27615003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7620) && (parent, AnimElemTime(1) >= 0)
+Value = 27620001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7620) && (parent, AnimElemTime(2) >= 0)
+Value = 27620000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7620) && (parent, AnimElemTime(3) >= 0)
+Value = 27620001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7620) && (parent, AnimElemTime(4) >= 0)
+Value = 27620002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7620) && (parent, AnimElemTime(5) >= 0)
+Value = 27620003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7800) && (parent, AnimElemTime(1) >= 0)
+Value = 27800000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7800) && (parent, AnimElemTime(2) >= 0)
+Value = 27800001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7800) && (parent, AnimElemTime(3) >= 0)
+Value = 27800002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7800) && (parent, AnimElemTime(4) >= 0)
+Value = 27800003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7801) && (parent, AnimElemTime(1) >= 0)
+Value = 27800000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7801) && (parent, AnimElemTime(2) >= 0)
+Value = 27800003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7801) && (parent, AnimElemTime(3) >= 0)
+Value = 27800002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7801) && (parent, AnimElemTime(4) >= 0)
+Value = 27800001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 7970) && (parent, AnimElemTime(1) >= 0)
+Value = 20120001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8018) && (parent, AnimElemTime(1) >= 0)
+Value = 20720007
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8018) && (parent, AnimElemTime(2) >= 0)
+Value = 20721000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8018) && (parent, AnimElemTime(3) >= 0)
+Value = 20721001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8018) && (parent, AnimElemTime(4) >= 0)
+Value = 20721002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(1) >= 0)
+Value = 20182000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(2) >= 0)
+Value = 20182001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(3) >= 0)
+Value = 20182002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(4) >= 0)
+Value = 20182003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(5) >= 0)
+Value = 20182004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(6) >= 0)
+Value = 20182005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(7) >= 0)
+Value = 20182006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(8) >= 0)
+Value = 20182007
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8500) && (parent, AnimElemTime(9) >= 0)
+Value = 20182008
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8501) && (parent, AnimElemTime(1) >= 0)
+Value = 20184000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8501) && (parent, AnimElemTime(2) >= 0)
+Value = 20184001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8501) && (parent, AnimElemTime(3) >= 0)
+Value = 20184002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8501) && (parent, AnimElemTime(4) >= 0)
+Value = 20184003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8501) && (parent, AnimElemTime(5) >= 0)
+Value = 20184004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8501) && (parent, AnimElemTime(6) >= 0)
+Value = 20184005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8502) && (parent, AnimElemTime(1) >= 0)
+Value = 20184000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8502) && (parent, AnimElemTime(2) >= 0)
+Value = 20184001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8502) && (parent, AnimElemTime(3) >= 0)
+Value = 20184002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8502) && (parent, AnimElemTime(4) >= 0)
+Value = 20184003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8502) && (parent, AnimElemTime(5) >= 0)
+Value = 20184004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 8502) && (parent, AnimElemTime(6) >= 0)
+Value = 20184005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20241) && (parent, AnimElemTime(1) >= 0)
+Value = 21450001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20241) && (parent, AnimElemTime(2) >= 0)
+Value = 21450002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20241) && (parent, AnimElemTime(3) >= 0)
+Value = 21450003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20241) && (parent, AnimElemTime(4) >= 0)
+Value = 21450004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20241) && (parent, AnimElemTime(5) >= 0)
+Value = 20105000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 20241) && (parent, AnimElemTime(6) >= 0)
+Value = 20105003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(1) >= 0)
+Value = 20810000
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(2) >= 0)
+Value = 20810002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(3) >= 0)
+Value = 20810004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(4) >= 0)
+Value = 20041002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(5) >= 0)
+Value = 20041003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(6) >= 0)
+Value = 20041004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(7) >= 0)
+Value = 20041006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(8) >= 0)
+Value = 20041007
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(9) >= 0)
+Value = 20041008
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(10) >= 0)
+Value = 20041011
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(11) >= 0)
+Value = 20041008
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(12) >= 0)
+Value = 20041011
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(14) >= 0)
+Value = 20041008
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62008) && (parent, AnimElemTime(16) >= 0)
+Value = 20041011
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(1) >= 0)
+Value = 20192003
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(2) >= 0)
+Value = 20192004
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(3) >= 0)
+Value = 20192005
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(4) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(5) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(6) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(7) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(8) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(9) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62009) && (parent, AnimElemTime(10) >= 0)
+Value = 20192006
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62023) && (parent, AnimElemTime(1) >= 0)
+Value = 27620001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62023) && (parent, AnimElemTime(2) >= 0)
+Value = 27620002
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62023) && (parent, AnimElemTime(3) >= 0)
+Value = 27620001
+
+[State 20005, Change Animation]
+type = ChangeAnim
+trigger1 = (parent, Anim = 62023) && (parent, AnimElemTime(4) >= 0)
+Value = 27620002
+
+[State 20005, Change Animation - Blank Frame]
+type = ChangeAnim
+trigger1 = (parent, Anim = 5120)
+trigger2 = (parent, Anim = 5121)
+trigger3 = (parent, Anim = [6183, 6187])
+Value = 28000000
+
+[State 20005, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim < 200)
+value = 20000
+ctrl = 0
+
+[State 20005, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=200) && (parent, Anim < 1000)
+value = 20001
+ctrl = 0
+
+[State 20005, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=1000) && (parent, Anim < 2000)
+value = 20002
+ctrl = 0
+
+[State 20005, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2000) && (parent, Anim < 2046)
+value = 20003
+ctrl = 0
+
+[State 20005, ChangeState]
+type = ChangeState
+trigger1 = (parent, Anim >=2046) && (parent, Anim < 3000)
+value = 20004
+ctrl = 0
+
+[Statedef 28000]
+type    = A
+movetype = I
+physics = N
+sprpriority = 2
+anim = 28001
+ctrl = 0
+pos = 0,-50
+
+[State 28000, BindToParent]
+type = BindToParent
+trigger1 = time = 0
+time = 1
+
+
+[State 28000, VelSet] ;jacket falls
+type = VelSet
+trigger1 = backedgedist > 15
+x = -7
+y = 5
+
+[State 0, VelSet] ;jacket hits wall while falling
+type = VelSet
+trigger1 = backedgedist <= 15
+trigger1 = Pos Y < 0
+x = 0
+
+[State 28000, VelSet] ;jackets hits ground
+type = VelSet
+trigger1 = Pos Y >= 0
+x = 0
+y = 0
+
+[State 0, PosSet] ;if jecket gets stuck in the air
+type = PosSet
+trigger1 = vel x = 0
+trigger1 = vel y = 0
+y = 0
+
+
+[State 28000, VarSet] ;*Reset The custom state var(43) if needed
+type = ParentVarSet
+trigger1 = (parent, var(23) = 1)
+v = 23
+value = 0
+
+[State 28000, Changeanim]
+type = Changeanim
+trigger1 = vel Y = 0
+trigger1 = anim != 28002
+value = 28002
+
+[State 28000, ChangeState]
+type = ChangeState
+trigger1 = parent, statetype = C
+trigger1 = parentdist X > -50
+trigger1 = parentdist X < 50
+value = 20000
+ctrl = 0

@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="gamora"
+displayname ="GAMORA"
+versiondate = 
+mugenversion = 
+author =""
+pal.defaults =1,2,3,4
+
+[Files]
+sprite =gamora.sff
+anim =gamora.air
+sound =gamora.snd
+cmd =gamora.cmd
+cns =gamora.cns
+stcommon =common1.cns
+st =gamora.cns
+pal1=gamora.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 
