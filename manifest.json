@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "sources": [
     {
       "id": "charsMARVEL",
@@ -2155,16 +2155,120 @@
   ],
   "stages": [
     {
-      "id": "Masjid_Al_Mustafa",
-      "displayName": "Masjid Al Mustafa",
+      "id": "Badda_Large_Stage",
+      "displayName": "Badda (Large Stage)",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 5,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "Badda_Large_Stage.def",
+        "Badda_Large_Stage.sff"
+      ]
+    },
+    {
+      "id": "Bookshop",
+      "displayName": "Bookshop",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 4,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "Bookshop.def",
+        "Bookshop.sff"
+      ]
+    },
+    {
+      "id": "UIU_Campus",
+      "displayName": "UIU Campus",
       "author": "Nawaf",
       "description": "",
       "sizeMB": 5,
       "bundled": false,
       "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
       "files": [
-        "Masjid_Al_Mustafa.def",
-        "Masjid_Al_Mustafa.sff"
+        "UIU_Campus.def",
+        "UIU_Campus.sff"
+      ]
+    },
+    {
+      "id": "UIU_Campus_front",
+      "displayName": "UIU campus (Front)",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 5,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "UIU_Campus_front.def",
+        "UIU_Campus_front.sff"
+      ]
+    },
+    {
+      "id": "UIU_Campus_Night",
+      "displayName": "UIU Campus (Night)",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 4,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "UIU_Campus_Night.def",
+        "UIU_Campus_Night.sff"
+      ]
+    },
+    {
+      "id": "UIU_Fountain",
+      "displayName": "UIU Fountain",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 5,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "UIU_Fountain.def",
+        "UIU_Fountain.sff"
+      ]
+    },
+    {
+      "id": "UIU_Gallery",
+      "displayName": "UIU Gallery",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 4,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "UIU_Gallery.def",
+        "UIU_Gallery.sff"
+      ]
+    },
+    {
+      "id": "UIU_Side",
+      "displayName": "UIU Campus (Side)",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 5,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "UIU_Side.def",
+        "UIU_Side.sff"
+      ]
+    },
+    {
+      "id": "Unimart",
+      "displayName": "Unimart",
+      "author": "nawaf",
+      "description": "",
+      "sizeMB": 5,
+      "bundled": false,
+      "cdnBase": "https://cdn.jsdelivr.net/gh/FightingGameEngine/DemoAssets@main/stages/",
+      "files": [
+        "Unimart.def",
+        "Unimart.sff"
       ]
     }
   ]

@@ -3,7 +3,7 @@
 ;  STAGE INFORMATION :
 ;
 ;  Game of Origin : 
-;  Resolution : 1280 * 720
+;  Resolution : 1088 * 612
 ;  Mugen Version : Mugen 1.0 only
 ;
 ;  CREDITS :
@@ -13,52 +13,52 @@
 ;
 ;=============================================================
 [Info]
-name 		= "Masjid Al Mustafa"
-displayname 	= "Masjid Al Mustafa"
+name 		= "UIU Campus (Night)"
+displayname 	= "UIU Campus (Night)"
 versiondate 	= 
 mugenversion 	= 1.0
-author 		= "Nawaf"
+author 		= "nawaf"
 
 [Camera]
 startx 		= 0
 starty 		= 0
-boundleft 	= -281
-boundright 	= 281
-boundhigh 	= -316
+boundleft 	= -292
+boundright 	= 292
+boundhigh 	= -328
 boundlow 	= 0
-tension 	= 200
+tension 	= 150
 verticalfollow 	= .75
-floortension 	= 400
+floortension 	= 35
 overdrawhigh 	= 120
 overdrawlow 	= 120
 cuthigh 	= 0
 cutlow 		= 0
 
 [PlayerInfo]
-p1startx 	= -280
+p1startx 	= -210
 p1starty 	= 0
 p1facing 	= 1
-p2startx 	= 280
+p2startx 	= 210
 p2starty 	= 0
 p2facing 	= -1
-p3startx 	= -400
+p3startx 	= -300
 p3starty 	= 0
 p3facing 	= 1
-p4startx 	= 400
+p4startx 	= 300
 p4starty 	= 0
 p4facing 	= -1
-leftbound 	= -4000
-rightbound 	= 4000
+leftbound 	= -3000
+rightbound 	= 3000
 
 [Bound]
-screenleft 	= 60
-screenright 	= 60
+screenleft 	= 45
+screenright 	= 45
 
 [StageInfo]
-zoffset 	= 656.0
+zoffset 	= 511.0
 autoturn 	= 1
 resetBG 	= 0
-localcoord 	= 1280, 720
+localcoord 	= 1088, 612
 xscale 		= 1
 yscale 		= 1
 
@@ -71,36 +71,32 @@ botscale 	= 1.2
 [Shadow]
 color 		= 0,0,0
 yscale 		= .2
-intensity 	= 0
-
-[Reflection]
-intensity 	= 90
 
 [Music]
 bgmusic 	= 
 bgvolume 	= 255
 
 [BGdef]
-spr 		= stages/Masjid_Al_Mustafa.sff
+spr 		= stages/UIU_Campus_Night.sff
 debugbg 	= 0
 
 [BG image]
 type  		= normal
 spriteno 	= 0, 0
-start 		= 0,-316
+start 		= 0,-328
 delta 		= 1,1
 
 [BG image]
 type  		= normal
 spriteno 	= 0, 1
-start 		= 0,-316
+start 		= 0,-328
 delta 		= 1,1
 trans		= add
 
 [BG image]
 type  		= normal
 spriteno 	= 0, 2
-start 		= 0,-316
+start 		= 0,-328
 delta 		= 1,1
 trans		= add
 
