@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "sources": [
     {
       "id": "charsMARVEL",
@@ -34,7 +34,8 @@
         "hypers.st",
         "overrides.st"
       ],
-      "portrait": "portraits/charsMARVEL/Abomination.png"
+      "portrait": "portraits/charsMARVEL/Abomination.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Agent venom",
@@ -61,7 +62,8 @@
         "agent.act",
         "blanco.act"
       ],
-      "portrait": "portraits/charsMARVEL/Agent venom.png"
+      "portrait": "portraits/charsMARVEL/Agent venom.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Apocalypse",
@@ -85,7 +87,8 @@
         "hugeapoc-s.cns",
         "Apoc04.act"
       ],
-      "portrait": "portraits/charsMARVEL/Apocalypse.png"
+      "portrait": "portraits/charsMARVEL/Apocalypse.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Avalanche",
@@ -118,7 +121,8 @@
         "Flight.st",
         "Extra.st"
       ],
-      "portrait": "portraits/charsMARVEL/Avalanche.png"
+      "portrait": "portraits/charsMARVEL/Avalanche.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Beast",
@@ -138,7 +142,8 @@
         "common1.cns",
         "01.act"
       ],
-      "portrait": "portraits/charsMARVEL/Beast.png"
+      "portrait": "portraits/charsMARVEL/Beast.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "BlackCat",
@@ -161,7 +166,8 @@
         "cns/Settings.cns",
         "act/BCOriginal.act"
       ],
-      "portrait": "portraits/charsMARVEL/BlackCat.png"
+      "portrait": "portraits/charsMARVEL/BlackCat.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Blackheart",
@@ -180,7 +186,8 @@
         "Blackheart.cns",
         "Blackheart00.act"
       ],
-      "portrait": "portraits/charsMARVEL/Blackheart.png"
+      "portrait": "portraits/charsMARVEL/Blackheart.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "BlackPanther",
@@ -200,7 +207,8 @@
         "common1.cns",
         "AvX1.act"
       ],
-      "portrait": "portraits/charsMARVEL/BlackPanther.png"
+      "portrait": "portraits/charsMARVEL/BlackPanther.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "BlackWidow",
@@ -224,7 +232,8 @@
         "overrides.st",
         "1.act"
       ],
-      "portrait": "portraits/charsMARVEL/BlackWidow.png"
+      "portrait": "portraits/charsMARVEL/BlackWidow.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Cable",
@@ -246,7 +255,8 @@
         "Overide.cns",
         "px4.act"
       ],
-      "portrait": "portraits/charsMARVEL/Cable.png"
+      "portrait": "portraits/charsMARVEL/Cable.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "CaptainAmerica",
@@ -266,7 +276,8 @@
         "common1.cns",
         "01.act"
       ],
-      "portrait": "portraits/charsMARVEL/CaptainAmerica.png"
+      "portrait": "portraits/charsMARVEL/CaptainAmerica.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "CaptainMarvel_MvC",
@@ -286,7 +297,8 @@
         "common1.cns",
         "CaptainMarvel01.act"
       ],
-      "portrait": "portraits/charsMARVEL/CaptainMarvel_MvC.png"
+      "portrait": "portraits/charsMARVEL/CaptainMarvel_MvC.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Carnage_MMV",
@@ -312,7 +324,8 @@
         "code/Extra.st",
         "pals/default.act"
       ],
-      "portrait": "portraits/charsMARVEL/Carnage_MMV.png"
+      "portrait": "portraits/charsMARVEL/Carnage_MMV.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Colossus",
@@ -336,7 +349,8 @@
         "overrides.st",
         "pal4.act"
       ],
-      "portrait": "portraits/charsMARVEL/Colossus.png"
+      "portrait": "portraits/charsMARVEL/Colossus.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Cyclops",
@@ -358,7 +372,8 @@
         "hyper.cns",
         "zv1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Cyclops.png"
+      "portrait": "portraits/charsMARVEL/Cyclops.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Daredevil",
@@ -378,7 +393,8 @@
         "common1.cns",
         "Avx1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Daredevil.png"
+      "portrait": "portraits/charsMARVEL/Daredevil.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Deadpool",
@@ -398,7 +414,8 @@
         "common1.cns",
         "dead1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Deadpool.png"
+      "portrait": "portraits/charsMARVEL/Deadpool.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Doctor Doom",
@@ -420,7 +437,8 @@
         "finalvictory.cns",
         "doctordoom.act"
       ],
-      "portrait": "portraits/charsMARVEL/Doctor Doom.png"
+      "portrait": "portraits/charsMARVEL/Doctor Doom.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "DoctorStrange",
@@ -441,7 +459,8 @@
         "Flight.st",
         "AvX4.act"
       ],
-      "portrait": "portraits/charsMARVEL/DoctorStrange.png"
+      "portrait": "portraits/charsMARVEL/DoctorStrange.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Drax",
@@ -479,7 +498,8 @@
         "Drax11.act",
         "Drax12.act"
       ],
-      "portrait": "portraits/charsMARVEL/Drax.png"
+      "portrait": "portraits/charsMARVEL/Drax.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "EmmaFrost",
@@ -502,7 +522,8 @@
         "state-3.cns",
         "01.act"
       ],
-      "portrait": "portraits/charsMARVEL/EmmaFrost.png"
+      "portrait": "portraits/charsMARVEL/EmmaFrost.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Falcon2020",
@@ -521,7 +542,8 @@
         "Falcon.cns",
         "falcon.act"
       ],
-      "portrait": "portraits/charsMARVEL/Falcon2020.png"
+      "portrait": "portraits/charsMARVEL/Falcon2020.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Gambit",
@@ -546,7 +568,8 @@
         "statedef_AI.cns",
         "px01.act"
       ],
-      "portrait": "portraits/charsMARVEL/Gambit.png"
+      "portrait": "portraits/charsMARVEL/Gambit.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Ghost Rider",
@@ -565,7 +588,8 @@
         "Ghost Rider.cns",
         "AvX1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Ghost Rider.png"
+      "portrait": "portraits/charsMARVEL/Ghost Rider.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "GreenGoblin",
@@ -585,7 +609,8 @@
         "GGC01.cns",
         "GreenGoblin.act"
       ],
-      "portrait": "portraits/charsMARVEL/GreenGoblin.png"
+      "portrait": "portraits/charsMARVEL/GreenGoblin.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Groot",
@@ -618,7 +643,8 @@
         "9.act",
         "10.act"
       ],
-      "portrait": "portraits/charsMARVEL/Groot.png"
+      "portrait": "portraits/charsMARVEL/Groot.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Havok",
@@ -644,7 +670,8 @@
         "6.act",
         "7.act"
       ],
-      "portrait": "portraits/charsMARVEL/Havok.png"
+      "portrait": "portraits/charsMARVEL/Havok.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Hawkeye",
@@ -664,7 +691,8 @@
         "common1.cns",
         "Avx1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Hawkeye.png"
+      "portrait": "portraits/charsMARVEL/Hawkeye.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Heimdall",
@@ -687,7 +715,8 @@
         "3Heimdall.cns",
         "AvX1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Heimdall.png"
+      "portrait": "portraits/charsMARVEL/Heimdall.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "HumanTorch",
@@ -707,7 +736,8 @@
         "common1.cns",
         "01.act"
       ],
-      "portrait": "portraits/charsMARVEL/HumanTorch.png"
+      "portrait": "portraits/charsMARVEL/HumanTorch.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "IncredibleHulk",
@@ -729,7 +759,8 @@
         "IncredibleHulk_overide.cns",
         "1.act"
       ],
-      "portrait": "portraits/charsMARVEL/IncredibleHulk.png"
+      "portrait": "portraits/charsMARVEL/IncredibleHulk.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "InvisibleWoman",
@@ -756,7 +787,8 @@
         "Extra.st",
         "1.act"
       ],
-      "portrait": "portraits/charsMARVEL/InvisibleWoman.png"
+      "portrait": "portraits/charsMARVEL/InvisibleWoman.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Iron Skull",
@@ -789,7 +821,8 @@
         "6.act",
         "Template.act"
       ],
-      "portrait": "portraits/charsMARVEL/Iron Skull.png"
+      "portrait": "portraits/charsMARVEL/Iron Skull.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Ironfist",
@@ -814,7 +847,8 @@
         "Config.cns",
         "Helper.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Ironfist.png"
+      "portrait": "portraits/charsMARVEL/Ironfist.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Ironman",
@@ -838,7 +872,8 @@
         "overrides.st",
         "px01.act"
       ],
-      "portrait": "portraits/charsMARVEL/Ironman.png"
+      "portrait": "portraits/charsMARVEL/Ironman.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "IronPatriot",
@@ -865,7 +900,8 @@
         "Extra.st",
         "pal2.act"
       ],
-      "portrait": "portraits/charsMARVEL/IronPatriot.png"
+      "portrait": "portraits/charsMARVEL/IronPatriot.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "JeanGrey",
@@ -888,7 +924,8 @@
         "Hypers.st",
         "AvX4.act"
       ],
-      "portrait": "portraits/charsMARVEL/JeanGrey.png"
+      "portrait": "portraits/charsMARVEL/JeanGrey.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "jubilee",
@@ -909,7 +946,8 @@
         "jubilee.air",
         "jubilee.snd"
       ],
-      "portrait": "portraits/charsMARVEL/jubilee.png"
+      "portrait": "portraits/charsMARVEL/jubilee.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Juggernaut",
@@ -929,7 +967,8 @@
         "common1.cns",
         "px4.act"
       ],
-      "portrait": "portraits/charsMARVEL/Juggernaut.png"
+      "portrait": "portraits/charsMARVEL/Juggernaut.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Lizard",
@@ -955,7 +994,8 @@
         "AvX6.act",
         "Overrides.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Lizard.png"
+      "portrait": "portraits/charsMARVEL/Lizard.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "logan",
@@ -977,7 +1017,8 @@
         "MVC2_Wolverine_-3.cns",
         "MVC2_Wolverine_overide.cns"
       ],
-      "portrait": "portraits/charsMARVEL/logan.png"
+      "portrait": "portraits/charsMARVEL/logan.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Loki",
@@ -999,7 +1040,8 @@
         "AvX3.act",
         "AvX2.act"
       ],
-      "portrait": "portraits/charsMARVEL/Loki.png"
+      "portrait": "portraits/charsMARVEL/Loki.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "LukeCage",
@@ -1026,7 +1068,8 @@
         "Extra.st",
         "1.act"
       ],
-      "portrait": "portraits/charsMARVEL/LukeCage.png"
+      "portrait": "portraits/charsMARVEL/LukeCage.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "M.O.D.O.K",
@@ -1057,7 +1100,8 @@
         "11.act",
         "12.act"
       ],
-      "portrait": "portraits/charsMARVEL/M.O.D.O.K.png"
+      "portrait": "portraits/charsMARVEL/M.O.D.O.K.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Magneto",
@@ -1082,7 +1126,8 @@
         "amalgam.st",
         "px4.act"
       ],
-      "portrait": "portraits/charsMARVEL/Magneto.png"
+      "portrait": "portraits/charsMARVEL/Magneto.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Megan Gywnn",
@@ -1106,7 +1151,8 @@
         "overrides.st",
         "Pixie.act"
       ],
-      "portrait": "portraits/charsMARVEL/Megan Gywnn.png"
+      "portrait": "portraits/charsMARVEL/Megan Gywnn.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "MMV_Blade_Marvel",
@@ -1125,7 +1171,8 @@
         "MMV_Blade_Marvel.air",
         "MMV_Blade_Marvel.snd"
       ],
-      "portrait": "portraits/charsMARVEL/MMV_Blade_Marvel.png"
+      "portrait": "portraits/charsMARVEL/MMV_Blade_Marvel.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "MVC4_MissMarvel",
@@ -1149,7 +1196,8 @@
         "overrides.st",
         "modern.act"
       ],
-      "portrait": "portraits/charsMARVEL/MVC4_MissMarvel.png"
+      "portrait": "portraits/charsMARVEL/MVC4_MissMarvel.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "MVCI_ULTRON",
@@ -1184,7 +1232,8 @@
         "gold02.act",
         "gold03.act"
       ],
-      "portrait": "portraits/charsMARVEL/MVCI_ULTRON.png"
+      "portrait": "portraits/charsMARVEL/MVCI_ULTRON.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "MVD-GAMORA18",
@@ -1203,7 +1252,8 @@
         "gamora.cns",
         "gamora.act"
       ],
-      "portrait": "portraits/charsMARVEL/MVD-GAMORA18.png"
+      "portrait": "portraits/charsMARVEL/MVD-GAMORA18.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Mystique",
@@ -1229,7 +1279,8 @@
         "pal1.act",
         "pal6.act"
       ],
-      "portrait": "portraits/charsMARVEL/Mystique.png"
+      "portrait": "portraits/charsMARVEL/Mystique.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Namor",
@@ -1254,7 +1305,8 @@
         "amalgam.st",
         "px4.act"
       ],
-      "portrait": "portraits/charsMARVEL/Namor.png"
+      "portrait": "portraits/charsMARVEL/Namor.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "nate",
@@ -1279,7 +1331,8 @@
         "pal6.act",
         "nate1.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Nate.png"
+      "portrait": "portraits/charsMARVEL/Nate.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "NickFury",
@@ -1303,7 +1356,8 @@
         "overrides.st",
         "AvX1.act"
       ],
-      "portrait": "portraits/charsMARVEL/NickFury.png"
+      "portrait": "portraits/charsMARVEL/NickFury.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Nightcrawler",
@@ -1328,7 +1382,8 @@
         "States/overrides.st",
         "Palettes/pal1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Nightcrawler.png"
+      "portrait": "portraits/charsMARVEL/Nightcrawler.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "OmegaRed",
@@ -1353,7 +1408,8 @@
         "amalgam.st",
         "px4.act"
       ],
-      "portrait": "portraits/charsMARVEL/OmegaRed.png"
+      "portrait": "portraits/charsMARVEL/OmegaRed.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "onslaught",
@@ -1391,7 +1447,8 @@
         "palettes/redslaught.act",
         "palettes/bioslaught.act"
       ],
-      "portrait": "portraits/charsMARVEL/Onslaught.png"
+      "portrait": "portraits/charsMARVEL/Onslaught.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Phoenix",
@@ -1426,7 +1483,8 @@
         "Hypers.st",
         "helpers.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Phoenix.png"
+      "portrait": "portraits/charsMARVEL/Phoenix.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "PrimeSentinelAttack",
@@ -1447,7 +1505,8 @@
         "Palettes/px01.act",
         "CONFIG.txt"
       ],
-      "portrait": "portraits/charsMARVEL/PrimeSentinelAttack.png"
+      "portrait": "portraits/charsMARVEL/PrimeSentinelAttack.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "ProfessorX",
@@ -1473,7 +1532,8 @@
         "States/overrides.st",
         "Palettes/pal1.act"
       ],
-      "portrait": "portraits/charsMARVEL/ProfessorX.png"
+      "portrait": "portraits/charsMARVEL/ProfessorX.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Psylocke_EOH",
@@ -1508,7 +1568,8 @@
         "MVC_System.cns",
         "AI/Basics.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Psylocke_EOH.png"
+      "portrait": "portraits/charsMARVEL/Psylocke_EOH.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Punisher",
@@ -1530,7 +1591,8 @@
         "cns/hypers.cns",
         "act/EOH03.act"
       ],
-      "portrait": "portraits/charsMARVEL/Punisher.png"
+      "portrait": "portraits/charsMARVEL/Punisher.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Quicksilver",
@@ -1559,7 +1621,8 @@
         "hypers.st",
         "overrides.st"
       ],
-      "portrait": "portraits/charsMARVEL/Quicksilver.png"
+      "portrait": "portraits/charsMARVEL/Quicksilver.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "RHINO_EOH",
@@ -1579,7 +1642,8 @@
         "RHINO_EOH1.cns",
         "RHINO_EOH05.act"
       ],
-      "portrait": "portraits/charsMARVEL/RHINO_EOH.png"
+      "portrait": "portraits/charsMARVEL/RHINO_EOH.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "rocket",
@@ -1604,7 +1668,8 @@
         "M_AI/common1.cns",
         "rocket.act"
       ],
-      "portrait": "portraits/charsMARVEL/rocket.png"
+      "portrait": "portraits/charsMARVEL/rocket.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Rogue",
@@ -1627,7 +1692,8 @@
         "Rogue_overide.cns",
         "Jacket.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Rogue.png"
+      "portrait": "portraits/charsMARVEL/Rogue.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Rulk",
@@ -1651,7 +1717,8 @@
         "overrides.st",
         "Rulk.act"
       ],
-      "portrait": "portraits/charsMARVEL/Rulk.png"
+      "portrait": "portraits/charsMARVEL/Rulk.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "SabreTooth",
@@ -1675,7 +1742,8 @@
         "overrides.st",
         "pal4.act"
       ],
-      "portrait": "portraits/charsMARVEL/SabreTooth.png"
+      "portrait": "portraits/charsMARVEL/SabreTooth.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "sandman",
@@ -1698,7 +1766,8 @@
         "states/sand-3.st",
         "palettes/pal1.act"
       ],
-      "portrait": "portraits/charsMARVEL/sandman.png"
+      "portrait": "portraits/charsMARVEL/sandman.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Sasquatch",
@@ -1720,7 +1789,8 @@
         "Sasquatest_overide.cns",
         "1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Sasquatch.png"
+      "portrait": "portraits/charsMARVEL/Sasquatch.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "ScarletWitch",
@@ -1755,7 +1825,8 @@
         "hypers.st",
         "overrides.st"
       ],
-      "portrait": "portraits/charsMARVEL/ScarletWitch.png"
+      "portrait": "portraits/charsMARVEL/ScarletWitch.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Shadowcat",
@@ -1782,7 +1853,8 @@
         "Extra.st",
         "1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Shadowcat.png"
+      "portrait": "portraits/charsMARVEL/Shadowcat.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "SheHulk",
@@ -1808,7 +1880,8 @@
         "Extra.st",
         "Default.act"
       ],
-      "portrait": "portraits/charsMARVEL/SheHulk.png"
+      "portrait": "portraits/charsMARVEL/SheHulk.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Silver surfer",
@@ -1828,7 +1901,8 @@
         "surfer_def.act",
         "Board.st"
       ],
-      "portrait": "portraits/charsMARVEL/Silver surfer.png"
+      "portrait": "portraits/charsMARVEL/Silver surfer.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Spider-Woman",
@@ -1853,7 +1927,8 @@
         "5.act",
         "6.act"
       ],
-      "portrait": "portraits/charsMARVEL/Spider-Woman.png"
+      "portrait": "portraits/charsMARVEL/Spider-Woman.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Spiderman",
@@ -1876,7 +1951,8 @@
         "AvX.cns",
         "px04.act"
       ],
-      "portrait": "portraits/charsMARVEL/Spiderman.png"
+      "portrait": "portraits/charsMARVEL/Spiderman.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Starlord-MVD3",
@@ -1897,7 +1973,8 @@
         "star.act",
         "Overrides.cns"
       ],
-      "portrait": "portraits/charsMARVEL/Starlord-MVD3.png"
+      "portrait": "portraits/charsMARVEL/Starlord-MVD3.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Storm",
@@ -1922,7 +1999,8 @@
         "helpers.cns",
         "px5.act"
       ],
-      "portrait": "portraits/charsMARVEL/Storm.png"
+      "portrait": "portraits/charsMARVEL/Storm.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Super Skrull",
@@ -1948,7 +2026,8 @@
         "overrides.st",
         "amalgam.st"
       ],
-      "portrait": "portraits/charsMARVEL/Super Skrull.png"
+      "portrait": "portraits/charsMARVEL/Super Skrull.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Symbiote Spider-Man",
@@ -1972,7 +2051,8 @@
         "Statedef-3.st",
         "Symbiote_Spider-Man.act"
       ],
-      "portrait": "portraits/charsMARVEL/Symbiote Spider-Man.png"
+      "portrait": "portraits/charsMARVEL/Symbiote Spider-Man.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Taskmaster",
@@ -1997,7 +2077,8 @@
         "HyperCombo.st",
         "resident_states.st"
       ],
-      "portrait": "portraits/charsMARVEL/Taskmaster.png"
+      "portrait": "portraits/charsMARVEL/Taskmaster.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Thanos",
@@ -2029,7 +2110,8 @@
         "par10.act",
         "par11.act",
         "par12.act"
-      ]
+      ],
+      "source": "charsMARVEL"
     },
     {
       "id": "TheVision",
@@ -2055,7 +2137,8 @@
         "AvX6.act",
         "Flight.st"
       ],
-      "portrait": "portraits/charsMARVEL/TheVision.png"
+      "portrait": "portraits/charsMARVEL/TheVision.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Thor Odinson",
@@ -2080,7 +2163,8 @@
         "Marvel Now!.act",
         "px02.act"
       ],
-      "portrait": "portraits/charsMARVEL/Thor Odinson.png"
+      "portrait": "portraits/charsMARVEL/Thor Odinson.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Venom",
@@ -2101,7 +2185,8 @@
         "CNS/config.txt",
         "PALETTES/Venom_02.act"
       ],
-      "portrait": "portraits/charsMARVEL/venom.png"
+      "portrait": "portraits/charsMARVEL/venom.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Warmachine",
@@ -2125,7 +2210,8 @@
         "Statedef-2.st",
         "Statedef-3.st"
       ],
-      "portrait": "portraits/charsMARVEL/Warmachine.png"
+      "portrait": "portraits/charsMARVEL/Warmachine.png",
+      "source": "charsMARVEL"
     },
     {
       "id": "Wolverine",
@@ -2150,7 +2236,8 @@
         "amalgam.st",
         "px1.act"
       ],
-      "portrait": "portraits/charsMARVEL/Wolverine.png"
+      "portrait": "portraits/charsMARVEL/Wolverine.png",
+      "source": "charsMARVEL"
     }
   ],
   "stages": [
